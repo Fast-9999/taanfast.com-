@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Blog Lập Trình Mạng</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in Blogs on Blog Lập Trình Mạng</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 19 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>So sánh Java và JavaScript – Tưởng giống mà khác xa</title>
+      <link>http://localhost:1313/blog/bai-viet-2/</link>
+      <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/bai-viet-2/</guid>
+      <description>&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tên giống nhau nhưng số phận khác nhau.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Java&lt;/strong&gt;: phù hợp enterprise, Android, big data — an toàn, nghiêm túc, chạy qua JVM.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;JavaScript&lt;/strong&gt;: vua web, linh hoạt, chạy trên trình duyệt + Node.js — nhanh, năng động, dễ tiếp cận.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Nếu bạn chỉ có 1 lựa chọn ban đầu: &lt;strong&gt;web/startup → JavaScript&lt;/strong&gt;; &lt;strong&gt;enterprise/Android → Java&lt;/strong&gt;. Muốn vẹn toàn — học cả hai.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Tên giống nhau, số phận khác đường — Java và JavaScript như hai anh em cùng huyết thống nhưng khác nghề: một người mặc comple, giữ sổ sếp; một người diện hoodie, live-code trên web. Đọc cái này trong 5 phút, bạn sẽ biết nên đi đâu tiếp theo.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bai Viet 1</title>
+      <link>http://localhost:1313/blog/bai-viet-1/</link>
+      <pubDate>Wed, 17 Sep 2025 10:09:02 +0700</pubDate>
+      <guid>http://localhost:1313/blog/bai-viet-1/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
