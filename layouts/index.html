@@ -1,0 +1,78 @@
+{{ define "main" }}
+  <main class="pa3 pa4-ns nested-copy-line-height">
+
+    <!-- Hero section -->
+    <section class="tc pv5 bg-near-black white br3 shadow-4 mb5">
+      <h1 class="f1 fw6">Hi there</h1>
+      <p class="f4 measure center">
+        This is my personal blog, where I share knowledge about <strong>network programming</strong>.
+      </p>
+    </section>
+
+    <!-- Quote break -->
+    <section class="tc pv3 mb4">
+      <p class="i f5 measure center">
+        “The only thing stopping you from enjoying life is your thinking,
+        <strong>change your thinking change your life.</strong>”
+      </p>
+    </section>
+
+    <!-- Danh sách blog -->
+    <section>
+      <h2 class="tc f2 fw6 mb4">Bài viết mới nhất</h2>
+
+      <div class="flex-ns flex-wrap justify-around">
+        {{ range first 6 (where .Site.RegularPages "Section" "blog") }}
+          {{ $p := . }}
+          <article class="w-100 w-50-m w-30-l mb4 pa3">
+            <a href="{{ $p.Permalink }}" class="db no-underline color-inherit" aria-label="Đọc bài: {{ $p.Title }}">
+              <div class="bg-white br3 shadow-4 h-100 grow hover-shadow-5 transition-all flex flex-column">
+
+                {{/* Featured image: ưu tiên Page Resource 'featured*' nếu dùng Page Bundle; nếu không dùng, fallback tới Params.featured_image */}}
+                {{ with $p.Resources.GetMatch "featured*" }}
+                  <img src="{{ .RelPermalink }}" alt="{{ $p.Title }}" class="w-100 br3 br--top" loading="lazy" />
+                {{ else }}
+                  {{ with $p.Params.featured_image }}
+                    <img src="{{ . }}" alt="{{ $p.Title }}" class="w-100 br3 br--top" loading="lazy" />
+                  {{ end }}
+                {{ end }}
+
+                <div class="pa3 flex-auto">
+                  <h3 class="mt0 mb2 f4 fw6">{{ $p.Title }}</h3>
+
+                  <p class="f6 mv1 mid-gray" aria-hidden="false">
+                    {{ $p.Date.Format "02 Jan 2006" }} • {{ $p.ReadingTime }} phút đọc
+                  </p>
+
+                  <p class="f6 lh-copy measure mb3">
+                    {{ with $p.Summary }}
+                      {{ . | plainify | truncate 150 }}
+                    {{ else }}
+                      {{ with $p.Params.description }}
+                        {{ . | plainify | truncate 150 }}
+                      {{ else }}
+                        {{ $p.Plain | truncate 150 }}
+                      {{ end }}
+                    {{ end }}
+                  </p>
+                </div>
+
+                <div class="pa3">
+                  <span class="f6 link dim br2 ph3 pv2 dib white bg-dark-blue">Đọc tiếp →</span>
+                </div>
+
+              </div>
+            </a>
+          </article>
+        {{ end }}
+      </div>
+
+      <div class="tc mt4">
+        <a href="/blog/" class="f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-blue" aria-label="Xem tất cả bài viết">
+          Xem thêm bài viết →
+        </a>
+      </div>
+    </section>
+
+  </main>
+{{ end }}

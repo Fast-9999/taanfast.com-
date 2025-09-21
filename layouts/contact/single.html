@@ -1,0 +1,86 @@
+{{ define "main" }}
+<main class="pa3 pa4-ns center mw7 lh-copy">
+  <header class="tc mb4">
+    <h1 class="f2 fw6 mv2">Liên hệ TaansFast</h1>
+    <p class="measure center mid-gray">Chúng tôi rất mong nhận được phản hồi từ bạn. Hãy điền vào biểu mẫu dưới đây, chúng tôi sẽ liên hệ lại trong vòng 24 giờ làm việc.</p>
+  </header>
+
+  <div class="pa4 bg-white br2 shadow-1">
+    
+    <div class="mb4">
+      <h2 class="f5 fw6 mb3 tc">Bạn muốn liên hệ bằng cách nào?</h2>
+      <div class="flex flex-column flex-row-ns justify-around">
+        <div class="flex flex-column items-center w-100 w-30-ns mb3">
+          <i class="fa fa-envelope f2 dark-red"></i>
+          <h3 class="f6 fw6 mv2">Email</h3>
+          <a href="mailto:example@gmail.com" class="link mid-gray dark-blue hover-dark-blue">lamtanphat1004@gmail.com</a>
+        </div>
+        <div class="flex flex-column items-center w-100 w-30-ns mb3">
+          <i class="fa fa-phone f2 dark-red"></i>
+          <h3 class="f6 fw6 mv2">Điện thoại</h3>
+          <span class="mid-gray">0123-456-789</span>
+        </div>
+        <div class="flex flex-column items-center w-100 w-30-ns mb3">
+          <i class="fa fa-map-marker f2 dark-red"></i>
+          <h3 class="f6 fw6 mv2">Địa chỉ</h3>
+          <span class="mid-gray tc">123 Đường ABC, Quận XYZ, TP.HCM</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mw5 bb b--black-10">
+
+    <div class="mt4">
+      <h2 class="f5 fw6 mb3 tc">Hoặc gửi tin nhắn cho chúng tôi</h2>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="w-100 center" novalidate>
+        <input type="hidden" name="form-name" value="contact">
+        <p class="dn"><label>Don’t fill this out if you're human: <input name="bot-field"></label></p>
+        
+        <div class="mb3">
+          <label class="db fw6 mb1 f6">Họ tên <span class="red">*</span></label>
+          <input type="text" name="name" required class="input-reset ba b--black-10 pa2 db w-100 br2 focus-outline-dark-red" placeholder="Nguyễn Văn A">
+        </div>
+
+        <div class="mb3">
+          <label class="db fw6 mb1 f6">Email <span class="red">*</span></label>
+          <input type="email" name="email" required class="input-reset ba b--black-10 pa2 db w-100 br2 focus-outline-dark-red" placeholder="you@domain.com">
+        </div>
+
+        <div class="mb3">
+          <label class="db fw6 mb1 f6">Chủ đề <span class="red">*</span></label>
+          <select name="subject" required class="input-reset ba b--black-10 pa2 db w-100 br2 focus-outline-dark-red">
+            <option value="">Chọn một chủ đề...</option>
+            <option value="Hỗ trợ kỹ thuật">Hỗ trợ kỹ thuật</option>
+            <option value="Hợp tác kinh doanh">Hợp tác kinh doanh</option>
+            <option value="Phản hồi dịch vụ">Phản hồi dịch vụ</option>
+            <option value="Khác">Khác</option>
+          </select>
+        </div>
+
+        <div class="mb3">
+          <label class="db fw6 mb1 f6">Lời nhắn <span class="red">*</span></label>
+          <textarea name="message" rows="6" required class="input-reset ba b--black-10 pa2 db w-100 br2 focus-outline-dark-red" placeholder="Nội dung..."></textarea>
+        </div>
+
+        <div class="tc">
+          <button type="submit" class="f6 link dim br2 ph4 pv3 dib white bg-dark-blue b--dark-blue pointer">Gửi tin nhắn</button>
+        </div>
+
+        <div class="mt4">
+
+          <h3 class="f6 fw6 mv2">Tìm chúng tôi trên bản đồ</h3>
+
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.658253102431!2d106.68065411520625!3d10.761352492329868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1e6878b4d1%3A0xc023c713b1856722!2zMTIzIMSQxrDhu51uZyBBQkMsIFF14buqbiBYWVosIFRwLiBIQ00!5e0!3m2!1sen!2s!4v1628043690623!5m2!1sen!2s" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        </div>
+
+      </div>
+
+    </aside>
+      </form>
+    </div>
+  </div>
+
+  <footer class="tc mt4 mid-gray f7">© TaansFast. Mọi quyền được bảo lưu.</footer>
+</main>
+{{ end }}
