@@ -6,16 +6,9 @@
     
     <title>So sánh Java và JavaScript – Tưởng giống mà khác xa | Blog Lập Trình Mạng</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="
-Tên giống nhau nhưng số phận khác nhauu.
-
-Java: phù hợp enterprise, Android, big data — an toàn, nghiêm túc, chạy qua JVM.
-JavaScript: vua web, linh hoạt, chạy trên trình duyệt &#43; Node.js — nhanh, năng động, dễ tiếp cận.
-
-Nếu bạn chỉ có 1 lựa chọn ban đầu: web/startup → JavaScript; enterprise/Android → Java. Muốn vẹn toàn — học cả hai.
-
-
-Tên giống nhau, số phận khác đường — Java và JavaScript như hai anh em cùng huyết thống nhưng khác nghề: một người mặc comple, giữ sổ sếp; một người diện hoodie, live-code trên web. Đọc cái này trong 5 phút, bạn sẽ biết nên đi đâu tiếp theo.">
+    <meta name="description" content="So sánh Java và JavaScript (2025)
+Nguồn gốc, môi trường chạy, cú pháp, ứng dụng thực tế và gợi ý học tập.
+Kèm code snippets và bảng so sánh nhanh.">
     <meta name="generator" content="Hugo 0.150.0">
     
     
@@ -47,9 +40,9 @@ Tên giống nhau, số phận khác đường — Java và JavaScript như hai 
     <meta property="og:url" content="http://localhost:1313/blog/bai-viet-2/">
   <meta property="og:site_name" content="Blog Lập Trình Mạng">
   <meta property="og:title" content="So sánh Java và JavaScript – Tưởng giống mà khác xa">
-  <meta property="og:description" content="Tên giống nhau nhưng số phận khác nhauu.
-Java: phù hợp enterprise, Android, big data — an toàn, nghiêm túc, chạy qua JVM. JavaScript: vua web, linh hoạt, chạy trên trình duyệt &#43; Node.js — nhanh, năng động, dễ tiếp cận. Nếu bạn chỉ có 1 lựa chọn ban đầu: web/startup → JavaScript; enterprise/Android → Java. Muốn vẹn toàn — học cả hai.
-Tên giống nhau, số phận khác đường — Java và JavaScript như hai anh em cùng huyết thống nhưng khác nghề: một người mặc comple, giữ sổ sếp; một người diện hoodie, live-code trên web. Đọc cái này trong 5 phút, bạn sẽ biết nên đi đâu tiếp theo.">
+  <meta property="og:description" content="So sánh Java và JavaScript (2025)
+Nguồn gốc, môi trường chạy, cú pháp, ứng dụng thực tế và gợi ý học tập.
+Kèm code snippets và bảng so sánh nhanh.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -57,23 +50,22 @@ Tên giống nhau, số phận khác đường — Java và JavaScript như hai 
     <meta property="article:modified_time" content="2025-09-19T00:00:00+00:00">
 
   <meta itemprop="name" content="So sánh Java và JavaScript – Tưởng giống mà khác xa">
-  <meta itemprop="description" content="Tên giống nhau nhưng số phận khác nhauu.
-Java: phù hợp enterprise, Android, big data — an toàn, nghiêm túc, chạy qua JVM. JavaScript: vua web, linh hoạt, chạy trên trình duyệt &#43; Node.js — nhanh, năng động, dễ tiếp cận. Nếu bạn chỉ có 1 lựa chọn ban đầu: web/startup → JavaScript; enterprise/Android → Java. Muốn vẹn toàn — học cả hai.
-Tên giống nhau, số phận khác đường — Java và JavaScript như hai anh em cùng huyết thống nhưng khác nghề: một người mặc comple, giữ sổ sếp; một người diện hoodie, live-code trên web. Đọc cái này trong 5 phút, bạn sẽ biết nên đi đâu tiếp theo.">
+  <meta itemprop="description" content="So sánh Java và JavaScript (2025)
+Nguồn gốc, môi trường chạy, cú pháp, ứng dụng thực tế và gợi ý học tập.
+Kèm code snippets và bảng so sánh nhanh.">
   <meta itemprop="datePublished" content="2025-09-19T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-09-19T00:00:00+00:00">
-  <meta itemprop="wordCount" content="849">
+  <meta itemprop="wordCount" content="879">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="So sánh Java và JavaScript – Tưởng giống mà khác xa">
-  <meta name="twitter:description" content="Tên giống nhau nhưng số phận khác nhauu.
-Java: phù hợp enterprise, Android, big data — an toàn, nghiêm túc, chạy qua JVM. JavaScript: vua web, linh hoạt, chạy trên trình duyệt &#43; Node.js — nhanh, năng động, dễ tiếp cận. Nếu bạn chỉ có 1 lựa chọn ban đầu: web/startup → JavaScript; enterprise/Android → Java. Muốn vẹn toàn — học cả hai.
-Tên giống nhau, số phận khác đường — Java và JavaScript như hai anh em cùng huyết thống nhưng khác nghề: một người mặc comple, giữ sổ sếp; một người diện hoodie, live-code trên web. Đọc cái này trong 5 phút, bạn sẽ biết nên đi đâu tiếp theo.">
+  <meta name="twitter:description" content="So sánh Java và JavaScript (2025)
+Nguồn gốc, môi trường chạy, cú pháp, ứng dụng thực tế và gợi ý học tập.
+Kèm code snippets và bảng so sánh nhanh.">
 
 	
   </head><body class="ma0 avenir bg-near-white development">
 
     
-   
   
 
   <header>
@@ -124,26 +116,36 @@ Tên giống nhau, số phận khác đường — Java và JavaScript như hai 
 
     <main class="pb7" role="main">
       
+<article class="mw8 center ph3">
   
-  
-  <article class="flex-l mw8 center ph3 flex-wrap justify-between">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked ttu">
-          
-        Blogs
-      </aside><div id="sharing" class="mt3 ananke-socials"></div>
-<h1 class="f1 athelas mt3 mb1">So sánh Java và JavaScript – Tưởng giống mà khác xa</h1>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2025-09-19T00:00:00Z">September 19, 2025</time>
-      
+  <div id="reading-progress-wrap" class="fixed top-0 left-0 w-100" style="z-index:9999;">
+    <div id="reading-progress" style="height:3px; width:0%; transition:width .15s ease;"></div>
+  </div>
 
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><hr>
-<p><strong>Tên giống nhau nhưng số phận khác nhauu.</strong></p>
+  
+  
+  
+  <header class="mv4">
+    <h1 class="f1 athelas mv0">So sánh Java và JavaScript – Tưởng giống mà khác xa</h1>
+  </header>
+  
+
+  <div class="flex-l flex-wrap">
+    
+    <main class="w-two-thirds-l w-100 pr4-l">
+      <div class="mb3 f6 gray">
+        
+        
+          <time datetime="2025-09-19T00:00:00Z">September 19, 2025</time> ·
+        
+        <span>5 minutes read · 879 words</span>
+      </div>
+
+      <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray">
+        <p><strong>So sánh Java và JavaScript (2025)</strong></p>
+<p>Nguồn gốc, môi trường chạy, cú pháp, ứng dụng thực tế và gợi ý học tập.<br>
+Kèm code snippets và bảng so sánh nhanh.</p>
+<p><strong>Tên giống nhau nhưng số phận khác nhau.</strong></p>
 <ul>
 <li><strong>Java</strong>: phù hợp enterprise, Android, big data — an toàn, nghiêm túc, chạy qua JVM.</li>
 <li><strong>JavaScript</strong>: vua web, linh hoạt, chạy trên trình duyệt + Node.js — nhanh, năng động, dễ tiếp cận.</li>
@@ -298,23 +300,95 @@ Tên giống nhau, số phận khác đường — Java và JavaScript như hai 
 <hr>
 <p>Đừng để một chữ trong tên đánh lừa con đường học tập của bạn. Hãy chọn công cụ phù hợp với bài toán, nhưng cũng đừng đóng cửa trước cơ hội — vì đôi khi, người mặc comple và người mặc hoodie hợp tác với nhau sẽ tạo nên một sản phẩm hoàn hảo.</p>
 <hr>
-<ul class="pa0">
-  
-</ul>
-<div class="mt6 instapaper_ignoref">
-      
-      
       </div>
-    </div>
 
-    <aside class="w-30-l mt6-l">
+      
+      
+
+      
+      
+
+      
+      <div class="mt6">
+        
+        
+      </div>
+    </main>
+
+    
+    <aside class="w-30-l w-100 mt4-l mt3">
+      
+      <div class="mb4">
+        <div id="sharing" class="mt3 ananke-socials"></div>
+
+      </div>
+
+      
+      <div class="bt b--black-10 pa3">
+        <h4 class="f6 ttu tracked mb2">Bài viết liên quan</h4>
+        <ul class="list pl0">
+          
+          
+            
+          
+            
+              <li class="mb2"><a href="/blog/bai-viet-1/" class="no-underline">Java cơ bản: Lớp, đối tượng, kế thừa, interface</a></li>
+            
+          
+        </ul>
+      </div>
+
+      
+      <div class="mt4">
 
 
 
 
-</aside>
+</div>
+    </aside>
+  </div>
+</article>
 
-  </article>
+
+<script>
+(function(){
+  const prog = document.getElementById('reading-progress');
+  if(!prog) return;
+  const article = document.querySelector('article');
+  function update() {
+    const articleRect = article.getBoundingClientRect();
+    const total = article.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    const pct = total > 0 ? Math.min(100, Math.max(0, (scrolled / total) * 100)) : 0;
+    prog.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update, { passive:true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+<style>
+ 
+#reading-progress { background: #ff7a59; height:3px; width:0; }
+.tag-chip {
+  display:inline-block;
+  padding:.35rem .6rem;
+  border-radius:999px;
+  background: rgba(0,0,0,0.06);
+  color: #111;
+  font-size: .9rem;
+  text-decoration:none;
+  transition:transform .08s ease;
+}
+.tag-chip:hover { transform:translateY(-2px); background: rgba(0,0,0,0.09); }
+@media (max-width: 60rem) {
+  .w-two-thirds-l { width:100%; padding-right:0; }
+  .w-30-l { width:100%; }
+  #reading-progress-wrap { position:fixed; top:0; }
+}
+</style>
+
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">

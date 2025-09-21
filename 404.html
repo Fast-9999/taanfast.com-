@@ -49,6 +49,7 @@
   </head><body class="ma0 avenir bg-near-white development">
 
     
+  
 
   <header>
     <div class="bg-black">
@@ -95,13 +96,177 @@
   </header>
 
 
+
     <main class="pb7" role="main">
       
-    <article class="center cf pv5 measure-wide-l">
-      <h1>
-        This is not the page you were looking for
-      </h1>
-    </article>
+  <main id="main" role="main" class="pa3 pa4-ns">
+
+    <style>
+       
+      .hf-404-card{max-width:900px;margin:0 auto}
+      .hf-404-card .card{background:var(--card-bg, #f7f7f7);border-radius:12px;padding:28px;box-shadow:0 8px 30px rgba(0,0,0,0.06)}
+      .hf-visual{width:120px;height:120px;margin:0 auto 18px;display:flex;align-items:center;justify-content:center}
+      .hf-title{font-size:clamp(1.6rem,2.4vw,2.4rem);font-weight:700;margin:0 0 8px;text-align:center}
+      .hf-sub{font-size:1rem;color:#374151;text-align:center;margin:0 0 16px}
+      .hf-cta{display:flex;gap:10px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+      .hf-cta a{padding:.55rem .9rem;border-radius:8px;text-decoration:none}
+      .btn-primary{background:#0b5fff;color:#fff}
+      .btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.08);color:#111}
+      .hf-search{display:flex;justify-content:center;gap:8px;margin-bottom:18px}
+      .hf-search input{padding:.5rem .75rem;border-radius:8px;border:1px solid rgba(0,0,0,0.08);min-width:220px}
+      .hf-recent{margin-top:8px}
+      .hf-recent ul{list-style:none;padding:0;margin:0}
+      .hf-recent li{padding:.45rem 0;border-bottom:1px dashed rgba(0,0,0,0.04)}
+      .hf-recent a{color:inherit;text-decoration:none}
+      .hf-note{color:#6b7280;font-size:.9rem;text-align:center;margin-top:18px}
+
+       
+      .fade-in{opacity:0;transform:translateY(6px);animation:fadeIn .6s ease forwards}
+      @keyframes fadeIn{to{opacity:1;transform:none}}
+
+       
+      .svg-ring{transform-origin:center;animation:svg-rotate 6s linear infinite}
+      @keyframes svg-rotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+       
+      .quote{font-style:italic;font-size:1.08rem;line-height:1.4;margin:12px 0;text-align:center}
+      .quote .emph{font-weight:700}
+
+       
+      a:focus{outline:3px solid rgba(11,95,255,0.18);outline-offset:3px}
+
+      @media (min-width: 60em){
+        .hf-visual{width:140px;height:140px}
+      }
+    </style>
+
+    <section class="hf-404-card pv5">
+      <div class="card fade-in">
+        
+        <div class="hf-visual" aria-hidden="true">
+          
+          <svg class="svg-ring" viewBox="0 0 120 120" width="120" height="120" role="img" aria-labelledby="svg404Title svg404Desc">
+            <title id="svg404Title">Navigation icon</title>
+            <desc id="svg404Desc">A stylized compass to indicate lost or wrong page.</desc>
+            <defs>
+              <linearGradient id="g1" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#0b5fff"/>
+                <stop offset="100%" stop-color="#6a8cff"/>
+              </linearGradient>
+            </defs>
+
+            <g fill="none" stroke="url(#g1)" stroke-width="3">
+              <circle cx="60" cy="60" r="46" stroke-opacity="0.14" />
+              <circle cx="60" cy="60" r="34" stroke-opacity="0.22" />
+            </g>
+
+            
+            <g transform="translate(60,60)">
+              <polygon points="0,-28 8,6 -8,6" fill="#0b5fff" transform="rotate(-22)" opacity="0.98"/>
+              <polygon points="0,28 8,-6 -8,-6" fill="#fff" stroke="#0b5fff" stroke-width="1" transform="scale(.92) rotate(-22)"/>
+            </g>
+
+            
+            <circle cx="18" cy="18" r="2.2" fill="#6a8cff" opacity="0.75" />
+            <circle cx="102" cy="26" r="2.2" fill="#6a8cff" opacity="0.75" />
+          </svg>
+        </div>
+
+        <h1 class="hf-title">Oops — trang bạn tìm không tồn tại</h1>
+
+        <p class="hf-sub">
+          This is not the page you were looking for.
+        </p>
+
+        
+        <div class="fade-in" style="animation-delay:.08s">
+          <p class="quote" aria-live="polite">
+            <span id="quote-line" aria-hidden="false">„</span>
+            <noscript>
+              “The only thing stopping you from enjoying life is your thinking, <strong>change your thinking change your life.</strong>”
+            </noscript>
+          </p>
+        </div>
+
+        
+        <div class="hf-cta">
+          <a href="http://localhost:1313/" class="btn-primary" aria-label="Về trang chủ">Về trang chủ</a>
+          <a href="/blog/" class="btn-ghost" aria-label="Xem bài mới">Bài mới</a>
+          <a href="mailto:admin@localhost:1313" class="btn-ghost" aria-label="Báo lỗi">Báo lỗi</a>
+        </div>
+
+        
+        <form action="/search/" method="get" class="hf-search" role="search" aria-label="Tìm kiếm trên blog">
+          <input type="search" name="q" placeholder="Tìm bài viết, ví dụ: network, socket..." aria-label="Tìm kiếm">
+          <button type="submit" class="btn-primary">Tìm</button>
+        </form>
+
+        
+        
+        
+        <div class="hf-recent">
+          <h3 class="f5 mv2 fw6" style="text-align:center">Bài viết gần đây</h3>
+          <ul>
+            
+              <li>
+                <a href="http://localhost:1313/blog/bai-viet-2/">
+                  <div class="fw6">So sánh Java và JavaScript – Tưởng giống mà khác xa</div>
+                  <div class="f6 mid-gray">19 Sep 2025 • 5 phút đọc</div>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://localhost:1313/blog/bai-viet-1/">
+                  <div class="fw6">Java cơ bản: Lớp, đối tượng, kế thừa, interface</div>
+                  <div class="f6 mid-gray">17 Sep 2025 • 0 phút đọc</div>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+        
+
+        <p class="hf-note">Nếu cần — nhắn mình biết: mình sẽ dẫn đường. 🌿</p>
+      </div>
+    </section>
+
+    
+    <script>
+      (function(){
+        
+        var full = 'The only thing stopping you from enjoying life is your thinking, change your thinking change your life.';
+        var target = document.getElementById('quote-line');
+        if(!target) return;
+        
+        var i = 0;
+        var speed = 18; 
+        
+        function typeNext(){
+          if(i <= full.length){
+            var shown = full.slice(0,i);
+            
+            target.textContent = '“' + shown + (i === full.length ? '”' : '\u200B');
+            i++;
+            var delay = speed;
+            if(full.charAt(i-1) === ',') delay = speed * 8;
+            setTimeout(typeNext, delay);
+          } else {
+            
+            
+            var punch = 'change your thinking change your life.';
+            var idx = full.lastIndexOf(punch);
+            if(idx !== -1){
+              var before = full.slice(0, idx);
+              target.innerHTML = '“' + before + '<strong class="emph">' + punch + '</strong>”';
+            }
+          }
+        }
+        
+        setTimeout(typeNext, 300);
+      })();
+    </script>
+
+  </main>
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
