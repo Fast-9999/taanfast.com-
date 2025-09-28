@@ -186,7 +186,7 @@ app.listen(PORT, () => console.log(`Server listening on http://localhost:${PORT}
   <script src="https://utteranc.es/client.js"
         repo="Fast-9999/Fast-9999.github.io"
         issue-term="pathname"
-        theme="preferred-color-scheme"
+        theme="github-light"s
         crossorigin="anonymous"
         async>
 </script>

@@ -1,4 +1,4 @@
 ---
 title: "Blog Lập Trình Mạng"
-featured_image: "https://miro.medium.com/0*gtY-llyEbkeoS1Sp.png"
+featured_image: "https://cdn-media.sforum.vn/storage/app/media/ctvseocps123/phan-mem-lap-trinh-thumbnail.jpg"
 ---

@@ -62,7 +62,7 @@ Meta description: Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs heap, GC
 Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model (stack vs heap, GC) để tránh lỗi runtime và rò rỉ logic. Hiểu nền tảng, code sẽ sạch và dễ duy trì.">
   <meta itemprop="datePublished" content="2025-09-22T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-09-22T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1698">
+  <meta itemprop="wordCount" content="1311">
   <meta itemprop="keywords" content="Java,Jvm,Oop,Programming">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind">
@@ -170,7 +170,7 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
         
           <time datetime="2025-09-22T00:00:00Z">September 22, 2025</time> ·
         
-        <span>8 minutes read · 1698 words</span>
+        <span>7 minutes read · 1311 words</span>
       </div>
 
       <div class="article-content nested-copy-line-height lh-copy serif f4 nested-links dark-gray">
@@ -214,32 +214,8 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><strong>Ghi nhớ:</strong> <code>interface</code> và <code>abstract class</code> giúp tách giao diện và cài đặt. Polymorphism (upcasting) giúp code mở rộng dễ dàng.</p>
 <h3 id="diagram-class-relationships">Diagram class relationships</h3>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">classDiagram
-    class Animal {
-        &lt;&lt;abstract&gt;&gt;
-        +speak() void
-    }
-    
-    class Dog {
-        +speak() void
-    }
-    
-    class Cat {
-        +speak() void
-    }
-    
-    class Main {
-        +main(String[] args) void
-    }
-    
-    Animal &lt;|-- Dog
-    Animal &lt;|-- Cat
-    Main --&gt; Animal
-    Main --&gt; Dog
-    Main --&gt; Cat
-    
-    note for Animal &#34;Polymorphism example:\nAnimal a = new Dog()\na.speak() → &#39;Gâu gâu!&#39;&#34;
-</code></pre><hr>
+<p><img src="/images/hinh12.png" alt="Ảnh của tui"></p>
+<hr>
 <h2 id="3-jdk-vs-jre-vs-jvm--lifecycle-chương-trình-java">3. JDK vs JRE vs JVM + lifecycle chương trình Java</h2>
 <ul>
 <li><strong>JDK (Java Development Kit):</strong> bộ công cụ để phát triển — có <code>javac</code>, <code>jar</code>, doc tool&hellip;</li>
@@ -252,26 +228,11 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
 <li>JVM load class → verify → execute bằng interpreter/JIT</li>
 <li>JVM quản lý memory, GC thu dọn heap khi cần</li>
 </ol>
-<p>** Mối quan hệ giữa JDK, JRE và JVM  **
+<p><strong>Mối quan hệ giữa JDK, JRE và JVM</strong>
 <img src="/images/hinh8.png" alt="Ảnh của tui"></p>
 <h3 id="diagram-jvm-lifecycle">Diagram JVM lifecycle</h3>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart TD
-    A[Source Code&lt;br&gt;.java file] --&gt; B{Compile}
-    B --&gt;|javac| C[Bytecode&lt;br&gt;.class files]
-    C --&gt; D[JVM Class Loading]
-    D --&gt; E[Verification]
-    E --&gt; F[Preparation]
-    F --&gt; G[Resolution]
-    G --&gt; H[Initialization]
-    H --&gt; I{Execution}
-    I --&gt;|Interpreter| J[Bytecode Execution]
-    I --&gt;|JIT Compiler| K[Native Code]
-    J --&gt; L[Runtime Data Areas]
-    K --&gt; L
-    L --&gt; M[Garbage Collection]
-    L --&gt; N[Exception Handling]
-    M --&gt; I
-</code></pre><hr>
+<p><img src="/images/hinh13.png" alt="Ảnh của tui"></p>
+<hr>
 <h2 id="4-memory-model-stack-vs-heap-garbage-collector-gc">4. Memory model: Stack vs Heap, Garbage Collector (GC)</h2>
 <ul>
 <li><strong>Stack:</strong> chứa frame cho mỗi method call; lưu các biến nguyên thủy (primitives) và references; tự động giải phóng khi method return.</li>
@@ -279,38 +240,13 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
 </ul>
 <p><strong>GC không phải là phép màu.</strong> Rò rỉ memory trong Java thường do giữ reference vô tận (ví dụ <code>static List</code> lưu object cũ). Hiểu vòng đời object và cách GC hoạt động (generational: young/old) giúp bạn thiết kế và tối ưu.</p>
 <p><strong>Tip thực chiến:</strong> dùng <code>try-with-resources</code> cho tài nguyên IO; tránh giữ collection static chứa object lớn; cân nhắc <code>WeakHashMap</code> hoặc cơ chế eviction khi cần cache.</p>
-<p>** Stack frame, heap generations: young, old **
+<p><strong>Stack frame, heap generations: young, old</strong>
 <img src="/images/hinh9.png" alt="Ảnh của tui"></p>
-<p>** Cách GC hoạt động **
+<p><strong>Cách GC hoạt động</strong>
 <img src="/images/hinh10.png" alt="Ảnh của tui"></p>
 <h3 id="diagram-memory-model-chi-tiết">Diagram Memory Model chi tiết</h3>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TB
-    subgraph &#34;JVM Memory Structure&#34;
-        A[Stack] --&gt; A1[Method Frame 1]
-        A --&gt; A2[Method Frame 2]
-        A --&gt; A3[Method Frame n]
-        
-        A1 --&gt; A1a[Local Variables]
-        A1 --&gt; A1b[Operand Stack]
-        A1 --&gt; A1c[Frame Data]
-        
-        B[Heap] --&gt; B1[Young Generation]
-        B1 --&gt; B1a[Eden Space]
-        B1 --&gt; B1b[Survivor Space S0]
-        B1 --&gt; B1c[Survivor Space S1]
-        
-        B --&gt; B2[Old Generation]
-        B --&gt; B3[Metaspace]
-        
-        C[Thread 1 Stack] --&gt; C1[Frame]
-        C[Thread 2 Stack] --&gt; C2[Frame]
-        C1 --&gt; B
-        C2 --&gt; B
-    end
-    
-    D[Garbage Collector] --&gt; B1
-    D --&gt; B2
-</code></pre><h3 id="ví-dụ-memory-leak-thực-tế">Ví dụ memory leak thực tế</h3>
+<p><img src="/images/hinh14.png" alt="Ảnh của tui"></p>
+<h3 id="ví-dụ-memory-leak-thực-tếs">Ví dụ memory leak thực tếs</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MemoryLeakExample</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">byte</span><span style="color:#f92672">[]&gt;</span> LEAK_LIST <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
 </span></span><span style="display:flex;"><span>    
@@ -351,20 +287,11 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Integer n <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> n; <span style="color:#75715e">// NPE khi auto-unbox</span>
-</span></span></code></pre></div><h3 id="diagram-primitive-vs-wrapper-memory">Diagram Primitive vs Wrapper Memory</h3>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph LR
-    subgraph &#34;Primitive - Stack Storage&#34;
-        A[Stack Frame] --&gt; A1[localVar: int&lt;br&gt;value = 42]
-        A1 --&gt; A2[Direct access&lt;br&gt;No overhead]
-    end
-    
-    subgraph &#34;Wrapper - Heap Storage&#34;
-        B[Stack Frame] --&gt; B1[refVar: Integer&lt;br&gt;reference = 0x1234]
-        B1 --&gt; B2[Heap Memory&lt;br&gt;0x1234: Integer object&lt;br&gt;value = 42&lt;br&gt;overhead: 12-16 bytes]
-    end
-    
-    C[Autoboxing] --&gt; D[Performance Cost&lt;br&gt;int → Integer: allocation&lt;br&gt;Integer → int: null check]
-</code></pre><h3 id="performance-benchmark-thực-tế">Performance benchmark thực tế</h3>
+</span></span></code></pre></div><p><strong>So sánh cách lưu trữ của primitive (trên stack) và wrapper (trên heap) và reference từ stack đến heap</strong>
+<img src="/images/hinh11.png" alt="Ảnh của tui"></p>
+<h3 id="diagram-primitive-vs-wrapper-memory">Diagram Primitive vs Wrapper Memory</h3>
+<p><img src="/images/hinh15.png" alt="Ảnh của tui"></p>
+<h3 id="performance-benchmark-thực-tế">Performance benchmark thực tế</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PerformanceTest</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Primitive version - nhanh hơn</span>
@@ -398,23 +325,8 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getY</span>() { <span style="color:#66d9ef">return</span> y; }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="diagram-immutable-vs-mutable">Diagram Immutable vs Mutable</h3>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TB
-    subgraph &#34;Immutable Object&#34;
-        A[Point p1 = new Point1, 2] --&gt; A1[Stack: p1 → 0x100]
-        A1 --&gt; A2[Heap 0x100:&lt;br&gt;x=1, y=2&lt;br&gt;final fields]
-        A3[Point p2 = p1] --&gt; A4[Stack: p2 → 0x100]
-        A5[Thread Safety] --&gt; A6[No synchronization needed]
-        A2 --&gt; A7[State never changes&lt;br&gt;Safe sharing]
-    end
-    
-    subgraph &#34;Mutable Object&#34;
-        B[Counter c1 = new Counter0] --&gt; B1[Stack: c1 → 0x200]
-        B1 --&gt; B2[Heap 0x200:&lt;br&gt;count=0&lt;br&gt;setter methods]
-        B3[Counter c2 = c1] --&gt; B4[Stack: c2 → 0x200]
-        B5[Race Condition] --&gt; B6[Needs synchronization]
-        B2 --&gt; B7[State can change&lt;br&gt;Shared mutation risk]
-    end
-</code></pre><p>Immutable = an toàn hơn khi đa luồng và dễ reason.</p>
+<p><img src="/images/hinh16.png" alt="Ảnh của tui"></p>
+<p>Immutable = an toàn hơn khi đa luồng và dễ reason.</p>
 <hr>
 <h2 id="6-checklist-trước-khi-push-code-người-truyền-thống-làm-đúng-từng-bước">6. Checklist trước khi push code (người truyền thống, làm đúng từng bước)</h2>
 <ul>
@@ -431,24 +343,8 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
 <h2 id="faq-ngắn">FAQ ngắn</h2>
 <p><strong>Q1:</strong> JVM có xử lý memory leak không?
 <strong>A1:</strong> GC dọn object không còn tham chiếu; nhưng nếu reference còn tồn tại (ví dụ cache không evict) =&gt; leak vẫn xảy ra.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
-    A[Static Cache&lt;br&gt;static Map cache] --&gt; B[Object A&lt;br&gt;size: 1MB]
-    A --&gt; C[Object B&lt;br&gt;size: 2MB]
-    A --&gt; D[Object C&lt;br&gt;size: 1.5MB]
-    
-    E[Application Logic] --&gt; F[Add to cache&lt;br&gt;cache.putkey, largeObj]
-    E --&gt; G[Never remove&lt;br&gt;// cache.clear never called]
-    
-    H[Garbage Collector] --&gt; I[Cannot collect&lt;br&gt;Objects still referenced&lt;br&gt;by static cache]
-    
-    J[Memory Usage] --&gt; K[Start: 100MB]
-    J --&gt; L[1 hour: 500MB]
-    J --&gt; M[24 hours: OutOfMemoryError]
-    
-    F --&gt; H
-    G --&gt; H
-    H --&gt; J
-</code></pre><p><strong>Q2:</strong> Dùng <code>int</code> hay <code>Integer</code> trong collection?
+<p><img src="/images/hinh17.png" alt="Ảnh của tui"></p>
+<p><strong>Q2:</strong> Dùng <code>int</code> hay <code>Integer</code> trong collection?
 <strong>A2:</strong> Collection cần object → <code>Integer</code>. Nếu performance cần, dùng primitive-specialized collections (ví dụ <code>TIntArrayList</code> từ Trove) hoặc stream primitives.</p>
 <p><strong>Q3:</strong> <code>final</code> có làm object immutable không?
 <strong>A3:</strong> Không. <code>final</code> khóa reference; object bên trong có thể thay đổi nếu design cho phép.</p>
@@ -510,7 +406,7 @@ mvn compile exec:java -Dexec.mainClass=&#34;com.example.jumpstart.Main&#34;
   <script src="https://utteranc.es/client.js"
         repo="Fast-9999/Fast-9999.github.io"
         issue-term="pathname"
-        theme="preferred-color-scheme"
+        theme="github-light"
         crossorigin="anonymous"
         async>
 </script>

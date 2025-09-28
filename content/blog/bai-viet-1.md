@@ -66,33 +66,7 @@ public class Main {
 **Ghi nhớ:** `interface` và `abstract class` giúp tách giao diện và cài đặt. Polymorphism (upcasting) giúp code mở rộng dễ dàng.
 
 ### Diagram class relationships
-```mermaid
-classDiagram
-    class Animal {
-        <<abstract>>
-        +speak() void
-    }
-    
-    class Dog {
-        +speak() void
-    }
-    
-    class Cat {
-        +speak() void
-    }
-    
-    class Main {
-        +main(String[] args) void
-    }
-    
-    Animal <|-- Dog
-    Animal <|-- Cat
-    Main --> Animal
-    Main --> Dog
-    Main --> Cat
-    
-    note for Animal "Polymorphism example:\nAnimal a = new Dog()\na.speak() → 'Gâu gâu!'"
-```
+![Ảnh của tui](/images/hinh12.png)
 
 ---
 
@@ -108,28 +82,13 @@ classDiagram
 2. JVM load class → verify → execute bằng interpreter/JIT
 3. JVM quản lý memory, GC thu dọn heap khi cần
 
-** Mối quan hệ giữa JDK, JRE và JVM  **
+**Mối quan hệ giữa JDK, JRE và JVM**
 ![Ảnh của tui](/images/hinh8.png)
 
 ### Diagram JVM lifecycle
-```mermaid
-flowchart TD
-    A[Source Code<br>.java file] --> B{Compile}
-    B -->|javac| C[Bytecode<br>.class files]
-    C --> D[JVM Class Loading]
-    D --> E[Verification]
-    E --> F[Preparation]
-    F --> G[Resolution]
-    G --> H[Initialization]
-    H --> I{Execution}
-    I -->|Interpreter| J[Bytecode Execution]
-    I -->|JIT Compiler| K[Native Code]
-    J --> L[Runtime Data Areas]
-    K --> L
-    L --> M[Garbage Collection]
-    L --> N[Exception Handling]
-    M --> I
-```
+![Ảnh của tui](/images/hinh13.png)
+
+
 
 ---
 
@@ -142,43 +101,18 @@ flowchart TD
 
 **Tip thực chiến:** dùng `try-with-resources` cho tài nguyên IO; tránh giữ collection static chứa object lớn; cân nhắc `WeakHashMap` hoặc cơ chế eviction khi cần cache.
 
-** Stack frame, heap generations: young, old **
+**Stack frame, heap generations: young, old**
 ![Ảnh của tui](/images/hinh9.png)
 
-** Cách GC hoạt động **
+**Cách GC hoạt động**
 ![Ảnh của tui](/images/hinh10.png)
 
 ### Diagram Memory Model chi tiết
-```mermaid
-graph TB
-    subgraph "JVM Memory Structure"
-        A[Stack] --> A1[Method Frame 1]
-        A --> A2[Method Frame 2]
-        A --> A3[Method Frame n]
-        
-        A1 --> A1a[Local Variables]
-        A1 --> A1b[Operand Stack]
-        A1 --> A1c[Frame Data]
-        
-        B[Heap] --> B1[Young Generation]
-        B1 --> B1a[Eden Space]
-        B1 --> B1b[Survivor Space S0]
-        B1 --> B1c[Survivor Space S1]
-        
-        B --> B2[Old Generation]
-        B --> B3[Metaspace]
-        
-        C[Thread 1 Stack] --> C1[Frame]
-        C[Thread 2 Stack] --> C2[Frame]
-        C1 --> B
-        C2 --> B
-    end
-    
-    D[Garbage Collector] --> B1
-    D --> B2
-```
+![Ảnh của tui](/images/hinh14.png)
 
-### Ví dụ memory leak thực tế
+
+
+### Ví dụ memory leak thực tếs
 ```java
 public class MemoryLeakExample {
     private static final List<byte[]> LEAK_LIST = new ArrayList<>();
@@ -230,21 +164,15 @@ Integer n = null;
 int m = n; // NPE khi auto-unbox
 ```
 
+
+**So sánh cách lưu trữ của primitive (trên stack) và wrapper (trên heap) và reference từ stack đến heap**
+![Ảnh của tui](/images/hinh11.png)
+
+
 ### Diagram Primitive vs Wrapper Memory
-```mermaid
-graph LR
-    subgraph "Primitive - Stack Storage"
-        A[Stack Frame] --> A1[localVar: int<br>value = 42]
-        A1 --> A2[Direct access<br>No overhead]
-    end
-    
-    subgraph "Wrapper - Heap Storage"
-        B[Stack Frame] --> B1[refVar: Integer<br>reference = 0x1234]
-        B1 --> B2[Heap Memory<br>0x1234: Integer object<br>value = 42<br>overhead: 12-16 bytes]
-    end
-    
-    C[Autoboxing] --> D[Performance Cost<br>int → Integer: allocation<br>Integer → int: null check]
-```
+![Ảnh của tui](/images/hinh15.png)
+
+
 
 ### Performance benchmark thực tế
 ```java
@@ -286,24 +214,9 @@ public final class Point {
 ```
 
 ### Diagram Immutable vs Mutable
-```mermaid
-graph TB
-    subgraph "Immutable Object"
-        A[Point p1 = new Point1, 2] --> A1[Stack: p1 → 0x100]
-        A1 --> A2[Heap 0x100:<br>x=1, y=2<br>final fields]
-        A3[Point p2 = p1] --> A4[Stack: p2 → 0x100]
-        A5[Thread Safety] --> A6[No synchronization needed]
-        A2 --> A7[State never changes<br>Safe sharing]
-    end
-    
-    subgraph "Mutable Object"
-        B[Counter c1 = new Counter0] --> B1[Stack: c1 → 0x200]
-        B1 --> B2[Heap 0x200:<br>count=0<br>setter methods]
-        B3[Counter c2 = c1] --> B4[Stack: c2 → 0x200]
-        B5[Race Condition] --> B6[Needs synchronization]
-        B2 --> B7[State can change<br>Shared mutation risk]
-    end
-```
+![Ảnh của tui](/images/hinh16.png)
+
+
 
 Immutable = an toàn hơn khi đa luồng và dễ reason.
 
@@ -327,25 +240,9 @@ Immutable = an toàn hơn khi đa luồng và dễ reason.
 **Q1:** JVM có xử lý memory leak không?
 **A1:** GC dọn object không còn tham chiếu; nhưng nếu reference còn tồn tại (ví dụ cache không evict) => leak vẫn xảy ra.
 
-```mermaid
-graph TD
-    A[Static Cache<br>static Map cache] --> B[Object A<br>size: 1MB]
-    A --> C[Object B<br>size: 2MB]
-    A --> D[Object C<br>size: 1.5MB]
-    
-    E[Application Logic] --> F[Add to cache<br>cache.putkey, largeObj]
-    E --> G[Never remove<br>// cache.clear never called]
-    
-    H[Garbage Collector] --> I[Cannot collect<br>Objects still referenced<br>by static cache]
-    
-    J[Memory Usage] --> K[Start: 100MB]
-    J --> L[1 hour: 500MB]
-    J --> M[24 hours: OutOfMemoryError]
-    
-    F --> H
-    G --> H
-    H --> J
-```
+![Ảnh của tui](/images/hinh17.png)
+
+
 
 **Q2:** Dùng `int` hay `Integer` trong collection?
 **A2:** Collection cần object → `Integer`. Nếu performance cần, dùng primitive-specialized collections (ví dụ `TIntArrayList` từ Trove) hoặc stream primitives.
@@ -432,7 +329,7 @@ Hiểu JVM và memory model không phải là "cao siêu" — mà là nền tả
   <script src="https://utteranc.es/client.js"
         repo="Fast-9999/Fast-9999.github.io"
         issue-term="pathname"
-        theme="preferred-color-scheme"
+        theme="github-light"
         crossorigin="anonymous"
         async>
 </script>
