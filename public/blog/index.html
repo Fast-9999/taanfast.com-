@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="vi-vn">
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>TaansFast</title>
+    <title>TaansFast - Blog Lập Trình Mạng</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Blog cá nhân chia sẻ kiến thức về lập trình mạng và công nghệ">
     <meta name="generator" content="Hugo 0.150.0">
     
     
     
       <meta name="robots" content="noindex, nofollow">
     
+    <meta name="author" content="TaansFast">
     
 
     
@@ -31,8 +32,8 @@
 
     
     
-      <link href="/blog/index.xml" rel="alternate" type="application/rss+xml" title="TaansFast" />
-      <link href="/blog/index.xml" rel="feed" type="application/rss+xml" title="TaansFast" />
+      <link href="/blog/index.xml" rel="alternate" type="application/rss+xml" title="TaansFast - Blog Lập Trình Mạng" />
+      <link href="/blog/index.xml" rel="feed" type="application/rss+xml" title="TaansFast - Blog Lập Trình Mạng" />
       
     
 
@@ -41,16 +42,20 @@
     
 
     <meta property="og:url" content="http://localhost:1313/blog/">
-  <meta property="og:site_name" content="TaansFast">
+  <meta property="og:site_name" content="TaansFast - Blog Lập Trình Mạng">
   <meta property="og:title" content="Blogs">
-  <meta property="og:locale" content="en_us">
+  <meta property="og:description" content="Blog cá nhân chia sẻ kiến thức về lập trình mạng và công nghệ">
+  <meta property="og:locale" content="vi_vn">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Blogs">
-  <meta itemprop="datePublished" content="2025-09-19T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-09-19T00:00:00+00:00">
+  <meta itemprop="description" content="Blog cá nhân chia sẻ kiến thức về lập trình mạng và công nghệ">
+  <meta itemprop="datePublished" content="2025-09-22T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-09-22T00:00:00+00:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Blogs">
+  <meta name="twitter:description" content="Blog cá nhân chia sẻ kiến thức về lập trình mạng và công nghệ">
+      <meta name="twitter:site" content="@https://twitter.com/taansfast">
 
 	
   </head><body class="ma0 avenir bg-near-white development">
@@ -63,7 +68,7 @@
   <div class="flex-l center items-center justify-between">
     <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
       
-        TaansFast
+        TaansFast - Blog Lập Trình Mạng
       
     </a>
     <div class="flex-l items-center">
@@ -73,8 +78,8 @@
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white white-90 no-underline" href="/" title="Home page">
-              Home
+            <a class="hover-white white-90 no-underline" href="/" title="Trang chủ page">
+              Trang chủ
             </a>
           </li>
           
@@ -85,14 +90,14 @@
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white white-90 no-underline" href="/about/" title="About page">
-              About
+            <a class="hover-white white-90 no-underline" href="/about/" title="Giới thiệu page">
+              Giới thiệu
             </a>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white white-90 no-underline" href="/contact/" title="Contact page">
-              Contact
+            <a class="hover-white white-90 no-underline" href="/contact/" title="Liên hệ page">
+              Liên hệ
             </a>
           </li>
           
@@ -115,101 +120,386 @@
 
     <main class="pb7" role="main">
       
-  <main class="pa3 pa4-ns nested-copy-line-height">
+  
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+    <svg id="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg id="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
 
+  <main class="blog-page">
     
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 lh-copy nested-links mid-gray"></section>
-
     
-    <style>
-      a:focus { outline: 3px solid rgba(11,95,255,0.18); outline-offset: 4px; border-radius: 6px; }
-      @media (prefers-reduced-motion: reduce) {
-        .transition-all { transition: none !important; }
-      }
-      .card-img { display:block; width:100%; height:auto; object-fit:cover; border-top-left-radius: .5rem; border-top-right-radius: .5rem; }
-      .card-body { display:flex; flex-direction:column; min-height:160px; }
-    </style>
-
-    
-    <section class="flex-ns mt5 flex-wrap justify-around">
-      
-        
-        <article class="w-100 w-50-m w-30-l mb4 pa3">
-          <a href="http://localhost:1313/blog/bai-viet-2/" class="db no-underline color-inherit" aria-label="Đọc bài: So sánh Java và JavaScript – Tưởng giống mà khác xa">
-            <div class="bg-white br3 shadow-4 h-100 grow hover-shadow-5 transition-all flex flex-column">
-
-              
-              
-                
-              
-
-              <div class="pa3 flex-auto card-body">
-                <h3 class="mt0 mb2 f4 fw6">So sánh Java và JavaScript – Tưởng giống mà khác xa</h3>
-
-                <p class="f6 mv1 mid-gray" aria-hidden="false">
-                  19 Sep 2025 • 5 phút đọc
-                </p>
-
-                <p class="f6 lh-copy measure mb3">
-                  
-                    So sánh Java và JavaScript (2025)
-Nguồn gốc, môi trường chạy, cú pháp, ứng dụng thực tế và gợi ý học tập.
-Kèm code snippets và bảng so sánh nhanh.
-
-                  
-                </p>
-
-                <div class="mt-auto">
-                  <span class="f6 link dim br2 ph3 pv2 dib white bg-dark-blue">Đọc tiếp →</span>
-                </div>
-              </div>
-
+    <section class="blog-hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="title-icon">📚</span>
+            Blog Lập Trình Mạng
+          </h1>
+          <p class="hero-description">
+            Khám phá những kiến thức sâu về lập trình mạng, công nghệ backend và các xu hướng phát triển phần mềm mới nhất
+          </p>
+          
+          
+          <div class="blog-controls">
+            <div class="search-wrapper">
+              <input type="text" id="blog-search" placeholder="Tìm kiếm bài viết..." class="blog-search-input">
+              <button id="search-btn" class="search-button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </button>
             </div>
-          </a>
-        </article>
-      
-        
-        <article class="w-100 w-50-m w-30-l mb4 pa3">
-          <a href="http://localhost:1313/blog/bai-viet-1/" class="db no-underline color-inherit" aria-label="Đọc bài: Java cơ bản: Lớp, đối tượng, kế thừa, interface">
-            <div class="bg-white br3 shadow-4 h-100 grow hover-shadow-5 transition-all flex flex-column">
-
-              
-              
-                
-              
-
-              <div class="pa3 flex-auto card-body">
-                <h3 class="mt0 mb2 f4 fw6">Java cơ bản: Lớp, đối tượng, kế thừa, interface</h3>
-
-                <p class="f6 mv1 mid-gray" aria-hidden="false">
-                  17 Sep 2025 • 0 phút đọc
-                </p>
-
-                <p class="f6 lh-copy measure mb3">
-                  
-                    
-                      
-                    
-                  
-                </p>
-
-                <div class="mt-auto">
-                  <span class="f6 link dim br2 ph3 pv2 dib white bg-dark-blue">Đọc tiếp →</span>
-                </div>
-              </div>
-
+            
+            <div class="filter-wrapper">
+              <select id="category-filter" class="category-filter">
+                <option value="">Tất cả chủ đề</option>
+                <option value="java">Java</option>
+                <option value="javascript">JavaScript</option>
+                <option value="networking">Networking</option>
+                <option value="backend">Backend</option>
+                <option value="tutorial">Tutorial</option>
+              </select>
             </div>
-          </a>
-        </article>
-      
+          </div>
+          
+          
+          <div class="blog-stats">
+            <div class="stat-item">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Bài viết</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">4</span>
+              <span class="stat-label">Chủ đề</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">1000+</span>
+              <span class="stat-label">Lượt đọc</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     
-    <nav class="mt4 tc" role="navigation" aria-label="Phân trang">
-      
-    </nav>
+    <section class="blog-content">
+      <div class="content-container">
+        
+        
+        <div class="featured-section">
+          <h2 class="section-title">
+            <span class="title-icon">⭐</span>
+            Bài viết nổi bật
+          </h2>
+          <div class="featured-posts">
+            
+              <article class="featured-post">
+                <a href="http://localhost:1313/blog/bai-viet-1/" class="featured-link">
+                  <div class="featured-image">
+                    
+                    <img src="https://miro.medium.com/0*gtY-llyEbkeoS1Sp.png" alt="Blogs" loading="lazy">
+                    
+                    <div class="featured-overlay">
+                      <span class="featured-badge">Nổi bật</span>
+                    </div>
+                  </div>
+                  <div class="featured-content">
+                    <h3 class="featured-title">Java cơ bản — Từ lớp đến JVM: hiểu để code không blind</h3>
+                    <p class="featured-excerpt">
+                      
+                        Java cơ bản — Từ lớp đến JVM: hiểu để code không blind Slug: java-jvm-oop-co-ban
+Meta description: Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs …
+                      
+                    </p>
+                    <div class="featured-meta">
+                      <time class="featured-date">22 Sep 2025</time>
+                      <span class="featured-reading-time">8 phút đọc</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            
+              <article class="featured-post">
+                <a href="http://localhost:1313/blog/bai-viet-2/" class="featured-link">
+                  <div class="featured-image">
+                    
+                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/3iUNzpSg7BUtcHaUW1MQdc/2f11876a723565d664728e4cf2b2e2c9/GettyImages-1280720370_edited.png?w=1500&amp;h=680&amp;q=60&amp;fit=fill&amp;f=faces&amp;fm=jpg&amp;fl=progressive&amp;auto=format%2Ccompress&amp;dpr=2&amp;w=1000" alt="Blogs" loading="lazy">
+                    
+                    <div class="featured-overlay">
+                      <span class="featured-badge">Nổi bật</span>
+                    </div>
+                  </div>
+                  <div class="featured-content">
+                    <h3 class="featured-title">So sánh Java và JavaScript – Tưởng giống mà khác xa</h3>
+                    <p class="featured-excerpt">
+                      
+                        So sánh Java và JavaScript (2025)
+Nguồn gốc, môi trường chạy, cú pháp, ứng dụng thực tế và gợi ý học tập.
+Kèm code snippets và bảng so sánh nhanh.
+
+                      
+                    </p>
+                    <div class="featured-meta">
+                      <time class="featured-date">19 Sep 2025</time>
+                      <span class="featured-reading-time">6 phút đọc</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            
+          </div>
+        </div>
+
+        
+        <div class="all-posts-section">
+          <h2 class="section-title">
+            <span class="title-icon">📝</span>
+            Tất cả bài viết
+          </h2>
+          
+          <div class="posts-grid" id="posts-container">
+            
+              <article class="post-card" data-categories="java backend tutorial">
+                <a href="http://localhost:1313/blog/bai-viet-1/" class="post-link">
+                  <div class="post-image-wrapper">
+                    
+                    <img src="https://miro.medium.com/0*gtY-llyEbkeoS1Sp.png" alt="Blogs" loading="lazy">
+                    
+                    <div class="post-overlay"></div>
+                  </div>
+                  
+                  <div class="post-content">
+                    <div class="post-categories">
+                      
+                        <span class="category-tag">java</span>
+                      
+                        <span class="category-tag">backend</span>
+                      
+                        <span class="category-tag">tutorial</span>
+                      
+                    </div>
+                    
+                    <h3 class="post-title">Java cơ bản — Từ lớp đến JVM: hiểu để code không blind</h3>
+                    
+                    <p class="post-excerpt">
+                      
+                        Java cơ bản — Từ lớp đến JVM: hiểu để code không blind Slug: java-jvm-oop-co-ban
+Meta description: Giải mã OOP và JVM …
+                      
+                    </p>
+                    
+                    <div class="post-meta">
+                      <time class="post-date">22 Sep 2025</time>
+                      <span class="post-reading-time">8 phút</span>
+                    </div>
+                  </div>
+                  
+                  <div class="post-footer">
+                    <span class="read-more">Đọc tiếp →</span>
+                  </div>
+                </a>
+              </article>
+            
+              <article class="post-card" data-categories="java javascript tutorial">
+                <a href="http://localhost:1313/blog/bai-viet-2/" class="post-link">
+                  <div class="post-image-wrapper">
+                    
+                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/3iUNzpSg7BUtcHaUW1MQdc/2f11876a723565d664728e4cf2b2e2c9/GettyImages-1280720370_edited.png?w=1500&amp;h=680&amp;q=60&amp;fit=fill&amp;f=faces&amp;fm=jpg&amp;fl=progressive&amp;auto=format%2Ccompress&amp;dpr=2&amp;w=1000" alt="Blogs" loading="lazy">
+                    
+                    <div class="post-overlay"></div>
+                  </div>
+                  
+                  <div class="post-content">
+                    <div class="post-categories">
+                      
+                        <span class="category-tag">java</span>
+                      
+                        <span class="category-tag">javascript</span>
+                      
+                        <span class="category-tag">tutorial</span>
+                      
+                    </div>
+                    
+                    <h3 class="post-title">So sánh Java và JavaScript – Tưởng giống mà khác xa</h3>
+                    
+                    <p class="post-excerpt">
+                      
+                        So sánh Java và JavaScript (2025)
+Nguồn gốc, môi trường chạy, cú pháp, ứng dụng thực tế và gợi ý học tập.
+Kèm code …
+                      
+                    </p>
+                    
+                    <div class="post-meta">
+                      <time class="post-date">19 Sep 2025</time>
+                      <span class="post-reading-time">6 phút</span>
+                    </div>
+                  </div>
+                  
+                  <div class="post-footer">
+                    <span class="read-more">Đọc tiếp →</span>
+                  </div>
+                </a>
+              </article>
+            
+          </div>
+          
+          
+          <div id="no-results" class="no-results" style="display: none;">
+            <div class="no-results-icon">🔍</div>
+            <h3 class="no-results-title">Không tìm thấy bài viết</h3>
+            <p class="no-results-text">Thử thay đổi từ khóa tìm kiếm hoặc chọn chủ đề khác</p>
+          </div>
+        </div>
+
+        
+        <div class="newsletter-section">
+          <div class="newsletter-content">
+            <h2 class="newsletter-title">📬 Đăng ký nhận bài viết mới</h2>
+            <p class="newsletter-description">
+              Nhận thông báo về những bài viết mới nhất về lập trình mạng và công nghệ
+            </p>
+            <form class="newsletter-form" id="newsletter-form">
+              <input type="email" placeholder="Email của bạn..." class="newsletter-input" required>
+              <button type="submit" class="newsletter-button">Đăng ký</button>
+            </form>
+            <p class="newsletter-note">Chúng tôi tôn trọng quyền riêng tư của bạn. Không spam!</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
   </main>
+
+  
+  
+  <link rel="stylesheet" href="/styles/blog.min.c64c57308e7ae96a86a6372b6b9cd835c84463fc91b76cdee240b48ebf7a7625.css" integrity="sha256-xkxXMI566WqGpjcra5zYNchEY/yRt2ze4kC0jr96diU=">
+  
+  <script>
+    
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+      
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      function updateIcons(theme) {
+        if (theme === 'dark') {
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'block';
+        } else {
+          sunIcon.style.display = 'block';
+          moonIcon.style.display = 'none';
+        }
+      }
+      
+      updateIcons(savedTheme);
+      
+      themeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcons(newTheme);
+      });
+    })();
+
+    
+    (function() {
+      const searchInput = document.getElementById('blog-search');
+      const categoryFilter = document.getElementById('category-filter');
+      const postsContainer = document.getElementById('posts-container');
+      const noResults = document.getElementById('no-results');
+      const allPosts = document.querySelectorAll('.post-card');
+
+      function filterPosts() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedCategory = categoryFilter.value.toLowerCase();
+        let visibleCount = 0;
+
+        allPosts.forEach(post => {
+          const title = post.querySelector('.post-title').textContent.toLowerCase();
+          const excerpt = post.querySelector('.post-excerpt').textContent.toLowerCase();
+          const categories = post.dataset.categories.toLowerCase();
+          
+          const matchesSearch = !searchTerm || title.includes(searchTerm) || excerpt.includes(searchTerm);
+          const matchesCategory = !selectedCategory || categories.includes(selectedCategory);
+          
+          if (matchesSearch && matchesCategory) {
+            post.style.display = 'block';
+            post.classList.add('animate-in');
+            visibleCount++;
+          } else {
+            post.style.display = 'none';
+            post.classList.remove('animate-in');
+          }
+        });
+
+        
+        if (visibleCount === 0) {
+          noResults.style.display = 'block';
+        } else {
+          noResults.style.display = 'none';
+        }
+      }
+
+      
+      searchInput.addEventListener('input', filterPosts);
+      categoryFilter.addEventListener('change', filterPosts);
+
+      
+      const newsletterForm = document.getElementById('newsletter-form');
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('.newsletter-input').value;
+        
+        
+        if (email && email.includes('@')) {
+          alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ gửi thông báo về những bài viết mới.');
+          this.reset();
+        } else {
+          alert('Vui lòng nhập email hợp lệ.');
+        }
+      });
+
+      
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, observerOptions);
+
+      
+      allPosts.forEach(post => {
+        observer.observe(post);
+      });
+    })();
+  </script>
 
     </main>
     
@@ -245,8 +535,8 @@ Kèm code snippets và bảng so sánh nhanh.
 
       
       <div class="w-100 w-30-l mb4 mb0-l">
-        <a href="http://localhost:1313/" class="link white hover-light-gray dib footer-focus" aria-label="TaansFast - Trang chủ" title="Trang chủ">
-          <h2 class="f3 fw7 tracked-tight mv0">TaansFast</h2>
+        <a href="http://localhost:1313/" class="link white hover-light-gray dib footer-focus" aria-label="TaansFast - Blog Lập Trình Mạng - Trang chủ" title="Trang chủ">
+          <h2 class="f3 fw7 tracked-tight mv0">TaansFast - Blog Lập Trình Mạng</h2>
         </a>
 
         
@@ -329,7 +619,7 @@ Kèm code snippets và bảng so sánh nhanh.
     
     <div class="flex-ns flex-wrap justify-between items-center">
       <p class="f6 mv0">
-        © 2025 TaansFast. All rights reserved.
+        © 2025 TaansFast - Blog Lập Trình Mạng. All rights reserved.
       </p>
       <p class="f6 mv0 mt3 mt0-ns">
         Made with ❤️ using <a href="https://gohugo.io" class="link dim white-70 hover-white footer-focus" rel="noopener noreferrer" target="_blank">Hugo</a>.
@@ -338,6 +628,5 @@ Kèm code snippets và bảng so sánh nhanh.
 
   </div>
 </footer>
-
   </body>
 </html>

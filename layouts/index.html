@@ -1,78 +1,317 @@
 {{ define "main" }}
-  <main class="pa3 pa4-ns nested-copy-line-height">
+  <!-- Dark mode toggle -->
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+    <svg id="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg id="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
 
-    <!-- Hero section -->
-    <section class="tc pv5 bg-near-black white br3 shadow-4 mb5">
-      <h1 class="f1 fw6">Hi there</h1>
-      <p class="f4 measure center">
-        This is my personal blog, where I share knowledge about <strong>network programming</strong>.
-      </p>
+  <main class="pa3 pa4-l nested-copy-line-height content-wrapper">
+
+    <!-- Hero section với gradient hiện đại -->
+    <section class="tc pv5 pv6-l bg-dark-gradient white br3 shadow-4 mb5">
+      <div class="mw7 center">
+        <h1 class="f1 fw7 mb3 animated-heading">Chào mừng bạn</h1>
+        <p class="f4 f5-ns lh-copy measure center">
+          Đây là blog cá nhân của tôi, nơi tôi chia sẻ kiến thức về 
+          <strong class="highlight-text">lập trình mạng</strong> và các chủ đề công nghệ khác.
+        </p>
+        
+        <!-- Search Box -->
+        <div class="mt4 mb4">
+          <div class="search-container">
+            <input type="text" id="search-input" placeholder="Tìm kiếm bài viết..." class="search-input">
+            <button id="search-btn" class="search-btn" aria-label="Tìm kiếm">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+          </div>
+          <div id="search-results" class="search-results" style="display: none;"></div>
+        </div>
+        
+        <div class="mt4">
+          <a href="#latest-posts" class="f5 no-underline dib white bg-animate bg-blue pv3 ph4 br2 grow shadow-hover">
+            Khám phá ngay
+          </a>
+        </div>
+      </div>
     </section>
 
-    <!-- Quote break -->
-    <section class="tc pv3 mb4">
-      <p class="i f5 measure center">
-        “The only thing stopping you from enjoying life is your thinking,
-        <strong>change your thinking change your life.</strong>”
-      </p>
-    </section>
-
+     
     <!-- Danh sách blog -->
-    <section>
-      <h2 class="tc f2 fw6 mb4">Bài viết mới nhất</h2>
+    <section id="latest-posts" class="mb5 mb6-l">
+      <div class="mw8 center">
+        <h2 class="tc f2 fw7 mb4 mb5-l section-title">Bài viết mới nhất</h2>
 
-      <div class="flex-ns flex-wrap justify-around">
-        {{ range first 6 (where .Site.RegularPages "Section" "blog") }}
-          {{ $p := . }}
-          <article class="w-100 w-50-m w-30-l mb4 pa3">
-            <a href="{{ $p.Permalink }}" class="db no-underline color-inherit" aria-label="Đọc bài: {{ $p.Title }}">
-              <div class="bg-white br3 shadow-4 h-100 grow hover-shadow-5 transition-all flex flex-column">
+        <div class="grid grid-cols-1 grid-cols-2-m grid-cols-3-l gap-4">
+          {{ range first 6 (where .Site.RegularPages "Section" "blog") }}
+            {{ $p := . }}
+            <article class="post-card">
+              <a href="{{ $p.Permalink }}" class="db no-underline color-inherit post-link" aria-label="Đọc bài: {{ $p.Title }}">
+                <div class="bg-white br3 shadow-4 h-100 flex flex-column overflow-hidden transition-all">
 
-                {{/* Featured image: ưu tiên Page Resource 'featured*' nếu dùng Page Bundle; nếu không dùng, fallback tới Params.featured_image */}}
-                {{ with $p.Resources.GetMatch "featured*" }}
-                  <img src="{{ .RelPermalink }}" alt="{{ $p.Title }}" class="w-100 br3 br--top" loading="lazy" />
-                {{ else }}
-                  {{ with $p.Params.featured_image }}
-                    <img src="{{ . }}" alt="{{ $p.Title }}" class="w-100 br3 br--top" loading="lazy" />
-                  {{ end }}
-                {{ end }}
-
-                <div class="pa3 flex-auto">
-                  <h3 class="mt0 mb2 f4 fw6">{{ $p.Title }}</h3>
-
-                  <p class="f6 mv1 mid-gray" aria-hidden="false">
-                    {{ $p.Date.Format "02 Jan 2006" }} • {{ $p.ReadingTime }} phút đọc
-                  </p>
-
-                  <p class="f6 lh-copy measure mb3">
-                    {{ with $p.Summary }}
-                      {{ . | plainify | truncate 150 }}
+                  {{/* Featured image với lazy loading và placeholder */}}
+                  <div class="post-image-wrapper">
+                    {{ with $p.Resources.GetMatch "featured*" }}
+                      <img src="{{ .RelPermalink }}" alt="{{ $p.Title }}" class="img-cover" loading="lazy" />
                     {{ else }}
-                      {{ with $p.Params.description }}
-                        {{ . | plainify | truncate 150 }}
+                      {{ with $p.Params.featured_image }}
+                        <img src="{{ . }}" alt="{{ $p.Title }}" class="img-cover" loading="lazy" />
                       {{ else }}
-                        {{ $p.Plain | truncate 150 }}
+                        <div class="placeholder-image">
+                          <svg class="placeholder-icon" viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1" fill="none">
+                            <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                          </svg>
+                        </div>
                       {{ end }}
                     {{ end }}
-                  </p>
+                    <div class="post-overlay"></div>
+                  </div>
+
+                  <div class="pa3 pa4-l flex-auto">
+                    <h3 class="mt0 mb2 f4 f5-l fw6 post-title">{{ $p.Title }}</h3>
+
+                    <div class="f6 mv1 mid-gray flex items-center" aria-hidden="false">
+                      <time datetime="{{ $p.Date.Format "2006-01-02" }}" class="post-date">
+                        {{ $p.Date.Format "02 Jan 2006" }}
+                      </time>
+                      <span class="mh2">•</span>
+                      <span class="post-reading-time">{{ $p.ReadingTime }} phút đọc</span>
+                    </div>
+
+                    <p class="f6 lh-copy measure mb3 post-excerpt">
+                      {{ with $p.Summary }}
+                        {{ . | plainify | truncate 150 }}
+                      {{ else }}
+                        {{ with $p.Params.description }}
+                          {{ . | plainify | truncate 150 }}
+                        {{ else }}
+                          {{ $p.Plain | truncate 150 }}
+                        {{ end }}
+                      {{ end }}
+                    </p>
+                  </div>
+
+                  <div class="pa3 pa4-l mt-auto">
+                    <span class="f6 link dim br2 ph3 pv2 dib white bg-dark-blue post-cta">Đọc tiếp →</span>
+                  </div>
+
                 </div>
+              </a>
+            </article>
+          {{ end }}
+        </div>
 
-                <div class="pa3">
-                  <span class="f6 link dim br2 ph3 pv2 dib white bg-dark-blue">Đọc tiếp →</span>
-                </div>
-
-              </div>
-            </a>
-          </article>
-        {{ end }}
-      </div>
-
-      <div class="tc mt4">
-        <a href="/blog/" class="f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-blue" aria-label="Xem tất cả bài viết">
-          Xem thêm bài viết →
-        </a>
+        <div class="tc mt5">
+          <a href="/blog/" class="f5 no-underline dib white bg-dark-blue bg-animate hover-bg-darkest-blue pv3 ph4 br2 grow shadow-hover" aria-label="Xem tất cả bài viết">
+            Xem thêm bài viết →
+          </a>
+        </div>
       </div>
     </section>
 
   </main>
+
+  {{ $homeCSS := resources.Get "styles/home.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $homeCSS.RelPermalink }}" integrity="{{ $homeCSS.Data.Integrity }}">
+  
+  <script>
+    // Dark mode functionality
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+      
+      // Get saved theme or default to light
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      // Update icons based on current theme
+      function updateIcons(theme) {
+        if (theme === 'dark') {
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'block';
+        } else {
+          sunIcon.style.display = 'block';
+          moonIcon.style.display = 'none';
+        }
+      }
+      
+      updateIcons(savedTheme);
+      
+      // Toggle theme on click
+      themeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcons(newTheme);
+      });
+    })();
+    
+    // Search functionality
+    (function() {
+      const searchInput = document.getElementById('search-input');
+      const searchBtn = document.getElementById('search-btn');
+      const searchResults = document.getElementById('search-results');
+      
+      // Blog posts data (in a real app, this would come from an API)
+      const blogPosts = [
+        {
+          title: "Java cơ bản — Từ lớp đến JVM: hiểu để code không blind",
+          url: "/blog/bai-viet-1/",
+          excerpt: "Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs heap, GC, primitive vs wrapper và immutable — nền tảng để bạn viết Java vững vàng, ít bị lỗi runtime.",
+          tags: ["java", "jvm", "oop", "programming"]
+        },
+        {
+          title: "So sánh Java và JavaScript – Tưởng giống mà khác xa",
+          url: "/blog/bai-viet-2/",
+          excerpt: "Nguồn gốc, môi trường chạy, cú pháp, ứng dụng thực tế và gợi ý học tập. Kèm code snippets và bảng so sánh nhanh.",
+          tags: ["java", "javascript", "comparison", "programming"]
+        }
+      ];
+      
+      function searchPosts(query) {
+        if (!query.trim()) {
+          searchResults.style.display = 'none';
+          return;
+        }
+        
+        const results = blogPosts.filter(post => {
+          const searchText = (post.title + ' ' + post.excerpt + ' ' + post.tags.join(' ')).toLowerCase();
+          return searchText.includes(query.toLowerCase());
+        });
+        
+        displaySearchResults(results, query);
+      }
+      
+      function displaySearchResults(results, query) {
+        if (results.length === 0) {
+          searchResults.innerHTML = `
+            <div class="search-no-results">
+              Không tìm thấy bài viết nào cho "${query}"
+            </div>
+          `;
+        } else {
+          searchResults.innerHTML = results.map(post => `
+            <div class="search-result-item" onclick="window.location.href='${post.url}'">
+              <div class="search-result-title">${highlightText(post.title, query)}</div>
+              <div class="search-result-excerpt">${highlightText(post.excerpt, query)}</div>
+            </div>
+          `).join('');
+        }
+        
+        searchResults.style.display = 'block';
+      }
+      
+      function highlightText(text, query) {
+        if (!query) return text;
+        const regex = new RegExp(`(${query})`, 'gi');
+        return text.replace(regex, '<mark style="background-color: rgba(255, 255, 0, 0.3); padding: 2px 4px; border-radius: 3px;">$1</mark>');
+      }
+      
+      function hideSearchResults() {
+        setTimeout(() => {
+          searchResults.style.display = 'none';
+        }, 200);
+      }
+      
+      // Event listeners
+      searchInput.addEventListener('input', function() {
+        searchPosts(this.value);
+      });
+      
+      searchBtn.addEventListener('click', function() {
+        searchPosts(searchInput.value);
+      });
+      
+      searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          searchPosts(this.value);
+        }
+      });
+      
+      // Hide results when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-container')) {
+          hideSearchResults();
+        }
+      });
+      
+      // Hide results when pressing Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          hideSearchResults();
+        }
+      });
+    })();
+    
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('ServiceWorker registration successful');
+          })
+          .catch(function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      });
+    }
+    
+    // Enhanced Lazy Loading with Intersection Observer
+    (function() {
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.classList.remove('lazy-image-placeholder');
+                img.classList.add('loaded');
+                observer.unobserve(img);
+              }
+            }
+          });
+        }, {
+          rootMargin: '50px 0px',
+          threshold: 0.01
+        });
+        
+        // Observe all lazy images
+        document.querySelectorAll('img[data-src]').forEach(img => {
+          imageObserver.observe(img);
+        });
+      }
+      
+      // Preload critical resources
+      const criticalResources = [
+        '/css/main.css',
+        '/images/gohugo-default-sample-hero-image.jpg'
+      ];
+      
+      criticalResources.forEach(resource => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = resource;
+        link.as = resource.endsWith('.css') ? 'style' : 'image';
+        document.head.appendChild(link);
+      });
+    })();
+  </script>
 {{ end }}

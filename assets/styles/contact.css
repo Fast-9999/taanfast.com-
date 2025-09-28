@@ -1,0 +1,6 @@
+.bg-lightest-blue { background-color: #e6f7ff; }
+.dark-blue { color: #1a365d; }
+.focus-outline-dark-blue:focus { outline-color: #1a365d; }
+.aspect-ratio { height: 0; position: relative; }
+.aspect-ratio--16x9 { padding-bottom: 56.25%; }
+.aspect-ratio--object { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; z-index: 100; }

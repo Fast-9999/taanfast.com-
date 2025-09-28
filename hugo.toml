@@ -1,13 +1,38 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'TaansFast'
+baseURL = 'https://taansfast.com/'
+languageCode = 'vi-vn'
+title = 'TaansFast - Blog Lập Trình Mạng'
 theme = 'ananke'
+
+[params]
+  description = "Blog cá nhân chia sẻ kiến thức về lập trình mạng và công nghệ"
+  author = "TaansFast"
+  keywords = ["lập trình mạng", "networking", "công nghệ", "blog", "java", "javascript", "programming"]
+  
+  # SEO Meta Tags
+  [params.seo]
+    og_title = "TaansFast - Blog Lập Trình Mạng"
+    og_description = "Blog cá nhân chia sẻ kiến thức về lập trình mạng và công nghệ"
+    og_image = "/images/gohugo-default-sample-hero-image.jpg"
+    og_type = "website"
+    twitter_card = "summary_large_image"
+    twitter_site = "@taansfast"
+    
+  # Analytics
+  [params.analytics]
+    google_analytics = "G-XXXXXXXXXX"  # Replace with your GA4 ID
+    
+  [params.social]
+    email = "lamtanphat1004@gmail.com"
+    phone = "0375-858-608"
+    github = "https://github.com/Fast-9999"
+    linkedin = "https://linkedin.com/in/taansfast"
+    twitter = "https://twitter.com/taansfast"
 
 [menu]
 
   [[menu.main]]
     identifier = "home"
-    name = "Home"
+    name = "Trang chủ"
     url = "/"
     weight = 1
 
@@ -19,13 +44,13 @@ theme = 'ananke'
 
   [[menu.main]]
     identifier = "about"
-    name = "About"
+    name = "Giới thiệu"
     url = "/about/"
     weight = 3
 
  [[menu.main]]
     identifier = "contact"
-    name = "Contact"
+    name = "Liên hệ"
     url = "/contact/"
     weight = 4
 

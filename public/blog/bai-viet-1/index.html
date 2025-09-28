@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="vi-vn">
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Java cơ bản: Lớp, đối tượng, kế thừa, interface | TaansFast</title>
+    <title>Java cơ bản — Từ lớp đến JVM: hiểu để code không blind | TaansFast - Blog Lập Trình Mạng</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind
+
+Slug: java-jvm-oop-co-ban
+Meta description: Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs heap, GC, primitive vs wrapper và immutable — nền tảng để bạn viết Java vững vàng, ít bị lỗi runtime.
+Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model (stack vs heap, GC) để tránh lỗi runtime và rò rỉ logic. Hiểu nền tảng, code sẽ sạch và dễ duy trì.">
     <meta name="generator" content="Hugo 0.150.0">
     
     
     
       <meta name="robots" content="noindex, nofollow">
     
+    <meta name="author" content="TaansFast">
     
 
     
@@ -36,19 +41,35 @@
     
 
     <meta property="og:url" content="http://localhost:1313/blog/bai-viet-1/">
-  <meta property="og:site_name" content="TaansFast">
-  <meta property="og:title" content="Java cơ bản: Lớp, đối tượng, kế thừa, interface">
-  <meta property="og:locale" content="en_us">
+  <meta property="og:site_name" content="TaansFast - Blog Lập Trình Mạng">
+  <meta property="og:title" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind">
+  <meta property="og:description" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind Slug: java-jvm-oop-co-ban
+Meta description: Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs heap, GC, primitive vs wrapper và immutable — nền tảng để bạn viết Java vững vàng, ít bị lỗi runtime.
+Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model (stack vs heap, GC) để tránh lỗi runtime và rò rỉ logic. Hiểu nền tảng, code sẽ sạch và dễ duy trì.">
+  <meta property="og:locale" content="vi_vn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2025-09-17T10:09:02+07:00">
-    <meta property="article:modified_time" content="2025-09-17T10:09:02+07:00">
+    <meta property="article:published_time" content="2025-09-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-22T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Jvm">
+    <meta property="article:tag" content="Oop">
+    <meta property="article:tag" content="Programming">
 
-  <meta itemprop="name" content="Java cơ bản: Lớp, đối tượng, kế thừa, interface">
-  <meta itemprop="datePublished" content="2025-09-17T10:09:02+07:00">
-  <meta itemprop="dateModified" content="2025-09-17T10:09:02+07:00">
+  <meta itemprop="name" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind">
+  <meta itemprop="description" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind Slug: java-jvm-oop-co-ban
+Meta description: Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs heap, GC, primitive vs wrapper và immutable — nền tảng để bạn viết Java vững vàng, ít bị lỗi runtime.
+Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model (stack vs heap, GC) để tránh lỗi runtime và rò rỉ logic. Hiểu nền tảng, code sẽ sạch và dễ duy trì.">
+  <meta itemprop="datePublished" content="2025-09-22T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-09-22T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1698">
+  <meta itemprop="keywords" content="Java,Jvm,Oop,Programming">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Java cơ bản: Lớp, đối tượng, kế thừa, interface">
+  <meta name="twitter:title" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind">
+  <meta name="twitter:description" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind Slug: java-jvm-oop-co-ban
+Meta description: Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs heap, GC, primitive vs wrapper và immutable — nền tảng để bạn viết Java vững vàng, ít bị lỗi runtime.
+Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model (stack vs heap, GC) để tránh lỗi runtime và rò rỉ logic. Hiểu nền tảng, code sẽ sạch và dễ duy trì.">
+      <meta name="twitter:site" content="@https://twitter.com/taansfast">
 
 	
   </head><body class="ma0 avenir bg-near-white development">
@@ -56,13 +77,16 @@
     
   
 
-  <header>
-    <div class="bg-black">
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('https://miro.medium.com/0*gtY-llyEbkeoS1Sp.png');">
+    <div class="bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l center items-center justify-between">
     <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
       
-        TaansFast
+        TaansFast - Blog Lập Trình Mạng
       
     </a>
     <div class="flex-l items-center">
@@ -72,8 +96,8 @@
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white white-90 no-underline" href="/" title="Home page">
-              Home
+            <a class="hover-white white-90 no-underline" href="/" title="Trang chủ page">
+              Trang chủ
             </a>
           </li>
           
@@ -84,14 +108,14 @@
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white white-90 no-underline" href="/about/" title="About page">
-              About
+            <a class="hover-white white-90 no-underline" href="/about/" title="Giới thiệu page">
+              Giới thiệu
             </a>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white white-90 no-underline" href="/contact/" title="Contact page">
-              Contact
+            <a class="hover-white white-90 no-underline" href="/contact/" title="Liên hệ page">
+              Liên hệ
             </a>
           </li>
           
@@ -103,6 +127,12 @@
   </div>
 </nav>
 
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Java cơ bản — Từ lớp đến JVM: hiểu để code không blind</div>
+          
+        
+      </div>
     </div>
   </header>
 
@@ -110,36 +140,398 @@
 
     <main class="pb7" role="main">
       
-<article class="mw8 center ph3">
+<article class="mw8 center ph3 ph0-l">
   
-  <div id="reading-progress-wrap" class="fixed top-0 left-0 w-100" style="z-index:9999;">
-    <div id="reading-progress" style="height:3px; width:0%; transition:width .15s ease;"></div>
+  <div id="reading-progress-wrap" class="fixed top-0 left-0 w-100 z-9999">
+    <div id="reading-progress" class="reading-progress-bar"></div>
   </div>
 
   
   
   
-  <header class="mv4">
-    <h1 class="f1 athelas mv0">Java cơ bản: Lớp, đối tượng, kế thừa, interface</h1>
-  </header>
+  <section class="mb5 relative hero-section">
+    <figure class="w-100 ma0" aria-hidden="true">
+      <img src="https://miro.medium.com/0*gtY-llyEbkeoS1Sp.png" alt="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind" class="db w-100 hero-image">
+    </figure>
+    <div class="absolute left-0 bottom-0 pa4 w-100 hero-overlay">
+      <h1 class="f1-ns f2 mv0 white">Java cơ bản — Từ lớp đến JVM: hiểu để code không blind</h1>
+      
+    </div>
+  </section>
   
 
   <div class="flex-l flex-wrap">
     
-    <main class="w-two-thirds-l w-100 pr4-l">
-      <div class="mb3 f6 gray">
+    <main class="w-two-thirds-l w-100 pr5-l">
+      <div class="mb4 f6 gray meta-info">
+        
+          <span class="mr3">✍️ <strong>TaansFast</strong></span>
         
         
-          <time datetime="2025-09-17T10:09:02&#43;07:00">September 17, 2025</time> ·
+          <time datetime="2025-09-22T00:00:00Z">September 22, 2025</time> ·
         
-        <span>0 minutes read · 0 words</span>
+        <span>8 minutes read · 1698 words</span>
       </div>
 
-      <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray">
+      <div class="article-content nested-copy-line-height lh-copy serif f4 nested-links dark-gray">
+        <h1 id="java-cơ-bản--từ-lớp-đến-jvm-hiểu-để-code-không-blind">Java cơ bản — Từ lớp đến JVM: hiểu để code không blind</h1>
+<hr>
+<p><strong>Slug:</strong> <code>java-jvm-oop-co-ban</code></p>
+<p><strong>Meta description:</strong> Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs heap, GC, primitive vs wrapper và immutable — nền tảng để bạn viết Java vững vàng, ít bị lỗi runtime.</p>
+<p>Giải mã OOP + JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model (stack vs heap, GC) để tránh lỗi runtime và rò rỉ logic. Hiểu nền tảng, code sẽ sạch và dễ duy trì.</p>
+<hr>
+<h2 id="1-mở-bài--chuyện-tủ-vs-bàn">1. Mở bài — chuyện tủ vs bàn</h2>
+<p>Hồi xưa mình từng để quyển sách lên <strong>bàn</strong> rồi đi làm — mấy phút sau quay lại vẫn nguyên đó. Bàn là <em>heap</em>: chỗ chứa đồ lâu dài. Còn <strong>tủ</strong> thì như <em>stack</em>: mỗi ngăn chứa một thứ khi cần, đóng nắp là hết chuyện — method vào có, ra thì gọn. Khi code Java, nếu bạn nhầm lẫn giữa hai chỗ này, lúc debug bạn sẽ thấy mình như đang mò trong đêm: mất thời gian, căng thẳng, và đôi khi làm hỏng logic.</p>
+<p>Mục tiêu bài này: dắt bạn đi từ class/object đến JVM, hiểu memory model để bạn không code kiểu &ldquo;đại bàng bay qua&rdquo; nữa — mà là kẻ gấp áo chuẩn, chậm mà chắc.</p>
+<hr>
+<h2 id="2-oop-cơ-bản-class--object--inheritance--polymorphism">2. OOP cơ bản: Class / Object / Inheritance / Polymorphism</h2>
+<p>Java là ngôn ngữ hướng đối tượng. Bốn nguyên lý cơ bản: <strong>Encapsulation, Inheritance, Polymorphism, Abstraction</strong>. Không cần học phép thuật — cần tư duy tổ chức.</p>
+<h3 id="ví-dụ-ngắn-snippet-1">Ví dụ ngắn (snippet 1)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// src/main/java/com/example/oop/Animal.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.oop;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">speak</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Some sound...&#34;</span>); }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">speak</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Gâu gâu!&#34;</span>); }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">extends</span> Animal {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">speak</span>() { System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Meo meo!&#34;</span>); }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        Animal a1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog();
+</span></span><span style="display:flex;"><span>        Animal a2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat();
+</span></span><span style="display:flex;"><span>        a1.<span style="color:#a6e22e">speak</span>(); <span style="color:#75715e">// Gâu gâu!</span>
+</span></span><span style="display:flex;"><span>        a2.<span style="color:#a6e22e">speak</span>(); <span style="color:#75715e">// Meo meo!</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Ghi nhớ:</strong> <code>interface</code> và <code>abstract class</code> giúp tách giao diện và cài đặt. Polymorphism (upcasting) giúp code mở rộng dễ dàng.</p>
+<h3 id="diagram-class-relationships">Diagram class relationships</h3>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">classDiagram
+    class Animal {
+        &lt;&lt;abstract&gt;&gt;
+        +speak() void
+    }
+    
+    class Dog {
+        +speak() void
+    }
+    
+    class Cat {
+        +speak() void
+    }
+    
+    class Main {
+        +main(String[] args) void
+    }
+    
+    Animal &lt;|-- Dog
+    Animal &lt;|-- Cat
+    Main --&gt; Animal
+    Main --&gt; Dog
+    Main --&gt; Cat
+    
+    note for Animal &#34;Polymorphism example:\nAnimal a = new Dog()\na.speak() → &#39;Gâu gâu!&#39;&#34;
+</code></pre><hr>
+<h2 id="3-jdk-vs-jre-vs-jvm--lifecycle-chương-trình-java">3. JDK vs JRE vs JVM + lifecycle chương trình Java</h2>
+<ul>
+<li><strong>JDK (Java Development Kit):</strong> bộ công cụ để phát triển — có <code>javac</code>, <code>jar</code>, doc tool&hellip;</li>
+<li><strong>JRE (Java Runtime Environment):</strong> môi trường chạy, bao gồm JVM + thư viện chuẩn.</li>
+<li><strong>JVM (Java Virtual Machine):</strong> nơi thực thi bytecode, quản lý stack, heap, GC, JIT.</li>
+</ul>
+<p><strong>Lifecycle đơn giản:</strong></p>
+<ol>
+<li><code>.java</code> → <code>javac</code> → <code>.class</code> (bytecode)</li>
+<li>JVM load class → verify → execute bằng interpreter/JIT</li>
+<li>JVM quản lý memory, GC thu dọn heap khi cần</li>
+</ol>
+<p>** Mối quan hệ giữa JDK, JRE và JVM  **
+<img src="/images/hinh8.png" alt="Ảnh của tui"></p>
+<h3 id="diagram-jvm-lifecycle">Diagram JVM lifecycle</h3>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart TD
+    A[Source Code&lt;br&gt;.java file] --&gt; B{Compile}
+    B --&gt;|javac| C[Bytecode&lt;br&gt;.class files]
+    C --&gt; D[JVM Class Loading]
+    D --&gt; E[Verification]
+    E --&gt; F[Preparation]
+    F --&gt; G[Resolution]
+    G --&gt; H[Initialization]
+    H --&gt; I{Execution}
+    I --&gt;|Interpreter| J[Bytecode Execution]
+    I --&gt;|JIT Compiler| K[Native Code]
+    J --&gt; L[Runtime Data Areas]
+    K --&gt; L
+    L --&gt; M[Garbage Collection]
+    L --&gt; N[Exception Handling]
+    M --&gt; I
+</code></pre><hr>
+<h2 id="4-memory-model-stack-vs-heap-garbage-collector-gc">4. Memory model: Stack vs Heap, Garbage Collector (GC)</h2>
+<ul>
+<li><strong>Stack:</strong> chứa frame cho mỗi method call; lưu các biến nguyên thủy (primitives) và references; tự động giải phóng khi method return.</li>
+<li><strong>Heap:</strong> nơi lưu object; GC chịu trách nhiệm dọn object không còn reference.</li>
+</ul>
+<p><strong>GC không phải là phép màu.</strong> Rò rỉ memory trong Java thường do giữ reference vô tận (ví dụ <code>static List</code> lưu object cũ). Hiểu vòng đời object và cách GC hoạt động (generational: young/old) giúp bạn thiết kế và tối ưu.</p>
+<p><strong>Tip thực chiến:</strong> dùng <code>try-with-resources</code> cho tài nguyên IO; tránh giữ collection static chứa object lớn; cân nhắc <code>WeakHashMap</code> hoặc cơ chế eviction khi cần cache.</p>
+<p>** Stack frame, heap generations: young, old **
+<img src="/images/hinh9.png" alt="Ảnh của tui"></p>
+<p>** Cách GC hoạt động **
+<img src="/images/hinh10.png" alt="Ảnh của tui"></p>
+<h3 id="diagram-memory-model-chi-tiết">Diagram Memory Model chi tiết</h3>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TB
+    subgraph &#34;JVM Memory Structure&#34;
+        A[Stack] --&gt; A1[Method Frame 1]
+        A --&gt; A2[Method Frame 2]
+        A --&gt; A3[Method Frame n]
         
+        A1 --&gt; A1a[Local Variables]
+        A1 --&gt; A1b[Operand Stack]
+        A1 --&gt; A1c[Frame Data]
+        
+        B[Heap] --&gt; B1[Young Generation]
+        B1 --&gt; B1a[Eden Space]
+        B1 --&gt; B1b[Survivor Space S0]
+        B1 --&gt; B1c[Survivor Space S1]
+        
+        B --&gt; B2[Old Generation]
+        B --&gt; B3[Metaspace]
+        
+        C[Thread 1 Stack] --&gt; C1[Frame]
+        C[Thread 2 Stack] --&gt; C2[Frame]
+        C1 --&gt; B
+        C2 --&gt; B
+    end
+    
+    D[Garbage Collector] --&gt; B1
+    D --&gt; B2
+</code></pre><h3 id="ví-dụ-memory-leak-thực-tế">Ví dụ memory leak thực tế</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MemoryLeakExample</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">byte</span><span style="color:#f92672">[]&gt;</span> LEAK_LIST <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processData</span>(<span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> data) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Quên không xóa khỏi list → memory leak</span>
+</span></span><span style="display:flex;"><span>        LEAK_LIST.<span style="color:#a6e22e">add</span>(data);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Giải pháp: cần có cơ chế evict hoặc clear định kỳ</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="ví-dụ-try-with-resources">Ví dụ try-with-resources</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ResourceManagement</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">readFile</span>(String path) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Tự động đóng resource, tránh leak</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> (BufferedReader reader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader(<span style="color:#66d9ef">new</span> FileReader(path))) {
+</span></span><span style="display:flex;"><span>            String line;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> ((line <span style="color:#f92672">=</span> reader.<span style="color:#a6e22e">readLine</span>()) <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(line);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (IOException e) {
+</span></span><span style="display:flex;"><span>            e.<span style="color:#a6e22e">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="5-primitive-vs-wrapper-final-vs-immutable--khi-nào-dùng-gì">5. Primitive vs Wrapper, final vs Immutable — khi nào dùng gì</h2>
+<ul>
+<li><strong>Primitive</strong> (<code>int</code>, <code>long</code>, <code>boolean</code>) nhanh, không null — dùng cho counters, loops.</li>
+<li><strong>Wrapper</strong> (<code>Integer</code>, <code>Long</code>) là object — có thể <code>null</code> và có chi phí autoboxing.</li>
+</ul>
+<p>Ví dụ pitfall (snippet 2):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Integer a <span style="color:#f92672">=</span> 1000;
+</span></span><span style="display:flex;"><span>Integer b <span style="color:#f92672">=</span> 1000;
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(a <span style="color:#f92672">==</span> b); <span style="color:#75715e">// false (so sánh reference)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Integer x <span style="color:#f92672">=</span> 100;
+</span></span><span style="display:flex;"><span>Integer y <span style="color:#f92672">=</span> 100;
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(x <span style="color:#f92672">==</span> y); <span style="color:#75715e">// true (cache -128..127)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Integer n <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> n; <span style="color:#75715e">// NPE khi auto-unbox</span>
+</span></span></code></pre></div><h3 id="diagram-primitive-vs-wrapper-memory">Diagram Primitive vs Wrapper Memory</h3>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph LR
+    subgraph &#34;Primitive - Stack Storage&#34;
+        A[Stack Frame] --&gt; A1[localVar: int&lt;br&gt;value = 42]
+        A1 --&gt; A2[Direct access&lt;br&gt;No overhead]
+    end
+    
+    subgraph &#34;Wrapper - Heap Storage&#34;
+        B[Stack Frame] --&gt; B1[refVar: Integer&lt;br&gt;reference = 0x1234]
+        B1 --&gt; B2[Heap Memory&lt;br&gt;0x1234: Integer object&lt;br&gt;value = 42&lt;br&gt;overhead: 12-16 bytes]
+    end
+    
+    C[Autoboxing] --&gt; D[Performance Cost&lt;br&gt;int → Integer: allocation&lt;br&gt;Integer → int: null check]
+</code></pre><h3 id="performance-benchmark-thực-tế">Performance benchmark thực tế</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PerformanceTest</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Primitive version - nhanh hơn</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 1_000_000; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            sum <span style="color:#f92672">+=</span> i;  <span style="color:#75715e">// No boxing</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> primitiveTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Wrapper version - chậm hơn do autoboxing  </span>
+</span></span><span style="display:flex;"><span>        Integer sumWrapper <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 1_000_000; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            sumWrapper <span style="color:#f92672">+=</span> i;  <span style="color:#75715e">// Autoboxing overhead</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> wrapperTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start <span style="color:#f92672">-</span> primitiveTime;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Primitive: %d ns, Wrapper: %d ns%n&#34;</span>, primitiveTime, wrapperTime);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><strong>final</strong>: khóa reference không thể gán lại, nhưng object vẫn mutable nếu class cho phép.</li>
+<li><strong>Immutable</strong>: muốn class bất biến — dùng <code>private final</code> fields, không export setter, defensive copy arrays/collections.</li>
+</ul>
+<p>Ví dụ immutable (snippet 3):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> x;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> y;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Point</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> x; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> y; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getX</span>() { <span style="color:#66d9ef">return</span> x; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getY</span>() { <span style="color:#66d9ef">return</span> y; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="diagram-immutable-vs-mutable">Diagram Immutable vs Mutable</h3>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TB
+    subgraph &#34;Immutable Object&#34;
+        A[Point p1 = new Point1, 2] --&gt; A1[Stack: p1 → 0x100]
+        A1 --&gt; A2[Heap 0x100:&lt;br&gt;x=1, y=2&lt;br&gt;final fields]
+        A3[Point p2 = p1] --&gt; A4[Stack: p2 → 0x100]
+        A5[Thread Safety] --&gt; A6[No synchronization needed]
+        A2 --&gt; A7[State never changes&lt;br&gt;Safe sharing]
+    end
+    
+    subgraph &#34;Mutable Object&#34;
+        B[Counter c1 = new Counter0] --&gt; B1[Stack: c1 → 0x200]
+        B1 --&gt; B2[Heap 0x200:&lt;br&gt;count=0&lt;br&gt;setter methods]
+        B3[Counter c2 = c1] --&gt; B4[Stack: c2 → 0x200]
+        B5[Race Condition] --&gt; B6[Needs synchronization]
+        B2 --&gt; B7[State can change&lt;br&gt;Shared mutation risk]
+    end
+</code></pre><p>Immutable = an toàn hơn khi đa luồng và dễ reason.</p>
+<hr>
+<h2 id="6-checklist-trước-khi-push-code-người-truyền-thống-làm-đúng-từng-bước">6. Checklist trước khi push code (người truyền thống, làm đúng từng bước)</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Mỗi class đảm nhiệm 1 trách nhiệm (SRP)</li>
+<li><input disabled="" type="checkbox"> Tránh giữ static collection chứa object không dùng</li>
+<li><input disabled="" type="checkbox"> Dùng primitive cho counter/loop nếu cần performance</li>
+<li><input disabled="" type="checkbox"> Dùng <code>try-with-resources</code> cho IO</li>
+<li><input disabled="" type="checkbox"> Viết unit test cho edge cases (null, empty, overflow)</li>
+<li><input disabled="" type="checkbox"> Ưu tiên immutable objects khi liên quan concurrency</li>
+<li><input disabled="" type="checkbox"> Kiểm tra autoboxing/unboxing trong vòng lặp lớn</li>
+<li><input disabled="" type="checkbox"> Verify resource cleanup (file, socket, connection)</li>
+</ul>
+<hr>
+<h2 id="faq-ngắn">FAQ ngắn</h2>
+<p><strong>Q1:</strong> JVM có xử lý memory leak không?
+<strong>A1:</strong> GC dọn object không còn tham chiếu; nhưng nếu reference còn tồn tại (ví dụ cache không evict) =&gt; leak vẫn xảy ra.</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TD
+    A[Static Cache&lt;br&gt;static Map cache] --&gt; B[Object A&lt;br&gt;size: 1MB]
+    A --&gt; C[Object B&lt;br&gt;size: 2MB]
+    A --&gt; D[Object C&lt;br&gt;size: 1.5MB]
+    
+    E[Application Logic] --&gt; F[Add to cache&lt;br&gt;cache.putkey, largeObj]
+    E --&gt; G[Never remove&lt;br&gt;// cache.clear never called]
+    
+    H[Garbage Collector] --&gt; I[Cannot collect&lt;br&gt;Objects still referenced&lt;br&gt;by static cache]
+    
+    J[Memory Usage] --&gt; K[Start: 100MB]
+    J --&gt; L[1 hour: 500MB]
+    J --&gt; M[24 hours: OutOfMemoryError]
+    
+    F --&gt; H
+    G --&gt; H
+    H --&gt; J
+</code></pre><p><strong>Q2:</strong> Dùng <code>int</code> hay <code>Integer</code> trong collection?
+<strong>A2:</strong> Collection cần object → <code>Integer</code>. Nếu performance cần, dùng primitive-specialized collections (ví dụ <code>TIntArrayList</code> từ Trove) hoặc stream primitives.</p>
+<p><strong>Q3:</strong> <code>final</code> có làm object immutable không?
+<strong>A3:</strong> Không. <code>final</code> khóa reference; object bên trong có thể thay đổi nếu design cho phép.</p>
+<hr>
+<h2 id="repo-mẫu-java-jumpstart-structure--files-ready-to-run">Repo mẫu: <code>java-jumpstart</code> (structure &amp; files ready-to-run)</h2>
+<pre tabindex="0"><code>java-jumpstart/
+├─ README.md
+├─ pom.xml
+└─ src/
+   └─ main/
+      └─ java/
+         └─ com/example/jumpstart/
+            ├─ Main.java
+            ├─ oop/Animal.java
+            ├─ examples/
+            │   ├─ AutoboxingPitfall.java
+            │   ├─ MemoryLeakExample.java
+            │   └─ PerformanceTest.java
+            └─ immutables/
+                ├─ Point.java
+                └─ ResourceManagement.java
+</code></pre><h3 id="pomxml-maven-minimal">pom.xml (Maven minimal)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;modelVersion&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;groupId&gt;</span>com.example<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;artifactId&gt;</span>java-jumpstart<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;version&gt;</span>1.0.0<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;properties&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;maven.compiler.source&gt;</span>17<span style="color:#f92672">&lt;/maven.compiler.source&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;maven.compiler.target&gt;</span>17<span style="color:#f92672">&lt;/maven.compiler.target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/properties&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/project&gt;</span>
+</span></span></code></pre></div><h3 id="readmemd-cập-nhật">README.md (cập nhật)</h3>
+<pre tabindex="0"><code># java-jumpstart
+
+Bài tập minh họa cho bài viết &#34;Java cơ bản — Từ lớp đến JVM&#34;.
+
+## Chạy
+```bash
+mvn compile exec:java -Dexec.mainClass=&#34;com.example.jumpstart.Main&#34;
+</code></pre><h2 id="các-ví-dụ-bao-gồm">Các ví dụ bao gồm:</h2>
+<ul>
+<li>OOP với inheritance/polymorphism</li>
+<li>Autoboxing pitfalls và performance test</li>
+<li>Immutable objects</li>
+<li>Resource management với try-with-resources</li>
+<li>Memory leak examples</li>
+</ul>
+<p>Các file demo ở <code>src/main/java/com/example/jumpstart</code>.</p>
+<hr>
+<h1 id="kết-luận">Kết luận</h1>
+<p>Hiểu JVM và memory model không phải là &ldquo;cao siêu&rdquo; — mà là nền tảng để bạn viết code chất lượng hơn, ít bug hơn. Khi biết object sống ở đâu, GC hoạt động thế nào, bạn sẽ tự tin hơn trong việc thiết kế ứng dụng và xử lý vấn đề performance.</p>
+<p><strong>Code không blind = hiểu từ bytecode đến runtime.</strong> Chúc bạn code vui! 🚀</p>
+<p><em>📚 Bài tiếp theo: &ldquo;Java Concurrency — Từ synchronized đến Thread Pool&rdquo;</em></p>
+<hr>
+<h2 class="f3 fw6 mb3">Care to comment</h2>
+  <script src="https://utteranc.es/client.js"
+        repo="Fast-9999/Fast-9999.github.io"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script>
       </div>
 
       
+      
+      <div class="mv5">
+        <h4 class="f5 ttu tracked mb3">Tags</h4>
+        <div class="flex flex-wrap">
+          
+            <a href="/tags/java/" class="mr2 mb2 no-underline tag-chip">java</a>
+          
+            <a href="/tags/jvm/" class="mr2 mb2 no-underline tag-chip">jvm</a>
+          
+            <a href="/tags/oop/" class="mr2 mb2 no-underline tag-chip">oop</a>
+          
+            <a href="/tags/programming/" class="mr2 mb2 no-underline tag-chip">programming</a>
+          
+        </div>
+      </div>
       
 
       
@@ -153,33 +545,44 @@
     </main>
 
     
-    <aside class="w-30-l w-100 mt4-l mt3">
+    <aside class="w-30-l w-100 mt5-l mt4">
       
-      <div class="mb4">
+      <div class="mb5 sticky-aside">
         <div id="sharing" class="mt3 ananke-socials"></div>
 
       </div>
 
       
-      <div class="bt b--black-10 pa3">
-        <h4 class="f6 ttu tracked mb2">Bài viết liên quan</h4>
+      <div class="ba b--light-gray pa4 br2 related-posts">
+        <h4 class="f5 ttu tracked mb3">Bài viết liên quan</h4>
         <ul class="list pl0">
           
           
             
-              <li class="mb2"><a href="/blog/bai-viet-2/" class="no-underline">So sánh Java và JavaScript – Tưởng giống mà khác xa</a></li>
-            
           
+            
+              <li class="mb3"><a href="/blog/bai-viet-2/" class="no-underline dark-gray hover-dark-blue">So sánh Java và JavaScript – Tưởng giống mà khác xa</a></li>
             
           
         </ul>
       </div>
 
       
-      <div class="mt4">
+      <div class="mt5">
 
 
 
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/bai-viet-2/">So sánh Java và JavaScript – Tưởng giống mà khác xa</a>
+        </li>
+	    
+    </ul>
+</div>
 
 </div>
     </aside>
@@ -207,22 +610,200 @@
 
 <style>
  
-#reading-progress { background: #ff7a59; height:3px; width:0; }
-.tag-chip {
-  display:inline-block;
-  padding:.35rem .6rem;
-  border-radius:999px;
-  background: rgba(0,0,0,0.06);
-  color: #111;
-  font-size: .9rem;
-  text-decoration:none;
-  transition:transform .08s ease;
+:root {
+  --text-color: #2d3748;
+  --light-text: #718096;
+  --background: #ffffff;
+  --light-background: #f7fafc;
+  --accent: #4299e1;
+  --accent-light: #90cdf4;
+  --border-color: #e2e8f0;
 }
-.tag-chip:hover { transform:translateY(-2px); background: rgba(0,0,0,0.09); }
+
+body {
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+ 
+.reading-progress-bar {
+  height: 4px; 
+  width: 0%; 
+  transition: width .2s ease;
+  background: var(--accent);
+  box-shadow: 0 1px 3px rgba(66, 153, 225, 0.3);
+}
+
+ 
+.hero-section {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hero-image {
+  object-fit: cover; 
+  max-height: 480px; 
+  width: 100%;
+}
+
+.hero-overlay {
+  background: linear-gradient(0deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 100%);
+}
+
+ 
+.article-content {
+  color: var(--text-color);
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.article-content p {
+  margin-bottom: 1.5rem;
+}
+
+.article-content h2 {
+  font-size: 1.8rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1a202c;
+}
+
+.article-content h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.article-content blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.5rem;
+  margin-left: 0;
+  font-style: italic;
+  color: var(--light-text);
+}
+
+.article-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-content a:hover {
+  color: #2b6cb0;
+}
+
+ 
+.meta-info {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+ 
+.tag-chip {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--light-background);
+  color: var(--text-color);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  border: 1px solid var(--border-color);
+}
+
+.tag-chip:hover {
+  transform: translateY(-2px);
+  background: var(--accent-light);
+  color: #2c5282;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+ 
+.author-card {
+  background: var(--light-background);
+  border-radius: 8px;
+  border: none;
+  padding: 1.5rem;
+}
+
+.author-image {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.author-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+ 
+.sticky-aside {
+  position: sticky;
+  top: 2rem;
+}
+
+.related-posts {
+  background: var(--light-background);
+  border: none;
+  border-radius: 8px;
+}
+
+.related-posts a {
+  color: var(--text-color);
+  transition: color 0.15s ease;
+}
+
+.related-posts a:hover {
+  color: var(--accent);
+}
+
+ 
 @media (max-width: 60rem) {
-  .w-two-thirds-l { width:100%; padding-right:0; }
-  .w-30-l { width:100%; }
-  #reading-progress-wrap { position:fixed; top:0; }
+  .w-two-thirds-l { 
+    width: 100%; 
+    padding-right: 0; 
+  }
+  
+  .w-30-l { 
+    width: 100%; 
+  }
+  
+  .hero-section {
+    border-radius: 0;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    width: calc(100% + 3rem);
+  }
+  
+  .article-content {
+    font-size: 1.05rem;
+  }
+  
+  .sticky-aside {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 30rem) {
+  .ph3 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .hero-overlay {
+    padding: 1.5rem;
+  }
+  
+  .article-content {
+    font-size: 1rem;
+  }
 }
 </style>
 
@@ -261,8 +842,8 @@
 
       
       <div class="w-100 w-30-l mb4 mb0-l">
-        <a href="http://localhost:1313/" class="link white hover-light-gray dib footer-focus" aria-label="TaansFast - Trang chủ" title="Trang chủ">
-          <h2 class="f3 fw7 tracked-tight mv0">TaansFast</h2>
+        <a href="http://localhost:1313/" class="link white hover-light-gray dib footer-focus" aria-label="TaansFast - Blog Lập Trình Mạng - Trang chủ" title="Trang chủ">
+          <h2 class="f3 fw7 tracked-tight mv0">TaansFast - Blog Lập Trình Mạng</h2>
         </a>
 
         
@@ -345,7 +926,7 @@
     
     <div class="flex-ns flex-wrap justify-between items-center">
       <p class="f6 mv0">
-        © 2025 TaansFast. All rights reserved.
+        © 2025 TaansFast - Blog Lập Trình Mạng. All rights reserved.
       </p>
       <p class="f6 mv0 mt3 mt0-ns">
         Made with ❤️ using <a href="https://gohugo.io" class="link dim white-70 hover-white footer-focus" rel="noopener noreferrer" target="_blank">Hugo</a>.
@@ -354,6 +935,5 @@
 
   </div>
 </footer>
-
   </body>
 </html>

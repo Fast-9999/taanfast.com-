@@ -1,24 +1,168 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  
+  <url>
+    <loc>http://localhost:1313/categories/backend/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-09-21T00:00:00+00:00</lastmod>
-  </url><url>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/blog/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/categories/java/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/tags/java/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/blog/bai-viet-1/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/tags/jvm/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/tags/oop/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/tags/programming/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/categories/tutorial/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:1313/contact/</loc>
     <lastmod>2025-09-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/</loc>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/tags/comparison/</loc>
     <lastmod>2025-09-19T00:00:00+00:00</lastmod>
-  </url><url>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/categories/javascript/</loc>
+    <lastmod>2025-09-19T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/tags/javascript/</loc>
+    <lastmod>2025-09-19T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:1313/blog/bai-viet-2/</loc>
     <lastmod>2025-09-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/bai-viet-1/</loc>
-    <lastmod>2025-09-17T10:09:02+07:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    
+    
   </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/about/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
 </urlset>
