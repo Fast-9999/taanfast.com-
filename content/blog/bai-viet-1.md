@@ -320,7 +320,7 @@ Hiểu JVM và memory model không phải là "cao siêu" — mà là nền tả
 
 **Code không blind = hiểu từ bytecode đến runtime.** Chúc bạn code vui! 🚀
 
-*📚 Bài tiếp theo: "Java Concurrency — Từ synchronized đến Thread Pool"*
+*📚 Bài tiếp theo: "JavaScript hiện đại — ES6+ bạn phải biết (let/const, arrow, async/await)"*
 
 ---
 

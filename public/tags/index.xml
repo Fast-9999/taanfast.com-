@@ -9,6 +9,34 @@
     <lastBuildDate>Mon, 22 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Arrow-Function</title>
+      <link>http://localhost:1313/tags/arrow-function/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/arrow-function/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Async</title>
+      <link>http://localhost:1313/tags/async/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/async/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Await</title>
+      <link>http://localhost:1313/tags/await/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/await/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Es6</title>
+      <link>http://localhost:1313/tags/es6/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/es6/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Java</title>
       <link>http://localhost:1313/tags/java/</link>
       <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
@@ -16,10 +44,24 @@
       <description></description>
     </item>
     <item>
+      <title>Javascript</title>
+      <link>http://localhost:1313/tags/javascript/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Jvm</title>
       <link>http://localhost:1313/tags/jvm/</link>
       <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/jvm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Let-Const</title>
+      <link>http://localhost:1313/tags/let-const/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/let-const/</guid>
       <description></description>
     </item>
     <item>
@@ -41,13 +83,6 @@
       <link>http://localhost:1313/tags/comparison/</link>
       <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/comparison/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Javascript</title>
-      <link>http://localhost:1313/tags/javascript/</link>
-      <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/javascript/</guid>
       <description></description>
     </item>
   </channel>
