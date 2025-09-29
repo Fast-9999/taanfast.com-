@@ -1,7 +1,7 @@
 ---
 title: "Giới thiệu"
 description: "Tìm hiểu về TaansFast - Network Programming Specialist và sứ mệnh chia sẻ kiến thức công nghệ"
-featured_image: "https://www.lingoda.com/blog/wp-content/uploads/2020/10/How-To-Say-Hello-in-10-Languages.jpg"
+featured_image: "https://developer.apple.com/hello/images/june24-hello-hero_2x.jpeg"
 date: 2024-01-01
 author: "TaansFast"
 keywords: ["about", "TaansFast", "network programming", "developer", "tech blogger"]

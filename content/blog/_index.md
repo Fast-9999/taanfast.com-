@@ -1,4 +1,4 @@
 ---
 title: "Bài Viết"
-featured_image: "https://smartblogger.com/wp-content/uploads/2021/02/blogging-tips-fb.png"
+featured_image: "https://cdn4.vieclam24h.vn/Viet_blog_kiem_tien_02_27a4b3788e.jpeg"
 ---

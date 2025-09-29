@@ -6,7 +6,7 @@
   
   <url>
     <loc>http://localhost:1313/tags/arrow-function/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
   </url>
@@ -15,7 +15,7 @@
   
   <url>
     <loc>http://localhost:1313/tags/async/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
   </url>
@@ -24,16 +24,7 @@
   
   <url>
     <loc>http://localhost:1313/tags/await/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
-    
-    
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:1313/categories/backend/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
   </url>
@@ -42,7 +33,7 @@
   
   <url>
     <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
   </url>
@@ -51,7 +42,7 @@
   
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
   </url>
@@ -60,7 +51,7 @@
   
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
   </url>
@@ -69,6 +60,78 @@
   
   <url>
     <loc>http://localhost:1313/tags/es6/</loc>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/categories/javascript/</loc>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/tags/javascript/</loc>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/blog/bai-viet-3/</loc>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/tags/let-const/</loc>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/tags/programming/</loc>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/categories/tutorial/</loc>
+    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    
+    
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:1313/categories/backend/</loc>
     <lastmod>2025-09-22T00:00:00+00:00</lastmod>
     
     
@@ -104,33 +167,6 @@
   
   
   <url>
-    <loc>http://localhost:1313/categories/javascript/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
-    
-    
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:1313/tags/javascript/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
-    
-    
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:1313/blog/bai-viet-3/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
-    
-    
-  </url>
-  
-  
-  
-  <url>
     <loc>http://localhost:1313/tags/jvm/</loc>
     <lastmod>2025-09-22T00:00:00+00:00</lastmod>
     
@@ -140,43 +176,7 @@
   
   
   <url>
-    <loc>http://localhost:1313/tags/let-const/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
-    
-    
-  </url>
-  
-  
-  
-  <url>
     <loc>http://localhost:1313/tags/oop/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
-    
-    
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:1313/tags/programming/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
-    
-    
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
-    
-    
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://localhost:1313/categories/tutorial/</loc>
     <lastmod>2025-09-22T00:00:00+00:00</lastmod>
     
     
