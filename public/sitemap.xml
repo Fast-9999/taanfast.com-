@@ -5,7 +5,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/authentication/</loc>
+    <loc>http://localhost:1313/tags/authentication/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -14,7 +14,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/categories/backend/</loc>
+    <loc>http://localhost:1313/categories/backend/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -23,7 +23,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/backend-development/</loc>
+    <loc>http://localhost:1313/tags/backend-development/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -32,7 +32,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/blog/</loc>
+    <loc>http://localhost:1313/blog/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -41,7 +41,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -50,7 +50,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -59,7 +59,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/crud/</loc>
+    <loc>http://localhost:1313/tags/crud/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -68,7 +68,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/heroku-deploy/</loc>
+    <loc>http://localhost:1313/tags/heroku-deploy/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -77,7 +77,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/categories/java/</loc>
+    <loc>http://localhost:1313/categories/java/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -86,7 +86,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/java/</loc>
+    <loc>http://localhost:1313/tags/java/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -95,7 +95,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/jwt/</loc>
+    <loc>http://localhost:1313/tags/jwt/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -104,7 +104,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/portfolio-project/</loc>
+    <loc>http://localhost:1313/tags/portfolio-project/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -113,7 +113,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/rest-api/</loc>
+    <loc>http://localhost:1313/tags/rest-api/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -122,7 +122,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/spring-boot/</loc>
+    <loc>http://localhost:1313/tags/spring-boot/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -131,7 +131,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -140,7 +140,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/blog/spring-boot-rest-jwt-tutorial/</loc>
+    <loc>http://localhost:1313/blog/spring-boot-rest-jwt-tutorial/</loc>
     <lastmod>2025-10-05T00:00:00+00:00</lastmod>
     
     
@@ -149,7 +149,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/arrow-function/</loc>
+    <loc>http://localhost:1313/tags/arrow-function/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -158,7 +158,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/async-await/</loc>
+    <loc>http://localhost:1313/tags/async-await/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -167,7 +167,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/es6/</loc>
+    <loc>http://localhost:1313/tags/es6/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -176,7 +176,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/frontend/</loc>
+    <loc>http://localhost:1313/tags/frontend/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -185,7 +185,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/javascript/</loc>
+    <loc>http://localhost:1313/tags/javascript/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -194,7 +194,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/categories/javascript/</loc>
+    <loc>http://localhost:1313/categories/javascript/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -203,7 +203,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/blog/javascript-es6-nen-biet/</loc>
+    <loc>http://localhost:1313/blog/javascript-es6-nen-biet/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -212,7 +212,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/let-const/</loc>
+    <loc>http://localhost:1313/tags/let-const/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -221,7 +221,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/modern-js/</loc>
+    <loc>http://localhost:1313/tags/modern-js/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -230,7 +230,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/template-literal/</loc>
+    <loc>http://localhost:1313/tags/template-literal/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -239,7 +239,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/categories/tutorial/</loc>
+    <loc>http://localhost:1313/categories/tutorial/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -248,7 +248,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/web-development/</loc>
+    <loc>http://localhost:1313/tags/web-development/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     
     
@@ -257,7 +257,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/contact/</loc>
+    <loc>http://localhost:1313/contact/</loc>
     <lastmod>2025-09-21T00:00:00+00:00</lastmod>
     
     
@@ -266,7 +266,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/backend/</loc>
+    <loc>http://localhost:1313/tags/backend/</loc>
     <lastmod>2025-09-19T00:00:00+00:00</lastmod>
     
     
@@ -275,7 +275,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/comparison/</loc>
+    <loc>http://localhost:1313/tags/comparison/</loc>
     <lastmod>2025-09-19T00:00:00+00:00</lastmod>
     
     
@@ -284,7 +284,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/dev-beginner/</loc>
+    <loc>http://localhost:1313/tags/dev-beginner/</loc>
     <lastmod>2025-09-19T00:00:00+00:00</lastmod>
     
     
@@ -293,7 +293,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/programming-language/</loc>
+    <loc>http://localhost:1313/tags/programming-language/</loc>
     <lastmod>2025-09-19T00:00:00+00:00</lastmod>
     
     
@@ -302,7 +302,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/blog/java-vs-javascript/</loc>
+    <loc>http://localhost:1313/blog/java-vs-javascript/</loc>
     <lastmod>2025-09-19T00:00:00+00:00</lastmod>
     
     
@@ -311,7 +311,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/class/</loc>
+    <loc>http://localhost:1313/tags/class/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
     
     
@@ -320,7 +320,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/blog/java-jvm-oop-co-ban/</loc>
+    <loc>http://localhost:1313/blog/java-jvm-oop-co-ban/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
     
     
@@ -329,7 +329,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/java-core/</loc>
+    <loc>http://localhost:1313/tags/java-core/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
     
     
@@ -338,7 +338,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/javac/</loc>
+    <loc>http://localhost:1313/tags/javac/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
     
     
@@ -347,7 +347,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/jvm/</loc>
+    <loc>http://localhost:1313/tags/jvm/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
     
     
@@ -356,7 +356,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/memory-model/</loc>
+    <loc>http://localhost:1313/tags/memory-model/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
     
     
@@ -365,7 +365,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/newbie/</loc>
+    <loc>http://localhost:1313/tags/newbie/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
     
     
@@ -374,7 +374,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/object/</loc>
+    <loc>http://localhost:1313/tags/object/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
     
     
@@ -383,7 +383,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/tags/oop/</loc>
+    <loc>http://localhost:1313/tags/oop/</loc>
     <lastmod>2025-09-12T00:00:00+00:00</lastmod>
     
     
@@ -392,7 +392,7 @@
   
   
   <url>
-    <loc>https://taansfast.com/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     
     

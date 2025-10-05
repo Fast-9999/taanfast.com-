@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javac on TaansFast - Blog Lập Trình Mạng</title>
-    <link>https://taansfast.com/tags/javac/</link>
+    <link>http://localhost:1313/tags/javac/</link>
     <description>Recent content in Javac on TaansFast - Blog Lập Trình Mạng</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Fri, 12 Sep 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://taansfast.com/tags/javac/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/javac/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java cơ bản — Từ lớp đến JVM: Hiểu để code không blind</title>
-      <link>https://taansfast.com/blog/java-jvm-oop-co-ban/</link>
+      <link>http://localhost:1313/blog/java-jvm-oop-co-ban/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://taansfast.com/blog/java-jvm-oop-co-ban/</guid>
+      <guid>http://localhost:1313/blog/java-jvm-oop-co-ban/</guid>
       <description>&lt;h1 id=&#34;java-cơ-bản--từ-lớp-đến-jvm-hiểu-để-code-không-blind&#34;&gt;Java cơ bản — Từ lớp đến JVM: hiểu để code không blind&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Slug:&lt;/strong&gt; &lt;code&gt;java-jvm-oop-co-ban&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Meta description:&lt;/strong&gt; Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs heap, GC, primitive vs wrapper và immutable — nền tảng để bạn viết Java vững vàng, ít bị lỗi runtime.&lt;/p&gt;&#xA;&lt;p&gt;Giải mã OOP + JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model (stack vs heap, GC) để tránh lỗi runtime và rò rỉ logic. Hiểu nền tảng, code sẽ sạch và dễ duy trì.&lt;/p&gt;</description>
     </item>
   </channel>

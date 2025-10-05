@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on TaansFast - Blog Lập Trình Mạng</title>
-    <link>https://taansfast.com/categories/java/</link>
+    <link>http://localhost:1313/categories/java/</link>
     <description>Recent content in Java on TaansFast - Blog Lập Trình Mạng</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://taansfast.com/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot &amp; JWT Auth: Từ 0 đến Token</title>
-      <link>https://taansfast.com/blog/spring-boot-rest-jwt-tutorial/</link>
+      <link>http://localhost:1313/blog/spring-boot-rest-jwt-tutorial/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://taansfast.com/blog/spring-boot-rest-jwt-tutorial/</guid>
+      <guid>http://localhost:1313/blog/spring-boot-rest-jwt-tutorial/</guid>
       <description>&lt;h1 id=&#34;xây-dựng-rest-api-java-thực-chiến-với-spring-boot--jwt-auth-từ-0-đến-token&#34;&gt;Xây dựng REST API Java &amp;lsquo;Thực chiến&amp;rsquo; với Spring Boot &amp;amp; JWT Auth: Từ 0 đến Token&lt;/h1&gt;&#xA;&lt;h2 id=&#34;giới-thiệu-nâng-cấp-portfolio-backend-của-bạn&#34;&gt;Giới thiệu: Nâng cấp Portfolio Backend của bạn&lt;/h2&gt;&#xA;&lt;p&gt;Nếu bạn là một Backend Developer tập sự hoặc sinh viên muốn có một dự án thực tế, đây là bài hướng dẫn dành cho bạn. Chúng ta sẽ xây dựng REST API CRUD đầy đủ (Create, Read, Update, Delete) và bảo mật bằng JSON Web Token (JWT) — một chuẩn authentication hiện đại. Sau cùng, bạn sẽ biết cách đóng gói và triển khai ứng dụng lên cloud (Heroku hoặc Somee), tạo thành một API thật sự “production-ready”.&lt;/p&gt;</description>
     </item>
     <item>
       <title>So sánh Java và JavaScript — Tưởng giống mà khác xa</title>
-      <link>https://taansfast.com/blog/java-vs-javascript/</link>
+      <link>http://localhost:1313/blog/java-vs-javascript/</link>
       <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://taansfast.com/blog/java-vs-javascript/</guid>
+      <guid>http://localhost:1313/blog/java-vs-javascript/</guid>
       <description>&lt;p&gt;&lt;strong&gt;So sánh Java và JavaScript (2025)&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Nguồn gốc, môi trường chạy, cú pháp, ứng dụng thực tế và gợi ý học tập.&lt;br&gt;&#xA;Kèm code snippets và bảng so sánh nhanh.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java cơ bản — Từ lớp đến JVM: Hiểu để code không blind</title>
-      <link>https://taansfast.com/blog/java-jvm-oop-co-ban/</link>
+      <link>http://localhost:1313/blog/java-jvm-oop-co-ban/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://taansfast.com/blog/java-jvm-oop-co-ban/</guid>
+      <guid>http://localhost:1313/blog/java-jvm-oop-co-ban/</guid>
       <description>&lt;h1 id=&#34;java-cơ-bản--từ-lớp-đến-jvm-hiểu-để-code-không-blind&#34;&gt;Java cơ bản — Từ lớp đến JVM: hiểu để code không blind&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Slug:&lt;/strong&gt; &lt;code&gt;java-jvm-oop-co-ban&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Meta description:&lt;/strong&gt; Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs heap, GC, primitive vs wrapper và immutable — nền tảng để bạn viết Java vững vàng, ít bị lỗi runtime.&lt;/p&gt;&#xA;&lt;p&gt;Giải mã OOP + JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model (stack vs heap, GC) để tránh lỗi runtime và rò rỉ logic. Hiểu nền tảng, code sẽ sạch và dễ duy trì.&lt;/p&gt;</description>
     </item>
   </channel>

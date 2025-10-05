@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog Lập Trình Mạng on TaansFast - Blog Lập Trình Mạng</title>
-    <link>https://taansfast.com/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content in Blog Lập Trình Mạng on TaansFast - Blog Lập Trình Mạng</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://taansfast.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot &amp; JWT Auth: Từ 0 đến Token</title>
-      <link>https://taansfast.com/blog/spring-boot-rest-jwt-tutorial/</link>
+      <link>http://localhost:1313/blog/spring-boot-rest-jwt-tutorial/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://taansfast.com/blog/spring-boot-rest-jwt-tutorial/</guid>
+      <guid>http://localhost:1313/blog/spring-boot-rest-jwt-tutorial/</guid>
       <description>&lt;h1 id=&#34;xây-dựng-rest-api-java-thực-chiến-với-spring-boot--jwt-auth-từ-0-đến-token&#34;&gt;Xây dựng REST API Java &amp;lsquo;Thực chiến&amp;rsquo; với Spring Boot &amp;amp; JWT Auth: Từ 0 đến Token&lt;/h1&gt;&#xA;&lt;h2 id=&#34;giới-thiệu-nâng-cấp-portfolio-backend-của-bạn&#34;&gt;Giới thiệu: Nâng cấp Portfolio Backend của bạn&lt;/h2&gt;&#xA;&lt;p&gt;Nếu bạn là một Backend Developer tập sự hoặc sinh viên muốn có một dự án thực tế, đây là bài hướng dẫn dành cho bạn. Chúng ta sẽ xây dựng REST API CRUD đầy đủ (Create, Read, Update, Delete) và bảo mật bằng JSON Web Token (JWT) — một chuẩn authentication hiện đại. Sau cùng, bạn sẽ biết cách đóng gói và triển khai ứng dụng lên cloud (Heroku hoặc Somee), tạo thành một API thật sự “production-ready”.&lt;/p&gt;</description>
     </item>
     <item>
       <title>JavaScript hiện đại — 7 tính năng ES6&#43; bạn phải biết (let/const, arrow, async/await)</title>
-      <link>https://taansfast.com/blog/javascript-es6-nen-biet/</link>
+      <link>http://localhost:1313/blog/javascript-es6-nen-biet/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://taansfast.com/blog/javascript-es6-nen-biet/</guid>
+      <guid>http://localhost:1313/blog/javascript-es6-nen-biet/</guid>
       <description>&lt;h1 id=&#34;-javascript-hiện-đại--es6-bạn-phải-biết&#34;&gt;🚀 JavaScript hiện đại — ES6+ bạn PHẢI biết&lt;/h1&gt;&#xA;&lt;p&gt;JavaScript đã thay đổi &lt;strong&gt;CHÓNG MẶT&lt;/strong&gt; từ 2015. Nếu bạn vẫn đang:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;✅ Dùng &lt;code&gt;var&lt;/code&gt; khắp nơi&lt;/li&gt;&#xA;&lt;li&gt;✅ Callback hell triền miên&lt;/li&gt;&#xA;&lt;li&gt;✅ Object literal dài dòng&lt;/li&gt;&#xA;&lt;li&gt;✅ Không biết destructuring là gì&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Thì đây là lúc bắt kịp train ES6+! 🚄&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;So sánh cực chuẩn:&lt;/strong&gt; Chuyển từ jQuery + callback sang ES6+ giống như đổi từ Nokia 1280 lên iPhone 15 Pro Max!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Contact</title>
-      <link>https://taansfast.com/contact/</link>
+      <link>http://localhost:1313/contact/</link>
       <pubDate>Sun, 21 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://taansfast.com/contact/</guid>
+      <guid>http://localhost:1313/contact/</guid>
       <description></description>
     </item>
     <item>
       <title>So sánh Java và JavaScript — Tưởng giống mà khác xa</title>
-      <link>https://taansfast.com/blog/java-vs-javascript/</link>
+      <link>http://localhost:1313/blog/java-vs-javascript/</link>
       <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://taansfast.com/blog/java-vs-javascript/</guid>
+      <guid>http://localhost:1313/blog/java-vs-javascript/</guid>
       <description>&lt;p&gt;&lt;strong&gt;So sánh Java và JavaScript (2025)&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Nguồn gốc, môi trường chạy, cú pháp, ứng dụng thực tế và gợi ý học tập.&lt;br&gt;&#xA;Kèm code snippets và bảng so sánh nhanh.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Java cơ bản — Từ lớp đến JVM: Hiểu để code không blind</title>
-      <link>https://taansfast.com/blog/java-jvm-oop-co-ban/</link>
+      <link>http://localhost:1313/blog/java-jvm-oop-co-ban/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://taansfast.com/blog/java-jvm-oop-co-ban/</guid>
+      <guid>http://localhost:1313/blog/java-jvm-oop-co-ban/</guid>
       <description>&lt;h1 id=&#34;java-cơ-bản--từ-lớp-đến-jvm-hiểu-để-code-không-blind&#34;&gt;Java cơ bản — Từ lớp đến JVM: hiểu để code không blind&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Slug:&lt;/strong&gt; &lt;code&gt;java-jvm-oop-co-ban&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Meta description:&lt;/strong&gt; Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs heap, GC, primitive vs wrapper và immutable — nền tảng để bạn viết Java vững vàng, ít bị lỗi runtime.&lt;/p&gt;&#xA;&lt;p&gt;Giải mã OOP + JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model (stack vs heap, GC) để tránh lỗi runtime và rò rỉ logic. Hiểu nền tảng, code sẽ sạch và dễ duy trì.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Giới thiệu</title>
-      <link>https://taansfast.com/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://taansfast.com/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>&lt;h2 id=&#34;xin-chào-tôi-là-taansfast-&#34;&gt;Xin chào! Tôi là TaansFast 👋&lt;/h2&gt;&#xA;&lt;p&gt;Tôi là một &lt;strong&gt;Network Programming Specialist&lt;/strong&gt; với hơn 5 năm kinh nghiệm trong việc phát triển các hệ thống mạng phức tạp và ứng dụng enterprise. Đam mê của tôi nằm ở việc tạo ra những giải pháp công nghệ hiệu quả và chia sẻ kiến thức với cộng đồng developer Việt Nam.&lt;/p&gt;&#xA;&lt;h3 id=&#34;hành-trình-của-tôi&#34;&gt;Hành trình của tôi&lt;/h3&gt;&#xA;&lt;p&gt;Bắt đầu từ một sinh viên IT với niềm đam mê về networking, tôi đã trải qua hành trình từ junior developer đến vị trí senior hiện tại. Qua những năm làm việc, tôi đã có cơ hội tham gia vào nhiều dự án thú vị, từ các startup nhỏ đến các tập đoàn lớn.&lt;/p&gt;</description>
     </item>
   </channel>
