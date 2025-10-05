@@ -16,17 +16,10 @@
       <description></description>
     </item>
     <item>
-      <title>Async</title>
-      <link>http://localhost:1313/tags/async/</link>
+      <title>Async-Await</title>
+      <link>http://localhost:1313/tags/async-await/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/async/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Await</title>
-      <link>http://localhost:1313/tags/await/</link>
-      <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/await/</guid>
+      <guid>http://localhost:1313/tags/async-await/</guid>
       <description></description>
     </item>
     <item>
@@ -34,6 +27,13 @@
       <link>http://localhost:1313/tags/es6/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/es6/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Frontend</title>
+      <link>http://localhost:1313/tags/frontend/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/frontend/</guid>
       <description></description>
     </item>
     <item>
@@ -51,38 +51,87 @@
       <description></description>
     </item>
     <item>
-      <title>Programming</title>
-      <link>http://localhost:1313/tags/programming/</link>
+      <title>Modern-Javascript</title>
+      <link>http://localhost:1313/tags/modern-javascript/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/programming/</guid>
+      <guid>http://localhost:1313/tags/modern-javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web-Development</title>
+      <link>http://localhost:1313/tags/web-development/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/web-development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Backend</title>
+      <link>http://localhost:1313/tags/backend/</link>
+      <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/backend/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
       <link>http://localhost:1313/tags/java/</link>
-      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ngon-Ngu-Lap-Trinh</title>
+      <link>http://localhost:1313/tags/ngon-ngu-lap-trinh/</link>
+      <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ngon-ngu-lap-trinh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>So-Sanh</title>
+      <link>http://localhost:1313/tags/so-sanh/</link>
+      <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/so-sanh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class</title>
+      <link>http://localhost:1313/tags/class/</link>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/class/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java-Core</title>
+      <link>http://localhost:1313/tags/java-core/</link>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/java-core/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Javac</title>
+      <link>http://localhost:1313/tags/javac/</link>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/javac/</guid>
       <description></description>
     </item>
     <item>
       <title>Jvm</title>
       <link>http://localhost:1313/tags/jvm/</link>
-      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/jvm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Newbie</title>
+      <link>http://localhost:1313/tags/newbie/</link>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/newbie/</guid>
       <description></description>
     </item>
     <item>
       <title>Oop</title>
       <link>http://localhost:1313/tags/oop/</link>
-      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/oop/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Comparison</title>
-      <link>http://localhost:1313/tags/comparison/</link>
-      <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/comparison/</guid>
       <description></description>
     </item>
   </channel>

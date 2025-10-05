@@ -1,23 +1,90 @@
 {{ define "main" }}
-  <!-- Dark mode toggle -->
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-    <svg id="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-    <svg id="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Lập Trình Mạng",
+    "description": "Nơi chia sẻ kiến thức sâu về lập trình mạng, công nghệ web và best practices từ thực tế",
+    "url": "{{ .Site.BaseURL }}",
+    "author": {
+      "@type": "Person",
+      "name": "Fast Developer",
+      "url": "{{ .Site.BaseURL }}about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Blog Lập Trình Mạng",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.BaseURL }}images/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ .Site.BaseURL }}"
+    },
+    "blogPost": [
+      {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+      {
+        "@type": "BlogPosting",
+        "headline": "{{ .Title }}",
+        "description": "{{ with .Summary }}{{ . | plainify | truncate 200 }}{{ else }}{{ with .Params.description }}{{ . | plainify | truncate 200 }}{{ else }}{{ .Plain | truncate 200 }}{{ end }}{{ end }}",
+        "url": "{{ .Permalink }}",
+        "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+        "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+        "author": {
+          "@type": "Person",
+          "name": "Fast Developer"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Blog Lập Trình Mạng"
+        }
+      }{{ if not (eq . (index (first 3 (where .Site.RegularPages "Section" "blog")) 2)) }},{{ end }}
+      {{ end }}
+    ]
+  }
+  </script>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-indicator" id="scroll-progress">
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="reading-progress">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6"/>
     </svg>
   </button>
 
-  <main class="pa3 pa4-l nested-copy-line-height content-wrapper">
+
+  <div class="pa3 pa4-l nested-copy-line-height content-wrapper">
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav mb4" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item">
+          <a href="/" class="breadcrumb-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9,22 9,12 15,12 15,22"></polyline>
+            </svg>
+            Trang chủ
+          </a>
+        </li>
+        <li class="breadcrumb-separator">›</li>
+        <li class="breadcrumb-item active">
+          <span class="breadcrumb-current">Blog Lập Trình</span>
+        </li>
+      </ol>
+    </nav>
 
     <!-- Hero section với gradient hiện đại -->
     <section class="tc pv5 pv6-l bg-dark-gradient white br3 shadow-4 mb5 hero-section">
@@ -55,24 +122,7 @@
           </div>
         </div>
         
-        <!-- Search Box -->
-        <div class="mt4 mb4">
-          <div class="search-container">
-            <input type="text" id="search-input" placeholder="Tìm kiếm bài viết..." class="search-input" autocomplete="off">
-            <button id="search-btn" class="search-btn" aria-label="Tìm kiếm">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
-            </button>
-          </div>
-          <div id="search-results" class="search-results" style="display: none;">
-            <div class="search-loading" style="display: none;">
-              <div class="search-spinner"></div>
-              <span>Đang tìm kiếm...</span>
-            </div>
-          </div>
-        </div>
+        
         
         <!-- Enhanced CTA buttons -->
         <div class="cta-section">
@@ -87,12 +137,36 @@
           </a>
         </div>
 
-        <!-- Newsletter signup -->
-        <div class="newsletter-signup mt5">
-          <p class="f6 mb3">Đăng ký nhận bài viết mới qua email</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="Email của bạn..." class="newsletter-input">
-            <button class="newsletter-btn">Đăng ký</button>
+        
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="mb5 mb6-l stats-section">
+      <div class="mw8 center">
+        <div class="stats-grid">
+          <div class="stat-card card-hover interactive-element">
+            <div class="stat-icon">📚</div>
+            <div class="stat-number" data-target="50">0</div>
+            <div class="stat-label">Bài viết</div>
+            <div class="stat-description">Kiến thức từ cơ bản đến nâng cao</div>
+          </div>
+          <div class="stat-card card-hover interactive-element">
+            <div class="stat-icon">👥</div>
+            <div class="stat-number" data-target="1000">0</div>
+            <div class="stat-label">Độc giả</div>
+            <div class="stat-description">Developers tin tưởng</div>
+          </div>
+          <div class="stat-card card-hover interactive-element">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-number" data-target="49">0</div>
+            <div class="stat-label">Đánh giá</div>
+            <div class="stat-description">Trung bình 4.9/5 sao</div>
+          </div>
+          <div class="stat-card card-hover interactive-element">
+            <div class="stat-icon">🚀</div>
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Năm kinh nghiệm</div>
+            <div class="stat-description">Chia sẻ thực tế</div>
           </div>
         </div>
       </div>
@@ -235,17 +309,180 @@
       <div class="mw8 center">
         <h2 class="tc f2 fw7 mb4 mb5-l section-title">Bài viết mới nhất</h2>
 
-        <div class="grid grid-cols-1 grid-cols-2-m grid-cols-3-l gap-4">
+        <!-- Enhanced Search and Filter Section -->
+        <section class="mb5 mb6-l search-filter-section">
+          <div class="mw8 center">
+            <h2 class="tc f2 fw7 mb4 mb5-l section-title">Tìm kiếm & Lọc bài viết</h2>
+            
+            <!-- Search Bar -->
+            <div class="search-container mb4">
+              <div class="search-wrapper">
+                <div class="search-input-group">
+                  <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                  </svg>
+                  <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Tìm kiếm bài viết, tags, hoặc nội dung..."
+                    autocomplete="off"
+                    aria-label="Tìm kiếm bài viết"
+                  >
+                  <button class="search-clear" id="search-clear" aria-label="Xóa tìm kiếm">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
+                </div>
+                <div class="search-suggestions" id="search-suggestions"></div>
+              </div>
+              
+              <!-- Search Stats -->
+              <div class="search-stats" id="search-stats">
+                <span class="search-results-count">Hiển thị <span id="results-count">6</span> bài viết</span>
+                <span class="search-time" id="search-time"></span>
+              </div>
+            </div>
+
+            <!-- Advanced Filters -->
+            <div class="advanced-filters">
+              <div class="filters-header">
+                <h3 class="filters-title">Bộ lọc nâng cao</h3>
+                <button class="filters-toggle" id="filters-toggle">
+                  <span class="toggle-text">Mở rộng</span>
+                  <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                </button>
+              </div>
+              
+              <div class="filters-content" id="filters-content">
+                <div class="filters-grid">
+                  <!-- Category Filter -->
+                  <div class="filter-group">
+                    <label class="filter-label">Chủ đề</label>
+                    <div class="filter-options">
+                      <button class="filter-option active" data-filter="category" data-value="all">Tất cả</button>
+                      <button class="filter-option" data-filter="category" data-value="java">Java & JVM</button>
+                      <button class="filter-option" data-filter="category" data-value="javascript">JavaScript</button>
+                      <button class="filter-option" data-filter="category" data-value="backend">Backend</button>
+                      <button class="filter-option" data-filter="category" data-value="tutorial">Tutorial</button>
+                      <button class="filter-option" data-filter="category" data-value="web-development">Web Development</button>
+                    </div>
+                  </div>
+
+                  <!-- Reading Time Filter -->
+                  <div class="filter-group">
+                    <label class="filter-label">Thời gian đọc</label>
+                    <div class="filter-options">
+                      <button class="filter-option active" data-filter="reading-time" data-value="all">Tất cả</button>
+                      <button class="filter-option" data-filter="reading-time" data-value="quick">Nhanh (&lt;5 phút)</button>
+                      <button class="filter-option" data-filter="reading-time" data-value="medium">Trung bình (5-15 phút)</button>
+                      <button class="filter-option" data-filter="reading-time" data-value="long">Dài (&gt;15 phút)</button>
+                    </div>
+                  </div>
+
+                  <!-- Difficulty Level Filter -->
+                  <div class="filter-group">
+                    <label class="filter-label">Mức độ</label>
+                    <div class="filter-options">
+                      <button class="filter-option active" data-filter="difficulty" data-value="all">Tất cả</button>
+                      <button class="filter-option" data-filter="difficulty" data-value="beginner">Cơ bản</button>
+                      <button class="filter-option" data-filter="difficulty" data-value="intermediate">Trung bình</button>
+                      <button class="filter-option" data-filter="difficulty" data-value="advanced">Nâng cao</button>
+                    </div>
+                  </div>
+
+                  <!-- Date Range Filter -->
+                  <div class="filter-group">
+                    <label class="filter-label">Thời gian</label>
+                    <div class="filter-options">
+                      <button class="filter-option active" data-filter="date" data-value="all">Tất cả</button>
+                      <button class="filter-option" data-filter="date" data-value="week">Tuần này</button>
+                      <button class="filter-option" data-filter="date" data-value="month">Tháng này</button>
+                      <button class="filter-option" data-filter="date" data-value="year">Năm nay</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Filter Actions -->
+                <div class="filter-actions">
+                  <button class="filter-btn secondary" id="clear-filters">Xóa bộ lọc</button>
+                  <button class="filter-btn primary" id="apply-filters">Áp dụng</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sort Options -->
+            <div class="sort-section">
+              <div class="sort-header">
+                <label class="sort-label">Sắp xếp theo:</label>
+                <div class="sort-options">
+                  <button class="sort-btn active" data-sort="newest">
+                    <span>Mới nhất</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m3 16 4-4 4 4"></path>
+                      <path d="M7 12h10"></path>
+                    </svg>
+                  </button>
+                  <button class="sort-btn" data-sort="oldest">
+                    <span>Cũ nhất</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m21 8-4-4-4 4"></path>
+                      <path d="M17 4h-10"></path>
+                    </svg>
+                  </button>
+                  <button class="sort-btn" data-sort="reading-time">
+                    <span>Thời gian đọc</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12,6 12,12 16,14"></polyline>
+                    </svg>
+                  </button>
+                  <button class="sort-btn" data-sort="popular">
+                    <span>Phổ biến</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                      <path d="M4 22h16"></path>
+                      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21l-1.25.5c-.5.2-1.28.2-1.78 0l-1.25-.5A1.25 1.25 0 0 1 4 17v-2.34"></path>
+                      <path d="M20 14.66V17c0 .55.47.98.97 1.21l1.25.5c.5.2 1.28.2 1.78 0l1.25-.5A1.25 1.25 0 0 0 24 17v-2.34"></path>
+                    </svg>
+                  </button>
+                  <button class="sort-btn" data-sort="alphabetical">
+                    <span>A-Z</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M3 6h18"></path>
+                      <path d="M3 12h18"></path>
+                      <path d="M3 18h18"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="grid grid-cols-1 grid-cols-2-m grid-cols-3-l gap-4" id="posts-grid">
           {{ range first 6 (where .Site.RegularPages "Section" "blog") }}
             {{ $p := . }}
-            <article class="post-card card-hover interactive-element">
+            <article class="post-card card-hover interactive-element" 
+                     data-categories="{{ delimit $p.Params.categories " " }}"
+                     data-reading-time="{{ $p.ReadingTime }}"
+                     data-date="{{ $p.Date.Format "2006-01-02" }}">
               <a href="{{ $p.Permalink }}" class="db no-underline color-inherit post-link" aria-label="Đọc bài: {{ $p.Title }}">
                 <div class="bg-white br3 shadow-4 h-100 flex flex-column overflow-hidden transition-all">
 
-                  {{/* Featured image với lazy loading và placeholder */}}
+                  {{/* Featured image với lazy loading và WebP support */}}
                   <div class="post-image-wrapper">
                     {{ with $p.Resources.GetMatch "featured*" }}
-                      <img src="{{ .RelPermalink }}" alt="{{ $p.Title }}" class="img-cover" loading="lazy" />
+                      <picture>
+                        <source srcset="{{ .RelPermalink | replaceRE "\\.[^.]+$" ".webp" }}" type="image/webp">
+                        <img src="{{ .RelPermalink }}" alt="{{ $p.Title }}" class="img-cover" loading="lazy" />
+                      </picture>
                     {{ else }}
                       {{ with $p.Params.featured_image }}
                         <img src="{{ . }}" alt="{{ $p.Title }}" class="img-cover" loading="lazy" />
@@ -258,6 +495,18 @@
                       {{ end }}
                     {{ end }}
                     <div class="post-overlay"></div>
+                    
+                    <!-- Category Badges -->
+                    <div class="post-categories">
+                      {{ range first 2 $p.Params.categories }}
+                        <span class="category-badge">{{ . }}</span>
+                      {{ end }}
+                    </div>
+                    
+                    <!-- Trending Indicator -->
+                    {{ if eq $p.Title "JavaScript hiện đại — ES6+ bạn phải biết (let/const, arrow, async/await)" }}
+                      <div class="trending-badge">🔥 Trending</div>
+                    {{ end }}
                   </div>
 
                   <div class="pa3 pa4-l flex-auto">
@@ -269,6 +518,12 @@
                       </time>
                       <span class="mh2">•</span>
                       <span class="post-reading-time">{{ $p.ReadingTime }} phút đọc</span>
+                    </div>
+
+                    <!-- Enhanced Metadata -->
+                    <div class="post-stats">
+                      <span class="stat-item">👁️ <span class="view-count">{{ add (mul $p.ReadingTime 50) 200 }}</span> views</span>
+                      <span class="stat-item">❤️ <span class="like-count">{{ add (mul $p.ReadingTime 3) 15 }}</span> likes</span>
                     </div>
 
                     <p class="f6 lh-copy measure mb3 post-excerpt">
@@ -285,7 +540,28 @@
                   </div>
 
                   <div class="pa3 pa4-l mt-auto">
+                    <div class="post-footer">
                     <span class="f6 link dim br2 ph3 pv2 dib white bg-dark-blue post-cta">Đọc tiếp →</span>
+                      
+                      <!-- Social Sharing -->
+                      <div class="post-social">
+                        <button class="share-btn facebook" data-url="{{ $p.Permalink }}" data-title="{{ $p.Title }}" aria-label="Share on Facebook">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                          </svg>
+                        </button>
+                        <button class="share-btn twitter" data-url="{{ $p.Permalink }}" data-title="{{ $p.Title }}" aria-label="Share on Twitter">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                          </svg>
+                        </button>
+                        <button class="share-btn linkedin" data-url="{{ $p.Permalink }}" data-title="{{ $p.Title }}" aria-label="Share on LinkedIn">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
                   </div>
 
                 </div>
@@ -302,7 +578,7 @@
       </div>
     </section>
 
-  </main>
+  </div>
 
   {{ $homeCSS := resources.Get "styles/home.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $homeCSS.RelPermalink }}" integrity="{{ $homeCSS.Data.Integrity }}">
@@ -336,6 +612,187 @@
       font-weight: 400;
       opacity: 0.9;
     }
+    
+    /* Enhanced Newsletter Styles */
+    .newsletter-signup {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 2rem;
+    }
+    
+    .newsletter-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .newsletter-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .newsletter-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    
+    .newsletter-description {
+      font-size: 1rem;
+      opacity: 1;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+    }
+    
+    .newsletter-input-group {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 0.875rem 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .newsletter-input::placeholder {
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+    }
+    
+    .newsletter-input:focus {
+      outline: none;
+      border-color: #667eea;
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .newsletter-input.error {
+      border-color: #ef4444;
+      animation: shake 0.5s ease-in-out;
+    }
+    
+    .newsletter-input.invalid {
+      border-color: #f59e0b;
+    }
+    
+    .newsletter-btn {
+      padding: 0.875rem 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 120px;
+      justify-content: center;
+    }
+    
+    .newsletter-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+    
+    .newsletter-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    
+    .newsletter-btn.loading {
+      background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+    }
+    
+    .spinner {
+      animation: spin 1s linear infinite;
+    }
+    
+    .newsletter-benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      opacity: 1;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+    }
+    
+    .benefit-icon {
+      font-size: 1rem;
+    }
+    
+    .newsletter-privacy {
+      text-align: center;
+      opacity: 1;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+    
+    .newsletter-success {
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .success-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .newsletter-success h4 {
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .newsletter-success p {
+      opacity: 0.9;
+      margin-bottom: 0;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .newsletter-input-group {
+        flex-direction: column;
+      }
+      
+      .newsletter-benefits {
+        grid-template-columns: 1fr;
+      }
+      
+      .newsletter-signup {
+        padding: 1.5rem;
+      }
+    }
   </style>
   
   <!-- Performance optimizations -->
@@ -352,90 +809,230 @@
   {{ end }}
   
   <script>
-    // Dark mode functionality
+
+    // Enhanced Newsletter functionality
     (function() {
-      const themeToggle = document.getElementById('theme-toggle');
-      const sunIcon = document.getElementById('sun-icon');
-      const moonIcon = document.getElementById('moon-icon');
+      const newsletterBtn = document.getElementById('newsletter-submit');
+      const newsletterInput = document.getElementById('newsletter-email');
+      const newsletterForm = document.querySelector('.newsletter-form');
+      const newsletterSuccess = document.getElementById('newsletter-success');
+      const btnText = newsletterBtn?.querySelector('.btn-text');
+      const btnLoading = newsletterBtn?.querySelector('.btn-loading');
       
-      // Get saved theme or default to light
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
+      if (!newsletterBtn || !newsletterInput) return;
       
-      // Update icons based on current theme
-      function updateIcons(theme) {
-        if (theme === 'dark') {
-          sunIcon.style.display = 'none';
-          moonIcon.style.display = 'block';
+      // Enhanced email validation
+      function isValidEmail(email) {
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+        return emailRegex.test(email) && email.length <= 254;
+      }
+      
+      // Show error state
+      function showError(message) {
+        newsletterInput.classList.add('error');
+        newsletterInput.style.borderColor = '#ef4444';
+        newsletterInput.placeholder = message;
+        
+        // Add error message
+        let errorMsg = newsletterInput.parentNode.querySelector('.error-message');
+        if (!errorMsg) {
+          errorMsg = document.createElement('div');
+          errorMsg.className = 'error-message';
+          errorMsg.style.color = '#ef4444';
+          errorMsg.style.fontSize = '0.875rem';
+          errorMsg.style.marginTop = '0.5rem';
+          newsletterInput.parentNode.appendChild(errorMsg);
+        }
+        errorMsg.textContent = message;
+        
+        setTimeout(() => {
+          newsletterInput.classList.remove('error');
+          newsletterInput.style.borderColor = '';
+          newsletterInput.placeholder = 'Email của bạn...';
+          if (errorMsg) errorMsg.remove();
+        }, 5000);
+      }
+      
+      // Show success state
+      function showSuccess() {
+        newsletterForm.style.display = 'none';
+        newsletterSuccess.style.display = 'block';
+        
+        // Track successful signup
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'newsletter_signup_success', {
+            event_category: 'engagement',
+            event_label: 'homepage_newsletter'
+          });
+        }
+        
+        // Store in localStorage to prevent re-subscription
+        localStorage.setItem('newsletter-subscribed', 'true');
+        localStorage.setItem('newsletter-email', newsletterInput.value);
+      }
+      
+      // Loading state
+      function setLoading(loading) {
+        newsletterBtn.disabled = loading;
+        if (loading) {
+          btnText.style.display = 'none';
+          btnLoading.style.display = 'inline-flex';
+          newsletterBtn.classList.add('loading');
         } else {
-          sunIcon.style.display = 'block';
-          moonIcon.style.display = 'none';
+          btnText.style.display = 'inline';
+          btnLoading.style.display = 'none';
+          newsletterBtn.classList.remove('loading');
         }
       }
       
-      updateIcons(savedTheme);
+      // Check if already subscribed
+      function checkExistingSubscription() {
+        const isSubscribed = localStorage.getItem('newsletter-subscribed') === 'true';
+        const savedEmail = localStorage.getItem('newsletter-email');
+        
+        if (isSubscribed && savedEmail) {
+          newsletterInput.value = savedEmail;
+          newsletterInput.disabled = true;
+          newsletterBtn.textContent = 'Đã đăng ký';
+          newsletterBtn.disabled = true;
+          newsletterBtn.style.background = '#10b981';
+        }
+      }
       
-      // Toggle theme on click
-      themeToggle.addEventListener('click', function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      // Submit handler
+      async function handleNewsletterSubmit(e) {
+        e.preventDefault();
         
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateIcons(newTheme);
+        const email = newsletterInput.value.trim();
         
-        // Add ripple effect
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple');
-        themeToggle.appendChild(ripple);
+        // Validation
+        if (!email) {
+          showError('Vui lòng nhập email của bạn');
+          return;
+        }
         
-        setTimeout(() => {
-          ripple.remove();
-        }, 600);
-      });
-    })();
-
-    // Newsletter functionality
-    (function() {
-      const newsletterBtn = document.querySelector('.newsletter-btn');
-      const newsletterInput = document.querySelector('.newsletter-input');
-      
-      if (newsletterBtn && newsletterInput) {
-        newsletterBtn.addEventListener('click', function() {
-          const email = newsletterInput.value.trim();
+        if (!isValidEmail(email)) {
+          showError('Vui lòng nhập email hợp lệ');
+          return;
+        }
+        
+        // Check for duplicate subscription
+        if (localStorage.getItem('newsletter-subscribed') === 'true') {
+          showError('Email này đã được đăng ký rồi');
+          return;
+        }
+        
+        setLoading(true);
+        
+        try {
+          // Simulate API call - Replace with actual service
+          const response = await simulateNewsletterSignup(email);
           
-          if (email && isValidEmail(email)) {
-            // Simulate newsletter signup
-            newsletterBtn.textContent = 'Đang đăng ký...';
-            newsletterBtn.disabled = true;
-            
-            setTimeout(() => {
-              newsletterBtn.textContent = 'Đã đăng ký!';
-              newsletterBtn.style.background = '#10b981';
-              newsletterInput.value = '';
-              
-              setTimeout(() => {
-                newsletterBtn.textContent = 'Đăng ký';
-                newsletterBtn.disabled = false;
-                newsletterBtn.style.background = '';
-              }, 2000);
-            }, 1000);
+          if (response.success) {
+            showSuccess();
           } else {
-            // Show error state
-            newsletterInput.style.borderColor = '#ef4444';
-            newsletterInput.placeholder = 'Vui lòng nhập email hợp lệ';
-            
-            setTimeout(() => {
-              newsletterInput.style.borderColor = '';
-              newsletterInput.placeholder = 'Email của bạn...';
-            }, 3000);
+            throw new Error(response.message || 'Có lỗi xảy ra');
           }
+        } catch (error) {
+          console.error('Newsletter signup error:', error);
+          showError('Có lỗi xảy ra, vui lòng thử lại sau');
+        } finally {
+          setLoading(false);
+        }
+      }
+      
+      // Simulate newsletter signup (Replace with actual service)
+      function simulateNewsletterSignup(email) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            // Simulate success/failure
+            const success = Math.random() > 0.1; // 90% success rate
+            resolve({
+              success,
+              message: success ? 'Đăng ký thành công' : 'Email không hợp lệ'
+            });
+          }, 1500);
         });
       }
       
-      function isValidEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      // Real service integration examples:
+      
+      // Mailchimp integration
+      async function mailchimpSignup(email) {
+        const MAILCHIMP_API_KEY = 'your-api-key';
+        const MAILCHIMP_LIST_ID = 'your-list-id';
+        const MAILCHIMP_SERVER = 'us1'; // Replace with your server
+        
+        try {
+          const response = await fetch(`https://${MAILCHIMP_SERVER}.api.mailchimp.com/3.0/lists/${MAILCHIMP_LIST_ID}/members`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `apikey ${MAILCHIMP_API_KEY}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              email_address: email,
+              status: 'subscribed',
+              merge_fields: {
+                FNAME: '',
+                LNAME: ''
+              }
+            })
+          });
+          
+          if (response.ok) {
+            return { success: true };
+          } else {
+            const error = await response.json();
+            return { success: false, message: error.detail };
+          }
+        } catch (error) {
+          return { success: false, message: 'Network error' };
+        }
       }
+      
+      // EmailJS integration (No backend required)
+      function emailJSSignup(email) {
+        // Initialize EmailJS with your credentials
+        emailjs.init('your-user-id');
+        
+        return emailjs.send('service_id', 'template_id', {
+          email: email,
+          website: 'Blog Lập Trình Mạng'
+        });
+      }
+      
+      // Event listeners
+      newsletterBtn.addEventListener('click', handleNewsletterSubmit);
+      
+      newsletterInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          handleNewsletterSubmit(e);
+        }
+      });
+      
+      // Real-time validation
+      newsletterInput.addEventListener('input', (e) => {
+        const email = e.target.value.trim();
+        if (email && !isValidEmail(email)) {
+          e.target.classList.add('invalid');
+        } else {
+          e.target.classList.remove('invalid');
+        }
+      });
+      
+      // Initialize
+      checkExistingSubscription();
+      
+      // Analytics tracking
+      newsletterInput.addEventListener('focus', () => {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'newsletter_focus', {
+            event_category: 'engagement',
+            event_label: 'homepage_newsletter'
+          });
+        }
+      });
     })();
 
     // Smooth scrolling for anchor links
@@ -503,7 +1100,7 @@
         }
       ];
       
-      function searchPosts(query) {
+      function searchPosts(query, showSuggestions = true) {
         console.log('Searching for:', query);
         
         if (!query.trim()) {
@@ -511,11 +1108,21 @@
           return;
         }
         
-        // Show loading state
+        // Show search results container
+        searchResults.style.display = 'block';
+        console.log('Search results container shown');
+        
+        // Show skeleton loading first
+        const skeletonEl = searchResults.querySelector('.search-skeleton');
         const loadingEl = searchResults.querySelector('.search-loading');
-        if (loadingEl) {
-          loadingEl.style.display = 'flex';
+        const noResultsEl = searchResults.querySelector('.search-no-results');
+        
+        if (skeletonEl) {
+          skeletonEl.style.display = 'block';
+          console.log('Skeleton loading shown');
         }
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (noResultsEl) noResultsEl.style.display = 'none';
         
         // Normalize Vietnamese text and remove special characters
         function normalizeText(text) {
@@ -536,49 +1143,64 @@
           const results = blogPosts.filter(post => {
             const searchText = normalizeText(post.title + ' ' + post.excerpt + ' ' + post.tags.join(' '));
             
-            // Split query into words for better matching
-            const queryWords = normalizedQuery.split(' ').filter(word => word.length > 0);
-            
-            // Check if all query words are found in the search text
-            const isMatch = queryWords.every(word => searchText.includes(word));
-            
-            console.log('Post:', post.title);
-            console.log('Search text:', searchText);
-            console.log('Query words:', queryWords);
-            console.log('Match:', isMatch);
-            return isMatch;
+            // For autocomplete, check if query is contained in search text
+            if (showSuggestions) {
+              return searchText.includes(normalizedQuery);
+            } else {
+              // For full search, split query into words for better matching
+              const queryWords = normalizedQuery.split(' ').filter(word => word.length > 0);
+              return queryWords.every(word => searchText.includes(word));
+            }
           });
           
-          // Hide loading state
-          if (loadingEl) {
-            loadingEl.style.display = 'none';
-          }
+          // Hide skeleton and show results
+          if (skeletonEl) skeletonEl.style.display = 'none';
+          if (loadingEl) loadingEl.style.display = 'none';
           
           console.log('Search results:', results);
-          displaySearchResults(results, query);
-        }, 200);
+          console.log('Displaying results...');
+          displaySearchResults(results, query, showSuggestions);
+        }, showSuggestions ? 100 : 200);
       }
       
-      function displaySearchResults(results, query) {
-        console.log('Displaying results:', results.length);
+      function displaySearchResults(results, query, showSuggestions = true) {
+        console.log('Displaying results:', results.length, 'showSuggestions:', showSuggestions);
         
         if (results.length === 0) {
-          searchResults.innerHTML = `
-            <div class="search-no-results">
-              <div style="text-align: center; padding: 20px;">
-                <div style="font-size: 24px; margin-bottom: 8px;">🔍</div>
-                <div>Không tìm thấy bài viết nào cho "${query}"</div>
-                <div style="font-size: 12px; margin-top: 8px; opacity: 0.7;">
-                  Thử tìm kiếm với từ khóa khác
-                </div>
-              </div>
-            </div>
-          `;
+          console.log('No results found, showing no results message');
+          const noResultsEl = searchResults.querySelector('.search-no-results');
+          if (noResultsEl) {
+            noResultsEl.style.display = 'block';
+            const noResultsTextEl = noResultsEl.querySelector('.no-results-text');
+            if (noResultsTextEl) {
+              noResultsTextEl.textContent = showSuggestions ? 
+                `Không tìm thấy bài viết nào chứa "${query}"` : 
+                `Hãy thử từ khóa khác hoặc kiểm tra chính tả`;
+            }
+          }
         } else {
-          searchResults.innerHTML = results.map(post => `
+          console.log('Found results, creating results container');
+          // Hide no results message
+          const noResultsEl = searchResults.querySelector('.search-no-results');
+          if (noResultsEl) noResultsEl.style.display = 'none';
+          
+          // Create results container if it doesn't exist
+          let resultsContainer = searchResults.querySelector('.search-results-container');
+          if (!resultsContainer) {
+            console.log('Creating new results container');
+            resultsContainer = document.createElement('div');
+            resultsContainer.className = 'search-results-container';
+            searchResults.appendChild(resultsContainer);
+          }
+          
+          // Limit results for suggestions
+          const displayResults = showSuggestions ? results.slice(0, 5) : results;
+          
+          console.log('Rendering results HTML');
+          resultsContainer.innerHTML = displayResults.map(post => `
             <div class="search-result-item" onclick="window.location.href='${post.url}'">
               <div class="search-result-thumbnail">
-                <div style="width: 100%; height: 100%; background: var(--light-bg); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 20px;">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 20px;">
                   📄
                 </div>
               </div>
@@ -595,10 +1217,20 @@
               </div>
             </div>
           `).join('');
+          
+          // Add "View all results" link for suggestions
+          if (showSuggestions && results.length > 5) {
+            resultsContainer.innerHTML += `
+              <div class="search-view-all" onclick="searchPosts('${query}', false)">
+                <div style="padding: 15px 20px; text-align: center; color: #667eea; font-weight: 600; cursor: pointer; border-top: 1px solid rgba(0,0,0,0.1);">
+                  Xem tất cả ${results.length} kết quả cho "${query}"
+                </div>
+              </div>
+            `;
+          }
+          
+          console.log('Results HTML rendered successfully');
         }
-        
-        searchResults.style.display = 'block';
-        console.log('Search results displayed');
       }
       
       function highlightText(text, query) {
@@ -650,11 +1282,49 @@
         return `${beforeMatch}<mark style="background-color: rgba(255, 255, 0, 0.3); padding: 2px 4px; border-radius: 3px;">${match}</mark>${afterMatch}`;
       }
       
-      function hideSearchResults() {
-        setTimeout(() => {
-          searchResults.style.display = 'none';
-        }, 200);
+      // Enhanced error handling for search
+      function handleSearchError(error, query) {
+        console.error('Search error:', error);
+        
+        const searchResults = document.getElementById('search-results');
+        if (!searchResults) return;
+        
+        // Hide loading states
+        const skeletonEl = searchResults.querySelector('.search-skeleton');
+        const loadingEl = searchResults.querySelector('.search-loading');
+        const noResultsEl = searchResults.querySelector('.search-no-results');
+        
+        if (skeletonEl) skeletonEl.style.display = 'none';
+        if (loadingEl) loadingEl.style.display = 'none';
+        
+        // Show error message
+        searchResults.innerHTML = `
+          <div class="search-error">
+            <div class="error-icon">⚠️</div>
+            <div class="error-title">Lỗi tìm kiếm</div>
+            <div class="error-message">Không thể tìm kiếm "${query}". Vui lòng thử lại sau.</div>
+            <button class="error-retry-btn" onclick="retrySearch()">Thử lại</button>
+          </div>
+        `;
+        searchResults.style.display = 'block';
+        
+        // Track error
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'search_error', {
+            'event_category': 'Search',
+            'event_label': query,
+            'value': 1
+          });
+        }
       }
+      
+      // Retry search function
+      window.retrySearch = function() {
+        const searchInput = document.getElementById('search-input');
+        if (searchInput && searchInput.value.trim()) {
+          searchPosts(searchInput.value.trim());
+        }
+      };
       
       // Debug function
       function debugSearch() {
@@ -664,6 +1334,18 @@
           searchResults: !!searchResults,
           blogPosts: blogPosts.length
         });
+        
+        if (searchInput) {
+          console.log('Search input element:', searchInput);
+          console.log('Search input placeholder:', searchInput.placeholder);
+        }
+        
+        if (searchResults) {
+          console.log('Search results element:', searchResults);
+          console.log('Search results style:', searchResults.style.display);
+        }
+        
+        console.log('Blog posts data:', blogPosts);
       }
       
       // Initialize search
@@ -675,7 +1357,7 @@
         
         // Event listeners
         searchInput.addEventListener('input', function() {
-          console.log('Search input:', this.value);
+          console.log('Search input event triggered:', this.value);
           clearTimeout(searchTimeout);
           
           if (this.value.trim().length === 0) {
@@ -683,29 +1365,35 @@
             return;
           }
           
-          searchTimeout = setTimeout(() => {
-            searchPosts(this.value);
-          }, 300);
+          // Show suggestions immediately for autocomplete
+          if (this.value.trim().length >= 1) {
+            searchTimeout = setTimeout(() => {
+              console.log('Executing autocomplete search for:', this.value);
+              searchPosts(this.value, true); // true = show suggestions
+            }, 150); // Faster response for autocomplete
+          }
         });
         
         // Show search suggestions when focused
         searchInput.addEventListener('focus', function() {
           if (this.value.trim().length > 0) {
-            searchPosts(this.value);
+            searchPosts(this.value, true); // Show suggestions
           }
         });
         
-        searchBtn.addEventListener('click', function() {
+        searchBtn.addEventListener('click', function(e) {
+          e.preventDefault();
           console.log('Search button clicked');
           clearTimeout(searchTimeout);
-          searchPosts(searchInput.value);
+          searchPosts(searchInput.value, false); // Full search
         });
         
         searchInput.addEventListener('keypress', function(e) {
           if (e.key === 'Enter') {
+            e.preventDefault();
             console.log('Enter pressed');
             clearTimeout(searchTimeout);
-            searchPosts(this.value);
+            searchPosts(this.value, false); // Full search
           }
         });
         
@@ -723,8 +1411,81 @@
           }
         });
       } else {
-        console.error('Search elements not found!');
+        console.error('Search elements not found!', {
+          searchInput: !!searchInput,
+          searchBtn: !!searchBtn,
+          searchResults: !!searchResults
+        });
       }
+      
+      // Global debug functions
+      window.debugSearchElements = function() {
+        debugSearch();
+      };
+      
+      window.forceShowResults = function() {
+        console.log('Force showing search results...');
+        const searchResults = document.getElementById('search-results');
+        if (searchResults) {
+          searchResults.style.display = 'block';
+          searchResults.innerHTML = `
+            <div class="search-result-item" style="padding: 20px; border-bottom: 1px solid #eee;">
+              <div class="search-result-thumbnail" style="width: 60px; height: 60px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">📄</div>
+              <div class="search-result-content" style="flex: 1; margin-left: 15px;">
+                <div class="search-result-title" style="font-weight: 700; color: #1a202c; margin-bottom: 8px;">Test Result Title</div>
+                <div class="search-result-excerpt" style="color: #4a5568; font-size: 0.9rem;">This is a test search result to verify the display is working.</div>
+                <div class="search-result-meta" style="margin-top: 8px; font-size: 0.8rem; color: #667eea;">📖 3 tags • java • javascript • test</div>
+              </div>
+            </div>
+          `;
+          console.log('Force results shown');
+        } else {
+          console.error('Search results container not found!');
+        }
+      };
+      
+      console.log('Search functionality initialized successfully');
+      
+      // Test search function
+      window.testSearch = function() {
+        console.log('Testing search functionality...');
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+          searchInput.value = 'java';
+          searchPosts('java', true); // Test suggestions
+        }
+      };
+      
+      // Test autocomplete function
+      window.testAutocomplete = function() {
+        console.log('Testing autocomplete...');
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+          searchInput.value = 'j';
+          searchPosts('j', true); // Test single character
+        }
+      };
+      
+      // Simple test to show search results container
+      window.showSearchContainer = function() {
+        console.log('Showing search container...');
+        const searchResults = document.getElementById('search-results');
+        if (searchResults) {
+          searchResults.style.display = 'block';
+          searchResults.innerHTML = '<div style="padding: 20px; text-align: center; color: #1a202c;">Test search results container is working!</div>';
+          console.log('Search container shown');
+        } else {
+          console.error('Search results container not found!');
+        }
+      };
+      
+      // Auto-test after page load
+      setTimeout(() => {
+        console.log('Auto-testing autocomplete in 2 seconds...');
+        setTimeout(() => {
+          window.testAutocomplete();
+        }, 2000);
+      }, 1000);
     })();
     
     // Service Worker Registration
@@ -740,56 +1501,153 @@
       });
     }
     
-    // Enhanced Lazy Loading with Intersection Observer
+    // Posts Filtering and Sorting
     (function() {
-      if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const img = entry.target;
-              if (img.dataset.src) {
-                // Add loading state
-                img.classList.add('loading-skeleton');
-                
-                // Create new image to preload
-                const newImg = new Image();
-                newImg.onload = function() {
-                  img.src = this.src;
-                  img.classList.remove('lazy-image-placeholder', 'loading-skeleton');
-                  img.classList.add('loaded');
-                };
-                newImg.onerror = function() {
-                  img.classList.remove('loading-skeleton');
-                  img.classList.add('error-state');
-                };
-                newImg.src = img.dataset.src;
-                
-                observer.unobserve(img);
-              }
-            }
-          });
-        }, {
-          rootMargin: '100px 0px',
-          threshold: 0.01
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const sortSelect = document.getElementById('sort-select');
+      const postsGrid = document.getElementById('posts-grid');
+      const allPosts = Array.from(document.querySelectorAll('.post-card'));
+      
+      let currentFilter = 'all';
+      let currentSort = 'newest';
+      
+      function filterPosts() {
+        allPosts.forEach(post => {
+          const categories = post.dataset.categories.toLowerCase();
+          const matchesFilter = currentFilter === 'all' || categories.includes(currentFilter);
+          
+          if (matchesFilter) {
+            post.style.display = 'block';
+            post.classList.add('animate-in');
+          } else {
+            post.style.display = 'none';
+            post.classList.remove('animate-in');
+          }
         });
         
-        // Observe all lazy images
-        document.querySelectorAll('img[data-src]').forEach(img => {
-          imageObserver.observe(img);
+        sortPosts();
+      }
+      
+      function sortPosts() {
+        const visiblePosts = allPosts.filter(post => post.style.display !== 'none');
+        
+        visiblePosts.sort((a, b) => {
+          switch(currentSort) {
+            case 'newest':
+              return new Date(b.dataset.date) - new Date(a.dataset.date);
+            case 'oldest':
+              return new Date(a.dataset.date) - new Date(b.dataset.date);
+            case 'reading-time':
+              return parseInt(a.dataset.readingTime) - parseInt(b.dataset.readingTime);
+            case 'popular':
+              const aViews = parseInt(a.querySelector('.view-count').textContent);
+              const bViews = parseInt(b.querySelector('.view-count').textContent);
+              return bViews - aViews;
+            default:
+              return 0;
+          }
+        });
+        
+        // Reorder posts in DOM
+        visiblePosts.forEach((post, index) => {
+          postsGrid.appendChild(post);
+          // Add staggered animation
+          setTimeout(() => {
+            post.style.opacity = '1';
+            post.style.transform = 'translateY(0)';
+          }, index * 100);
         });
       }
       
-      // Preload critical resources
-      const criticalResources = [
-        '/css/main.css'
-      ];
+      // Event listeners
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.dataset.filter;
+          filterPosts();
+        });
+      });
       
-      criticalResources.forEach(resource => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.href = resource;
-        link.as = resource.endsWith('.css') ? 'style' : 'image';
-        document.head.appendChild(link);
+      sortSelect.addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        sortPosts();
+      });
+    })();
+
+    // Social Sharing
+    (function() {
+      document.addEventListener('click', function(e) {
+        if (e.target.closest('.share-btn')) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const shareBtn = e.target.closest('.share-btn');
+          const platform = shareBtn.classList.contains('facebook') ? 'facebook' :
+                          shareBtn.classList.contains('twitter') ? 'twitter' :
+                          shareBtn.classList.contains('linkedin') ? 'linkedin' : null;
+          
+          const url = shareBtn.dataset.url;
+          const title = shareBtn.dataset.title;
+          
+          if (platform && url && title) {
+            shareToSocial(platform, url, title);
+          }
+        }
+      });
+
+      function shareToSocial(platform, url, title) {
+        const encodedUrl = encodeURIComponent(url);
+        const encodedTitle = encodeURIComponent(title);
+        const encodedText = encodeURIComponent(`${title} - Blog Lập Trình Mạng`);
+        
+        let shareUrl = '';
+        
+        switch(platform) {
+          case 'facebook':
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+            break;
+          case 'twitter':
+            shareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`;
+            break;
+          case 'linkedin':
+            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+            break;
+        }
+        
+        if (shareUrl) {
+          window.open(shareUrl, '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
+          
+          // Track sharing event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'share', {
+              method: platform,
+              content_type: 'blog_post',
+              item_id: url
+            });
+          }
+        }
+      }
+    })();
+
+    // Enhanced Post Card Animations
+    (function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all post cards
+      document.querySelectorAll('.post-card').forEach(post => {
+        observer.observe(post);
       });
     })();
 
@@ -824,6 +1682,637 @@
           console.log('CLS:', clsValue);
         }).observe({ entryTypes: ['layout-shift'] });
       }
+    })();
+
+    // Statistics Counter Animation
+    (function() {
+      const statNumbers = document.querySelectorAll('.stat-number');
+      
+      const animateCounter = (element) => {
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          element.textContent = Math.floor(current);
+        }, 16);
+      };
+      
+      // Intersection Observer for stats animation
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const statNumber = entry.target.querySelector('.stat-number');
+            if (statNumber && !statNumber.classList.contains('animated')) {
+              statNumber.classList.add('animated');
+              animateCounter(statNumber);
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      document.querySelectorAll('.stat-card').forEach(card => {
+        statsObserver.observe(card);
+      });
+    })();
+
+    // Reading Progress Bar
+    (function() {
+      const progressBar = document.getElementById('progress-bar');
+      const readingProgress = document.getElementById('reading-progress');
+      
+      if (progressBar && readingProgress) {
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.pageYOffset;
+          const docHeight = document.body.scrollHeight - window.innerHeight;
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          
+          progressBar.style.width = scrollPercent + '%';
+          
+          // Show/hide progress bar
+          if (scrollTop > 100) {
+            readingProgress.classList.add('visible');
+          } else {
+            readingProgress.classList.remove('visible');
+          }
+        });
+      }
+    })();
+
+    // Scroll to Top Button
+    (function() {
+      const scrollToTopBtn = document.getElementById('scroll-to-top');
+      
+      if (scrollToTopBtn) {
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('visible');
+          } else {
+            scrollToTopBtn.classList.remove('visible');
+          }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    })();
+
+    // Scroll Progress Indicator
+    (function() {
+      const scrollProgressIndicator = document.getElementById('scroll-progress');
+      const scrollProgressBar = document.getElementById('scroll-progress-bar');
+      
+      if (!scrollProgressIndicator || !scrollProgressBar) return;
+      
+      function updateScrollProgress() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        
+        scrollProgressBar.style.width = scrollPercent + '%';
+        
+        // Show/hide indicator based on scroll position
+        if (scrollTop > 100) {
+          scrollProgressIndicator.classList.add('visible');
+        } else {
+          scrollProgressIndicator.classList.remove('visible');
+        }
+      }
+      
+      // Throttle scroll events for better performance
+      let ticking = false;
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateScrollProgress);
+          ticking = true;
+        }
+      }
+      
+      function handleScroll() {
+        ticking = false;
+        requestTick();
+      }
+      
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      
+      // Initialize
+      updateScrollProgress();
+    })();
+
+    // Newsletter Popup with Exit Intent
+    (function() {
+      let hasShownPopup = false;
+      let exitIntentTriggered = false;
+      
+      // Check if user has already seen the popup
+      if (localStorage.getItem('newsletter-popup-shown') === 'true') {
+        hasShownPopup = true;
+      }
+      
+      // Exit intent detection
+      document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0 && !hasShownPopup && !exitIntentTriggered) {
+          exitIntentTriggered = true;
+          showNewsletterPopup();
+        }
+      });
+      
+      // Show popup after 30 seconds if not shown yet
+      setTimeout(() => {
+        if (!hasShownPopup && !exitIntentTriggered) {
+          showNewsletterPopup();
+        }
+      }, 30000);
+      
+      function showNewsletterPopup() {
+        const popup = document.createElement('div');
+        popup.className = 'newsletter-popup-overlay';
+        popup.innerHTML = `
+          <div class="newsletter-popup">
+            <button class="popup-close" aria-label="Đóng popup">×</button>
+            <div class="popup-content">
+              <div class="popup-icon">📧</div>
+              <h3>Đừng bỏ lỡ bài viết mới!</h3>
+              <p>Đăng ký nhận thông báo khi có bài viết mới về lập trình</p>
+              <div class="popup-form">
+                <input type="email" placeholder="Email của bạn..." class="popup-email-input">
+                <button class="popup-submit-btn">Đăng ký ngay</button>
+              </div>
+              <p class="popup-note">Không spam, có thể hủy đăng ký bất kỳ lúc nào</p>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(popup);
+        
+        // Close popup handlers
+        popup.querySelector('.popup-close').addEventListener('click', () => {
+          closePopup();
+        });
+        
+        popup.addEventListener('click', (e) => {
+          if (e.target === popup) {
+            closePopup();
+          }
+        });
+        
+        // Submit handler
+        popup.querySelector('.popup-submit-btn').addEventListener('click', () => {
+          const email = popup.querySelector('.popup-email-input').value.trim();
+          if (email && isValidEmail(email)) {
+            // Simulate subscription
+            popup.querySelector('.popup-submit-btn').textContent = 'Đang đăng ký...';
+            setTimeout(() => {
+              popup.querySelector('.popup-submit-btn').textContent = 'Đã đăng ký!';
+              popup.querySelector('.popup-submit-btn').style.background = '#10b981';
+              setTimeout(() => {
+                closePopup();
+              }, 2000);
+            }, 1000);
+          }
+        });
+        
+        function closePopup() {
+          popup.remove();
+          localStorage.setItem('newsletter-popup-shown', 'true');
+          hasShownPopup = true;
+        }
+      }
+      
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+    })();
+
+    // Analytics Tracking (Google Analytics 4)
+    (function() {
+      // Replace with your GA4 measurement ID
+      const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+      
+      if (GA_MEASUREMENT_ID && GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
+        // Load Google Analytics
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GA_MEASUREMENT_ID);
+        
+        // Track custom events
+        gtag('event', 'page_view', {
+          page_title: document.title,
+          page_location: window.location.href
+        });
+        
+        // Track newsletter signup
+        document.addEventListener('click', (e) => {
+          if (e.target.classList.contains('newsletter-btn') || 
+              e.target.classList.contains('popup-submit-btn')) {
+            gtag('event', 'newsletter_signup', {
+              event_category: 'engagement',
+              event_label: 'homepage'
+            });
+          }
+        });
+        
+        // Track search usage
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+          searchInput.addEventListener('input', (e) => {
+            if (e.target.value.length > 2) {
+              gtag('event', 'search', {
+                search_term: e.target.value,
+                event_category: 'engagement'
+              });
+            }
+          });
+        }
+      }
+    })();
+
+    // Enhanced Search and Filtering System
+    (function() {
+      // Search functionality
+      const searchInput = document.getElementById('search-input');
+      const searchClear = document.getElementById('search-clear');
+      const searchSuggestions = document.getElementById('search-suggestions');
+      const searchStats = document.getElementById('search-stats');
+      const resultsCount = document.getElementById('results-count');
+      const searchTime = document.getElementById('search-time');
+      
+      // Filter elements
+      const filterOptions = document.querySelectorAll('.filter-option');
+      const sortButtons = document.querySelectorAll('.sort-btn');
+      const clearFiltersBtn = document.getElementById('clear-filters');
+      const applyFiltersBtn = document.getElementById('apply-filters');
+      const filtersToggle = document.getElementById('filters-toggle');
+      const filtersContent = document.getElementById('filters-content');
+      
+      // Posts grid
+      const postsGrid = document.getElementById('posts-grid');
+      const allPosts = Array.from(document.querySelectorAll('.post-card'));
+      
+      // Search data
+      let searchData = [];
+      let currentFilters = {
+        category: 'all',
+        readingTime: 'all',
+        difficulty: 'all',
+        date: 'all'
+      };
+      let currentSort = 'newest';
+      let searchQuery = '';
+      
+      // Initialize search data
+      function initializeSearchData() {
+        searchData = allPosts.map(post => {
+          const title = post.querySelector('h3')?.textContent || '';
+          const excerpt = post.querySelector('.post-excerpt')?.textContent || '';
+          const categories = post.dataset.categories?.split(' ') || [];
+          const readingTime = parseInt(post.dataset.readingTime) || 0;
+          const date = post.dataset.date || '';
+          const tags = post.querySelectorAll('.post-tag')?.textContent || '';
+          
+          return {
+            element: post,
+            title: title.toLowerCase(),
+            excerpt: excerpt.toLowerCase(),
+            categories: categories,
+            readingTime: readingTime,
+            date: date,
+            tags: tags.toLowerCase(),
+            fullText: `${title} ${excerpt} ${tags}`.toLowerCase()
+          };
+        });
+      }
+      
+      // Search functionality
+      function performSearch(query) {
+        const startTime = performance.now();
+        searchQuery = query.toLowerCase().trim();
+        
+        if (!searchQuery) {
+          showAllPosts();
+          return;
+        }
+        
+        const filteredPosts = searchData.filter(post => {
+          return post.fullText.includes(searchQuery) ||
+                 post.title.includes(searchQuery) ||
+                 post.excerpt.includes(searchQuery) ||
+                 post.tags.includes(searchQuery) ||
+                 post.categories.some(cat => cat.toLowerCase().includes(searchQuery));
+        });
+        
+        const endTime = performance.now();
+        const searchDuration = Math.round(endTime - startTime);
+        
+        displaySearchResults(filteredPosts, searchDuration);
+        updateSearchStats(filteredPosts.length, searchDuration);
+      }
+      
+      // Display search results
+      function displaySearchResults(posts, duration) {
+        // Hide all posts first
+        allPosts.forEach(post => {
+          post.style.display = 'none';
+          post.classList.remove('search-highlight');
+        });
+        
+        // Show matching posts
+        posts.forEach(post => {
+          post.style.display = 'block';
+          post.classList.add('search-highlight');
+          
+          // Highlight search terms
+          highlightSearchTerms(post.element, searchQuery);
+        });
+        
+        // Update results count
+        resultsCount.textContent = posts.length;
+        searchTime.textContent = `Tìm thấy trong ${duration}ms`;
+      }
+      
+      // Highlight search terms
+      function highlightSearchTerms(element, query) {
+        if (!query) return;
+        
+        const title = element.querySelector('h3');
+        const excerpt = element.querySelector('.post-excerpt');
+        
+        [title, excerpt].forEach(el => {
+          if (el) {
+            const text = el.textContent;
+            const regex = new RegExp(`(${query})`, 'gi');
+            const highlightedText = text.replace(regex, '<mark class="search-highlight">$1</mark>');
+            el.innerHTML = highlightedText;
+          }
+        });
+      }
+      
+      // Show all posts
+      function showAllPosts() {
+        allPosts.forEach(post => {
+          post.style.display = 'block';
+          post.classList.remove('search-highlight');
+        });
+        resultsCount.textContent = allPosts.length;
+        searchTime.textContent = '';
+      }
+      
+      // Update search stats
+      function updateSearchStats(count, duration) {
+        searchStats.style.display = 'flex';
+        resultsCount.textContent = count;
+        searchTime.textContent = `Tìm thấy trong ${duration}ms`;
+      }
+      
+      // Advanced filtering
+      function applyFilters() {
+        let filteredPosts = [...allPosts];
+        
+        // Apply search filter
+        if (searchQuery) {
+          filteredPosts = filteredPosts.filter(post => {
+            const postData = searchData.find(p => p.element === post);
+            return postData && postData.fullText.includes(searchQuery);
+          });
+        }
+        
+        // Apply category filter
+        if (currentFilters.category !== 'all') {
+          filteredPosts = filteredPosts.filter(post => {
+            const categories = post.dataset.categories?.split(' ') || [];
+            return categories.includes(currentFilters.category);
+          });
+        }
+        
+        // Apply reading time filter
+        if (currentFilters.readingTime !== 'all') {
+          filteredPosts = filteredPosts.filter(post => {
+            const readingTime = parseInt(post.dataset.readingTime) || 0;
+            switch (currentFilters.readingTime) {
+              case 'quick': return readingTime < 5;
+              case 'medium': return readingTime >= 5 && readingTime <= 15;
+              case 'long': return readingTime > 15;
+              default: return true;
+            }
+          });
+        }
+        
+        // Apply date filter
+        if (currentFilters.date !== 'all') {
+          const now = new Date();
+          filteredPosts = filteredPosts.filter(post => {
+            const postDate = new Date(post.dataset.date);
+            switch (currentFilters.date) {
+              case 'week':
+                const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                return postDate >= weekAgo;
+              case 'month':
+                const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+                return postDate >= monthAgo;
+              case 'year':
+                const yearAgo = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
+                return postDate >= yearAgo;
+              default: return true;
+            }
+          });
+        }
+        
+        // Apply sorting
+        applySorting(filteredPosts);
+        
+        // Display results
+        displayFilteredResults(filteredPosts);
+        updateSearchStats(filteredPosts.length, 0);
+      }
+      
+      // Apply sorting
+      function applySorting(posts) {
+        posts.sort((a, b) => {
+          switch (currentSort) {
+            case 'newest':
+              return new Date(b.dataset.date) - new Date(a.dataset.date);
+            case 'oldest':
+              return new Date(a.dataset.date) - new Date(b.dataset.date);
+            case 'reading-time':
+              return parseInt(a.dataset.readingTime) - parseInt(b.dataset.readingTime);
+            case 'alphabetical':
+              const titleA = a.querySelector('h3')?.textContent || '';
+              const titleB = b.querySelector('h3')?.textContent || '';
+              return titleA.localeCompare(titleB);
+            case 'popular':
+              // Mock popularity based on reading time and date
+              const scoreA = parseInt(a.dataset.readingTime) + (new Date(a.dataset.date).getTime() / 1000000);
+              const scoreB = parseInt(b.dataset.readingTime) + (new Date(b.dataset.date).getTime() / 1000000);
+              return scoreB - scoreA;
+            default:
+              return 0;
+          }
+        });
+      }
+      
+      // Display filtered results
+      function displayFilteredResults(posts) {
+        // Hide all posts
+        allPosts.forEach(post => {
+          post.style.display = 'none';
+        });
+        
+        // Show filtered posts
+        posts.forEach(post => {
+          post.style.display = 'block';
+        });
+        
+        // Reorder posts in DOM
+        posts.forEach((post, index) => {
+          postsGrid.appendChild(post);
+        });
+      }
+      
+      // Clear all filters
+      function clearAllFilters() {
+        // Reset filter buttons
+        filterOptions.forEach(option => {
+          option.classList.remove('active');
+          if (option.dataset.value === 'all') {
+            option.classList.add('active');
+          }
+        });
+        
+        // Reset sort buttons
+        sortButtons.forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.dataset.sort === 'newest') {
+            btn.classList.add('active');
+          }
+        });
+        
+        // Reset filters
+        currentFilters = {
+          category: 'all',
+          readingTime: 'all',
+          difficulty: 'all',
+          date: 'all'
+        };
+        currentSort = 'newest';
+        
+        // Clear search
+        searchInput.value = '';
+        searchQuery = '';
+        searchSuggestions.innerHTML = '';
+        searchStats.style.display = 'none';
+        
+        // Show all posts
+        showAllPosts();
+      }
+      
+      // Event listeners
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value;
+        performSearch(query);
+        
+        // Show/hide clear button
+        searchClear.style.display = query ? 'block' : 'none';
+      });
+      
+      searchClear.addEventListener('click', () => {
+        searchInput.value = '';
+        searchQuery = '';
+        searchSuggestions.innerHTML = '';
+        searchStats.style.display = 'none';
+        searchClear.style.display = 'none';
+        showAllPosts();
+      });
+      
+      // Filter option clicks
+      filterOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          const filterType = option.dataset.filter;
+          const filterValue = option.dataset.value;
+          
+          // Update active state
+          document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(opt => {
+            opt.classList.remove('active');
+          });
+          option.classList.add('active');
+          
+          // Update current filters
+          currentFilters[filterType] = filterValue;
+        });
+      });
+      
+      // Sort button clicks
+      sortButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active state
+          sortButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          // Update current sort
+          currentSort = btn.dataset.sort;
+        });
+      });
+      
+      // Filter actions
+      clearFiltersBtn.addEventListener('click', clearAllFilters);
+      applyFiltersBtn.addEventListener('click', applyFilters);
+      
+      // Filters toggle
+      filtersToggle.addEventListener('click', () => {
+        const isExpanded = filtersContent.style.display === 'block';
+        filtersContent.style.display = isExpanded ? 'none' : 'block';
+        filtersToggle.querySelector('.toggle-text').textContent = isExpanded ? 'Mở rộng' : 'Thu gọn';
+        filtersToggle.querySelector('.toggle-icon').style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+      
+      // Keyboard shortcuts
+      document.addEventListener('keydown', (e) => {
+        // Ctrl/Cmd + K to focus search
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+        
+        // Escape to clear search
+        if (e.key === 'Escape' && document.activeElement === searchInput) {
+          searchInput.value = '';
+          searchQuery = '';
+          searchStats.style.display = 'none';
+          showAllPosts();
+        }
+      });
+      
+      // Initialize
+      initializeSearchData();
+      
+      // Auto-apply filters on change
+      filterOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          setTimeout(applyFilters, 100);
+        });
+      });
+      
+      sortButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          setTimeout(applyFilters, 100);
+        });
+      });
+      
     })();
   </script>
 {{ end }}

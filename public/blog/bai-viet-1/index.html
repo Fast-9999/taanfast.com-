@@ -49,21 +49,23 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
   <meta property="og:locale" content="vi_vn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2025-09-22T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-09-22T00:00:00+00:00">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="Jvm">
+    <meta property="article:published_time" content="2025-09-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-12T00:00:00+00:00">
+    <meta property="article:tag" content="Java-Core">
     <meta property="article:tag" content="Oop">
-    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Jvm">
+    <meta property="article:tag" content="Class">
+    <meta property="article:tag" content="Javac">
+    <meta property="article:tag" content="Newbie">
 
   <meta itemprop="name" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind">
   <meta itemprop="description" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind Slug: java-jvm-oop-co-ban
 Meta description: Giải mã OOP và JVM (JDK/JRE/JVM), hiểu stack vs heap, GC, primitive vs wrapper và immutable — nền tảng để bạn viết Java vững vàng, ít bị lỗi runtime.
 Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model (stack vs heap, GC) để tránh lỗi runtime và rò rỉ logic. Hiểu nền tảng, code sẽ sạch và dễ duy trì.">
-  <meta itemprop="datePublished" content="2025-09-22T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-09-22T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1314">
-  <meta itemprop="keywords" content="Java,Jvm,Oop,Programming">
+  <meta itemprop="datePublished" content="2025-09-12T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-09-12T00:00:00+00:00">
+  <meta itemprop="wordCount" content="3483">
+  <meta itemprop="keywords" content="Java-Core,Oop,Jvm,Class,Javac,Newbie">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind">
   <meta name="twitter:description" content="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind Slug: java-jvm-oop-co-ban
@@ -80,7 +82,7 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
   
   
   
-  <header class="cover bg-center" style="background-image: url('https://miro.medium.com/0*gtY-llyEbkeoS1Sp.png');">
+  <header class="cover bg-center" style="background-image: url('https://itbeesolutions.vn/wp-content/uploads/2023/03/java-la-gi-tong-quan-ve-ngon-ngu-lap-trinh-java-itbee-solutions.png');">
     <div class="bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l center items-center justify-between">
@@ -151,7 +153,7 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
   
   <section class="mb5 relative hero-section">
     <figure class="w-100 ma0" aria-hidden="true">
-      <img src="https://miro.medium.com/0*gtY-llyEbkeoS1Sp.png" alt="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind" class="db w-100 hero-image">
+      <img src="https://itbeesolutions.vn/wp-content/uploads/2023/03/java-la-gi-tong-quan-ve-ngon-ngu-lap-trinh-java-itbee-solutions.png" alt="Java cơ bản — Từ lớp đến JVM: hiểu để code không blind" class="db w-100 hero-image">
     </figure>
     <div class="absolute left-0 bottom-0 pa4 w-100 hero-overlay">
       <h1 class="f1-ns f2 mv0 white">Java cơ bản — Từ lớp đến JVM: hiểu để code không blind</h1>
@@ -168,9 +170,9 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
           <span class="mr3">✍️ <strong>TaansFast</strong></span>
         
         
-          <time datetime="2025-09-22T00:00:00Z">September 22, 2025</time> ·
+          <time datetime="2025-09-12T00:00:00Z">September 12, 2025</time> ·
         
-        <span>7 minutes read · 1314 words</span>
+        <span>17 minutes read · 3483 words</span>
       </div>
 
       <div class="article-content nested-copy-line-height lh-copy serif f4 nested-links dark-gray">
@@ -212,7 +214,9 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
 </span></span><span style="display:flex;"><span>        a2.<span style="color:#a6e22e">speak</span>(); <span style="color:#75715e">// Meo meo!</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><strong>Ghi nhớ:</strong> <code>interface</code> và <code>abstract class</code> giúp tách giao diện và cài đặt. Polymorphism (upcasting) giúp code mở rộng dễ dàng.</p>
+</span></span></code></pre></div><blockquote>
+<p>🎮 <strong><a href="https://replit.com/languages/java">Try OOP Online</a></strong> - Experiment với inheritance và polymorphism!</p></blockquote>
+<p><strong>Ghi nhớ:</strong> <code>interface</code> và <code>abstract class</code> giúp tách giao diện và cài đặt. Polymorphism (upcasting) giúp code mở rộng dễ dàng.</p>
 <h3 id="diagram-class-relationships">Diagram class relationships</h3>
 <p><img src="/images/hinh12.png" alt="Ảnh của tui"></p>
 <hr>
@@ -249,14 +253,16 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
 <h3 id="ví-dụ-memory-leak-thực-tếs">Ví dụ memory leak thực tếs</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MemoryLeakExample</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">byte</span><span style="color:#f92672">[]&gt;</span> LEAK_LIST <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">processData</span>(<span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> data) {
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Quên không xóa khỏi list → memory leak</span>
 </span></span><span style="display:flex;"><span>        LEAK_LIST.<span style="color:#a6e22e">add</span>(data);
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Giải pháp: cần có cơ chế evict hoặc clear định kỳ</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="ví-dụ-try-with-resources">Ví dụ try-with-resources</h3>
+</span></span></code></pre></div><blockquote>
+<p>🎮 <strong><a href="https://replit.com/languages/java">Try Memory Management Online</a></strong> - Test memory leak examples!</p></blockquote>
+<h3 id="ví-dụ-try-with-resources">Ví dụ try-with-resources</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ResourceManagement</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">readFile</span>(String path) {
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Tự động đóng resource, tránh leak</span>
@@ -291,6 +297,8 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
 <img src="/images/hinh11.png" alt="Ảnh của tui"></p>
 <h3 id="diagram-primitive-vs-wrapper-memory">Diagram Primitive vs Wrapper Memory</h3>
 <p><img src="/images/hinh15.png" alt="Ảnh của tui"></p>
+<blockquote>
+<p>🎮 <strong><a href="https://replit.com/languages/java">Try Primitive vs Wrapper Online</a></strong> - Test autoboxing performance!</p></blockquote>
 <h3 id="performance-benchmark-thực-tế">Performance benchmark thực tế</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PerformanceTest</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
@@ -301,14 +309,14 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
 </span></span><span style="display:flex;"><span>            sum <span style="color:#f92672">+=</span> i;  <span style="color:#75715e">// No boxing</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> primitiveTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Wrapper version - chậm hơn do autoboxing  </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Wrapper version - chậm hơn do autoboxing</span>
 </span></span><span style="display:flex;"><span>        Integer sumWrapper <span style="color:#f92672">=</span> 0;
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 1_000_000; i<span style="color:#f92672">++</span>) {
 </span></span><span style="display:flex;"><span>            sumWrapper <span style="color:#f92672">+=</span> i;  <span style="color:#75715e">// Autoboxing overhead</span>
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> wrapperTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start <span style="color:#f92672">-</span> primitiveTime;
-</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Primitive: %d ns, Wrapper: %d ns%n&#34;</span>, primitiveTime, wrapperTime);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -324,9 +332,733 @@ Giải mã OOP &#43; JVM (JDK/JRE/JVM) — nắm rõ lifecycle và memory model 
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getX</span>() { <span style="color:#66d9ef">return</span> x; }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getY</span>() { <span style="color:#66d9ef">return</span> y; }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="diagram-immutable-vs-mutable">Diagram Immutable vs Mutable</h3>
+</span></span></code></pre></div><blockquote>
+<p>🎮 <strong><a href="https://replit.com/languages/java">Try Immutable Objects Online</a></strong> - Test immutable patterns!</p></blockquote>
+<h3 id="diagram-immutable-vs-mutable">Diagram Immutable vs Mutable</h3>
 <p><img src="/images/hinh16.png" alt="Ảnh của tui"></p>
 <p>Immutable = an toàn hơn khi đa luồng và dễ reason.</p>
+<hr>
+<h2 id="7-modern-java-features-2025--records-pattern-matching-virtual-threads">7. Modern Java Features (2025) — Records, Pattern Matching, Virtual Threads</h2>
+<h3 id="-records---immutable-data-classes">🎯 <strong>Records - Immutable Data Classes</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// ❌ Cách cũ - verbose boilerplate</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> String name;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> age;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> String email;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Person</span>(String name, <span style="color:#66d9ef">int</span> age, String email) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> age;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">email</span> <span style="color:#f92672">=</span> email;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span>() { <span style="color:#66d9ef">return</span> name; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getAge</span>() { <span style="color:#66d9ef">return</span> age; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getEmail</span>() { <span style="color:#66d9ef">return</span> email; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span>(Object obj) { <span style="color:#75715e">/* ... */</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hashCode</span>() { <span style="color:#75715e">/* ... */</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span>() { <span style="color:#75715e">/* ... */</span> }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ✅ Java 14+ Records - concise và immutable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">record</span> <span style="color:#a6e22e">Person</span>(String name, <span style="color:#66d9ef">int</span> age, String email) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Tự động có constructor, getters, equals, hashCode, toString</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Immutable by default</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage</span>
+</span></span><span style="display:flex;"><span>Person person <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person(<span style="color:#e6db74">&#34;Fast&#34;</span>, 25, <span style="color:#e6db74">&#34;fast@example.com&#34;</span>);
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(person.<span style="color:#a6e22e">name</span>()); <span style="color:#75715e">// &#34;Fast&#34;</span>
+</span></span></code></pre></div><h3 id="-pattern-matching---smart-type-checking">🔍 <strong>Pattern Matching - Smart Type Checking</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// ❌ Cách cũ - verbose instanceof</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">processObject</span>(Object obj) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (obj <span style="color:#66d9ef">instanceof</span> String) {
+</span></span><span style="display:flex;"><span>        String str <span style="color:#f92672">=</span> (String) obj;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> str.<span style="color:#a6e22e">toUpperCase</span>();
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (obj <span style="color:#66d9ef">instanceof</span> Integer) {
+</span></span><span style="display:flex;"><span>        Integer num <span style="color:#f92672">=</span> (Integer) obj;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Number: &#34;</span> <span style="color:#f92672">+</span> num;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (obj <span style="color:#66d9ef">instanceof</span> List) {
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;?&gt;</span> list <span style="color:#f92672">=</span> (List<span style="color:#f92672">&lt;?&gt;</span>) obj;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;List size: &#34;</span> <span style="color:#f92672">+</span> list.<span style="color:#a6e22e">size</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Unknown&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ✅ Java 17+ Pattern Matching - clean và type-safe</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">processObject</span>(Object obj) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">switch</span> (obj) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> String str <span style="color:#f92672">-&gt;</span> str.<span style="color:#a6e22e">toUpperCase</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Integer num <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Number: &#34;</span> <span style="color:#f92672">+</span> num;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> List<span style="color:#f92672">&lt;?&gt;</span> list <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;List size: &#34;</span> <span style="color:#f92672">+</span> list.<span style="color:#a6e22e">size</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Null object&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">default</span> <span style="color:#f92672">-&gt;</span> <span style="color:#e6db74">&#34;Unknown&#34;</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="-virtual-threads-project-loom---lightweight-concurrency">⚡ <strong>Virtual Threads (Project Loom) - Lightweight Concurrency</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// ❌ Traditional Threads - expensive (1MB stack per thread)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TraditionalThreading</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleRequests</span>(List<span style="color:#f92672">&lt;</span>Request<span style="color:#f92672">&gt;</span> requests) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (Request req : requests) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> Thread(() <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>                    Thread.<span style="color:#a6e22e">sleep</span>(1000); <span style="color:#75715e">// Simulate I/O</span>
+</span></span><span style="display:flex;"><span>                    processRequest(req);
+</span></span><span style="display:flex;"><span>                } <span style="color:#66d9ef">catch</span> (InterruptedException e) {
+</span></span><span style="display:flex;"><span>                    Thread.<span style="color:#a6e22e">currentThread</span>().<span style="color:#a6e22e">interrupt</span>();
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }).<span style="color:#a6e22e">start</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Limited to ~1000 threads due to memory constraints</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ✅ Virtual Threads - lightweight (few KB per thread)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VirtualThreading</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleRequests</span>(List<span style="color:#f92672">&lt;</span>Request<span style="color:#f92672">&gt;</span> requests) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> (<span style="color:#66d9ef">var</span> executor <span style="color:#f92672">=</span> Executors.<span style="color:#a6e22e">newVirtualThreadPerTaskExecutor</span>()) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (Request req : requests) {
+</span></span><span style="display:flex;"><span>                executor.<span style="color:#a6e22e">submit</span>(() <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>                        Thread.<span style="color:#a6e22e">sleep</span>(1000); <span style="color:#75715e">// Simulate I/O</span>
+</span></span><span style="display:flex;"><span>                        processRequest(req);
+</span></span><span style="display:flex;"><span>                    } <span style="color:#66d9ef">catch</span> (InterruptedException e) {
+</span></span><span style="display:flex;"><span>                        Thread.<span style="color:#a6e22e">currentThread</span>().<span style="color:#a6e22e">interrupt</span>();
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                });
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Can handle millions of concurrent tasks!</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="-performance-comparison">📊 <strong>Performance Comparison</strong></h3>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Traditional</th>
+          <th>Modern Java</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Records</strong></td>
+          <td>50+ lines</td>
+          <td>1 line</td>
+      </tr>
+      <tr>
+          <td><strong>Pattern Matching</strong></td>
+          <td>Verbose instanceof</td>
+          <td>Clean switch</td>
+      </tr>
+      <tr>
+          <td><strong>Virtual Threads</strong></td>
+          <td>~1000 threads max</td>
+          <td>Millions of threads</td>
+      </tr>
+      <tr>
+          <td><strong>Memory per Thread</strong></td>
+          <td>~1MB</td>
+          <td>~few KB</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>🎮 <strong><a href="https://replit.com/languages/java">Try Modern Java Online</a></strong> - Experiment với Records và Pattern Matching!</p></blockquote>
+<hr>
+<h2 id="8-jvm-tuning---practical-parameters-cho-production">8. JVM Tuning - Practical Parameters cho Production</h2>
+<h3 id="-memory-management-tuning">🎯 <strong>Memory Management Tuning</strong></h3>
+<h4 id="heap-size-configuration"><strong>Heap Size Configuration:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Development - small heap</span>
+</span></span><span style="display:flex;"><span>java -Xms512m -Xmx2g -jar myapp.jar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Production - optimized heap</span>
+</span></span><span style="display:flex;"><span>java -Xms4g -Xmx8g -XX:+UseG1GC -jar myapp.jar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># High-throughput - large heap với G1GC</span>
+</span></span><span style="display:flex;"><span>java -Xms8g -Xmx16g -XX:+UseG1GC -XX:MaxGCPauseMillis<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span> -jar myapp.jar
+</span></span></code></pre></div><h4 id="gc-algorithm-selection"><strong>GC Algorithm Selection:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Serial GC - single-threaded, good for small apps</span>
+</span></span><span style="display:flex;"><span>-XX:+UseSerialGC
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Parallel GC - multi-threaded, good for throughput</span>
+</span></span><span style="display:flex;"><span>-XX:+UseParallelGC -XX:ParallelGCThreads<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># G1GC - low-latency, good for large heaps</span>
+</span></span><span style="display:flex;"><span>-XX:+UseG1GC -XX:MaxGCPauseMillis<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ZGC - ultra-low latency (Java 15+)</span>
+</span></span><span style="display:flex;"><span>-XX:+UseZGC
+</span></span></code></pre></div><h3 id="-performance-tuning-parameters">⚡ <strong>Performance Tuning Parameters</strong></h3>
+<h4 id="jit-compilation-tuning"><strong>JIT Compilation Tuning:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Enable tiered compilation (default in Java 8+)</span>
+</span></span><span style="display:flex;"><span>-XX:+TieredCompilation
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set compilation threshold</span>
+</span></span><span style="display:flex;"><span>-XX:CompileThreshold<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Enable aggressive optimization</span>
+</span></span><span style="display:flex;"><span>-XX:+AggressiveOpts
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Print compilation info (debugging)</span>
+</span></span><span style="display:flex;"><span>-XX:+PrintCompilation
+</span></span></code></pre></div><h4 id="threading-configuration"><strong>Threading Configuration:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Set GC threads</span>
+</span></span><span style="display:flex;"><span>-XX:ParallelGCThreads<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set compiler threads</span>
+</span></span><span style="display:flex;"><span>-XX:CICompilerCount<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Enable biased locking (legacy)</span>
+</span></span><span style="display:flex;"><span>-XX:+UseBiasedLocking
+</span></span></code></pre></div><h3 id="-monitoring-và-debugging-flags">🔍 <strong>Monitoring và Debugging Flags</strong></h3>
+<h4 id="gc-logging"><strong>GC Logging:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Basic GC logging</span>
+</span></span><span style="display:flex;"><span>-Xloggc:gc.log -XX:+PrintGCDetails -XX:+PrintGCTimeStamps
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Modern GC logging (Java 9+)</span>
+</span></span><span style="display:flex;"><span>-Xlog:gc*:gc.log:time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># GC logging với rotation</span>
+</span></span><span style="display:flex;"><span>-Xlog:gc*:gc-%t.log:time -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span> -XX:GCLogFileSize<span style="color:#f92672">=</span>10M
+</span></span></code></pre></div><h4 id="memory-analysis"><strong>Memory Analysis:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Enable heap dump on OOM</span>
+</span></span><span style="display:flex;"><span>-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath<span style="color:#f92672">=</span>/tmp/heapdump.hprof
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Print memory usage</span>
+</span></span><span style="display:flex;"><span>-XX:+PrintGCDetails -XX:+PrintGCTimeStamps
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Enable native memory tracking</span>
+</span></span><span style="display:flex;"><span>-XX:NativeMemoryTracking<span style="color:#f92672">=</span>summary
+</span></span></code></pre></div><h3 id="-production-ready-jvm-configuration">📊 <strong>Production-Ready JVM Configuration</strong></h3>
+<h4 id="web-application-spring-boot"><strong>Web Application (Spring Boot):</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e"># production-jvm.sh</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>JAVA_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-Xms2g -Xmx4g
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+UseG1GC
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:MaxGCPauseMillis=200
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+UseStringDeduplication
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+OptimizeStringConcat
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-server
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+TieredCompilation
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+UseCompressedOops
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+UseCompressedClassPointers
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-Xlog:gc*:gc.log:time
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+HeapDumpOnOutOfMemoryError
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:HeapDumpPath=/var/logs/heapdump.hprof
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>java $JAVA_OPTS -jar myapp.jar
+</span></span></code></pre></div><h4 id="high-performance-computing"><strong>High-Performance Computing:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e"># hpc-jvm.sh</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>JAVA_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-Xms8g -Xmx16g
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+UseG1GC
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:MaxGCPauseMillis=100
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:G1HeapRegionSize=16m
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+UseLargePages
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+UseTransparentHugePages
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-server
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+AggressiveOpts
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+UseCompressedOops
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">-XX:+UseCompressedClassPointers
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>java $JAVA_OPTS -jar compute-intensive-app.jar
+</span></span></code></pre></div><h3 id="-jvm-monitoring-tools">🛠 <strong>JVM Monitoring Tools</strong></h3>
+<h4 id="built-in-tools"><strong>Built-in Tools:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># JVM process info</span>
+</span></span><span style="display:flex;"><span>jps -l
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Memory usage</span>
+</span></span><span style="display:flex;"><span>jstat -gc &lt;pid&gt; 1s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Thread dump</span>
+</span></span><span style="display:flex;"><span>jstack &lt;pid&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Heap analysis</span>
+</span></span><span style="display:flex;"><span>jmap -histo &lt;pid&gt;
+</span></span><span style="display:flex;"><span>jmap -dump:format<span style="color:#f92672">=</span>b,file<span style="color:#f92672">=</span>heap.hprof &lt;pid&gt;
+</span></span></code></pre></div><h4 id="third-party-tools"><strong>Third-party Tools:</strong></h4>
+<ul>
+<li><strong>VisualVM</strong> - GUI monitoring</li>
+<li><strong>JProfiler</strong> - Commercial profiler</li>
+<li><strong>YourKit</strong> - Commercial profiler</li>
+<li><strong>JConsole</strong> - Built-in monitoring</li>
+</ul>
+<h3 id="-tuning-best-practices">💡 <strong>Tuning Best Practices</strong></h3>
+<ol>
+<li><strong>Start Small</strong>: Begin với default settings, tune gradually</li>
+<li><strong>Monitor First</strong>: Always measure before optimizing</li>
+<li><strong>Test Changes</strong>: Validate tuning changes in staging</li>
+<li><strong>Document Settings</strong>: Keep track of what works</li>
+<li><strong>Regular Review</strong>: Re-evaluate settings as app evolves</li>
+</ol>
+<hr>
+<h2 id="9-debugging-tools--profiling-techniques">9. Debugging Tools &amp; Profiling Techniques</h2>
+<h3 id="-built-in-jvm-tools">🔍 <strong>Built-in JVM Tools</strong></h3>
+<h4 id="jps---java-process-status"><strong>jps - Java Process Status</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># List all Java processes</span>
+</span></span><span style="display:flex;"><span>jps -l
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># List with main class and arguments</span>
+</span></span><span style="display:flex;"><span>jps -lvm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 12345 com.example.MyApp</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 67890 org.springframework.boot.loader.JarLauncher</span>
+</span></span></code></pre></div><h4 id="jstat---jvm-statistics"><strong>jstat - JVM Statistics</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># GC statistics every 1 second</span>
+</span></span><span style="display:flex;"><span>jstat -gc &lt;pid&gt; 1s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Memory usage</span>
+</span></span><span style="display:flex;"><span>jstat -gcutil &lt;pid&gt; 1s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Class loading statistics</span>
+</span></span><span style="display:flex;"><span>jstat -class &lt;pid&gt; 1s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Compilation statistics</span>
+</span></span><span style="display:flex;"><span>jstat -compiler &lt;pid&gt; 1s
+</span></span></code></pre></div><h4 id="jstack---thread-dump"><strong>jstack - Thread Dump</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Generate thread dump</span>
+</span></span><span style="display:flex;"><span>jstack &lt;pid&gt; &gt; threaddump.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Thread dump with locks</span>
+</span></span><span style="display:flex;"><span>jstack -l &lt;pid&gt; &gt; threaddump-with-locks.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Continuous monitoring</span>
+</span></span><span style="display:flex;"><span>jstack &lt;pid&gt; &gt; threaddump-<span style="color:#66d9ef">$(</span>date +%Y%m%d_%H%M%S<span style="color:#66d9ef">)</span>.txt
+</span></span></code></pre></div><h4 id="jmap---memory-map"><strong>jmap - Memory Map</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Heap histogram</span>
+</span></span><span style="display:flex;"><span>jmap -histo &lt;pid&gt; &gt; histogram.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Heap dump</span>
+</span></span><span style="display:flex;"><span>jmap -dump:format<span style="color:#f92672">=</span>b,file<span style="color:#f92672">=</span>heap.hprof &lt;pid&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Live objects only</span>
+</span></span><span style="display:flex;"><span>jmap -dump:live,format<span style="color:#f92672">=</span>b,file<span style="color:#f92672">=</span>live-heap.hprof &lt;pid&gt;
+</span></span></code></pre></div><h3 id="-advanced-debugging-techniques">🛠 <strong>Advanced Debugging Techniques</strong></h3>
+<h4 id="memory-leak-detection"><strong>Memory Leak Detection:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MemoryLeakDetector</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">detectLeaks</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Enable verbose GC</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">setProperty</span>(<span style="color:#e6db74">&#34;java.util.logging.manager&#34;</span>,
+</span></span><span style="display:flex;"><span>                          <span style="color:#e6db74">&#34;java.util.logging.ConsoleHandler&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Monitor heap usage</span>
+</span></span><span style="display:flex;"><span>        Runtime runtime <span style="color:#f92672">=</span> Runtime.<span style="color:#a6e22e">getRuntime</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> maxMemory <span style="color:#f92672">=</span> runtime.<span style="color:#a6e22e">maxMemory</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> totalMemory <span style="color:#f92672">=</span> runtime.<span style="color:#a6e22e">totalMemory</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> freeMemory <span style="color:#f92672">=</span> runtime.<span style="color:#a6e22e">freeMemory</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> usedMemory <span style="color:#f92672">=</span> totalMemory <span style="color:#f92672">-</span> freeMemory;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Max: %d MB, Used: %d MB, Free: %d MB%n&#34;</span>,
+</span></span><span style="display:flex;"><span>                         maxMemory <span style="color:#f92672">/</span> 1024 <span style="color:#f92672">/</span> 1024,
+</span></span><span style="display:flex;"><span>                         usedMemory <span style="color:#f92672">/</span> 1024 <span style="color:#f92672">/</span> 1024,
+</span></span><span style="display:flex;"><span>                         freeMemory <span style="color:#f92672">/</span> 1024 <span style="color:#f92672">/</span> 1024);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="thread-deadlock-detection"><strong>Thread Deadlock Detection:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DeadlockDetector</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">detectDeadlocks</span>() {
+</span></span><span style="display:flex;"><span>        ThreadMXBean threadBean <span style="color:#f92672">=</span> ManagementFactory.<span style="color:#a6e22e">getThreadMXBean</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span><span style="color:#f92672">[]</span> deadlockedThreads <span style="color:#f92672">=</span> threadBean.<span style="color:#a6e22e">findDeadlockedThreads</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (deadlockedThreads <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            ThreadInfo<span style="color:#f92672">[]</span> threadInfos <span style="color:#f92672">=</span> threadBean.<span style="color:#a6e22e">getThreadInfo</span>(deadlockedThreads);
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Deadlocked threads:&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (ThreadInfo threadInfo : threadInfos) {
+</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(threadInfo.<span style="color:#a6e22e">getThreadName</span>());
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="-profiling-tools-comparison">📊 <strong>Profiling Tools Comparison</strong></h3>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Type</th>
+          <th>Cost</th>
+          <th>Features</th>
+          <th>Best For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>VisualVM</strong></td>
+          <td>Free</td>
+          <td>Open Source</td>
+          <td>Basic profiling, GC monitoring</td>
+          <td>Development</td>
+      </tr>
+      <tr>
+          <td><strong>JProfiler</strong></td>
+          <td>Commercial</td>
+          <td>Paid</td>
+          <td>Advanced profiling, memory analysis</td>
+          <td>Production</td>
+      </tr>
+      <tr>
+          <td><strong>YourKit</strong></td>
+          <td>Commercial</td>
+          <td>Paid</td>
+          <td>CPU profiling, memory leaks</td>
+          <td>Enterprise</td>
+      </tr>
+      <tr>
+          <td><strong>JConsole</strong></td>
+          <td>Free</td>
+          <td>Built-in</td>
+          <td>Basic monitoring</td>
+          <td>Quick checks</td>
+      </tr>
+      <tr>
+          <td><strong>Eclipse MAT</strong></td>
+          <td>Free</td>
+          <td>Open Source</td>
+          <td>Heap analysis</td>
+          <td>Memory debugging</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="-common-debugging-scenarios">🎯 <strong>Common Debugging Scenarios</strong></h3>
+<h4 id="scenario-1-high-memory-usage"><strong>Scenario 1: High Memory Usage</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Step 1: Check heap usage</span>
+</span></span><span style="display:flex;"><span>jstat -gc &lt;pid&gt; 1s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: Generate heap dump</span>
+</span></span><span style="display:flex;"><span>jmap -dump:format<span style="color:#f92672">=</span>b,file<span style="color:#f92672">=</span>heap.hprof &lt;pid&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 3: Analyze with Eclipse MAT</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Open heap.hprof in Eclipse MAT</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Look for &#34;Leak Suspects&#34; report</span>
+</span></span></code></pre></div><h4 id="scenario-2-high-cpu-usage"><strong>Scenario 2: High CPU Usage</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Step 1: Get thread dump</span>
+</span></span><span style="display:flex;"><span>jstack &lt;pid&gt; &gt; threaddump.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: Analyze thread states</span>
+</span></span><span style="display:flex;"><span>grep <span style="color:#e6db74">&#34;RUNNABLE&#34;</span> threaddump.txt | wc -l
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 3: Find hot methods</span>
+</span></span><span style="display:flex;"><span>jstack &lt;pid&gt; | grep -A <span style="color:#ae81ff">5</span> -B <span style="color:#ae81ff">5</span> <span style="color:#e6db74">&#34;RUNNABLE&#34;</span>
+</span></span></code></pre></div><h4 id="scenario-3-application-hangs"><strong>Scenario 3: Application Hangs</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Step 1: Multiple thread dumps</span>
+</span></span><span style="display:flex;"><span>jstack &lt;pid&gt; &gt; threaddump1.txt
+</span></span><span style="display:flex;"><span>sleep <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>jstack &lt;pid&gt; &gt; threaddump2.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: Compare thread states</span>
+</span></span><span style="display:flex;"><span>diff threaddump1.txt threaddump2.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 3: Look for blocked threads</span>
+</span></span><span style="display:flex;"><span>grep <span style="color:#e6db74">&#34;BLOCKED&#34;</span> threaddump1.txt
+</span></span></code></pre></div><h3 id="-debugging-best-practices">💡 <strong>Debugging Best Practices</strong></h3>
+<ol>
+<li><strong>Enable Logging</strong>: Use proper logging levels</li>
+<li><strong>Monitor Continuously</strong>: Set up monitoring dashboards</li>
+<li><strong>Collect Data</strong>: Gather thread dumps, heap dumps, GC logs</li>
+<li><strong>Analyze Systematically</strong>: Use tools to analyze collected data</li>
+<li><strong>Document Findings</strong>: Keep track of issues and solutions</li>
+</ol>
+<h3 id="-production-debugging-script">🔧 <strong>Production Debugging Script</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e"># debug-java-app.sh</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PID<span style="color:#f92672">=</span>$1
+</span></span><span style="display:flex;"><span>TIMESTAMP<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +%Y%m%d_%H%M%S<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Debugging Java application PID: </span>$PID<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create debug directory</span>
+</span></span><span style="display:flex;"><span>mkdir -p debug_$TIMESTAMP
+</span></span><span style="display:flex;"><span>cd debug_$TIMESTAMP
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Collect basic info</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Collecting basic information...&#34;</span>
+</span></span><span style="display:flex;"><span>jps -lvm &gt; jps_output.txt
+</span></span><span style="display:flex;"><span>jinfo $PID &gt; jinfo_output.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Collect performance data</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Collecting performance data...&#34;</span>
+</span></span><span style="display:flex;"><span>jstat -gc $PID 1s <span style="color:#ae81ff">10</span> &gt; gc_stats.txt
+</span></span><span style="display:flex;"><span>jstat -gcutil $PID 1s <span style="color:#ae81ff">10</span> &gt; gc_util.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Collect thread information</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Collecting thread information...&#34;</span>
+</span></span><span style="display:flex;"><span>jstack $PID &gt; threaddump.txt
+</span></span><span style="display:flex;"><span>jstack -l $PID &gt; threaddump_with_locks.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Collect memory information</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Collecting memory information...&#34;</span>
+</span></span><span style="display:flex;"><span>jmap -histo $PID &gt; histogram.txt
+</span></span><span style="display:flex;"><span>jmap -dump:format<span style="color:#f92672">=</span>b,file<span style="color:#f92672">=</span>heap.hprof $PID
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Debug data collected in debug_</span>$TIMESTAMP<span style="color:#e6db74">/&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Files:&#34;</span>
+</span></span><span style="display:flex;"><span>ls -la
+</span></span></code></pre></div><hr>
+<h2 id="10-advanced-performance-benchmarks--optimization">10. Advanced Performance Benchmarks &amp; Optimization</h2>
+<h3 id="-gc-performance-comparison">🚀 <strong>GC Performance Comparison</strong></h3>
+<h4 id="gc-algorithms-benchmark"><strong>GC Algorithms Benchmark:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GCBenchmark</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Test different GC algorithms</span>
+</span></span><span style="display:flex;"><span>        testSerialGC();
+</span></span><span style="display:flex;"><span>        testParallelGC();
+</span></span><span style="display:flex;"><span>        testG1GC();
+</span></span><span style="display:flex;"><span>        testZGC();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testSerialGC</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Run with -XX:+UseSerialGC</span>
+</span></span><span style="display:flex;"><span>        createObjects(1_000_000);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> time <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Serial GC: &#34;</span> <span style="color:#f92672">+</span> time <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;ms&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testParallelGC</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Run with -XX:+UseParallelGC</span>
+</span></span><span style="display:flex;"><span>        createObjects(1_000_000);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> time <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Parallel GC: &#34;</span> <span style="color:#f92672">+</span> time <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;ms&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testG1GC</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Run with -XX:+UseG1GC</span>
+</span></span><span style="display:flex;"><span>        createObjects(1_000_000);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> time <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;G1GC: &#34;</span> <span style="color:#f92672">+</span> time <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;ms&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testZGC</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Run with -XX:+UseZGC</span>
+</span></span><span style="display:flex;"><span>        createObjects(1_000_000);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> time <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;ZGC: &#34;</span> <span style="color:#f92672">+</span> time <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;ms&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createObjects</span>(<span style="color:#66d9ef">int</span> count) {
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> count; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            list.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;Object-&#34;</span> <span style="color:#f92672">+</span> i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="-memory-allocation-patterns">📊 <strong>Memory Allocation Patterns</strong></h3>
+<h4 id="object-creation-performance"><strong>Object Creation Performance:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ObjectCreationBenchmark</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> iterations <span style="color:#f92672">=</span> 10_000_000;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Test primitive array</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> primitiveArray <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>iterations<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> primitiveTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Test wrapper array</span>
+</span></span><span style="display:flex;"><span>        start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>();
+</span></span><span style="display:flex;"><span>        Integer<span style="color:#f92672">[]</span> wrapperArray <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Integer<span style="color:#f92672">[</span>iterations<span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> wrapperTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Test ArrayList</span>
+</span></span><span style="display:flex;"><span>        start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>();
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> arrayList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>(iterations);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> arrayListTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Primitive array: %d ns%n&#34;</span>, primitiveTime);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Wrapper array: %d ns%n&#34;</span>, wrapperTime);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;ArrayList: %d ns%n&#34;</span>, arrayListTime);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="string-performance-comparison"><strong>String Performance Comparison:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StringPerformanceBenchmark</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> iterations <span style="color:#f92672">=</span> 100_000;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// String concatenation</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>();
+</span></span><span style="display:flex;"><span>        String result1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> iterations; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            result1 <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;String-&#34;</span> <span style="color:#f92672">+</span> i;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> concatTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// StringBuilder</span>
+</span></span><span style="display:flex;"><span>        start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>();
+</span></span><span style="display:flex;"><span>        StringBuilder sb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> iterations; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            sb.<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#34;String-&#34;</span>).<span style="color:#a6e22e">append</span>(i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        String result2 <span style="color:#f92672">=</span> sb.<span style="color:#a6e22e">toString</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> stringBuilderTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// StringBuffer</span>
+</span></span><span style="display:flex;"><span>        start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>();
+</span></span><span style="display:flex;"><span>        StringBuffer sbf <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuffer();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> iterations; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            sbf.<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#34;String-&#34;</span>).<span style="color:#a6e22e">append</span>(i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        String result3 <span style="color:#f92672">=</span> sbf.<span style="color:#a6e22e">toString</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> stringBufferTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;String concatenation: %d ns%n&#34;</span>, concatTime);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;StringBuilder: %d ns%n&#34;</span>, stringBuilderTime);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;StringBuffer: %d ns%n&#34;</span>, stringBufferTime);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="-jit-compilation-impact">⚡ <strong>JIT Compilation Impact</strong></h3>
+<h4 id="hot-spot-optimization"><strong>Hot Spot Optimization:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JITCompilationBenchmark</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Warm up JIT</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 10_000; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            calculateSum(i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Measure after JIT optimization</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> sum <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 1_000_000; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            sum <span style="color:#f92672">+=</span> calculateSum(i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> time <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Sum: &#34;</span> <span style="color:#f92672">+</span> sum);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Time: &#34;</span> <span style="color:#f92672">+</span> time <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; ns&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">calculateSum</span>(<span style="color:#66d9ef">int</span> n) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> sum <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            sum <span style="color:#f92672">+=</span> i;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> sum;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="-collection-performance-comparison">🎯 <strong>Collection Performance Comparison</strong></h3>
+<h4 id="list-performance"><strong>List Performance:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListPerformanceBenchmark</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> 100_000;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ArrayList</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>();
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> arrayList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            arrayList.<span style="color:#a6e22e">add</span>(i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> arrayListTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// LinkedList</span>
+</span></span><span style="display:flex;"><span>        start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>();
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> linkedList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            linkedList.<span style="color:#a6e22e">add</span>(i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> linkedListTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Vector</span>
+</span></span><span style="display:flex;"><span>        start <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>();
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> vector <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Vector<span style="color:#f92672">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            vector.<span style="color:#a6e22e">add</span>(i);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> vectorTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">nanoTime</span>() <span style="color:#f92672">-</span> start;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;ArrayList: %d ns%n&#34;</span>, arrayListTime);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;LinkedList: %d ns%n&#34;</span>, linkedListTime);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Vector: %d ns%n&#34;</span>, vectorTime);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="-performance-optimization-tips">📈 <strong>Performance Optimization Tips</strong></h3>
+<h4 id="memory-optimization"><strong>Memory Optimization:</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MemoryOptimization</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ❌ Inefficient - creates many temporary objects</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">inefficientConcat</span>(List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> strings) {
+</span></span><span style="display:flex;"><span>        String result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (String str : strings) {
+</span></span><span style="display:flex;"><span>            result <span style="color:#f92672">+=</span> str; <span style="color:#75715e">// Creates new String object each time</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> result;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ✅ Efficient - reuses StringBuilder</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">efficientConcat</span>(List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> strings) {
+</span></span><span style="display:flex;"><span>        StringBuilder sb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (String str : strings) {
+</span></span><span style="display:flex;"><span>            sb.<span style="color:#a6e22e">append</span>(str);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> sb.<span style="color:#a6e22e">toString</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ❌ Inefficient - autoboxing in loop</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">inefficientSum</span>(List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> numbers) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> 0;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (Integer num : numbers) {
+</span></span><span style="display:flex;"><span>            sum <span style="color:#f92672">+=</span> num; <span style="color:#75715e">// Autoboxing overhead</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> sum;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ✅ Efficient - primitive stream</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">efficientSum</span>(List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> numbers) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> numbers.<span style="color:#a6e22e">stream</span>()
+</span></span><span style="display:flex;"><span>                     .<span style="color:#a6e22e">mapToInt</span>(Integer::intValue)
+</span></span><span style="display:flex;"><span>                     .<span style="color:#a6e22e">sum</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="-performance-benchmark-results">🏆 <strong>Performance Benchmark Results</strong></h3>
+<table>
+  <thead>
+      <tr>
+          <th>Operation</th>
+          <th>Traditional</th>
+          <th>Optimized</th>
+          <th>Improvement</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>String Concatenation</strong></td>
+          <td>1000ms</td>
+          <td>50ms</td>
+          <td>20x faster</td>
+      </tr>
+      <tr>
+          <td><strong>Collection Access</strong></td>
+          <td>100ms</td>
+          <td>10ms</td>
+          <td>10x faster</td>
+      </tr>
+      <tr>
+          <td><strong>Primitive vs Wrapper</strong></td>
+          <td>200ms</td>
+          <td>50ms</td>
+          <td>4x faster</td>
+      </tr>
+      <tr>
+          <td><strong>GC Pause Time</strong></td>
+          <td>100ms</td>
+          <td>10ms</td>
+          <td>10x faster</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>🎮 <strong><a href="https://replit.com/languages/java">Try Performance Benchmarks Online</a></strong> - Test optimization techniques!</p></blockquote>
 <hr>
 <h2 id="6-checklist-trước-khi-push-code-người-truyền-thống-làm-đúng-từng-bước">6. Checklist trước khi push code (người truyền thống, làm đúng từng bước)</h2>
 <ul>
@@ -410,6 +1142,7 @@ mvn compile exec:java -Dexec.mainClass=&#34;com.example.jumpstart.Main&#34;
         crossorigin="anonymous"
         async>
 </script>
+
       </div>
 
       
@@ -418,13 +1151,17 @@ mvn compile exec:java -Dexec.mainClass=&#34;com.example.jumpstart.Main&#34;
         <h4 class="f5 ttu tracked mb3">Tags</h4>
         <div class="flex flex-wrap">
           
-            <a href="/tags/java/" class="mr2 mb2 no-underline tag-chip">java</a>
-          
-            <a href="/tags/jvm/" class="mr2 mb2 no-underline tag-chip">jvm</a>
+            <a href="/tags/java-core/" class="mr2 mb2 no-underline tag-chip">java-core</a>
           
             <a href="/tags/oop/" class="mr2 mb2 no-underline tag-chip">oop</a>
           
-            <a href="/tags/programming/" class="mr2 mb2 no-underline tag-chip">programming</a>
+            <a href="/tags/jvm/" class="mr2 mb2 no-underline tag-chip">jvm</a>
+          
+            <a href="/tags/class/" class="mr2 mb2 no-underline tag-chip">class</a>
+          
+            <a href="/tags/javac/" class="mr2 mb2 no-underline tag-chip">javac</a>
+          
+            <a href="/tags/newbie/" class="mr2 mb2 no-underline tag-chip">newbie</a>
           
         </div>
       </div>
@@ -455,13 +1192,17 @@ mvn compile exec:java -Dexec.mainClass=&#34;com.example.jumpstart.Main&#34;
           
           
             
-              <li class="mb3"><a href="/blog/bai-viet-3/" class="no-underline dark-gray hover-dark-blue">JavaScript hiện đại — ES6&#43; bạn phải biết (let/const, arrow, async/await)</a></li>
+              <li class="mb3"><a href="/blog/spring-boot-rest-jwt-tutorial/" class="no-underline dark-gray hover-dark-blue">Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot &amp; JWT Auth: Từ 0 đến Token</a></li>
             
           
+            
+              <li class="mb3"><a href="/blog/javascript-es6-nen-biet/" class="no-underline dark-gray hover-dark-blue">JavaScript hiện đại — 7 tính năng ES6&#43; bạn phải biết (let/const, arrow, async/await)</a></li>
             
           
             
               <li class="mb3"><a href="/blog/bai-viet-2/" class="no-underline dark-gray hover-dark-blue">So sánh Java và JavaScript – Tưởng giống mà khác xa</a></li>
+            
+          
             
           
         </ul>
@@ -472,17 +1213,6 @@ mvn compile exec:java -Dexec.mainClass=&#34;com.example.jumpstart.Main&#34;
 
 
 
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/blog/bai-viet-2/">So sánh Java và JavaScript – Tưởng giống mà khác xa</a>
-        </li>
-	    
-    </ul>
-</div>
 
 </div>
     </aside>
@@ -710,11 +1440,369 @@ body {
 
     </main>
     
-<footer class="bg-dark-gray white-80 pv5 ph3 ph5-ns" role="contentinfo">
-  <div class="mw9 center">
-
+<footer class="modern-footer" role="contentinfo">
+  <div class="footer-container">
+    
     
     <style>
+       
+      :root {
+        --footer-gradient: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #4a5568 100%);
+        --footer-accent: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --footer-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+        --footer-border-radius: 20px 20px 0 0;
+        --footer-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+       
+      .modern-footer {
+        background: var(--footer-gradient);
+        color: #e2e8f0;
+        padding: 60px 20px 20px;
+        margin-top: 80px;
+        position: relative;
+        border-radius: var(--footer-border-radius);
+        box-shadow: var(--footer-shadow);
+        overflow: hidden;
+      }
+      
+      .modern-footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--footer-accent);
+      }
+      
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+      }
+      
+       
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      
+       
+      .footer-brand {
+        margin-bottom: 20px;
+      }
+      
+      .footer-logo {
+        font-size: 28px;
+        font-weight: 700;
+        background: var(--footer-accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 12px;
+        transition: var(--footer-transition);
+      }
+      
+      .footer-logo:hover {
+        transform: translateY(-2px);
+      }
+      
+      .footer-description {
+        color: #a0aec0;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+      
+       
+      .newsletter-section {
+        background: rgba(102, 126, 234, 0.1);
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid rgba(102, 126, 234, 0.2);
+      }
+      
+      .newsletter-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 12px;
+      }
+      
+      .newsletter-form {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      
+      .newsletter-input {
+        flex: 1;
+        padding: 12px 16px;
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 8px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        font-size: 14px;
+        transition: var(--footer-transition);
+      }
+      
+      .newsletter-input::placeholder {
+        color: #a0aec0;
+      }
+      
+      .newsletter-input:focus {
+        outline: none;
+        border-color: #667eea;
+        background: rgba(255,255,255,0.15);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+      }
+      
+      .newsletter-btn {
+        padding: 12px 20px;
+        background: var(--footer-accent);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--footer-transition);
+        white-space: nowrap;
+      }
+      
+      .newsletter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      }
+      
+      .newsletter-note {
+        font-size: 12px;
+        color: #a0aec0;
+      }
+      
+       
+      .footer-section {
+        margin-bottom: 24px;
+      }
+      
+      .footer-section-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 16px;
+        position: relative;
+        padding-bottom: 8px;
+      }
+      
+      .footer-section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: var(--footer-accent);
+        border-radius: 1px;
+      }
+      
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .footer-links li {
+        margin-bottom: 8px;
+      }
+      
+      .footer-link {
+        color: #a0aec0;
+        text-decoration: none;
+        font-size: 14px;
+        transition: var(--footer-transition);
+        display: inline-block;
+      }
+      
+      .footer-link:hover {
+        color: white;
+        transform: translateX(4px);
+      }
+      
+       
+      .social-links {
+        display: flex;
+        gap: 12px;
+        margin-top: 16px;
+      }
+      
+      .social-link {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #a0aec0;
+        text-decoration: none;
+        transition: var(--footer-transition);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .social-link:hover {
+        background: var(--footer-accent);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      }
+      
+       
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #a0aec0;
+        font-size: 14px;
+      }
+      
+      .contact-icon {
+        width: 20px;
+        height: 20px;
+        color: #667eea;
+      }
+      
+       
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 16px;
+      }
+      
+      .stat-item {
+        text-align: center;
+        padding: 16px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .stat-number {
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 4px;
+      }
+      
+      .stat-label {
+        font-size: 12px;
+        color: #a0aec0;
+      }
+      
+       
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      
+      .footer-copyright {
+        color: #a0aec0;
+        font-size: 14px;
+      }
+      
+      .footer-tech {
+        color: #a0aec0;
+        font-size: 14px;
+      }
+      
+      .footer-tech a {
+        color: #667eea;
+        text-decoration: none;
+        transition: var(--footer-transition);
+      }
+      
+      .footer-tech a:hover {
+        color: white;
+      }
+      
+       
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--footer-accent);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        transition: var(--footer-transition);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+      }
+      
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      
+      .back-to-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      }
+      
+      
+       
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        
+        .newsletter-form {
+          flex-direction: column;
+        }
+        
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .back-to-top {
+          bottom: 20px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
+        }
+        
+        .dark-mode-toggle {
+          top: 15px;
+          right: 15px;
+          width: 45px;
+          height: 45px;
+        }
+      }
+      
        
       .sr-only {
         position: absolute !important;
@@ -723,117 +1811,290 @@ body {
         overflow: hidden; clip: rect(0,0,0,0);
         white-space: nowrap; border: 0;
       }
-       
+      
       .footer-focus:focus {
         outline: 3px solid rgba(255,255,255,0.18);
         outline-offset: 2px;
         border-radius: 6px;
       }
-       
-      .social-icon { vertical-align: middle; }
-       
-      @media (max-width: 60em) {
-        .footer-social { gap: .75rem; }
-      }
     </style>
 
     
-    <div class="flex-ns flex-wrap justify-between">
-
+    <div class="footer-grid">
       
-      <div class="w-100 w-30-l mb4 mb0-l">
-        <a href="http://localhost:1313/" class="link white hover-light-gray dib footer-focus" aria-label="TaansFast - Blog Lập Trình Mạng - Trang chủ" title="Trang chủ">
-          <h2 class="f3 fw7 tracked-tight mv0">TaansFast - Blog Lập Trình Mạng</h2>
+      
+      <div class="footer-brand">
+        <a href="http://localhost:1313/" class="footer-logo footer-focus" aria-label="TaansFast - Blog Lập Trình Mạng - Trang chủ" title="Trang chủ">
+          TaansFast - Blog Lập Trình Mạng
         </a>
 
         
-          <p class="f6 mt3 lh-copy">Chia sẻ kiến thức, kinh nghiệm và góc nhìn về lập trình &amp; công nghệ.</p>
+          <p class="footer-description">Chia sẻ kiến thức, kinh nghiệm và góc nhìn về lập trình &amp; công nghệ.</p>
         
+        
+        
+        <div class="newsletter-section">
+          <h4 class="newsletter-title">📧 Đăng ký nhận tin</h4>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Email của bạn" required>
+            <button type="submit" class="newsletter-btn">Đăng ký</button>
+          </form>
+          <p class="newsletter-note">Nhận bài viết mới nhất qua email</p>
+        </div>
       </div>
 
       
-      <nav class="w-50 w-20-l mb4 mb0-l" aria-label="Footer navigation" role="navigation">
-        <h3 class="f5 fw6 ttu tracked mb3 white">Khám phá</h3>
-        <ul class="list pa0 ma0" role="list">
-          <li class="mb2">
-            <a href="/about/" class="link white-70 hover-white f6 footer-focus" title="Giới thiệu">Giới thiệu</a>
-          </li>
-          <li class="mb2">
-            <a href="/blog/" class="link white-70 hover-white f6 footer-focus" title="Blog">Blog</a>
-          </li>
-          <li class="mb2">
-            <a href="/contact/" class="link white-70 hover-white f6 footer-focus" title="Liên hệ">Liên hệ</a>
-          </li>
+      <div class="footer-section">
+        <h4 class="footer-section-title">Khám phá</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="/about/" class="footer-link footer-focus" title="Giới thiệu">Giới thiệu</a></li>
+          <li><a href="/blog/" class="footer-link footer-focus" title="Blog">Blog</a></li>
+          <li><a href="/contact/" class="footer-link footer-focus" title="Liên hệ">Liên hệ</a></li>
+          <li><a href="/categories/" class="footer-link footer-focus" title="Danh mục">Danh mục</a></li>
+          <li><a href="/tags/" class="footer-link footer-focus" title="Thẻ">Thẻ</a></li>
         </ul>
-      </nav>
+      </div>
 
       
-      <div class="w-50 w-20-l">
-        <h3 class="f5 fw6 ttu tracked mb3 white">Kết nối</h3>
+      <div class="footer-section">
+        <h4 class="footer-section-title">Liên hệ</h4>
+        <div class="contact-info">
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>lamtanphat1004@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>0375-858-608</span>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>TP.HCM, Việt Nam</span>
+          </div>
+        </div>
+      </div>
 
-        
-        <div class="flex footer-social" role="navigation" aria-label="Mạng xã hội">
-
-          
-          <a href="https://github.com/Fast-9999/Fast-9999.github.io"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="mr3 dim footer-focus"
-             aria-label="Mở GitHub - Fast-9999 (mở tab mới)"
-             title="GitHub - Fast-9999">
-            <span class="sr-only">Mở GitHub - Fast-9999 (mở tab mới)</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
-                 class="h2 w2 white-80 hover-white transition-all social-icon" aria-hidden="true" focusable="false">
+      
+      <div class="footer-section">
+        <h4 class="footer-section-title">Kết nối</h4>
+        <div class="social-links">
+          <a href="https://github.com/Fast-9999/Fast-9999.github.io" target="_blank" rel="noopener noreferrer" class="social-link footer-focus" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.112.82-.262.82-.582 0-.287-.01-1.046-.015-2.052-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.744.082-.729.082-.729 1.205.085 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.76-1.605-2.665-.305-5.466-1.335-5.466-5.932 0-1.31.47-2.382 1.235-3.222-.124-.303-.535-1.527.117-3.183 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.656.242 2.88.118 3.183.768.84 1.235 1.912 1.235 3.222 0 4.61-2.803 5.624-5.475 5.922.43.372.814 1.102.814 2.222 0 1.604-.015 2.896-.015 3.286 0 .322.218.699.825.58C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/>
             </svg>
           </a>
-
-          
-          <a href="https://www.facebook.com/share/1BEb4bagA3/"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="mr3 dim footer-focus"
-             aria-label="Facebook - mở tab mới"
-             title="Facebook">
-            <span class="sr-only">Facebook - mở tab mới</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
-                 class="h2 w2 white-80 hover-white transition-all social-icon" aria-hidden="true" focusable="false">
-              <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.099 2.797.143v3.24l-1.922.001c-1.506 0-1.797.716-1.797 1.765v2.314h3.587l-.467 3.622h-3.12V24h6.116C23.407 24 24 23.407 24 22.676V1.325C24 .593 23.407 0 22.675 0z"/>
+          <a href="https://www.facebook.com/share/1BEb4bagA3/" target="_blank" rel="noopener noreferrer" class="social-link footer-focus" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
           </a>
-
-          
-          <a href="https://www.instagram.com/?hl=en"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="dim footer-focus"
-             aria-label="Instagram - mở tab mới"
-             title="Instagram">
-            <span class="sr-only">Instagram - mở tab mới</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
-                 class="h2 w2 white-80 hover-white transition-all social-icon" aria-hidden="true" focusable="false">
-              <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>
+          <a href="https://www.instagram.com/?hl=en" target="_blank" rel="noopener noreferrer" class="social-link footer-focus" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
           </a>
-
+          <a href="https://linkedin.com/in/taansfast" target="_blank" rel="noopener noreferrer" class="social-link footer-focus" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </div>
+        
+        
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number" data-target="50">0</div>
+            <div class="stat-label">Bài viết</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="1000">0</div>
+            <div class="stat-label">Lượt xem</div>
+          </div>
         </div>
       </div>
     </div>
 
     
-    <hr class="bt b--white-20 mv4" role="separator">
-
-    
-    <div class="flex-ns flex-wrap justify-between items-center">
-      <p class="f6 mv0">
+    <div class="footer-bottom">
+      <div class="footer-copyright">
         © 2025 TaansFast - Blog Lập Trình Mạng. All rights reserved.
-      </p>
-      <p class="f6 mv0 mt3 mt0-ns">
-        Made with ❤️ using <a href="https://gohugo.io" class="link dim white-70 hover-white footer-focus" rel="noopener noreferrer" target="_blank">Hugo</a>.
-      </p>
+      </div>
+      <div class="footer-tech">
+        Made with ❤️ using <a href="https://gohugo.io" class="footer-focus" rel="noopener noreferrer" target="_blank">Hugo</a>
+      </div>
     </div>
 
   </div>
+  
+  
+  <button class="back-to-top" id="back-to-top" aria-label="Lên đầu trang">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18,15 12,9 6,15"></polyline>
+    </svg>
+  </button>
+  
+  
+  
+  <script>
+    (function() {
+      
+      const backToTopBtn = document.getElementById('back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      });
+      
+      backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      
+      const newsletterForm = document.getElementById('newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = this.querySelector('.newsletter-input').value;
+          
+          
+          if (!email || !email.includes('@')) {
+            alert('Vui lòng nhập email hợp lệ');
+            return;
+          }
+          
+          
+          const btn = this.querySelector('.newsletter-btn');
+          const originalText = btn.textContent;
+          btn.textContent = 'Đã đăng ký!';
+          btn.style.background = 'linear-gradient(135deg, #38a169 0%, #48bb78 100%)';
+          
+          
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'newsletter_signup', {
+              'event_category': 'Engagement',
+              'event_label': 'Footer'
+            });
+          }
+          
+          
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            this.querySelector('.newsletter-input').value = '';
+          }, 3000);
+        });
+      }
+      
+      
+      function animateStats() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach(stat => {
+          const target = parseInt(stat.getAttribute('data-target'));
+          const duration = 2000; 
+          const increment = target / (duration / 16); 
+          let current = 0;
+          
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            stat.textContent = Math.floor(current);
+          }, 16);
+        });
+      }
+      
+      
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateStats();
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      });
+      
+      const statsGrid = document.querySelector('.stats-grid');
+      if (statsGrid) {
+        statsObserver.observe(statsGrid);
+      }
+      
+      
+      document.querySelectorAll('.footer-link[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+      
+      
+      function shareToSocial(platform, url, title) {
+        const encodedUrl = encodeURIComponent(url);
+        const encodedTitle = encodeURIComponent(title);
+        
+        let shareUrl = '';
+        switch(platform) {
+          case 'facebook':
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+            break;
+          case 'twitter':
+            shareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
+            break;
+          case 'linkedin':
+            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+            break;
+        }
+        
+        if (shareUrl) {
+          window.open(shareUrl, '_blank', 'width=600,height=400');
+          
+          
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'social_share', {
+              'event_category': 'Social',
+              'event_label': platform
+            });
+          }
+        }
+      }
+      
+      
+      document.querySelectorAll('.social-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const platform = this.getAttribute('aria-label').toLowerCase();
+          if (platform === 'facebook' || platform === 'twitter' || platform === 'linkedin') {
+            e.preventDefault();
+            shareToSocial(platform, window.location.href, document.title);
+          }
+        });
+      });
+      
+    })();
+  </script>
 </footer>
   </body>
 </html>

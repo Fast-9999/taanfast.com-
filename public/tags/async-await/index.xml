@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Async-Await on TaansFast - Blog Lập Trình Mạng</title>
+    <link>http://localhost:1313/tags/async-await/</link>
+    <description>Recent content in Async-Await on TaansFast - Blog Lập Trình Mạng</description>
+    <generator>Hugo</generator>
+    <language>vi-vn</language>
+    <lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/async-await/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript hiện đại — ES6&#43; bạn phải biết (let/const, arrow, async/await)</title>
+      <link>http://localhost:1313/blog/bai-viet-3/</link>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/bai-viet-3/</guid>
+      <description>&lt;h1 id=&#34;-javascript-hiện-đại--es6-bạn-phải-biết&#34;&gt;🚀 JavaScript hiện đại — ES6+ bạn PHẢI biết&lt;/h1&gt;&#xA;&lt;p&gt;JavaScript đã thay đổi &lt;strong&gt;CHÓNG MẶT&lt;/strong&gt; từ 2015. Nếu bạn vẫn đang:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;✅ Dùng &lt;code&gt;var&lt;/code&gt; khắp nơi&lt;/li&gt;&#xA;&lt;li&gt;✅ Callback hell triền miên&lt;/li&gt;&#xA;&lt;li&gt;✅ Object literal dài dòng&lt;/li&gt;&#xA;&lt;li&gt;✅ Không biết destructuring là gì&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Thì đây là lúc bắt kịp train ES6+! 🚄&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;So sánh cực chuẩn:&lt;/strong&gt; Chuyển từ jQuery + callback sang ES6+ giống như đổi từ Nokia 1280 lên iPhone 15 Pro Max!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

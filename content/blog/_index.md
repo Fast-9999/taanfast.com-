@@ -1,4 +1,4 @@
 ---
 title: "Bài Viết"
-featured_image: "https://cdn4.vieclam24h.vn/Viet_blog_kiem_tien_02_27a4b3788e.jpeg"
+featured_image: "https://www.shasat.co.uk/wp-content/uploads/2016/01/blog_page.jpg"
 ---

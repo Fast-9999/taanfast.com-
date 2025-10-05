@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="vi-vn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot &amp; JWT Auth: Từ 0 đến Token | TaansFast - Blog Lập Trình Mạng</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Thực chiến Spring Boot từ con số 0: xây dựng REST API CRUD, bảo mật bằng JWT Authentication, test với Postman và deploy lên Heroku — hướng dẫn từng bước cho backend developer muốn có project thực tế trong portfolio.">
+    <meta name="generator" content="Hugo 0.150.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="TaansFast">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/blog/spring-boot-rest-jwt-tutorial/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/blog/spring-boot-rest-jwt-tutorial/">
+  <meta property="og:site_name" content="TaansFast - Blog Lập Trình Mạng">
+  <meta property="og:title" content="Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot & JWT Auth: Từ 0 đến Token">
+  <meta property="og:description" content="Thực chiến Spring Boot từ con số 0: xây dựng REST API CRUD, bảo mật bằng JWT Authentication, test với Postman và deploy lên Heroku — hướng dẫn từng bước cho backend developer muốn có project thực tế trong portfolio.">
+  <meta property="og:locale" content="vi_vn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-10-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-05T00:00:00+00:00">
+    <meta property="article:tag" content="Java">
+    <meta property="article:tag" content="Spring-Boot">
+    <meta property="article:tag" content="Rest-Api">
+    <meta property="article:tag" content="Jwt">
+    <meta property="article:tag" content="Authentication">
+    <meta property="article:tag" content="Crud">
+
+  <meta itemprop="name" content="Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot & JWT Auth: Từ 0 đến Token">
+  <meta itemprop="description" content="Thực chiến Spring Boot từ con số 0: xây dựng REST API CRUD, bảo mật bằng JWT Authentication, test với Postman và deploy lên Heroku — hướng dẫn từng bước cho backend developer muốn có project thực tế trong portfolio.">
+  <meta itemprop="datePublished" content="2025-10-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-10-05T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2256">
+  <meta itemprop="keywords" content="Java,Spring-Boot,Rest-Api,Jwt,Authentication,Crud,Backend-Development,Heroku-Deploy,Portfolio-Project">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot & JWT Auth: Từ 0 đến Token">
+  <meta name="twitter:description" content="Thực chiến Spring Boot từ con số 0: xây dựng REST API CRUD, bảo mật bằng JWT Authentication, test với Postman và deploy lên Heroku — hướng dẫn từng bước cho backend developer muốn có project thực tế trong portfolio.">
+      <meta name="twitter:site" content="@https://twitter.com/taansfast">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+  
+
+  
+  
+  
+  <header class="cover bg-center" style="background-image: url('https://www.mytaskpanel.com/wp-content/uploads/2023/04/consulting-blog-09.webp');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        TaansFast - Blog Lập Trình Mạng
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/" title="Trang chủ page">
+              Trang chủ
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/blog/" title="Blog page">
+              Blog
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/about/" title="Giới thiệu page">
+              Giới thiệu
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/contact/" title="Liên hệ page">
+              Liên hệ
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot &amp; JWT Auth: Từ 0 đến Token</div>
+          
+            <div class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+              Thực chiến Spring Boot từ con số 0: xây dựng REST API CRUD, bảo mật bằng JWT Authentication, test với Postman và deploy lên Heroku — hướng dẫn từng bước cho backend developer muốn có project thực tế trong portfolio.
+            </div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+<article class="mw8 center ph3 ph0-l">
+  
+  <div id="reading-progress-wrap" class="fixed top-0 left-0 w-100 z-9999">
+    <div id="reading-progress" class="reading-progress-bar"></div>
+  </div>
+
+  
+  
+  
+  <section class="mb5 relative hero-section">
+    <figure class="w-100 ma0" aria-hidden="true">
+      <img src="https://www.mytaskpanel.com/wp-content/uploads/2023/04/consulting-blog-09.webp" alt="Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot &amp; JWT Auth: Từ 0 đến Token" class="db w-100 hero-image">
+    </figure>
+    <div class="absolute left-0 bottom-0 pa4 w-100 hero-overlay">
+      <h1 class="f1-ns f2 mv0 white">Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot &amp; JWT Auth: Từ 0 đến Token</h1>
+      
+    </div>
+  </section>
+  
+
+  <div class="flex-l flex-wrap">
+    
+    <main class="w-two-thirds-l w-100 pr5-l">
+      <div class="mb4 f6 gray meta-info">
+        
+          <span class="mr3">✍️ <strong>TaansFast</strong></span>
+        
+        
+          <time datetime="2025-10-05T00:00:00Z">October 5, 2025</time> ·
+        
+        <span>11 minutes read · 2256 words</span>
+      </div>
+
+      <div class="article-content nested-copy-line-height lh-copy serif f4 nested-links dark-gray">
+        <h1 id="xây-dựng-rest-api-java-thực-chiến-với-spring-boot--jwt-auth-từ-0-đến-token">Xây dựng REST API Java &lsquo;Thực chiến&rsquo; với Spring Boot &amp; JWT Auth: Từ 0 đến Token</h1>
+<h2 id="giới-thiệu-nâng-cấp-portfolio-backend-của-bạn">Giới thiệu: Nâng cấp Portfolio Backend của bạn</h2>
+<p>Nếu bạn là một Backend Developer tập sự hoặc sinh viên muốn có một dự án thực tế, đây là bài hướng dẫn dành cho bạn. Chúng ta sẽ xây dựng REST API CRUD đầy đủ (Create, Read, Update, Delete) và bảo mật bằng JSON Web Token (JWT) — một chuẩn authentication hiện đại. Sau cùng, bạn sẽ biết cách đóng gói và triển khai ứng dụng lên cloud (Heroku hoặc Somee), tạo thành một API thật sự “production-ready”.</p>
+<hr>
+<h2 id="-mục-tiêu-dự-án">🎯 Mục tiêu dự án</h2>
+<p>Xây dựng API quản lý bài viết/sản phẩm (CRUD) với:</p>
+<ul>
+<li><strong>Kiến trúc chuẩn:</strong> Controller / Service / Repository.</li>
+<li><strong>Validation &amp; DTO:</strong> kiểm soát input và tránh lộ dữ liệu nhạy cảm.</li>
+<li><strong>Bảo mật:</strong> Đăng ký, đăng nhập, xác thực JWT.</li>
+<li><strong>Triển khai:</strong> Deploy app <code>.jar</code> lên Heroku hoặc Somee.</li>
+</ul>
+<p>Repo mẫu: <code>spring-boot-starter-api</code> + Postman collection.</p>
+<hr>
+<h2 id="1-khởi-tạo-project--spring-initializr">1. Khởi tạo Project — Spring Initializr</h2>
+<p>Truy cập <a href="https://start.spring.io/">start.spring.io</a> và cấu hình:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Trường</th>
+          <th>Giá trị</th>
+          <th>Giải thích</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Project</td>
+          <td>Maven Project</td>
+          <td>Công cụ build</td>
+      </tr>
+      <tr>
+          <td>Language</td>
+          <td>Java</td>
+          <td>Ngôn ngữ chính</td>
+      </tr>
+      <tr>
+          <td>Spring Boot</td>
+          <td>3.2.x</td>
+          <td>Phiên bản ổn định mới nhất</td>
+      </tr>
+      <tr>
+          <td>Group / Artifact</td>
+          <td><code>com.example</code> / <code>spring-boot-rest-jwt</code></td>
+          <td>Định danh project</td>
+      </tr>
+      <tr>
+          <td>Java Version</td>
+          <td>17 hoặc 21</td>
+          <td>LTS version</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="dependencies-cần-thiết">Dependencies cần thiết:</h3>
+<ul>
+<li>Spring Web — REST API.</li>
+<li>Spring Data JPA — ORM.</li>
+<li>H2 Database — phát triển cục bộ.</li>
+<li>Spring Security — bảo mật.</li>
+<li>Validation — @Valid, @NotNull, &hellip;</li>
+<li>Lombok — giảm boilerplate.</li>
+<li><code>jjwt</code> (API, impl, jackson) — JWT auth.</li>
+</ul>
+<p>Tải project và mở trong IDE.</p>
+<hr>
+<h2 id="2-cấu-trúc-project--api-crud">2. Cấu trúc Project &amp; API CRUD</h2>
+<pre tabindex="0"><code>com.example.springbootrestjwt
+├── config
+├── controller
+├── dto
+├── entity
+├── repository
+├── service
+└── exception
+</code></pre><h3 id="21-entity-user-cho-jwt-authentication">2.1 Entity: <code>User</code> (cho JWT Authentication)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@NoArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@AllArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;users&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Id</span> <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, unique <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String username;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String password;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, unique <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String email;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String firstName;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String lastName;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Instant createdAt <span style="color:#f92672">=</span> Instant.<span style="color:#a6e22e">now</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Instant updatedAt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Enumerated</span>(EnumType.<span style="color:#a6e22e">STRING</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Role role <span style="color:#f92672">=</span> Role.<span style="color:#a6e22e">USER</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> Role {
+</span></span><span style="display:flex;"><span>  USER, ADMIN
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="22-entity-post">2.2 Entity: <code>Post</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@NoArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@AllArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;posts&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Post</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Id</span> <span style="color:#a6e22e">@GeneratedValue</span>(strategy <span style="color:#f92672">=</span> GenerationType.<span style="color:#a6e22e">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Column</span>(nullable <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>, unique <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String title;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Column</span>(columnDefinition <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;TEXT&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String content;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String author;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Instant createdAt <span style="color:#f92672">=</span> Instant.<span style="color:#a6e22e">now</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Instant updatedAt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@ManyToOne</span>(fetch <span style="color:#f92672">=</span> FetchType.<span style="color:#a6e22e">LAZY</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@JoinColumn</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;user_id&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> User user;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="23-repository-layer">2.3 Repository Layer</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Repository</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">UserRepository</span> <span style="color:#66d9ef">extends</span> JpaRepository<span style="color:#f92672">&lt;</span>User, Long<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>  Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findByUsername</span>(String username);
+</span></span><span style="display:flex;"><span>  Optional<span style="color:#f92672">&lt;</span>User<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findByEmail</span>(String email);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">existsByUsername</span>(String username);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">existsByEmail</span>(String email);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Repository</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">PostRepository</span> <span style="color:#66d9ef">extends</span> JpaRepository<span style="color:#f92672">&lt;</span>Post, Long<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>  Optional<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findByTitle</span>(String title);
+</span></span><span style="display:flex;"><span>  List<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findByUser</span>(User user);
+</span></span><span style="display:flex;"><span>  List<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findByAuthor</span>(String author);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="24-service-layer">2.4 Service Layer</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequiredArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserService</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> UserRepository userRepository;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> PasswordEncoder passwordEncoder;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">registerUser</span>(RegisterRequest request) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (userRepository.<span style="color:#a6e22e">existsByUsername</span>(request.<span style="color:#a6e22e">getUsername</span>())) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UserAlreadyExistsException(<span style="color:#e6db74">&#34;Username already exists&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (userRepository.<span style="color:#a6e22e">existsByEmail</span>(request.<span style="color:#a6e22e">getEmail</span>())) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UserAlreadyExistsException(<span style="color:#e6db74">&#34;Email already exists&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User();
+</span></span><span style="display:flex;"><span>    user.<span style="color:#a6e22e">setUsername</span>(request.<span style="color:#a6e22e">getUsername</span>());
+</span></span><span style="display:flex;"><span>    user.<span style="color:#a6e22e">setEmail</span>(request.<span style="color:#a6e22e">getEmail</span>());
+</span></span><span style="display:flex;"><span>    user.<span style="color:#a6e22e">setPassword</span>(passwordEncoder.<span style="color:#a6e22e">encode</span>(request.<span style="color:#a6e22e">getPassword</span>()));
+</span></span><span style="display:flex;"><span>    user.<span style="color:#a6e22e">setFirstName</span>(request.<span style="color:#a6e22e">getFirstName</span>());
+</span></span><span style="display:flex;"><span>    user.<span style="color:#a6e22e">setLastName</span>(request.<span style="color:#a6e22e">getLastName</span>());
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> userRepository.<span style="color:#a6e22e">save</span>(user);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">findByUsername</span>(String username) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> userRepository.<span style="color:#a6e22e">findByUsername</span>(username)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">orElseThrow</span>(() <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">new</span> UserNotFoundException(<span style="color:#e6db74">&#34;User not found&#34;</span>));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequiredArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostService</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> PostRepository postRepository;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllPosts</span>() { <span style="color:#66d9ef">return</span> postRepository.<span style="color:#a6e22e">findAll</span>(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Post <span style="color:#a6e22e">getPostById</span>(Long id) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> postRepository.<span style="color:#a6e22e">findById</span>(id)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">orElseThrow</span>(() <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">new</span> ResourceNotFoundException(<span style="color:#e6db74">&#34;Post not found with id: &#34;</span> <span style="color:#f92672">+</span> id));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Post <span style="color:#a6e22e">createPost</span>(PostRequestDTO dto, User user) {
+</span></span><span style="display:flex;"><span>    Post post <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Post();
+</span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setTitle</span>(dto.<span style="color:#a6e22e">getTitle</span>());
+</span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setContent</span>(dto.<span style="color:#a6e22e">getContent</span>());
+</span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setAuthor</span>(dto.<span style="color:#a6e22e">getAuthor</span>());
+</span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setUser</span>(user);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> postRepository.<span style="color:#a6e22e">save</span>(post);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Post <span style="color:#a6e22e">updatePost</span>(Long id, PostRequestDTO dto, User user) {
+</span></span><span style="display:flex;"><span>    Post post <span style="color:#f92672">=</span> getPostById(id);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>post.<span style="color:#a6e22e">getUser</span>().<span style="color:#a6e22e">getId</span>().<span style="color:#a6e22e">equals</span>(user.<span style="color:#a6e22e">getId</span>())) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UnauthorizedException(<span style="color:#e6db74">&#34;You can only update your own posts&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setTitle</span>(dto.<span style="color:#a6e22e">getTitle</span>());
+</span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setContent</span>(dto.<span style="color:#a6e22e">getContent</span>());
+</span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setAuthor</span>(dto.<span style="color:#a6e22e">getAuthor</span>());
+</span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setUpdatedAt</span>(Instant.<span style="color:#a6e22e">now</span>());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> postRepository.<span style="color:#a6e22e">save</span>(post);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deletePost</span>(Long id, User user) {
+</span></span><span style="display:flex;"><span>    Post post <span style="color:#f92672">=</span> getPostById(id);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>post.<span style="color:#a6e22e">getUser</span>().<span style="color:#a6e22e">getId</span>().<span style="color:#a6e22e">equals</span>(user.<span style="color:#a6e22e">getId</span>())) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UnauthorizedException(<span style="color:#e6db74">&#34;You can only delete your own posts&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    postRepository.<span style="color:#a6e22e">deleteById</span>(id);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="25-controller-layer">2.5 Controller Layer</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequestMapping</span>(<span style="color:#e6db74">&#34;/api/v1/auth&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequiredArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuthController</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> UserService userService;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> JwtService jwtService;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> AuthenticationManager authenticationManager;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PostMapping</span>(<span style="color:#e6db74">&#34;/register&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>AuthResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">register</span>(<span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@RequestBody</span> RegisterRequest request) {
+</span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> userService.<span style="color:#a6e22e">registerUser</span>(request);
+</span></span><span style="display:flex;"><span>    String token <span style="color:#f92672">=</span> jwtService.<span style="color:#a6e22e">generateToken</span>(user.<span style="color:#a6e22e">getUsername</span>());
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    AuthResponse response <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AuthResponse(token, user.<span style="color:#a6e22e">getUsername</span>(), user.<span style="color:#a6e22e">getEmail</span>());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">CREATED</span>).<span style="color:#a6e22e">body</span>(response);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PostMapping</span>(<span style="color:#e6db74">&#34;/login&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>AuthResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">login</span>(<span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@RequestBody</span> LoginRequest request) {
+</span></span><span style="display:flex;"><span>    authenticationManager.<span style="color:#a6e22e">authenticate</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">new</span> UsernamePasswordAuthenticationToken(request.<span style="color:#a6e22e">getUsername</span>(), request.<span style="color:#a6e22e">getPassword</span>())
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> userService.<span style="color:#a6e22e">findByUsername</span>(request.<span style="color:#a6e22e">getUsername</span>());
+</span></span><span style="display:flex;"><span>    String token <span style="color:#f92672">=</span> jwtService.<span style="color:#a6e22e">generateToken</span>(user.<span style="color:#a6e22e">getUsername</span>());
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    AuthResponse response <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AuthResponse(token, user.<span style="color:#a6e22e">getUsername</span>(), user.<span style="color:#a6e22e">getEmail</span>());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">ok</span>(response);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequestMapping</span>(<span style="color:#e6db74">&#34;/api/v1/posts&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequiredArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostController</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> PostService postService;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@GetMapping</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">getAll</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">ok</span>(postService.<span style="color:#a6e22e">getAllPosts</span>());
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@GetMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getById</span>(<span style="color:#a6e22e">@PathVariable</span> Long id) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">ok</span>(postService.<span style="color:#a6e22e">getPostById</span>(id));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PostMapping</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PreAuthorize</span>(<span style="color:#e6db74">&#34;hasRole(&#39;USER&#39;)&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@RequestBody</span> PostRequestDTO dto, 
+</span></span><span style="display:flex;"><span>                                   Authentication authentication) {
+</span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> (User) authentication.<span style="color:#a6e22e">getPrincipal</span>();
+</span></span><span style="display:flex;"><span>    Post created <span style="color:#f92672">=</span> postService.<span style="color:#a6e22e">createPost</span>(dto, user);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">CREATED</span>).<span style="color:#a6e22e">body</span>(created);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PutMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PreAuthorize</span>(<span style="color:#e6db74">&#34;hasRole(&#39;USER&#39;)&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">@PathVariable</span> Long id, 
+</span></span><span style="display:flex;"><span>                                   <span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@RequestBody</span> PostRequestDTO dto,
+</span></span><span style="display:flex;"><span>                                   Authentication authentication) {
+</span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> (User) authentication.<span style="color:#a6e22e">getPrincipal</span>();
+</span></span><span style="display:flex;"><span>    Post updated <span style="color:#f92672">=</span> postService.<span style="color:#a6e22e">updatePost</span>(id, dto, user);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">ok</span>(updated);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@DeleteMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PreAuthorize</span>(<span style="color:#e6db74">&#34;hasRole(&#39;USER&#39;)&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Void<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">delete</span>(<span style="color:#a6e22e">@PathVariable</span> Long id, Authentication authentication) {
+</span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> (User) authentication.<span style="color:#a6e22e">getPrincipal</span>();
+</span></span><span style="display:flex;"><span>    postService.<span style="color:#a6e22e">deletePost</span>(id, user);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">noContent</span>().<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="3-dto--validation">3. DTO &amp; Validation</h2>
+<h3 id="31-auth-dtos">3.1 Auth DTOs</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@NoArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@AllArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RegisterRequest</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span> <span style="color:#a6e22e">@Size</span>(min <span style="color:#f92672">=</span> 3, max <span style="color:#f92672">=</span> 20)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String username;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span> <span style="color:#a6e22e">@Email</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String email;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span> <span style="color:#a6e22e">@Size</span>(min <span style="color:#f92672">=</span> 6, max <span style="color:#f92672">=</span> 100)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String password;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Size</span>(max <span style="color:#f92672">=</span> 50)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String firstName;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Size</span>(max <span style="color:#f92672">=</span> 50)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String lastName;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@NoArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@AllArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginRequest</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String username;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String password;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@NoArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@AllArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuthResponse</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String token;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String username;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String email;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Bearer&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="32-post-dtos">3.2 Post DTOs</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@NoArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@AllArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostRequestDTO</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span> <span style="color:#a6e22e">@Size</span>(min <span style="color:#f92672">=</span> 5, max <span style="color:#f92672">=</span> 100)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String title;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String content;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Size</span>(max <span style="color:#f92672">=</span> 50)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String author;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@NoArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@AllArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostResponseDTO</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String title;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String content;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String author;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String username;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Instant createdAt;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Instant updatedAt;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="4-bảo-mật-với-spring-security--jwt">4. Bảo mật với Spring Security &amp; JWT</h2>
+<h3 id="41-security-configuration">4.1 Security Configuration</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableWebSecurity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@EnableMethodSecurity</span>(prePostEnabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequiredArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecurityConfig</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> JwtAuthFilter jwtAuthFilter;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> UserDetailsService userDetailsService;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> SecurityFilterChain <span style="color:#a6e22e">filterChain</span>(HttpSecurity http) <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>    http
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">csrf</span>(AbstractHttpConfigurer::disable)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">sessionManagement</span>(session <span style="color:#f92672">-&gt;</span> session.<span style="color:#a6e22e">sessionCreationPolicy</span>(SessionCreationPolicy.<span style="color:#a6e22e">STATELESS</span>))
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">authorizeHttpRequests</span>(auth <span style="color:#f92672">-&gt;</span> auth
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">requestMatchers</span>(<span style="color:#e6db74">&#34;/api/v1/auth/**&#34;</span>).<span style="color:#a6e22e">permitAll</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">requestMatchers</span>(<span style="color:#e6db74">&#34;/h2-console/**&#34;</span>).<span style="color:#a6e22e">permitAll</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">anyRequest</span>().<span style="color:#a6e22e">authenticated</span>()
+</span></span><span style="display:flex;"><span>      )
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">addFilterBefore</span>(jwtAuthFilter, UsernamePasswordAuthenticationFilter.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">headers</span>(headers <span style="color:#f92672">-&gt;</span> headers.<span style="color:#a6e22e">frameOptions</span>().<span style="color:#a6e22e">disable</span>()); <span style="color:#75715e">// For H2 Console</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> http.<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> PasswordEncoder <span style="color:#a6e22e">passwordEncoder</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> BCryptPasswordEncoder();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> AuthenticationManager <span style="color:#a6e22e">authenticationManager</span>(AuthenticationConfiguration config) <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> config.<span style="color:#a6e22e">getAuthenticationManager</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="42-jwt-service-complete-implementation">4.2 JWT Service (Complete Implementation)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequiredArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JwtService</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Value</span>(<span style="color:#e6db74">&#34;${jwt.secret}&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String secretKey;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Value</span>(<span style="color:#e6db74">&#34;${jwt.expiration}&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> jwtExpiration;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">generateToken</span>(String username) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Jwts.<span style="color:#a6e22e">builder</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">setSubject</span>(username)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">setIssuedAt</span>(<span style="color:#66d9ef">new</span> Date())
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">setExpiration</span>(<span style="color:#66d9ef">new</span> Date(System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">+</span> jwtExpiration))
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">signWith</span>(getSignInKey(), SignatureAlgorithm.<span style="color:#a6e22e">HS256</span>)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">compact</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">validateToken</span>(String token) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      Jwts.<span style="color:#a6e22e">parserBuilder</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">setSigningKey</span>(getSignInKey())
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">build</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">parseClaimsJws</span>(token);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (JwtException <span style="color:#f92672">|</span> IllegalArgumentException e) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">extractUsername</span>(String token) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> extractClaim(token, Claims::getSubject);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> T <span style="color:#a6e22e">extractClaim</span>(String token, Function<span style="color:#f92672">&lt;</span>Claims, T<span style="color:#f92672">&gt;</span> claimsResolver) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> Claims claims <span style="color:#f92672">=</span> extractAllClaims(token);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> claimsResolver.<span style="color:#a6e22e">apply</span>(claims);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Claims <span style="color:#a6e22e">extractAllClaims</span>(String token) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Jwts.<span style="color:#a6e22e">parserBuilder</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">setSigningKey</span>(getSignInKey())
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">build</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">parseClaimsJws</span>(token)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">getBody</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Key <span style="color:#a6e22e">getSignInKey</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> keyBytes <span style="color:#f92672">=</span> Decoders.<span style="color:#a6e22e">BASE64</span>.<span style="color:#a6e22e">decode</span>(secretKey);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Keys.<span style="color:#a6e22e">hmacShaKeyFor</span>(keyBytes);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Authentication <span style="color:#a6e22e">getAuthentication</span>(String token) {
+</span></span><span style="display:flex;"><span>    String username <span style="color:#f92672">=</span> extractUsername(token);
+</span></span><span style="display:flex;"><span>    UserDetails userDetails <span style="color:#f92672">=</span> userDetailsService.<span style="color:#a6e22e">loadUserByUsername</span>(username);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> UsernamePasswordAuthenticationToken(userDetails, <span style="color:#66d9ef">null</span>, userDetails.<span style="color:#a6e22e">getAuthorities</span>());
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="43-jwt-filter-complete-implementation">4.3 JWT Filter (Complete Implementation)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequiredArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JwtAuthFilter</span> <span style="color:#66d9ef">extends</span> OncePerRequestFilter {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> JwtService jwtService;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> UserDetailsService userDetailsService;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doFilterInternal</span>(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throws</span> ServletException, IOException {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> String authHeader <span style="color:#f92672">=</span> request.<span style="color:#a6e22e">getHeader</span>(<span style="color:#e6db74">&#34;Authorization&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> String jwt;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> String username;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (authHeader <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>authHeader.<span style="color:#a6e22e">startsWith</span>(<span style="color:#e6db74">&#34;Bearer &#34;</span>)) {
+</span></span><span style="display:flex;"><span>      filterChain.<span style="color:#a6e22e">doFilter</span>(request, response);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    jwt <span style="color:#f92672">=</span> authHeader.<span style="color:#a6e22e">substring</span>(7);
+</span></span><span style="display:flex;"><span>    username <span style="color:#f92672">=</span> jwtService.<span style="color:#a6e22e">extractUsername</span>(jwt);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (username <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> SecurityContextHolder.<span style="color:#a6e22e">getContext</span>().<span style="color:#a6e22e">getAuthentication</span>() <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>      UserDetails userDetails <span style="color:#f92672">=</span> userDetailsService.<span style="color:#a6e22e">loadUserByUsername</span>(username);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (jwtService.<span style="color:#a6e22e">validateToken</span>(jwt) <span style="color:#f92672">&amp;&amp;</span> jwtService.<span style="color:#a6e22e">validateToken</span>(jwt)) {
+</span></span><span style="display:flex;"><span>        UsernamePasswordAuthenticationToken authToken <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> UsernamePasswordAuthenticationToken(
+</span></span><span style="display:flex;"><span>          userDetails, <span style="color:#66d9ef">null</span>, userDetails.<span style="color:#a6e22e">getAuthorities</span>()
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>        authToken.<span style="color:#a6e22e">setDetails</span>(<span style="color:#66d9ef">new</span> WebAuthenticationDetailsSource().<span style="color:#a6e22e">buildDetails</span>(request));
+</span></span><span style="display:flex;"><span>        SecurityContextHolder.<span style="color:#a6e22e">getContext</span>().<span style="color:#a6e22e">setAuthentication</span>(authToken);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    filterChain.<span style="color:#a6e22e">doFilter</span>(request, response);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="5-configuration--exception-handling">5. Configuration &amp; Exception Handling</h2>
+<h3 id="51-application-properties">5.1 Application Properties</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#75715e"># Database Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.datasource.url</span><span style="color:#f92672">=</span><span style="color:#e6db74">jdbc:h2:mem:testdb</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.datasource.driverClassName</span><span style="color:#f92672">=</span><span style="color:#e6db74">org.h2.Driver</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.datasource.username</span><span style="color:#f92672">=</span><span style="color:#e6db74">sa</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.datasource.password</span><span style="color:#f92672">=</span><span style="color:#e6db74">password</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># H2 Console (for development)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.h2.console.enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.h2.console.path</span><span style="color:#f92672">=</span><span style="color:#e6db74">/h2-console</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># JPA Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.jpa.database-platform</span><span style="color:#f92672">=</span><span style="color:#e6db74">org.hibernate.dialect.H2Dialect</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.jpa.hibernate.ddl-auto</span><span style="color:#f92672">=</span><span style="color:#e6db74">create-drop</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.jpa.show-sql</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.jpa.properties.hibernate.format_sql</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># JWT Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">jwt.secret</span><span style="color:#f92672">=</span><span style="color:#e6db74">404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">jwt.expiration</span><span style="color:#f92672">=</span><span style="color:#e6db74">86400000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Server Configuration</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server.port</span><span style="color:#f92672">=</span><span style="color:#e6db74">8080</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server.servlet.context-path</span><span style="color:#f92672">=</span><span style="color:#e6db74">/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Logging</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">logging.level.com.example.springbootrestjwt</span><span style="color:#f92672">=</span><span style="color:#e6db74">DEBUG</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">logging.level.org.springframework.security</span><span style="color:#f92672">=</span><span style="color:#e6db74">DEBUG</span>
+</span></span></code></pre></div><h3 id="52-global-exception-handler">5.2 Global Exception Handler</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@RestControllerAdvice</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Slf4j</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GlobalExceptionHandler</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@ExceptionHandler</span>(ResourceNotFoundException.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>ErrorResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">handleResourceNotFound</span>(ResourceNotFoundException ex) {
+</span></span><span style="display:flex;"><span>    ErrorResponse error <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ErrorResponse(<span style="color:#e6db74">&#34;RESOURCE_NOT_FOUND&#34;</span>, ex.<span style="color:#a6e22e">getMessage</span>());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">NOT_FOUND</span>).<span style="color:#a6e22e">body</span>(error);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@ExceptionHandler</span>(UserAlreadyExistsException.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>ErrorResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">handleUserAlreadyExists</span>(UserAlreadyExistsException ex) {
+</span></span><span style="display:flex;"><span>    ErrorResponse error <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ErrorResponse(<span style="color:#e6db74">&#34;USER_ALREADY_EXISTS&#34;</span>, ex.<span style="color:#a6e22e">getMessage</span>());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">CONFLICT</span>).<span style="color:#a6e22e">body</span>(error);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@ExceptionHandler</span>(UnauthorizedException.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>ErrorResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">handleUnauthorized</span>(UnauthorizedException ex) {
+</span></span><span style="display:flex;"><span>    ErrorResponse error <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ErrorResponse(<span style="color:#e6db74">&#34;UNAUTHORIZED&#34;</span>, ex.<span style="color:#a6e22e">getMessage</span>());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">UNAUTHORIZED</span>).<span style="color:#a6e22e">body</span>(error);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@ExceptionHandler</span>(MethodArgumentNotValidException.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>ErrorResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">handleValidation</span>(MethodArgumentNotValidException ex) {
+</span></span><span style="display:flex;"><span>    String message <span style="color:#f92672">=</span> ex.<span style="color:#a6e22e">getBindingResult</span>().<span style="color:#a6e22e">getFieldErrors</span>().<span style="color:#a6e22e">stream</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">map</span>(error <span style="color:#f92672">-&gt;</span> error.<span style="color:#a6e22e">getField</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">+</span> error.<span style="color:#a6e22e">getDefaultMessage</span>())
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">collect</span>(Collectors.<span style="color:#a6e22e">joining</span>(<span style="color:#e6db74">&#34;, &#34;</span>));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ErrorResponse error <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ErrorResponse(<span style="color:#e6db74">&#34;VALIDATION_ERROR&#34;</span>, message);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">BAD_REQUEST</span>).<span style="color:#a6e22e">body</span>(error);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@ExceptionHandler</span>(Exception.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>ErrorResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">handleGeneric</span>(Exception ex) {
+</span></span><span style="display:flex;"><span>    log.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Unexpected error occurred&#34;</span>, ex);
+</span></span><span style="display:flex;"><span>    ErrorResponse error <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ErrorResponse(<span style="color:#e6db74">&#34;INTERNAL_SERVER_ERROR&#34;</span>, <span style="color:#e6db74">&#34;An unexpected error occurred&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">INTERNAL_SERVER_ERROR</span>).<span style="color:#a6e22e">body</span>(error);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@AllArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@NoArgsConstructor</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ErrorResponse</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String error;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String message;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Instant timestamp <span style="color:#f92672">=</span> Instant.<span style="color:#a6e22e">now</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="53-custom-exceptions">5.3 Custom Exceptions</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ResourceNotFoundException</span> <span style="color:#66d9ef">extends</span> RuntimeException {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ResourceNotFoundException</span>(String message) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(message);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserAlreadyExistsException</span> <span style="color:#66d9ef">extends</span> RuntimeException {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">UserAlreadyExistsException</span>(String message) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(message);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserNotFoundException</span> <span style="color:#66d9ef">extends</span> RuntimeException {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">UserNotFoundException</span>(String message) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(message);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UnauthorizedException</span> <span style="color:#66d9ef">extends</span> RuntimeException {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">UnauthorizedException</span>(String message) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>(message);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="6-testing-api-postman">6. Testing API (Postman)</h2>
+<h3 id="61-authentication-flow">6.1 Authentication Flow</h3>
+<p><strong>Step 1: Register User</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">POST http://localhost:8080/api/v1/auth/register
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Content-Type: application/json
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">{
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;username&#34;: &#34;taansfast&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;email&#34;: &#34;taansfast@example.com&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;password&#34;: &#34;password123&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;firstName&#34;: &#34;Taans&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;lastName&#34;: &#34;Fast&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}
+</span></span></span></code></pre></div><p><strong>Response:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;token&#34;</span>: <span style="color:#e6db74">&#34;eyJhbGciOiJIUzI1NiJ9...&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;taansfast&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;email&#34;</span>: <span style="color:#e6db74">&#34;taansfast@example.com&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Bearer&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Step 2: Login</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">POST http://localhost:8080/api/v1/auth/login
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Content-Type: application/json
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">{
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;username&#34;: &#34;taansfast&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;password&#34;: &#34;password123&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}
+</span></span></span></code></pre></div><p><strong>Step 3: Use Token in Headers</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Authorization: Bearer eyJhbGciOiJIUzI1NiJ9...
+</span></span></span></code></pre></div><h3 id="62-post-crud-operations">6.2 Post CRUD Operations</h3>
+<p><strong>Create Post:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">POST http://localhost:8080/api/v1/posts
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Authorization: Bearer {{jwt_token}}
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Content-Type: application/json
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">{
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;title&#34;: &#34;REST API Spring Boot Tutorial&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;content&#34;: &#34;Complete guide to building REST API with Spring Boot and JWT authentication.&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;author&#34;: &#34;TaansFast&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}
+</span></span></span></code></pre></div><p><strong>Get All Posts:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">GET http://localhost:8080/api/v1/posts
+</span></span></span></code></pre></div><p><strong>Get Post by ID:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">GET http://localhost:8080/api/v1/posts/1
+</span></span></span></code></pre></div><p><strong>Update Post:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">PUT http://localhost:8080/api/v1/posts/1
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Authorization: Bearer {{jwt_token}}
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Content-Type: application/json
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">{
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;title&#34;: &#34;Updated: REST API Spring Boot Tutorial&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;content&#34;: &#34;Updated content with more details about JWT implementation.&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">  &#34;author&#34;: &#34;TaansFast&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}
+</span></span></span></code></pre></div><p><strong>Delete Post:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">DELETE http://localhost:8080/api/v1/posts/1
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">Authorization: Bearer {{jwt_token}}
+</span></span></span></code></pre></div><h3 id="63-error-handling-examples">6.3 Error Handling Examples</h3>
+<p><strong>Validation Error:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;VALIDATION_ERROR&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;title: Title must be between 5 and 100 characters&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;2024-01-15T10:30:00Z&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Unauthorized Error:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;UNAUTHORIZED&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;You can only update your own posts&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;2024-01-15T10:30:00Z&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="7-unit-testing">7. Unit Testing</h2>
+<h3 id="71-test-dependencies">7.1 Test Dependencies</h3>
+<p>Thêm vào <code>pom.xml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-test<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.security<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>spring-security-test<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><h3 id="72-service-tests">7.2 Service Tests</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@ExtendWith</span>(MockitoExtension.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostServiceTest</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Mock</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> PostRepository postRepository;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@InjectMocks</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> PostService postService;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldCreatePostSuccessfully</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Given</span>
+</span></span><span style="display:flex;"><span>    PostRequestDTO dto <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PostRequestDTO(<span style="color:#e6db74">&#34;Test Title&#34;</span>, <span style="color:#e6db74">&#34;Test Content&#34;</span>, <span style="color:#e6db74">&#34;Author&#34;</span>);
+</span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User();
+</span></span><span style="display:flex;"><span>    Post savedPost <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Post();
+</span></span><span style="display:flex;"><span>    savedPost.<span style="color:#a6e22e">setId</span>(1L);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    when(postRepository.<span style="color:#a6e22e">save</span>(any(Post.<span style="color:#a6e22e">class</span>))).<span style="color:#a6e22e">thenReturn</span>(savedPost);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// When</span>
+</span></span><span style="display:flex;"><span>    Post result <span style="color:#f92672">=</span> postService.<span style="color:#a6e22e">createPost</span>(dto, user);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Then</span>
+</span></span><span style="display:flex;"><span>    assertThat(result.<span style="color:#a6e22e">getId</span>()).<span style="color:#a6e22e">isEqualTo</span>(1L);
+</span></span><span style="display:flex;"><span>    verify(postRepository).<span style="color:#a6e22e">save</span>(any(Post.<span style="color:#a6e22e">class</span>));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="73-controller-tests">7.3 Controller Tests</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@WebMvcTest</span>(PostController.<span style="color:#a6e22e">class</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostControllerTest</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Autowired</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> MockMvc mockMvc;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@MockBean</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> PostService postService;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Test</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@WithMockUser</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldCreatePost</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>    PostRequestDTO dto <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PostRequestDTO(<span style="color:#e6db74">&#34;Test&#34;</span>, <span style="color:#e6db74">&#34;Content&#34;</span>, <span style="color:#e6db74">&#34;Author&#34;</span>);
+</span></span><span style="display:flex;"><span>    Post post <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Post();
+</span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setId</span>(1L);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    when(postService.<span style="color:#a6e22e">createPost</span>(any(), any())).<span style="color:#a6e22e">thenReturn</span>(post);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    mockMvc.<span style="color:#a6e22e">perform</span>(post(<span style="color:#e6db74">&#34;/api/v1/posts&#34;</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">contentType</span>(MediaType.<span style="color:#a6e22e">APPLICATION_JSON</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">content</span>(objectMapper.<span style="color:#a6e22e">writeValueAsString</span>(dto)))
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">andExpect</span>(status().<span style="color:#a6e22e">isCreated</span>())
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">andExpect</span>(jsonPath(<span style="color:#e6db74">&#34;$.id&#34;</span>).<span style="color:#a6e22e">value</span>(1));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="8-build--deploy">8. Build &amp; Deploy</h2>
+<h3 id="build-jar">Build JAR</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./mvnw clean package
+</span></span><span style="display:flex;"><span>java -jar target/app.jar
+</span></span></code></pre></div><h3 id="deploy-heroku">Deploy Heroku</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>heroku create springboot-jwt-demo
+</span></span><span style="display:flex;"><span>heroku config:set JWT_SECRET<span style="color:#f92672">=</span>yourSecretKey
+</span></span><span style="display:flex;"><span>heroku deploy:jar target/app.jar
+</span></span></code></pre></div><h3 id="deploy-somee">Deploy Somee</h3>
+<p>Upload <code>.war</code> hoặc <code>.jar</code>, cấu hình DB trong dashboard.</p>
+<hr>
+<hr>
+<h2 id="9-troubleshooting--common-issues">9. Troubleshooting &amp; Common Issues</h2>
+<h3 id="91-common-build-issues">9.1 Common Build Issues</h3>
+<p><strong>Issue: JWT Dependencies Not Found</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Solution: Add to pom.xml</span>
+</span></span><span style="display:flex;"><span>&lt;dependency&gt;
+</span></span><span style="display:flex;"><span>  &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
+</span></span><span style="display:flex;"><span>  &lt;artifactId&gt;jjwt-api&lt;/artifactId&gt;
+</span></span><span style="display:flex;"><span>  &lt;version&gt;0.11.5&lt;/version&gt;
+</span></span><span style="display:flex;"><span>&lt;/dependency&gt;
+</span></span><span style="display:flex;"><span>&lt;dependency&gt;
+</span></span><span style="display:flex;"><span>  &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
+</span></span><span style="display:flex;"><span>  &lt;artifactId&gt;jjwt-impl&lt;/artifactId&gt;
+</span></span><span style="display:flex;"><span>  &lt;version&gt;0.11.5&lt;/version&gt;
+</span></span><span style="display:flex;"><span>&lt;/dependency&gt;
+</span></span><span style="display:flex;"><span>&lt;dependency&gt;
+</span></span><span style="display:flex;"><span>  &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
+</span></span><span style="display:flex;"><span>  &lt;artifactId&gt;jjwt-jackson&lt;/artifactId&gt;
+</span></span><span style="display:flex;"><span>  &lt;version&gt;0.11.5&lt;/version&gt;
+</span></span><span style="display:flex;"><span>&lt;/dependency&gt;
+</span></span></code></pre></div><p><strong>Issue: H2 Console Not Accessible</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#75715e"># Add to application.properties</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.h2.console.enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.h2.console.path</span><span style="color:#f92672">=</span><span style="color:#e6db74">/h2-console</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">spring.jpa.hibernate.ddl-auto</span><span style="color:#f92672">=</span><span style="color:#e6db74">create-drop</span>
+</span></span></code></pre></div><p><strong>Issue: JWT Token Invalid</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Check JWT secret key length (must be 256-bit)</span>
+</span></span><span style="display:flex;"><span>jwt.<span style="color:#a6e22e">secret</span><span style="color:#f92672">=</span>404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+</span></span></code></pre></div><h3 id="92-runtime-issues">9.2 Runtime Issues</h3>
+<p><strong>Issue: Authentication Failed</strong></p>
+<ul>
+<li>Check username/password in login request</li>
+<li>Verify JWT token format: <code>Bearer &lt;token&gt;</code></li>
+<li>Check token expiration time</li>
+</ul>
+<p><strong>Issue: Authorization Denied</strong></p>
+<ul>
+<li>Ensure user has correct role</li>
+<li>Check <code>@PreAuthorize</code> annotations</li>
+<li>Verify JWT filter is working</li>
+</ul>
+<p><strong>Issue: Database Connection</strong></p>
+<ul>
+<li>Check H2 database is running</li>
+<li>Verify connection URL in application.properties</li>
+<li>Check H2 console at <code>http://localhost:8080/h2-console</code></li>
+</ul>
+<h3 id="93-deployment-issues">9.3 Deployment Issues</h3>
+<p><strong>Issue: Heroku Build Failed</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Check Java version compatibility</span>
+</span></span><span style="display:flex;"><span>heroku config:set JAVA_VERSION<span style="color:#f92672">=</span><span style="color:#ae81ff">17</span>
+</span></span><span style="display:flex;"><span>heroku config:set JWT_SECRET<span style="color:#f92672">=</span>yourSecretKey
+</span></span></code></pre></div><p><strong>Issue: Port Binding</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#75715e"># For production deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server.port</span><span style="color:#f92672">=</span><span style="color:#e6db74">${PORT:8080}</span>
+</span></span></code></pre></div><hr>
+<h2 id="10-kết-luận--next-steps">10. Kết luận &amp; Next Steps</h2>
+<h3 id="101-những-gì-bạn-đã-học-được">10.1 Những gì bạn đã học được</h3>
+<p>✅ <strong>Complete REST API</strong> với Spring Boot<br>
+✅ <strong>JWT Authentication</strong> và Authorization<br>
+✅ <strong>Layered Architecture</strong> (Controller/Service/Repository)<br>
+✅ <strong>Data Validation</strong> và Error Handling<br>
+✅ <strong>Unit Testing</strong> với Mockito và MockMvc<br>
+✅ <strong>Production Deployment</strong> trên Heroku</p>
+<h3 id="102-portfolio-project-checklist">10.2 Portfolio Project Checklist</h3>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>Source Code</strong> trên GitHub với README chi tiết</li>
+<li><input disabled="" type="checkbox"> <strong>Live Demo</strong> trên Heroku hoặc cloud platform</li>
+<li><input disabled="" type="checkbox"> <strong>Postman Collection</strong> để test API</li>
+<li><input disabled="" type="checkbox"> <strong>Unit Tests</strong> với coverage &gt; 80%</li>
+<li><input disabled="" type="checkbox"> <strong>API Documentation</strong> với Swagger/OpenAPI</li>
+<li><input disabled="" type="checkbox"> <strong>Docker Support</strong> cho containerization</li>
+</ul>
+<h3 id="103-advanced-features-để-nâng-cấp">10.3 Advanced Features để nâng cấp</h3>
+<p>🚀 <strong>Caching</strong>: Redis cho session management<br>
+🚀 <strong>Rate Limiting</strong>: Prevent API abuse<br>
+🚀 <strong>API Versioning</strong>: v1, v2 endpoints<br>
+🚀 <strong>Database Migration</strong>: Flyway hoặc Liquibase<br>
+🚀 <strong>Monitoring</strong>: Actuator endpoints<br>
+🚀 <strong>Logging</strong>: Structured logging với ELK stack</p>
+<h3 id="104-tài-nguyên-bổ-sung">10.4 Tài nguyên bổ sung</h3>
+<p><strong>Documentation:</strong></p>
+<ul>
+<li><a href="https://spring.io/projects/spring-boot">Spring Boot Official Docs</a></li>
+<li><a href="https://docs.spring.io/spring-security/reference/">Spring Security Reference</a></li>
+<li><a href="https://jwt.io/">JWT.io</a> - JWT Debugger</li>
+</ul>
+<p><strong>Tools:</strong></p>
+<ul>
+<li><a href="https://www.postman.com/">Postman Collection</a> - API Testing</li>
+<li><a href="https://devcenter.heroku.com/articles/heroku-cli">Heroku CLI</a> - Deployment</li>
+<li><a href="http://localhost:8080/h2-console">H2 Console</a> - Database Management</li>
+</ul>
+<p><strong>Thử thách tiếp theo:</strong></p>
+<blockquote>
+<p>Deploy thành công trong <strong>30 phút</strong> và chia sẻ link API live trên GitHub!</p></blockquote>
+<hr>
+<h2 id="11-final-cta">11. Final CTA</h2>
+<p>🎯 <strong>Bạn đã hoàn thành REST API Java world-class!</strong></p>
+<p><strong>Tài nguyên hoàn chỉnh:</strong></p>
+<ul>
+<li>✅ Full Source Code: <code>spring-boot-rest-jwt</code></li>
+<li>✅ Postman Collection: <code>/tools/postman_collection.json</code></li>
+<li>✅ Unit Tests: <code>/src/test/java</code></li>
+<li>✅ Deployment Guide: Heroku + Somee</li>
+</ul>
+<p><strong>Chia sẻ thành quả:</strong></p>
+<ul>
+<li>📱 Tweet: &ldquo;Just built a complete REST API with Spring Boot + JWT! 🚀 #Java #SpringBoot #JWT&rdquo;</li>
+<li>💼 LinkedIn: &ldquo;Portfolio project: Production-ready REST API with authentication&rdquo;</li>
+<li>🐙 GitHub: Star và fork repository để ủng hộ</li>
+</ul>
+<blockquote>
+<p><strong>&ldquo;Một developer giỏi không chỉ code chạy được, mà còn triển khai được và chia sẻ được.&rdquo;</strong> 🚀✨</p></blockquote>
+<h2 class="f3 fw6 mb3">Care to comment</h2>
+  <script src="https://utteranc.es/client.js"
+        repo="Fast-9999/Fast-9999.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+      </div>
+
+      
+      
+      <div class="mv5">
+        <h4 class="f5 ttu tracked mb3">Tags</h4>
+        <div class="flex flex-wrap">
+          
+            <a href="/tags/java/" class="mr2 mb2 no-underline tag-chip">java</a>
+          
+            <a href="/tags/spring-boot/" class="mr2 mb2 no-underline tag-chip">spring-boot</a>
+          
+            <a href="/tags/rest-api/" class="mr2 mb2 no-underline tag-chip">rest-api</a>
+          
+            <a href="/tags/jwt/" class="mr2 mb2 no-underline tag-chip">jwt</a>
+          
+            <a href="/tags/authentication/" class="mr2 mb2 no-underline tag-chip">authentication</a>
+          
+            <a href="/tags/crud/" class="mr2 mb2 no-underline tag-chip">crud</a>
+          
+            <a href="/tags/backend-development/" class="mr2 mb2 no-underline tag-chip">backend-development</a>
+          
+            <a href="/tags/heroku-deploy/" class="mr2 mb2 no-underline tag-chip">heroku-deploy</a>
+          
+            <a href="/tags/portfolio-project/" class="mr2 mb2 no-underline tag-chip">portfolio-project</a>
+          
+        </div>
+      </div>
+      
+
+      
+      
+
+      
+      <div class="mt6">
+        
+        
+      </div>
+    </main>
+
+    
+    <aside class="w-30-l w-100 mt5-l mt4">
+      
+      <div class="mb5 sticky-aside">
+        <div id="sharing" class="mt3 ananke-socials"></div>
+
+      </div>
+
+      
+      <div class="ba b--light-gray pa4 br2 related-posts">
+        <h4 class="f5 ttu tracked mb3">Bài viết liên quan</h4>
+        <ul class="list pl0">
+          
+          
+            
+          
+            
+              <li class="mb3"><a href="/blog/javascript-es6-nen-biet/" class="no-underline dark-gray hover-dark-blue">JavaScript hiện đại — 7 tính năng ES6&#43; bạn phải biết (let/const, arrow, async/await)</a></li>
+            
+          
+            
+              <li class="mb3"><a href="/blog/java-vs-javascript/" class="no-underline dark-gray hover-dark-blue">So sánh Java và JavaScript — Tưởng giống mà khác xa</a></li>
+            
+          
+            
+              <li class="mb3"><a href="/blog/java-jvm-oop-co-ban/" class="no-underline dark-gray hover-dark-blue">Java cơ bản — Từ lớp đến JVM: Hiểu để code không blind</a></li>
+            
+          
+        </ul>
+      </div>
+
+      
+      <div class="mt5">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/blog/java-vs-javascript/">So sánh Java và JavaScript — Tưởng giống mà khác xa</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</div>
+    </aside>
+  </div>
+</article>
+
+
+<script>
+(function(){
+  const prog = document.getElementById('reading-progress');
+  if(!prog) return;
+  const article = document.querySelector('article');
+  function update() {
+    const articleRect = article.getBoundingClientRect();
+    const total = article.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    const pct = total > 0 ? Math.min(100, Math.max(0, (scrolled / total) * 100)) : 0;
+    prog.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update, { passive:true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+<style>
+ 
+:root {
+  --text-color: #2d3748;
+  --light-text: #718096;
+  --background: #ffffff;
+  --light-background: #f7fafc;
+  --accent: #4299e1;
+  --accent-light: #90cdf4;
+  --border-color: #e2e8f0;
+}
+
+body {
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+ 
+.reading-progress-bar {
+  height: 4px; 
+  width: 0%; 
+  transition: width .2s ease;
+  background: var(--accent);
+  box-shadow: 0 1px 3px rgba(66, 153, 225, 0.3);
+}
+
+ 
+.hero-section {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hero-image {
+  object-fit: cover; 
+  max-height: 480px; 
+  width: 100%;
+}
+
+.hero-overlay {
+  background: linear-gradient(0deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 100%);
+}
+
+ 
+.article-content {
+  color: var(--text-color);
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.article-content p {
+  margin-bottom: 1.5rem;
+}
+
+.article-content h2 {
+  font-size: 1.8rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1a202c;
+}
+
+.article-content h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.article-content blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.5rem;
+  margin-left: 0;
+  font-style: italic;
+  color: var(--light-text);
+}
+
+.article-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-content a:hover {
+  color: #2b6cb0;
+}
+
+ 
+.meta-info {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+ 
+.tag-chip {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--light-background);
+  color: var(--text-color);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  border: 1px solid var(--border-color);
+}
+
+.tag-chip:hover {
+  transform: translateY(-2px);
+  background: var(--accent-light);
+  color: #2c5282;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+ 
+.author-card {
+  background: var(--light-background);
+  border-radius: 8px;
+  border: none;
+  padding: 1.5rem;
+}
+
+.author-image {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.author-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+ 
+.sticky-aside {
+  position: sticky;
+  top: 2rem;
+}
+
+.related-posts {
+  background: var(--light-background);
+  border: none;
+  border-radius: 8px;
+}
+
+.related-posts a {
+  color: var(--text-color);
+  transition: color 0.15s ease;
+}
+
+.related-posts a:hover {
+  color: var(--accent);
+}
+
+ 
+@media (max-width: 60rem) {
+  .w-two-thirds-l { 
+    width: 100%; 
+    padding-right: 0; 
+  }
+  
+  .w-30-l { 
+    width: 100%; 
+  }
+  
+  .hero-section {
+    border-radius: 0;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    width: calc(100% + 3rem);
+  }
+  
+  .article-content {
+    font-size: 1.05rem;
+  }
+  
+  .sticky-aside {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 30rem) {
+  .ph3 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .hero-overlay {
+    padding: 1.5rem;
+  }
+  
+  .article-content {
+    font-size: 1rem;
+  }
+}
+</style>
+
+
+    </main>
+    
+<footer class="modern-footer" role="contentinfo">
+  <div class="footer-container">
+    
+    
+    <style>
+       
+      :root {
+        --footer-gradient: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #4a5568 100%);
+        --footer-accent: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --footer-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+        --footer-border-radius: 20px 20px 0 0;
+        --footer-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+       
+      .modern-footer {
+        background: var(--footer-gradient);
+        color: #e2e8f0;
+        padding: 60px 20px 20px;
+        margin-top: 80px;
+        position: relative;
+        border-radius: var(--footer-border-radius);
+        box-shadow: var(--footer-shadow);
+        overflow: hidden;
+      }
+      
+      .modern-footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--footer-accent);
+      }
+      
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+      }
+      
+       
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      
+       
+      .footer-brand {
+        margin-bottom: 20px;
+      }
+      
+      .footer-logo {
+        font-size: 28px;
+        font-weight: 700;
+        background: var(--footer-accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 12px;
+        transition: var(--footer-transition);
+      }
+      
+      .footer-logo:hover {
+        transform: translateY(-2px);
+      }
+      
+      .footer-description {
+        color: #a0aec0;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+      
+       
+      .newsletter-section {
+        background: rgba(102, 126, 234, 0.1);
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid rgba(102, 126, 234, 0.2);
+      }
+      
+      .newsletter-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 12px;
+      }
+      
+      .newsletter-form {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      
+      .newsletter-input {
+        flex: 1;
+        padding: 12px 16px;
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 8px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        font-size: 14px;
+        transition: var(--footer-transition);
+      }
+      
+      .newsletter-input::placeholder {
+        color: #a0aec0;
+      }
+      
+      .newsletter-input:focus {
+        outline: none;
+        border-color: #667eea;
+        background: rgba(255,255,255,0.15);
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+      }
+      
+      .newsletter-btn {
+        padding: 12px 20px;
+        background: var(--footer-accent);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--footer-transition);
+        white-space: nowrap;
+      }
+      
+      .newsletter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      }
+      
+      .newsletter-note {
+        font-size: 12px;
+        color: #a0aec0;
+      }
+      
+       
+      .footer-section {
+        margin-bottom: 24px;
+      }
+      
+      .footer-section-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 16px;
+        position: relative;
+        padding-bottom: 8px;
+      }
+      
+      .footer-section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: var(--footer-accent);
+        border-radius: 1px;
+      }
+      
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .footer-links li {
+        margin-bottom: 8px;
+      }
+      
+      .footer-link {
+        color: #a0aec0;
+        text-decoration: none;
+        font-size: 14px;
+        transition: var(--footer-transition);
+        display: inline-block;
+      }
+      
+      .footer-link:hover {
+        color: white;
+        transform: translateX(4px);
+      }
+      
+       
+      .social-links {
+        display: flex;
+        gap: 12px;
+        margin-top: 16px;
+      }
+      
+      .social-link {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #a0aec0;
+        text-decoration: none;
+        transition: var(--footer-transition);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .social-link:hover {
+        background: var(--footer-accent);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      }
+      
+       
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #a0aec0;
+        font-size: 14px;
+      }
+      
+      .contact-icon {
+        width: 20px;
+        height: 20px;
+        color: #667eea;
+      }
+      
+       
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 16px;
+      }
+      
+      .stat-item {
+        text-align: center;
+        padding: 16px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .stat-number {
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 4px;
+      }
+      
+      .stat-label {
+        font-size: 12px;
+        color: #a0aec0;
+      }
+      
+       
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      
+      .footer-copyright {
+        color: #a0aec0;
+        font-size: 14px;
+      }
+      
+      .footer-tech {
+        color: #a0aec0;
+        font-size: 14px;
+      }
+      
+      .footer-tech a {
+        color: #667eea;
+        text-decoration: none;
+        transition: var(--footer-transition);
+      }
+      
+      .footer-tech a:hover {
+        color: white;
+      }
+      
+       
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--footer-accent);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        transition: var(--footer-transition);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+      }
+      
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      
+      .back-to-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      }
+      
+      
+       
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        
+        .newsletter-form {
+          flex-direction: column;
+        }
+        
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .back-to-top {
+          bottom: 20px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
+        }
+        
+        .dark-mode-toggle {
+          top: 15px;
+          right: 15px;
+          width: 45px;
+          height: 45px;
+        }
+      }
+      
+       
+      .sr-only {
+        position: absolute !important;
+        width: 1px; height: 1px;
+        padding: 0; margin: -1px;
+        overflow: hidden; clip: rect(0,0,0,0);
+        white-space: nowrap; border: 0;
+      }
+      
+      .footer-focus:focus {
+        outline: 3px solid rgba(255,255,255,0.18);
+        outline-offset: 2px;
+        border-radius: 6px;
+      }
+    </style>
+
+    
+    <div class="footer-grid">
+      
+      
+      <div class="footer-brand">
+        <a href="http://localhost:1313/" class="footer-logo footer-focus" aria-label="TaansFast - Blog Lập Trình Mạng - Trang chủ" title="Trang chủ">
+          TaansFast - Blog Lập Trình Mạng
+        </a>
+
+        
+          <p class="footer-description">Chia sẻ kiến thức, kinh nghiệm và góc nhìn về lập trình &amp; công nghệ.</p>
+        
+        
+        
+        <div class="newsletter-section">
+          <h4 class="newsletter-title">📧 Đăng ký nhận tin</h4>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Email của bạn" required>
+            <button type="submit" class="newsletter-btn">Đăng ký</button>
+          </form>
+          <p class="newsletter-note">Nhận bài viết mới nhất qua email</p>
+        </div>
+      </div>
+
+      
+      <div class="footer-section">
+        <h4 class="footer-section-title">Khám phá</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="/about/" class="footer-link footer-focus" title="Giới thiệu">Giới thiệu</a></li>
+          <li><a href="/blog/" class="footer-link footer-focus" title="Blog">Blog</a></li>
+          <li><a href="/contact/" class="footer-link footer-focus" title="Liên hệ">Liên hệ</a></li>
+          <li><a href="/categories/" class="footer-link footer-focus" title="Danh mục">Danh mục</a></li>
+          <li><a href="/tags/" class="footer-link footer-focus" title="Thẻ">Thẻ</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-section">
+        <h4 class="footer-section-title">Liên hệ</h4>
+        <div class="contact-info">
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>lamtanphat1004@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>0375-858-608</span>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>TP.HCM, Việt Nam</span>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="footer-section">
+        <h4 class="footer-section-title">Kết nối</h4>
+        <div class="social-links">
+          <a href="https://github.com/Fast-9999/Fast-9999.github.io" target="_blank" rel="noopener noreferrer" class="social-link footer-focus" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.112.82-.262.82-.582 0-.287-.01-1.046-.015-2.052-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.744.082-.729.082-.729 1.205.085 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.76-1.605-2.665-.305-5.466-1.335-5.466-5.932 0-1.31.47-2.382 1.235-3.222-.124-.303-.535-1.527.117-3.183 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.045.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.656.242 2.88.118 3.183.768.84 1.235 1.912 1.235 3.222 0 4.61-2.803 5.624-5.475 5.922.43.372.814 1.102.814 2.222 0 1.604-.015 2.896-.015 3.286 0 .322.218.699.825.58C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/share/1BEb4bagA3/" target="_blank" rel="noopener noreferrer" class="social-link footer-focus" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/?hl=en" target="_blank" rel="noopener noreferrer" class="social-link footer-focus" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="https://linkedin.com/in/taansfast" target="_blank" rel="noopener noreferrer" class="social-link footer-focus" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </div>
+        
+        
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number" data-target="50">0</div>
+            <div class="stat-label">Bài viết</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="1000">0</div>
+            <div class="stat-label">Lượt xem</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        © 2025 TaansFast - Blog Lập Trình Mạng. All rights reserved.
+      </div>
+      <div class="footer-tech">
+        Made with ❤️ using <a href="https://gohugo.io" class="footer-focus" rel="noopener noreferrer" target="_blank">Hugo</a>
+      </div>
+    </div>
+
+  </div>
+  
+  
+  <button class="back-to-top" id="back-to-top" aria-label="Lên đầu trang">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18,15 12,9 6,15"></polyline>
+    </svg>
+  </button>
+  
+  
+  
+  <script>
+    (function() {
+      
+      const backToTopBtn = document.getElementById('back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      });
+      
+      backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      
+      const newsletterForm = document.getElementById('newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = this.querySelector('.newsletter-input').value;
+          
+          
+          if (!email || !email.includes('@')) {
+            alert('Vui lòng nhập email hợp lệ');
+            return;
+          }
+          
+          
+          const btn = this.querySelector('.newsletter-btn');
+          const originalText = btn.textContent;
+          btn.textContent = 'Đã đăng ký!';
+          btn.style.background = 'linear-gradient(135deg, #38a169 0%, #48bb78 100%)';
+          
+          
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'newsletter_signup', {
+              'event_category': 'Engagement',
+              'event_label': 'Footer'
+            });
+          }
+          
+          
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            this.querySelector('.newsletter-input').value = '';
+          }, 3000);
+        });
+      }
+      
+      
+      function animateStats() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach(stat => {
+          const target = parseInt(stat.getAttribute('data-target'));
+          const duration = 2000; 
+          const increment = target / (duration / 16); 
+          let current = 0;
+          
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            stat.textContent = Math.floor(current);
+          }, 16);
+        });
+      }
+      
+      
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateStats();
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      });
+      
+      const statsGrid = document.querySelector('.stats-grid');
+      if (statsGrid) {
+        statsObserver.observe(statsGrid);
+      }
+      
+      
+      document.querySelectorAll('.footer-link[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+      
+      
+      function shareToSocial(platform, url, title) {
+        const encodedUrl = encodeURIComponent(url);
+        const encodedTitle = encodeURIComponent(title);
+        
+        let shareUrl = '';
+        switch(platform) {
+          case 'facebook':
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+            break;
+          case 'twitter':
+            shareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
+            break;
+          case 'linkedin':
+            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+            break;
+        }
+        
+        if (shareUrl) {
+          window.open(shareUrl, '_blank', 'width=600,height=400');
+          
+          
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'social_share', {
+              'event_category': 'Social',
+              'event_label': platform
+            });
+          }
+        }
+      }
+      
+      
+      document.querySelectorAll('.social-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const platform = this.getAttribute('aria-label').toLowerCase();
+          if (platform === 'facebook' || platform === 'twitter' || platform === 'linkedin') {
+            e.preventDefault();
+            shareToSocial(platform, window.location.href, document.title);
+          }
+        });
+      });
+      
+    })();
+  </script>
+</footer>
+  </body>
+</html>

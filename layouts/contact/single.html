@@ -1,20 +1,103 @@
 {{ define "main" }}
-<main class="pa3 pa4-ns center mw8 lh-copy">
-  <header class="tc mb5">
-    <h1 class="f1 fw7 mv2 dark-blue">Liên hệ TaansFast</h1>
-    <p class="measure-wide center mid-gray f5">Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn. Hãy điền thông tin dưới đây, đội ngũ TaansFast sẽ phản hồi trong vòng 24 giờ làm việc.</p>
-  </header>
+
+<div class="contact-page">
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-icon">💬</span>
+          <span class="badge-text">Liên hệ ngay</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="title-highlight">Kết nối</span> với TaansFast
+        </h1>
+        <p class="hero-description">
+          Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn. Hãy điền thông tin dưới đây, 
+          đội ngũ TaansFast sẽ phản hồi trong vòng <strong>24 giờ làm việc</strong>.
+        </p>
+        
+        <!-- Quick Stats -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-icon">⚡</div>
+            <div class="stat-content">
+              <div class="stat-number" data-target="24">0</div>
+              <div class="stat-label">Giờ phản hồi</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">🎯</div>
+            <div class="stat-content">
+              <div class="stat-number" data-target="100">0</div>
+              <div class="stat-label">% Hài lòng</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">🚀</div>
+            <div class="stat-content">
+              <div class="stat-number" data-target="500">0</div>
+              <div class="stat-label">Dự án thành công</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- CTA Buttons -->
+        <div class="hero-actions">
+          <a href="#contact-form" class="cta-primary">
+            <span>Gửi tin nhắn</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </a>
+          <a href="#live-chat" class="cta-secondary">
+            <span>Chat trực tiếp</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Hero Visual -->
+      <div class="hero-visual">
+        <div class="floating-elements">
+          <div class="floating-icon icon-1">💻</div>
+          <div class="floating-icon icon-2">🌐</div>
+          <div class="floating-icon icon-3">⚡</div>
+          <div class="floating-icon icon-4">🚀</div>
+          <div class="floating-icon icon-5">💡</div>
+        </div>
+        <div class="hero-graphic">
+          <div class="contact-illustration">
+            <div class="message-bubble bubble-1">
+              <span>Xin chào!</span>
+            </div>
+            <div class="message-bubble bubble-2">
+              <span>Tôi cần hỗ trợ</span>
+            </div>
+            <div class="message-bubble bubble-3">
+              <span>Cảm ơn bạn!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="pa3 pa4-ns center mw8 lh-copy">
 
   <div class="flex-l">
     <!-- Thông tin liên hệ -->
     <div class="w-100 w-40-l pr4-l mb4 mb0-l">
-      <div class="pa4 bg-white br2 shadow-1 h-100">
+      <div class="pa4 contact-card h-100 animate-fade-in">
         <h2 class="f4 fw6 mb3 tc dark-blue">Thông tin liên hệ</h2>
         
         <div class="mb4">
           <div class="flex flex-column items-center">
             <div class="flex items-center mb3 w-100">
-              <div class="flex items-center justify-center h3 w3 br-100 bg-lightest-blue dark-blue mr3">
+              <div class="contact-icon mr3">
                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                    <polyline points="22,6 12,13 2,6"></polyline>
@@ -27,7 +110,7 @@
             </div>
             
             <div class="flex items-center mb3 w-100">
-              <div class="flex items-center justify-center h3 w3 br-100 bg-lightest-blue dark-blue mr3">
+              <div class="contact-icon mr3">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
@@ -38,7 +121,18 @@
               </div>
             </div>
             
-            
+            <div class="flex items-center mb3 w-100">
+              <div class="contact-icon mr3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <h3 class="f6 fw6 mv2">Địa chỉ</h3>
+                <span class="mid-gray">123 Đường ABC, Quận XYZ, TP.HCM</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -47,23 +141,23 @@
         <div class="mt4">
           <h3 class="f6 fw6 mv2 tc">Kết nối với chúng tôi</h3>
           <div class="flex justify-center">
-            <a href="#" class="link mh2 f3 mid-gray hover-dark-blue" aria-label="Facebook">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <a href="https://facebook.com/taansfast" class="social-icon mh2" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
             </a>
-            <a href="#" class="link mh2 f3 mid-gray hover-dark-blue" aria-label="Twitter">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <a href="https://twitter.com/taansfast" class="social-icon mh2" aria-label="Twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
               </svg>
             </a>
-            <a href="#" class="link mh2 f3 mid-gray hover-dark-blue" aria-label="Instagram">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.014 5.367 18.647.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.297-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.718-1.297c-.875.807-2.026 1.297-3.323 1.297s-2.448-.49-3.323-1.297c-.807-.875-1.297-2.026-1.297-3.323s.49-2.448 1.297-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323z"/>
+            <a href="https://instagram.com/taansfast" class="social-icon mh2" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
             </a>
-            <a href="#" class="link mh2 f3 mid-gray hover-dark-blue" aria-label="LinkedIn">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <a href="https://linkedin.com/in/taansfast" class="social-icon mh2" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
             </a>
@@ -72,7 +166,7 @@
         
         <div class="mt4">
           <h3 class="f6 fw6 mv2">Giờ làm việc</h3>
-          <div class="bg-near-white pa3 br2">
+          <div class="working-hours">
             <p class="ma0 f6">Thứ 2 - Thứ 6: 8:00 - 17:30</p>
             <p class="ma0 f6">Thứ 7: 8:00 - 12:00</p>
             <p class="ma0 f6">Chủ nhật: Nghỉ</p>
@@ -81,10 +175,103 @@
       </div>
     </div>
 
+    <!-- Live Chat Section -->
+    <div class="w-100 mb4">
+      <div class="pa4 contact-card animate-fade-in" id="live-chat">
+        <h2 class="f4 fw6 mb3 tc dark-blue">
+          <span class="title-icon">💬</span>
+          Chat trực tiếp
+        </h2>
+        <div class="chat-container">
+          <div class="chat-status">
+            <div class="status-indicator online"></div>
+            <span class="status-text">TaansFast đang online</span>
+            <span class="status-time">Phản hồi trong vài phút</span>
+          </div>
+          <div class="chat-widget">
+            <div class="chat-messages" id="chat-messages">
+              <div class="message bot-message">
+                <div class="message-avatar">👨‍💻</div>
+                <div class="message-content">
+                  <p>Xin chào! Tôi có thể giúp gì cho bạn?</p>
+                  <span class="message-time">Bây giờ</span>
+                </div>
+              </div>
+            </div>
+            <div class="chat-input-container">
+              <input type="text" id="chat-input" placeholder="Nhập tin nhắn của bạn..." class="chat-input">
+              <button id="chat-send" class="chat-send-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calendar Booking Section -->
+    <div class="w-100 mb4">
+      <div class="pa4 contact-card animate-fade-in">
+        <h2 class="f4 fw6 mb3 tc dark-blue">
+          <span class="title-icon">📅</span>
+          Đặt lịch hẹn
+        </h2>
+        <div class="booking-container">
+          <div class="booking-info">
+            <h3>Hẹn gặp trực tiếp</h3>
+            <p>Đặt lịch hẹn để thảo luận chi tiết về dự án của bạn</p>
+            <div class="booking-features">
+              <div class="feature-item">
+                <span class="feature-icon">⏰</span>
+                <span>30 phút miễn phí</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">🎯</span>
+                <span>Tư vấn chuyên sâu</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">💼</span>
+                <span>Hỗ trợ dự án</span>
+              </div>
+            </div>
+          </div>
+          <div class="booking-calendar">
+            <div class="calendar-widget">
+              <div class="calendar-header">
+                <button class="calendar-nav" id="prev-month">‹</button>
+                <h4 id="current-month">Tháng 12, 2024</h4>
+                <button class="calendar-nav" id="next-month">›</button>
+              </div>
+              <div class="calendar-grid" id="calendar-grid">
+                <!-- Calendar will be populated by JavaScript -->
+              </div>
+              <div class="time-slots" id="time-slots">
+                <h5>Chọn giờ:</h5>
+                <div class="slots-grid">
+                  <button class="time-slot" data-time="09:00">09:00</button>
+                  <button class="time-slot" data-time="10:00">10:00</button>
+                  <button class="time-slot" data-time="11:00">11:00</button>
+                  <button class="time-slot" data-time="14:00">14:00</button>
+                  <button class="time-slot" data-time="15:00">15:00</button>
+                  <button class="time-slot" data-time="16:00">16:00</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Form liên hệ -->
     <div class="w-100 w-60-l">
-      <div class="pa4 bg-white br2 shadow-1">
-        <h2 class="f4 fw6 mb3 tc dark-blue">Gửi tin nhắn cho chúng tôi</h2>
+      <div class="pa4 contact-card animate-fade-in" id="contact-form">
+        <h2 class="f4 fw6 mb3 tc dark-blue">
+          <span class="title-icon">📝</span>
+          Gửi tin nhắn cho chúng tôi
+        </h2>
         <form name="contact" method="POST" action="https://formspree.io/f/xpwgkqpn" class="w-100" novalidate id="contact-form">
           <input type="hidden" name="_subject" value="Liên hệ từ TaansFast Blog">
           <input type="hidden" name="_next" value="{{ .Site.BaseURL }}contact/?success=true">
@@ -93,46 +280,78 @@
           
           <div class="mb3">
             <label class="db fw6 mb1 f6">Họ tên <span class="red">*</span></label>
-            <input type="text" name="name" required class="input-reset ba b--black-20 pa3 db w-100 br2 focus-outline-dark-blue" placeholder="Nguyễn Văn A">
+            <input type="text" name="name" required class="modern-input w-100" placeholder="Nguyễn Văn A" id="name-input">
+            <div class="error-text" id="name-error"></div>
           </div>
 
           <div class="mb3">
             <label class="db fw6 mb1 f6">Email <span class="red">*</span></label>
-            <input type="email" name="email" required class="input-reset ba b--black-20 pa3 db w-100 br2 focus-outline-dark-blue" placeholder="you@domain.com">
+            <input type="email" name="email" required class="modern-input w-100" placeholder="you@domain.com" id="email-input">
+            <div class="error-text" id="email-error"></div>
           </div>
 
           <div class="mb3">
             <label class="db fw6 mb1 f6">Số điện thoại</label>
-            <input type="tel" name="phone" class="input-reset ba b--black-20 pa3 db w-100 br2 focus-outline-dark-blue" placeholder="0375-858-608">
+            <input type="tel" name="phone" class="modern-input w-100" placeholder="0375-858-608" id="phone-input">
+            <div class="error-text" id="phone-error"></div>
           </div>
 
           <div class="mb3">
             <label class="db fw6 mb1 f6">Chủ đề <span class="red">*</span></label>
-            <select name="subject" required class="input-reset ba b--black-20 pa3 db w-100 br2 focus-outline-dark-blue">
+            <select name="subject" required class="modern-select w-100" id="subject-select">
               <option value="">Chọn một chủ đề...</option>
               <option value="Hỗ trợ kỹ thuật">Hỗ trợ kỹ thuật</option>
               <option value="Hợp tác kinh doanh">Hợp tác kinh doanh</option>
               <option value="Phản hồi dịch vụ">Phản hồi dịch vụ</option>
+              <option value="Đề xuất nội dung">Đề xuất nội dung</option>
               <option value="Khác">Khác</option>
             </select>
+            <div class="error-text" id="subject-error"></div>
           </div>
 
           <div class="mb3">
             <label class="db fw6 mb1 f6">Lời nhắn <span class="red">*</span></label>
-            <textarea name="message" rows="6" required class="input-reset ba b--black-20 pa3 db w-100 br2 focus-outline-dark-blue" placeholder="Xin chào TaansFast,..."></textarea>
+            <textarea name="message" rows="6" required class="modern-textarea w-100" placeholder="Xin chào TaansFast,..." id="message-input"></textarea>
+            <div class="error-text" id="message-error"></div>
           </div>
 
+          <!-- File Upload Section -->
+          <div class="mb3">
+            <label class="db fw6 mb1 f6">Đính kèm file (tùy chọn)</label>
+            <div class="file-upload-container">
+              <input type="file" name="attachment" id="file-input" class="file-input" accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png" multiple>
+              <label for="file-input" class="file-upload-label">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7,10 12,15 17,10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span class="file-upload-text">Chọn file hoặc kéo thả vào đây</span>
+              </label>
+              <div class="file-list" id="file-list"></div>
+            </div>
+          </div>
+
+          <!-- Auto-save indicator -->
+          <div class="auto-save-indicator" id="auto-save-indicator">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+              <polyline points="17,21 17,13 7,13 7,21"></polyline>
+              <polyline points="7,3 7,8 15,8"></polyline>
+            </svg>
+            <span>Đã lưu tự động</span>
+          </div>
 
           <!-- Success/Error Messages -->
           <div id="form-messages" class="mb3" style="display: none;">
-            <div id="success-message" class="pa3 bg-green white br2" style="display: none;">
-              <svg class="mr2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div id="success-message" class="form-message success" style="display: none;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20,6 9,17 4,12"></polyline>
               </svg>
               Tin nhắn đã được gửi thành công! Chúng tôi sẽ phản hồi trong vòng 24 giờ.
             </div>
-            <div id="error-message" class="pa3 bg-red white br2" style="display: none;">
-              <svg class="mr2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div id="error-message" class="form-message error" style="display: none;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="15" y1="9" x2="9" y2="15"></line>
                 <line x1="9" y1="9" x2="15" y2="15"></line>
@@ -142,12 +361,13 @@
           </div>
 
           <div class="tc">
-            <button type="submit" id="submit-btn" class="f6 link dim br2 ph4 pv3 dib white bg-dark-blue b--dark-blue pointer">
+            <button type="submit" id="submit-btn" class="modern-btn">
               <svg class="mr2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13"></line>
                 <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
               </svg> 
               <span id="submit-text">Gửi tin nhắn</span>
+              <div class="loading-spinner" id="loading-spinner" style="display: none;"></div>
             </button>
           </div>
         </form>
@@ -157,57 +377,275 @@
 
   <!-- Bản đồ -->
   <div class="mt5">
-    <div class="pa4 bg-white br2 shadow-1">
+    <div class="pa4 contact-card animate-fade-in">
       <h2 class="f4 fw6 mb3 tc dark-blue">Tìm chúng tôi trên bản đồ</h2>
-      <div class="aspect-ratio aspect-ratio--16x9">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.658253102431!2d106.68065411520625!3d10.761352492329868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1e6878b4d1%3A0xc023c713b1856722!2zMTIzIMSQxrDhu51uZyBBQkMsIFF14buqbiBYWVosIFRwLiBIQ00!5e0!3m2!1sen!2s!4v1628043690623!5m2!1sen!2s" 
-                class="aspect-ratio--object" allowfullscreen="" loading="lazy"></iframe>
+      <div class="map-container">
+        <div class="aspect-ratio aspect-ratio--16x9">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.658253102431!2d106.68065411520625!3d10.761352492329868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1e6878b4d1%3A0xc023c713b1856722!2zMTIzIMSQxrDhu51uZyBBQkMsIFF14buqbiBYWVosIFRwLiBIQ00!5e0!3m2!1sen!2s!4v1628043690623!5m2!1sen!2s" 
+                  class="aspect-ratio--object" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- FAQ Section -->
+  <div class="mt5">
+    <div class="pa4 contact-card animate-fade-in">
+      <h2 class="f4 fw6 mb3 tc dark-blue">
+        <span class="title-icon">❓</span>
+        Câu hỏi thường gặp
+      </h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Thời gian phản hồi trung bình là bao lâu?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Chúng tôi cam kết phản hồi trong vòng 24 giờ làm việc. Với các câu hỏi kỹ thuật phức tạp, thời gian có thể kéo dài đến 48 giờ.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Tôi có thể gửi file đính kèm không?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Có, bạn có thể đính kèm các file PDF, DOC, DOCX, TXT, JPG, JPEG, PNG. Kích thước tối đa cho mỗi file là 10MB.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Làm thế nào để hợp tác với TaansFast?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Chọn chủ đề "Hợp tác kinh doanh" trong form liên hệ và mô tả chi tiết về dự án của bạn. Chúng tôi sẽ liên hệ lại để thảo luận chi tiết.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Tôi có thể đề xuất chủ đề bài viết không?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Rất hoan nghênh! Chọn chủ đề "Đề xuất nội dung" và chia sẻ ý tưởng của bạn. Chúng tôi sẽ cân nhắc và có thể viết bài về chủ đề đó.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Chi phí tư vấn như thế nào?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Cuộc tư vấn đầu tiên 30 phút là miễn phí. Các cuộc tư vấn tiếp theo sẽ có giá cả hợp lý tùy theo độ phức tạp của dự án.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>TaansFast có hỗ trợ remote work không?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Có! Chúng tôi có kinh nghiệm làm việc remote và có thể hỗ trợ bạn từ xa thông qua các công cụ collaboration hiện đại.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>Làm thế nào để theo dõi tiến độ dự án?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Chúng tôi sử dụng các công cụ quản lý dự án như Jira, Trello và GitHub để cập nhật tiến độ thường xuyên cho khách hàng.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer Testimonials -->
+  <div class="mt5">
+    <div class="pa4 contact-card animate-fade-in">
+      <h2 class="f4 fw6 mb3 tc dark-blue">Khách hàng nói gì về chúng tôi</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p class="testimonial-text">"TaansFast đã giúp tôi hiểu rõ về Java và JavaScript. Các bài viết rất chi tiết và dễ hiểu!"</p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4 class="author-name">Nguyễn Minh Tuấn</h4>
+                <p class="author-title">Developer tại FPT Software</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p class="testimonial-text">"Đội ngũ hỗ trợ rất nhiệt tình và chuyên nghiệp. Phản hồi nhanh chóng và giải đáp thắc mắc rất chi tiết."</p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4 class="author-name">Trần Thị Hương</h4>
+                <p class="author-title">Sinh viên IT</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p class="testimonial-text">"Nội dung chất lượng cao, cập nhật thường xuyên. Đây là nguồn tài liệu học tập tuyệt vời cho developers."</p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4 class="author-name">Lê Văn Đức</h4>
+                <p class="author-title">Tech Lead tại VNG</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <footer class="tc mt5 mid-gray f7">© {{ now.Format "2006" }} TaansFast. Mọi quyền được bảo lưu.</footer>
-</main>
+</div>
 
   {{ $contactCSS := resources.Get "styles/contact.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $contactCSS.RelPermalink }}" integrity="{{ $contactCSS.Data.Integrity }}">
   
   <script>
-    // Contact form handling
+    // Enhanced Contact form handling
     (function() {
       const form = document.getElementById('contact-form');
       const submitBtn = document.getElementById('submit-btn');
       const submitText = document.getElementById('submit-text');
+      const loadingSpinner = document.getElementById('loading-spinner');
       const formMessages = document.getElementById('form-messages');
       const successMessage = document.getElementById('success-message');
       const errorMessage = document.getElementById('error-message');
+      const autoSaveIndicator = document.getElementById('auto-save-indicator');
       
-      // Check for success parameter in URL
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('success') === 'true') {
-        formMessages.style.display = 'block';
-        successMessage.style.display = 'block';
-        form.reset();
+      // Auto-save functionality
+      let autoSaveTimeout;
+      const formData = {
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      };
+      
+      // Load saved data
+      function loadSavedData() {
+        const saved = localStorage.getItem('contactFormData');
+        if (saved) {
+          const data = JSON.parse(saved);
+          Object.keys(data).forEach(key => {
+            const input = document.getElementById(key + '-input') || document.getElementById(key + '-select');
+            if (input && data[key]) {
+              input.value = data[key];
+            }
+          });
+        }
       }
       
-      // Form validation
-      function validateForm() {
-        const name = form.querySelector('input[name="name"]').value.trim();
-        const email = form.querySelector('input[name="email"]').value.trim();
-        const subject = form.querySelector('select[name="subject"]').value;
-        const message = form.querySelector('textarea[name="message"]').value.trim();
+      // Save form data
+      function saveFormData() {
+        const inputs = ['name', 'email', 'phone', 'subject', 'message'];
+        inputs.forEach(inputName => {
+          const input = document.getElementById(inputName + '-input') || document.getElementById(inputName + '-select');
+          if (input) {
+            formData[inputName] = input.value;
+          }
+        });
+        localStorage.setItem('contactFormData', JSON.stringify(formData));
+        showAutoSaveIndicator();
+      }
+      
+      // Show auto-save indicator
+      function showAutoSaveIndicator() {
+        autoSaveIndicator.style.display = 'flex';
+        setTimeout(() => {
+          autoSaveIndicator.style.display = 'none';
+        }, 2000);
+      }
+      
+      // Live validation
+      function validateField(field, value) {
+        const errorElement = document.getElementById(field + '-error');
+        let isValid = true;
+        let errorMessage = '';
         
-        if (!name || !email || !subject || !message) {
-          showError('Vui lòng điền đầy đủ thông tin bắt buộc.');
-          return false;
+        switch(field) {
+          case 'name':
+            if (!value.trim()) {
+              errorMessage = 'Họ tên không được để trống';
+              isValid = false;
+            } else if (value.trim().length < 2) {
+              errorMessage = 'Họ tên phải có ít nhất 2 ký tự';
+              isValid = false;
+            }
+            break;
+          case 'email':
+            if (!value.trim()) {
+              errorMessage = 'Email không được để trống';
+              isValid = false;
+            } else if (!isValidEmail(value)) {
+              errorMessage = 'Email không hợp lệ';
+              isValid = false;
+            }
+            break;
+          case 'phone':
+            if (value && !isValidPhone(value)) {
+              errorMessage = 'Số điện thoại không hợp lệ';
+              isValid = false;
+            }
+            break;
+          case 'subject':
+            if (!value) {
+              errorMessage = 'Vui lòng chọn chủ đề';
+              isValid = false;
+            }
+            break;
+          case 'message':
+            if (!value.trim()) {
+              errorMessage = 'Lời nhắn không được để trống';
+              isValid = false;
+            } else if (value.trim().length < 10) {
+              errorMessage = 'Lời nhắn phải có ít nhất 10 ký tự';
+              isValid = false;
+            }
+            break;
         }
         
-        if (!isValidEmail(email)) {
-          showError('Email không hợp lệ.');
-          return false;
+        if (errorElement) {
+          errorElement.textContent = errorMessage;
+          errorElement.style.display = errorMessage ? 'block' : 'none';
         }
         
-        return true;
+        return isValid;
       }
       
       function isValidEmail(email) {
@@ -215,12 +653,130 @@
         return emailRegex.test(email);
       }
       
+      function isValidPhone(phone) {
+        const phoneRegex = /^[0-9+\-\s()]+$/;
+        return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 10;
+      }
+      
+      // File upload handling
+      function initFileUpload() {
+        const fileInput = document.getElementById('file-input');
+        const fileList = document.getElementById('file-list');
+        
+        fileInput.addEventListener('change', handleFileSelect);
+        
+        // Drag and drop
+        const uploadLabel = document.querySelector('.file-upload-label');
+        uploadLabel.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          uploadLabel.classList.add('drag-over');
+        });
+        
+        uploadLabel.addEventListener('dragleave', () => {
+          uploadLabel.classList.remove('drag-over');
+        });
+        
+        uploadLabel.addEventListener('drop', (e) => {
+          e.preventDefault();
+          uploadLabel.classList.remove('drag-over');
+          fileInput.files = e.dataTransfer.files;
+          handleFileSelect();
+        });
+      }
+      
+      function handleFileSelect() {
+        const fileInput = document.getElementById('file-input');
+        const fileList = document.getElementById('file-list');
+        const files = Array.from(fileInput.files);
+        
+        fileList.innerHTML = '';
+        
+        files.forEach((file, index) => {
+          if (file.size > 10 * 1024 * 1024) { // 10MB limit
+            alert(`File ${file.name} quá lớn. Kích thước tối đa là 10MB.`);
+            return;
+          }
+          
+          const fileItem = document.createElement('div');
+          fileItem.className = 'file-item';
+          fileItem.innerHTML = `
+            <div class="file-info">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14,2 14,8 20,8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10,9 9,9 8,9"></polyline>
+              </svg>
+              <span class="file-name">${file.name}</span>
+              <span class="file-size">(${(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+            </div>
+            <button type="button" class="remove-file" onclick="removeFile(${index})">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          `;
+          fileList.appendChild(fileItem);
+        });
+      }
+      
+      // FAQ functionality
+      function initFAQ() {
+        window.toggleFAQ = function(button) {
+          const faqItem = button.parentElement;
+          const answer = faqItem.querySelector('.faq-answer');
+          const icon = button.querySelector('.faq-icon');
+          
+          const isOpen = answer.style.display === 'block';
+          
+          // Close all other FAQs
+          document.querySelectorAll('.faq-answer').forEach(ans => {
+            ans.style.display = 'none';
+          });
+          document.querySelectorAll('.faq-icon').forEach(ic => {
+            ic.style.transform = 'rotate(0deg)';
+          });
+          
+          if (!isOpen) {
+            answer.style.display = 'block';
+            icon.style.transform = 'rotate(180deg)';
+          }
+        };
+      }
+      
+      // Check for success parameter in URL
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('success') === 'true') {
+        formMessages.style.display = 'block';
+        successMessage.style.display = 'block';
+        form.reset();
+        localStorage.removeItem('contactFormData');
+      }
+      
+      // Form validation
+      function validateForm() {
+        const inputs = ['name', 'email', 'phone', 'subject', 'message'];
+        let isValid = true;
+        
+        inputs.forEach(inputName => {
+          const input = document.getElementById(inputName + '-input') || document.getElementById(inputName + '-select');
+          if (input) {
+            const fieldValid = validateField(inputName, input.value);
+            if (!fieldValid) isValid = false;
+          }
+        });
+        
+        return isValid;
+      }
+      
       function showError(message) {
         formMessages.style.display = 'block';
         errorMessage.style.display = 'block';
         successMessage.style.display = 'none';
         errorMessage.innerHTML = `
-          <svg class="mr2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="15" y1="9" x2="9" y2="15"></line>
             <line x1="9" y1="9" x2="15" y2="15"></line>
@@ -238,10 +794,12 @@
       function setLoading(loading) {
         if (loading) {
           submitBtn.disabled = true;
-          submitText.textContent = 'Đang gửi...';
+          submitText.style.display = 'none';
+          loadingSpinner.style.display = 'block';
         } else {
           submitBtn.disabled = false;
-          submitText.textContent = 'Gửi tin nhắn';
+          submitText.style.display = 'inline';
+          loadingSpinner.style.display = 'none';
         }
       }
       
@@ -270,6 +828,9 @@
           if (response.ok) {
             showSuccess();
             form.reset();
+            localStorage.removeItem('contactFormData');
+            // Clear file list
+            document.getElementById('file-list').innerHTML = '';
           } else {
             throw new Error('Network response was not ok');
           }
@@ -282,6 +843,236 @@
           setLoading(false);
         });
       });
+      
+      // Live validation and auto-save
+      const inputs = ['name', 'email', 'phone', 'subject', 'message'];
+      inputs.forEach(inputName => {
+        const input = document.getElementById(inputName + '-input') || document.getElementById(inputName + '-select');
+        if (input) {
+          input.addEventListener('input', () => {
+            validateField(inputName, input.value);
+            
+            // Auto-save
+            clearTimeout(autoSaveTimeout);
+            autoSaveTimeout = setTimeout(saveFormData, 1000);
+          });
+          
+          input.addEventListener('blur', () => {
+            validateField(inputName, input.value);
+          });
+        }
+      });
+      
+      // Initialize everything
+      loadSavedData();
+      initFileUpload();
+      initFAQ();
+      
+      // Remove file function
+      window.removeFile = function(index) {
+        const fileInput = document.getElementById('file-input');
+        const dt = new DataTransfer();
+        const files = Array.from(fileInput.files);
+        files.splice(index, 1);
+        files.forEach(file => dt.items.add(file));
+        fileInput.files = dt.files;
+        handleFileSelect();
+      };
+
+      // Hero Stats Animation
+      function animateStats() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach(stat => {
+          const target = parseInt(stat.getAttribute('data-target'));
+          const duration = 2000;
+          const increment = target / (duration / 16);
+          let current = 0;
+          
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            stat.textContent = Math.floor(current);
+          }, 16);
+        });
+      }
+
+      // Live Chat functionality
+      function initializeLiveChat() {
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+        const chatMessages = document.getElementById('chat-messages');
+
+        if (!chatInput || !chatSend || !chatMessages) return;
+
+        function addMessage(content, isBot = false) {
+          const messageDiv = document.createElement('div');
+          messageDiv.className = `message ${isBot ? 'bot-message' : 'user-message'}`;
+          
+          if (isBot) {
+            messageDiv.innerHTML = `
+              <div class="message-avatar">👨‍💻</div>
+              <div class="message-content">
+                <p>${content}</p>
+                <span class="message-time">Bây giờ</span>
+              </div>
+            `;
+          } else {
+            messageDiv.innerHTML = `
+              <div class="message-content">
+                <p>${content}</p>
+                <span class="message-time">Bây giờ</span>
+              </div>
+              <div class="message-avatar">👤</div>
+            `;
+          }
+          
+          chatMessages.appendChild(messageDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+          const message = chatInput.value.trim();
+          if (!message) return;
+
+          addMessage(message, false);
+          chatInput.value = '';
+
+          // Simulate bot response
+          setTimeout(() => {
+            const responses = [
+              'Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi chi tiết qua email.',
+              'Tôi hiểu vấn đề của bạn. Hãy để tôi kiểm tra và phản hồi sớm nhất.',
+              'Thông tin rất hữu ích! Tôi sẽ liên hệ lại trong vòng 24 giờ.',
+              'Tôi đã ghi nhận yêu cầu của bạn. Cảm ơn bạn đã tin tưởng TaansFast!'
+            ];
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            addMessage(randomResponse, true);
+          }, 1000);
+        }
+
+        chatSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            sendMessage();
+          }
+        });
+      }
+
+      // Calendar functionality
+      function initializeCalendar() {
+        const calendarGrid = document.getElementById('calendar-grid');
+        const currentMonth = document.getElementById('current-month');
+        const prevMonth = document.getElementById('prev-month');
+        const nextMonth = document.getElementById('next-month');
+        const timeSlots = document.querySelectorAll('.time-slot');
+
+        if (!calendarGrid || !currentMonth) return;
+
+        let currentDate = new Date();
+
+        function generateCalendar() {
+          const year = currentDate.getFullYear();
+          const month = currentDate.getMonth();
+          const firstDay = new Date(year, month, 1);
+          const lastDay = new Date(year, month + 1, 0);
+          const daysInMonth = lastDay.getDate();
+          const startingDay = firstDay.getDay();
+
+          currentMonth.textContent = `Tháng ${month + 1}, ${year}`;
+          
+          calendarGrid.innerHTML = '';
+          
+          // Add day headers
+          const dayHeaders = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
+          dayHeaders.forEach(day => {
+            const dayHeader = document.createElement('div');
+            dayHeader.className = 'calendar-day-header';
+            dayHeader.textContent = day;
+            calendarGrid.appendChild(dayHeader);
+          });
+
+          // Add empty cells for days before month starts
+          for (let i = 0; i < startingDay; i++) {
+            const emptyCell = document.createElement('div');
+            emptyCell.className = 'calendar-day empty';
+            calendarGrid.appendChild(emptyCell);
+          }
+
+          // Add days of month
+          for (let day = 1; day <= daysInMonth; day++) {
+            const dayCell = document.createElement('div');
+            dayCell.className = 'calendar-day';
+            dayCell.textContent = day;
+            
+            // Mark today
+            if (day === new Date().getDate() && month === new Date().getMonth()) {
+              dayCell.classList.add('today');
+            }
+            
+            // Add click handler
+            dayCell.addEventListener('click', function() {
+              document.querySelectorAll('.calendar-day').forEach(cell => {
+                cell.classList.remove('selected');
+              });
+              this.classList.add('selected');
+            });
+            
+            calendarGrid.appendChild(dayCell);
+          }
+        }
+
+        if (prevMonth) {
+          prevMonth.addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            generateCalendar();
+          });
+        }
+
+        if (nextMonth) {
+          nextMonth.addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            generateCalendar();
+          });
+        }
+
+        timeSlots.forEach(slot => {
+          slot.addEventListener('click', function() {
+            timeSlots.forEach(s => s.classList.remove('selected'));
+            this.classList.add('selected');
+          });
+        });
+
+        generateCalendar();
+      }
+
+      // Language toggle
+      function initializeLanguageToggle() {
+        const langButtons = document.querySelectorAll('.lang-btn');
+        
+        langButtons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            langButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const lang = this.getAttribute('data-lang');
+            // Here you would implement language switching logic
+            console.log('Switching to language:', lang);
+          });
+        });
+      }
+
+      // Initialize all features when DOM is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        animateStats();
+        initializeLiveChat();
+        initializeCalendar();
+        initializeLanguageToggle();
+      });
+      
     })();
   </script>
 {{ end }}

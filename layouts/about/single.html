@@ -1,23 +1,6 @@
 {{ define "main" }}
-  <!-- Dark mode toggle -->
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-    <svg id="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-    <svg id="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-    </svg>
-  </button>
 
-  <main class="about-page">
+  <div class="about-page">
     
     <!-- Hero Section -->
     <section class="about-hero">
@@ -42,16 +25,24 @@
           
           <div class="hero-stats">
             <div class="stat-item">
-              <span class="stat-number">5+</span>
+              <div class="stat-icon">💼</div>
+              <span class="stat-number" data-target="5">0</span>
               <span class="stat-label">Năm kinh nghiệm</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">50+</span>
+              <div class="stat-icon">🚀</div>
+              <span class="stat-number" data-target="50">0</span>
               <span class="stat-label">Dự án hoàn thành</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">1000+</span>
-              <span class="stat-label">Giờ coding</span>
+              <div class="stat-icon">👥</div>
+              <span class="stat-number" data-target="50">0</span>
+              <span class="stat-label">Mentees</span>
+            </div>
+            <div class="stat-item">
+              <div class="stat-icon">📚</div>
+              <span class="stat-number" data-target="30">0</span>
+              <span class="stat-label">Bài viết</span>
             </div>
           </div>
         </div>
@@ -68,8 +59,406 @@
             <span class="title-icon">👋</span>
             Câu chuyện của tôi
           </h2>
-          <div class="story-content">
-            {{ .Content }}
+          
+          <!-- Introduction Card -->
+          <div class="intro-card">
+            <div class="intro-content">
+              <div class="intro-text">
+                <h3>Xin chào! Tôi là TaansFast 👋</h3>
+                <p>Tôi là một <strong>Network Programming Specialist</strong> với hơn 5 năm kinh nghiệm trong việc phát triển các hệ thống mạng phức tạp và ứng dụng enterprise. Đam mê của tôi nằm ở việc tạo ra những giải pháp công nghệ hiệu quả và chia sẻ kiến thức với cộng đồng developer Việt Nam.</p>
+              </div>
+              <div class="intro-stats">
+                <div class="stat-item">
+                  <div class="stat-number" data-target="5">0</div>
+                  <div class="stat-label">Năm kinh nghiệm</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number" data-target="15">0</div>
+                  <div class="stat-label">Dự án enterprise</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number" data-target="50">0</div>
+                  <div class="stat-label">Mentees</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number" data-target="30">0</div>
+                  <div class="stat-label">Bài viết</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Career Journey Timeline -->
+          <div class="career-timeline-section">
+            <h3 class="subsection-title">
+              <span class="subsection-icon">🚀</span>
+              Hành trình sự nghiệp
+            </h3>
+            <div class="timeline-container">
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <div class="marker-icon">🎓</div>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-period">2019 - 2020</div>
+                  <h4 class="timeline-title">Junior Developer</h4>
+                  <p class="timeline-company">StartUp Hub</p>
+                  <p class="timeline-description">Bắt đầu hành trình lập trình với focus vào web development và network programming. Học hỏi từ những dự án nhỏ và tích lũy kinh nghiệm thực tế.</p>
+                  <div class="timeline-skills">
+                    <span class="skill-badge">JavaScript</span>
+                    <span class="skill-badge">HTML/CSS</span>
+                    <span class="skill-badge">Node.js</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <div class="marker-icon">💻</div>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-period">2020 - 2022</div>
+                  <h4 class="timeline-title">Full-stack Developer</h4>
+                  <p class="timeline-company">Digital Innovation Ltd.</p>
+                  <p class="timeline-description">Xây dựng ứng dụng web full-stack với focus vào performance và user experience. Bắt đầu làm việc với các hệ thống lớn và microservices.</p>
+                  <div class="timeline-skills">
+                    <span class="skill-badge">Java</span>
+                    <span class="skill-badge">Spring Boot</span>
+                    <span class="skill-badge">React</span>
+                    <span class="skill-badge">PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="timeline-item">
+                <div class="timeline-marker">
+                  <div class="marker-icon">🌐</div>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-period">2022 - Hiện tại</div>
+                  <h4 class="timeline-title">Senior Network Developer</h4>
+                  <p class="timeline-company">Tech Solutions Co.</p>
+                  <p class="timeline-description">Phát triển các hệ thống mạng phức tạp và tối ưu hóa hiệu năng cho các ứng dụng enterprise. Lead team và mentor junior developers.</p>
+                  <div class="timeline-skills">
+                    <span class="skill-badge">TCP/IP</span>
+                    <span class="skill-badge">Docker</span>
+                    <span class="skill-badge">Kubernetes</span>
+                    <span class="skill-badge">AWS</span>
+                    <span class="skill-badge">Microservices</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Projects -->
+          <div class="featured-projects-section">
+            <h3 class="subsection-title">
+              <span class="subsection-icon">⭐</span>
+              Dự án nổi bật
+            </h3>
+            <div class="projects-grid">
+              <div class="project-card">
+                <div class="project-header">
+                  <div class="project-icon">🛒</div>
+                  <div class="project-info">
+                    <h4 class="project-title">E-commerce Platform</h4>
+                    <p class="project-year">2023</p>
+                  </div>
+                </div>
+                <div class="project-metrics">
+                  <div class="metric-item">
+                    <span class="metric-value">50K+</span>
+                    <span class="metric-label">Products</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">10K+</span>
+                    <span class="metric-label">Concurrent Users</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">99.9%</span>
+                    <span class="metric-label">Uptime</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">&lt;200ms</span>
+                    <span class="metric-label">Response Time</span>
+                  </div>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-tag">Java Spring Boot</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Redis</span>
+                  <span class="tech-tag">Docker</span>
+                </div>
+                <div class="project-challenge">
+                  <strong>Thách thức:</strong> Xử lý traffic spike trong Black Friday
+                </div>
+              </div>
+              
+              <div class="project-card">
+                <div class="project-header">
+                  <div class="project-icon">💬</div>
+                  <div class="project-info">
+                    <h4 class="project-title">Real-time Chat System</h4>
+                    <p class="project-year">2022</p>
+                  </div>
+                </div>
+                <div class="project-metrics">
+                  <div class="metric-item">
+                    <span class="metric-value">5K+</span>
+                    <span class="metric-label">Active Users</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">100K+</span>
+                    <span class="metric-label">Messages/Day</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">&lt;50ms</span>
+                    <span class="metric-label">Latency</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">99.95%</span>
+                    <span class="metric-label">Uptime</span>
+                  </div>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-tag">Node.js</span>
+                  <span class="tech-tag">Socket.io</span>
+                  <span class="tech-tag">MongoDB</span>
+                  <span class="tech-tag">AWS</span>
+                </div>
+                <div class="project-challenge">
+                  <strong>Thách thức:</strong> Scale horizontal với WebSocket connections
+                </div>
+              </div>
+              
+              <div class="project-card">
+                <div class="project-header">
+                  <div class="project-icon">🌐</div>
+                  <div class="project-info">
+                    <h4 class="project-title">API Gateway</h4>
+                    <p class="project-year">2021</p>
+                  </div>
+                </div>
+                <div class="project-metrics">
+                  <div class="metric-item">
+                    <span class="metric-value">20+</span>
+                    <span class="metric-label">Microservices</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">1M+</span>
+                    <span class="metric-label">Requests/Day</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">40%</span>
+                    <span class="metric-label">Latency Reduction</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">99.8%</span>
+                    <span class="metric-label">Uptime</span>
+                  </div>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-tag">Spring Cloud Gateway</span>
+                  <span class="tech-tag">Redis</span>
+                  <span class="tech-tag">Prometheus</span>
+                  <span class="tech-tag">Circuit Breaker</span>
+                </div>
+                <div class="project-challenge">
+                  <strong>Thách thức:</strong> Load balancing và circuit breaker pattern
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievements Section -->
+<div class="achievements-section">
+  <h3 class="subsection-title">
+    <span class="subsection-icon">🏆</span>
+    Thành tựu & Chứng chỉ
+  </h3>
+
+  <div class="achievements-grid">
+    <!-- Badge Credly thật -->
+    <div class="achievement-card">
+      <div class="achievement-content">
+        <div data-iframe-width="150" data-iframe-height="270"
+             data-share-badge-id="382f495d-9157-4cdf-b114-7199df416a64"
+             data-share-badge-host="https://www.credly.com"></div>
+      </div>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-content">
+        <div data-iframe-width="150" data-iframe-height="270"
+             data-share-badge-id="d6a7ac53-6b8e-41a3-9f8c-1021f57e1bfe"
+             data-share-badge-host="https://www.credly.com"></div>
+      </div>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-content">
+        <div data-iframe-width="150" data-iframe-height="270"
+             data-share-badge-id="01c6adfd-d35b-45dd-8ea3-2b9064100c58"
+             data-share-badge-host="https://www.credly.com"></div>
+      </div>
+    </div>
+
+    <!-- Các thành tựu khác -->
+    <div class="achievement-card">
+      <div class="achievement-icon">☁️</div>
+      <div class="achievement-content">
+        <h4>AWS Certified Solutions Architect</h4>
+        <p class="achievement-year">2023</p>
+        <div class="achievement-badge">Verified</div>
+      </div>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">☕</div>
+      <div class="achievement-content">
+        <h4>Oracle Certified Java Developer</h4>
+        <p class="achievement-year">2022</p>
+        <div class="achievement-badge">Professional</div>
+      </div>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">📈</div>
+      <div class="achievement-content">
+        <h4>Led 15+ Enterprise Projects</h4>
+        <p class="achievement-desc">Quy mô 10K+ users</p>
+        <div class="achievement-badge">Leadership</div>
+      </div>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">👥</div>
+      <div class="achievement-content">
+        <h4>Mentored 50+ Developers</h4>
+        <p class="achievement-desc">Trong cộng đồng</p>
+        <div class="achievement-badge">Mentor</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Credly chỉ cần 1 lần -->
+  <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+</div>
+
+
+          
+          
+          
+
+          <!-- Philosophy Section -->
+          <div class="philosophy-section">
+            <h3 class="subsection-title">
+              <span class="subsection-icon">💡</span>
+              Triết lý làm việc
+            </h3>
+            <div class="philosophy-content">
+              <div class="philosophy-quote">
+                <div class="quote-icon">💬</div>
+                <blockquote>
+                  "Code không chỉ để máy tính hiểu, mà còn để con người hiểu. Viết code như viết thư gửi đến chính mình sau 6 tháng."
+                </blockquote>
+              </div>
+              <div class="philosophy-principles">
+                <div class="principle-item">
+                  <div class="principle-icon">✨</div>
+                  <div class="principle-content">
+                    <h4>Clean Code</h4>
+                    <p>Code sạch, dễ đọc, dễ maintain</p>
+                  </div>
+                </div>
+                <div class="principle-item">
+                  <div class="principle-icon">📚</div>
+                  <div class="principle-content">
+                    <h4>Continuous Learning</h4>
+                    <p>Công nghệ thay đổi nhanh, học hỏi là chìa khóa</p>
+                  </div>
+                </div>
+                <div class="principle-item">
+                  <div class="principle-icon">🤝</div>
+                  <div class="principle-content">
+                    <h4>Team Work</h4>
+                    <p>Một mình đi nhanh, cùng nhau đi xa</p>
+                  </div>
+                </div>
+                <div class="principle-item">
+                  <div class="principle-icon">🎯</div>
+                  <div class="principle-content">
+                    <h4>Problem Solving</h4>
+                    <p>Focus vào giải quyết vấn đề thực tế</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal Interests -->
+          <div class="interests-section">
+            <h3 class="subsection-title">
+              <span class="subsection-icon">🎨</span>
+              Ngoài công việc
+            </h3>
+            <div class="interests-grid">
+              <div class="interest-card">
+                <div class="interest-icon">☕</div>
+                <h4>Thưởng thức cà phê</h4>
+                <p>Và đọc sách về công nghệ</p>
+              </div>
+              <div class="interest-card">
+                <div class="interest-icon">🏃</div>
+                <h4>Chạy bộ</h4>
+                <p>Giữ sức khỏe và suy nghĩ về ý tưởng mới</p>
+              </div>
+              <div class="interest-card">
+                <div class="interest-icon">🎮</div>
+                <h4>Gaming</h4>
+                <p>Đặc biệt là các game strategy và puzzle</p>
+              </div>
+              <div class="interest-card">
+                <div class="interest-icon">🌱</div>
+                <h4>Học công nghệ mới</h4>
+                <p>Luôn tò mò về những gì đang trending</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Why Blog Section -->
+          <div class="why-blog-section">
+            <h3 class="subsection-title">
+              <span class="subsection-icon">📝</span>
+              Tại sao tôi viết blog?
+            </h3>
+            <div class="why-blog-content">
+              <p>Blog này ra đời từ mong muốn <strong>"chia sẻ để cùng phát triển"</strong>. Trong quá trình học tập và làm việc, tôi nhận ra rằng:</p>
+              <div class="blog-reasons">
+                <div class="reason-item">
+                  <div class="reason-icon">📈</div>
+                  <div class="reason-content">
+                    <h4>Kiến thức càng chia sẻ càng tăng</h4>
+                    <p>Việc viết blog giúp tôi củng cố kiến thức và học hỏi từ phản hồi của cộng đồng</p>
+                  </div>
+                </div>
+                <div class="reason-item">
+                  <div class="reason-icon">🇻🇳</div>
+                  <div class="reason-content">
+                    <h4>Cộng đồng dev Việt cần nội dung chất lượng</h4>
+                    <p>Đặc biệt là về network programming và các công nghệ backend</p>
+                  </div>
+                </div>
+                <div class="reason-item">
+                  <div class="reason-icon">💼</div>
+                  <div class="reason-content">
+                    <h4>Kinh nghiệm thực tế rất quý giá</h4>
+                    <p>Những bài học từ dự án thật thường không có trong sách vở</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -79,87 +468,472 @@
             <span class="title-icon">🚀</span>
             Kỹ năng & Công nghệ
           </h2>
-          <div class="skills-grid">
-            <div class="skill-category">
-              <h3 class="category-title">Frontend</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">TypeScript</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Vue.js</span>
-                <span class="skill-tag">HTML/CSS</span>
+          
+          <!-- Skills Overview -->
+          <div class="skills-overview">
+            <div class="overview-card">
+              <div class="overview-icon">💻</div>
+              <div class="overview-content">
+                <h3>Full-Stack Development</h3>
+                <p>5+ năm kinh nghiệm phát triển ứng dụng web từ frontend đến backend</p>
               </div>
             </div>
-            
-            <div class="skill-category">
-              <h3 class="category-title">Backend</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">Spring Boot</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Go</span>
+            <div class="overview-card">
+              <div class="overview-icon">🌐</div>
+              <div class="overview-content">
+                <h3>Network Programming</h3>
+                <p>Chuyên gia về TCP/IP, socket programming và tối ưu hóa mạng</p>
               </div>
             </div>
-            
-            <div class="skill-category">
-              <h3 class="category-title">Network & DevOps</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">TCP/IP</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Kubernetes</span>
-                <span class="skill-tag">AWS</span>
-                <span class="skill-tag">Linux</span>
-              </div>
-            </div>
-            
-            <div class="skill-category">
-              <h3 class="category-title">Database</h3>
-              <div class="skill-tags">
-                <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">MongoDB</span>
-                <span class="skill-tag">Redis</span>
-                <span class="skill-tag">MySQL</span>
+            <div class="overview-card">
+              <div class="overview-icon">☁️</div>
+              <div class="overview-content">
+                <h3>Cloud & DevOps</h3>
+                <p>Thành thạo AWS, Docker, Kubernetes và CI/CD pipelines</p>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Experience Timeline -->
-        <div class="experience-section">
+          <!-- Skills Grid -->
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3 class="category-title">
+                <span class="category-icon">🎨</span>
+                Frontend Development
+              </h3>
+              <div class="skill-tags">
+                <span class="skill-tag" data-skill="javascript">
+                  <span class="skill-icon">🟨</span>
+                  <span class="skill-name">JavaScript</span>
+                  <span class="skill-level">Expert</span>
+                </span>
+                <span class="skill-tag" data-skill="typescript">
+                  <span class="skill-icon">🔷</span>
+                  <span class="skill-name">TypeScript</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+                <span class="skill-tag" data-skill="react">
+                  <span class="skill-icon">⚛️</span>
+                  <span class="skill-name">React</span>
+                  <span class="skill-level">Expert</span>
+                </span>
+                <span class="skill-tag" data-skill="vue">
+                  <span class="skill-icon">💚</span>
+                  <span class="skill-name">Vue.js</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+                <span class="skill-tag" data-skill="nextjs">
+                  <span class="skill-icon">▲</span>
+                  <span class="skill-name">Next.js</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+                <span class="skill-tag" data-skill="tailwind">
+                  <span class="skill-icon">🎨</span>
+                  <span class="skill-name">Tailwind CSS</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+                <span class="skill-tag" data-skill="htmlcss">
+                  <span class="skill-icon">🌐</span>
+                  <span class="skill-name">HTML/CSS</span>
+                  <span class="skill-level">Expert</span>
+                </span>
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h3 class="category-title">
+                <span class="category-icon">⚙️</span>
+                Backend Development
+              </h3>
+              <div class="skill-tags">
+                <span class="skill-tag" data-skill="java">
+                  <span class="skill-icon">☕</span>
+                  <span class="skill-name">Java</span>
+                  <span class="skill-level">Expert</span>
+                </span>
+                <span class="skill-tag" data-skill="spring">
+                  <span class="skill-icon">🍃</span>
+                  <span class="skill-name">Spring Boot</span>
+                  <span class="skill-level">Expert</span>
+                </span>
+                <span class="skill-tag" data-skill="nodejs">
+                  <span class="skill-icon">🟢</span>
+                  <span class="skill-name">Node.js</span>
+                  <span class="skill-level">Expert</span>
+                </span>
+                <span class="skill-tag" data-skill="python">
+                  <span class="skill-icon">🐍</span>
+                  <span class="skill-name">Python</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+                <span class="skill-tag" data-skill="go">
+                  <span class="skill-icon">🐹</span>
+                  <span class="skill-name">Go</span>
+                  <span class="skill-level">Intermediate</span>
+                </span>
+                <span class="skill-tag" data-skill="graphql">
+                  <span class="skill-icon">🔷</span>
+                  <span class="skill-name">GraphQL</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+                <span class="skill-tag" data-skill="microservices">
+                  <span class="skill-icon">🔧</span>
+                  <span class="skill-name">Microservices</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h3 class="category-title">
+                <span class="category-icon">🌐</span>
+                Network & DevOps
+              </h3>
+              <div class="skill-tags">
+                <span class="skill-tag" data-skill="tcpip">
+                  <span class="skill-icon">🔗</span>
+                  <span class="skill-name">TCP/IP</span>
+                  <span class="skill-level">Expert</span>
+                </span>
+                <span class="skill-tag" data-skill="docker">
+                  <span class="skill-icon">🐳</span>
+                  <span class="skill-name">Docker</span>
+                  <span class="skill-level">Expert</span>
+                </span>
+                <span class="skill-tag" data-skill="kubernetes">
+                  <span class="skill-icon">☸️</span>
+                  <span class="skill-name">Kubernetes</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+                <span class="skill-tag" data-skill="aws">
+                  <span class="skill-icon">☁️</span>
+                  <span class="skill-name">AWS</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+                <span class="skill-tag" data-skill="linux">
+                  <span class="skill-icon">🐧</span>
+                  <span class="skill-name">Linux</span>
+                  <span class="skill-level">Expert</span>
+                </span>
+                <span class="skill-tag" data-skill="terraform">
+                  <span class="skill-icon">🏗️</span>
+                  <span class="skill-name">Terraform</span>
+                  <span class="skill-level">Intermediate</span>
+                </span>
+                <span class="skill-tag" data-skill="jenkins">
+                  <span class="skill-icon">🔧</span>
+                  <span class="skill-name">Jenkins</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h3 class="category-title">
+                <span class="category-icon">🗄️</span>
+                Database & Storage
+              </h3>
+              <div class="skill-tags">
+                <span class="skill-tag" data-skill="postgresql">
+                  <span class="skill-icon">🐘</span>
+                  <span class="skill-name">PostgreSQL</span>
+                  <span class="skill-level">Expert</span>
+                </span>
+                <span class="skill-tag" data-skill="mongodb">
+                  <span class="skill-icon">🍃</span>
+                  <span class="skill-name">MongoDB</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+                <span class="skill-tag" data-skill="redis">
+                  <span class="skill-icon">🔴</span>
+                  <span class="skill-name">Redis</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+                <span class="skill-tag" data-skill="mysql">
+                  <span class="skill-icon">🐬</span>
+                  <span class="skill-name">MySQL</span>
+                  <span class="skill-level">Advanced</span>
+                </span>
+                <span class="skill-tag" data-skill="elasticsearch">
+                  <span class="skill-icon">🔍</span>
+                  <span class="skill-name">Elasticsearch</span>
+                  <span class="skill-level">Intermediate</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Skill Progress Bars -->
+          <div class="skill-progress-section">
+            <h3 class="progress-title">
+              <span class="progress-icon">📊</span>
+              Kỹ năng chuyên sâu
+            </h3>
+            <div class="progress-bars">
+              <div class="progress-item">
+                <div class="progress-header">
+                  <div class="progress-info">
+                    <span class="progress-icon">☕</span>
+                  <span class="progress-label">Java & Spring Boot</span>
+                  </div>
+                  <span class="progress-percentage">95%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="95%" data-color="#f89820"></div>
+                </div>
+                <div class="progress-description">5+ năm kinh nghiệm, từng làm việc với Spring Security, Spring Data JPA</div>
+              </div>
+              
+              <div class="progress-item">
+                <div class="progress-header">
+                  <div class="progress-info">
+                    <span class="progress-icon">🟨</span>
+                  <span class="progress-label">JavaScript & Node.js</span>
+                  </div>
+                  <span class="progress-percentage">90%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="90%" data-color="#f7df1e"></div>
+                </div>
+                <div class="progress-description">Thành thạo ES6+, async/await, Express.js và RESTful APIs</div>
+              </div>
+              
+              <div class="progress-item">
+                <div class="progress-header">
+                  <div class="progress-info">
+                    <span class="progress-icon">🌐</span>
+                  <span class="progress-label">Network Programming</span>
+                  </div>
+                  <span class="progress-percentage">88%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="88%" data-color="#4CAF50"></div>
+                </div>
+                <div class="progress-description">TCP/IP, Socket programming, HTTP/2, WebSocket và tối ưu hóa mạng</div>
+              </div>
+              
+              <div class="progress-item">
+                <div class="progress-header">
+                  <div class="progress-info">
+                    <span class="progress-icon">🗄️</span>
+                  <span class="progress-label">Database Design</span>
+                  </div>
+                  <span class="progress-percentage">85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="85%" data-color="#2196F3"></div>
+                </div>
+                <div class="progress-description">PostgreSQL, MongoDB, Redis, query optimization và indexing</div>
+              </div>
+              
+              <div class="progress-item">
+                <div class="progress-header">
+                  <div class="progress-info">
+                    <span class="progress-icon">☁️</span>
+                  <span class="progress-label">DevOps & AWS</span>
+                  </div>
+                  <span class="progress-percentage">80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="80%" data-color="#FF9800"></div>
+                </div>
+                <div class="progress-description">Docker, Kubernetes, AWS EC2/S3/RDS, CI/CD pipelines</div>
+              </div>
+            </div>
+          </div>
+
+          
+
+        
+
+        <!-- Testimonials Section -->
+        <div class="testimonials-section">
           <h2 class="section-title">
-            <span class="title-icon">💼</span>
-            Hành trình sự nghiệp
+            <span class="title-icon">💬</span>
+            Độc giả nói gì
           </h2>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h4 class="timeline-title">Senior Network Developer</h4>
-                <p class="timeline-company">Tech Solutions Co.</p>
-                <p class="timeline-period">2022 - Hiện tại</p>
-                <p class="timeline-description">Phát triển các hệ thống mạng phức tạp và tối ưu hóa hiệu năng cho các ứng dụng enterprise.</p>
+          <div class="testimonials-carousel">
+            <div class="testimonial-slider">
+              <div class="testimonial-item active">
+                <div class="testimonial-content">
+                  <div class="testimonial-quote">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                    </svg>
+                    <p>"Bài viết của TaansFast rất thực tế và dễ hiểu. Mình đã áp dụng được ngay vào dự án! Giải thích về JVM tuning rất chi tiết."</p>
+                  </div>
+                  <div class="testimonial-meta">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <span class="testimonial-date">3 tuần trước</span>
+                  </div>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">👨‍💻</div>
+                    <div class="author-info">
+                      <h4>Nguyễn Văn A</h4>
+                      <span>Senior Java Developer</span>
+                    </div>
+                  </div>
+                  <div class="testimonial-actions">
+                    <button class="like-btn" data-likes="37">👍 37</button>
+                    <button class="share-btn">📤 Share</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="testimonial-item">
+                <div class="testimonial-content">
+                  <div class="testimonial-quote">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                    </svg>
+                    <p>"So sánh Java vs JavaScript rất hay! Giúp mình hiểu rõ sự khác biệt giữa hai ngôn ngữ. Cảm ơn anh đã chia sẻ!"</p>
+                  </div>
+                  <div class="testimonial-meta">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <span class="testimonial-date">2 tuần trước</span>
+                  </div>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">👩‍💻</div>
+                    <div class="author-info">
+                      <h4>Trần Thị B</h4>
+                      <span>Frontend Developer</span>
+                    </div>
+                  </div>
+                  <div class="testimonial-actions">
+                    <button class="like-btn" data-likes="17">👍 17</button>
+                    <button class="share-btn">📤 Share</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="testimonial-item">
+                <div class="testimonial-content">
+                  <div class="testimonial-quote">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                    </svg>
+                    <p>"Blog có nhiều bài viết chất lượng, cập nhật kiến thức mới nhất. Rất hữu ích cho developer! Đặc biệt là phần ES6+."</p>
+                  </div>
+                  <div class="testimonial-meta">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <span class="testimonial-date">1 tuần trước</span>
+                  </div>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">👨‍🎓</div>
+                    <div class="author-info">
+                      <h4>Lê Văn C</h4>
+                      <span>Full-stack Developer</span>
+                      <div class="author-badge">🏆 Top Contributor</div>
+                    </div>
+                  </div>
+                  <div class="testimonial-actions">
+                    <button class="like-btn" data-likes="23">👍 23</button>
+                    <button class="share-btn">📤 Share</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="testimonial-item">
+                <div class="testimonial-content">
+                  <div class="testimonial-quote">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                    </svg>
+                    <p>"Sau khi đọc bài JVM tuning, mình đã optimize được ứng dụng Java từ 2s xuống 0.8s response time! Performance tăng 60%."</p>
+                  </div>
+                  <div class="testimonial-meta">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <span class="testimonial-date">3 ngày trước</span>
+                  </div>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">👩‍💼</div>
+                    <div class="author-info">
+                      <h4>Phạm Thị D</h4>
+                      <span>Backend Team Lead</span>
+                      <div class="author-badge">✅ Verified</div>
+                    </div>
+                  </div>
+                  <div class="testimonial-actions">
+                    <button class="like-btn" data-likes="45">👍 45</button>
+                    <button class="share-btn">📤 Share</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="testimonial-item">
+                <div class="testimonial-content">
+                  <div class="testimonial-quote">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                    </svg>
+                    <p>"Bài viết về async/await rất hay! Mình đã refactor toàn bộ code từ Promise sang async/await. Code clean hơn nhiều!"</p>
+                  </div>
+                  <div class="testimonial-meta">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <span class="testimonial-date">5 ngày trước</span>
+                  </div>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">👨‍💻</div>
+                    <div class="author-info">
+                      <h4>Hoàng Văn E</h4>
+                      <span>Node.js Developer</span>
+                      <div class="author-badge">🚀 Rising Star</div>
+                    </div>
+                  </div>
+                  <div class="testimonial-actions">
+                    <button class="like-btn" data-likes="18">👍 18</button>
+                    <button class="share-btn">📤 Share</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="testimonial-item">
+                <div class="testimonial-content">
+                  <div class="testimonial-quote">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                    </svg>
+                    <p>"Từ junior dev, mình đã học được rất nhiều từ blog này. Giờ đã lên senior! Cảm ơn anh đã chia sẻ kiến thức."</p>
+                  </div>
+                  <div class="testimonial-meta">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <span class="testimonial-date">1 tuần trước</span>
+                  </div>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">👩‍🎓</div>
+                    <div class="author-info">
+                      <h4>Nguyễn Thị F</h4>
+                      <span>Senior Developer</span>
+                      <div class="author-badge">📈 Career Growth</div>
+                    </div>
+                  </div>
+                  <div class="testimonial-actions">
+                    <button class="like-btn" data-likes="67">👍 67</button>
+                    <button class="share-btn">📤 Share</button>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h4 class="timeline-title">Full-stack Developer</h4>
-                <p class="timeline-company">Digital Innovation Ltd.</p>
-                <p class="timeline-period">2020 - 2022</p>
-                <p class="timeline-description">Xây dựng ứng dụng web full-stack với focus vào performance và user experience.</p>
+            <div class="testimonial-controls">
+              <button class="testimonial-prev" aria-label="Previous testimonial">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+              </button>
+              <div class="testimonial-dots">
+                <button class="dot active" data-slide="0"></button>
+                <button class="dot" data-slide="1"></button>
+                <button class="dot" data-slide="2"></button>
+                <button class="dot" data-slide="3"></button>
+                <button class="dot" data-slide="4"></button>
+                <button class="dot" data-slide="5"></button>
               </div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h4 class="timeline-title">Junior Developer</h4>
-                <p class="timeline-company">StartUp Hub</p>
-                <p class="timeline-period">2019 - 2020</p>
-                <p class="timeline-description">Bắt đầu hành trình lập trình với focus vào web development và network programming.</p>
-              </div>
+              <button class="testimonial-next" aria-label="Next testimonial">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -170,29 +944,213 @@
             <span class="title-icon">💡</span>
             Giá trị cốt lõi
           </h2>
+          
+          <!-- Values Introduction -->
+          <div class="values-intro">
+            <p class="values-intro-text">Những nguyên tắc và giá trị định hướng cách tôi làm việc, học tập và chia sẻ kiến thức với cộng đồng.</p>
+          </div>
+          
           <div class="values-grid">
-            <div class="value-card">
+            <div class="value-card" data-value="quality">
+              <div class="value-card-header">
+                <div class="value-icon-wrapper">
               <div class="value-icon">🎯</div>
+                  <div class="value-glow"></div>
+                </div>
+                <div class="value-number">01</div>
+              </div>
+              <div class="value-content">
               <h3 class="value-title">Chất lượng</h3>
               <p class="value-description">Luôn đặt chất lượng code và sản phẩm lên hàng đầu, không bao giờ thỏa hiệp với những giải pháp tạm bợ.</p>
+                <div class="value-examples">
+                  <div class="example-item">
+                    <span class="example-icon">✨</span>
+                    <span class="example-text">Clean Code & Best Practices</span>
+                  </div>
+                  <div class="example-item">
+                    <span class="example-icon">🔍</span>
+                    <span class="example-text">Code Review & Testing</span>
+                  </div>
+                  <div class="example-item">
+                    <span class="example-icon">⚡</span>
+                    <span class="example-text">Performance Optimization</span>
+                  </div>
+                </div>
+                <div class="value-metrics">
+                  <div class="metric-item">
+                    <span class="metric-number">99.9%</span>
+                    <span class="metric-label">Uptime</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-number">&lt;200ms</span>
+                    <span class="metric-label">Response Time</span>
+                  </div>
+                </div>
+              </div>
+              <div class="value-card-footer">
+                <button class="expand-btn" data-target="quality">
+                  <span class="expand-text">Tìm hiểu thêm</span>
+                  <span class="expand-icon">↓</span>
+                </button>
+              </div>
             </div>
             
-            <div class="value-card">
+            <div class="value-card" data-value="sharing">
+              <div class="value-card-header">
+                <div class="value-icon-wrapper">
               <div class="value-icon">🤝</div>
+                  <div class="value-glow"></div>
+                </div>
+                <div class="value-number">02</div>
+              </div>
+              <div class="value-content">
               <h3 class="value-title">Chia sẻ</h3>
               <p class="value-description">Tin rằng kiến thức càng chia sẻ càng tăng, luôn sẵn sàng hỗ trợ cộng đồng developer Việt Nam.</p>
+                <div class="value-examples">
+                  <div class="example-item">
+                    <span class="example-icon">📝</span>
+                    <span class="example-text">Technical Blog Posts</span>
+                  </div>
+                  <div class="example-item">
+                    <span class="example-icon">👥</span>
+                    <span class="example-text">Community Mentoring</span>
+                  </div>
+                  <div class="example-item">
+                    <span class="example-icon">💬</span>
+                    <span class="example-text">Open Source Contributions</span>
+                  </div>
+                </div>
+                <div class="value-metrics">
+                  <div class="metric-item">
+                    <span class="metric-number">50+</span>
+                    <span class="metric-label">Mentees</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-number">30+</span>
+                    <span class="metric-label">Articles</span>
+                  </div>
+                </div>
+              </div>
+              <div class="value-card-footer">
+                <button class="expand-btn" data-target="sharing">
+                  <span class="expand-text">Tìm hiểu thêm</span>
+                  <span class="expand-icon">↓</span>
+                </button>
+              </div>
             </div>
             
-            <div class="value-card">
+            <div class="value-card" data-value="learning">
+              <div class="value-card-header">
+                <div class="value-icon-wrapper">
               <div class="value-icon">📚</div>
+                  <div class="value-glow"></div>
+                </div>
+                <div class="value-number">03</div>
+              </div>
+              <div class="value-content">
               <h3 class="value-title">Học hỏi</h3>
               <p class="value-description">Công nghệ thay đổi nhanh chóng, việc học hỏi liên tục là chìa khóa để không bị tụt hậu.</p>
+                <div class="value-examples">
+                  <div class="example-item">
+                    <span class="example-icon">🎓</span>
+                    <span class="example-text">Continuous Learning</span>
+                  </div>
+                  <div class="example-item">
+                    <span class="example-icon">🔬</span>
+                    <span class="example-text">Experiment & Research</span>
+                  </div>
+                  <div class="example-item">
+                    <span class="example-icon">📖</span>
+                    <span class="example-text">Stay Updated</span>
+                  </div>
+                </div>
+                <div class="value-metrics">
+                  <div class="metric-item">
+                    <span class="metric-number">4</span>
+                    <span class="metric-label">Certifications</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-number">5+</span>
+                    <span class="metric-label">Years Learning</span>
+                  </div>
+                </div>
+              </div>
+              <div class="value-card-footer">
+                <button class="expand-btn" data-target="learning">
+                  <span class="expand-text">Tìm hiểu thêm</span>
+                  <span class="expand-icon">↓</span>
+                </button>
+              </div>
             </div>
             
-            <div class="value-card">
+            <div class="value-card" data-value="practical">
+              <div class="value-card-header">
+                <div class="value-icon-wrapper">
               <div class="value-icon">🔧</div>
+                  <div class="value-glow"></div>
+                </div>
+                <div class="value-number">04</div>
+              </div>
+              <div class="value-content">
               <h3 class="value-title">Thực tiễn</h3>
               <p class="value-description">Tập trung vào những giải pháp thực tế, có thể áp dụng ngay vào công việc và dự án.</p>
+                <div class="value-examples">
+                  <div class="example-item">
+                    <span class="example-icon">💼</span>
+                    <span class="example-text">Real-world Solutions</span>
+            </div>
+                  <div class="example-item">
+                    <span class="example-icon">⚙️</span>
+                    <span class="example-text">Practical Implementation</span>
+                  </div>
+                  <div class="example-item">
+                    <span class="example-icon">🎯</span>
+                    <span class="example-text">Problem-focused</span>
+                  </div>
+                </div>
+                <div class="value-metrics">
+                  <div class="metric-item">
+                    <span class="metric-number">15+</span>
+                    <span class="metric-label">Projects</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-number">100%</span>
+                    <span class="metric-label">Success Rate</span>
+                  </div>
+                </div>
+              </div>
+              <div class="value-card-footer">
+                <button class="expand-btn" data-target="practical">
+                  <span class="expand-text">Tìm hiểu thêm</span>
+                  <span class="expand-icon">↓</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Values Summary -->
+          <div class="values-summary">
+            <div class="summary-content">
+              <h3 class="summary-title">Tại sao những giá trị này quan trọng?</h3>
+              <p class="summary-text">Những giá trị này không chỉ định hướng cách tôi làm việc mà còn là kim chỉ nam cho việc phát triển bản thân và đóng góp cho cộng đồng. Chúng giúp tôi tạo ra những sản phẩm chất lượng cao và chia sẻ kiến thức một cách có ý nghĩa.</p>
+              <div class="summary-stats">
+                <div class="summary-stat">
+                  <div class="summary-stat-number">5+</div>
+                  <div class="summary-stat-label">Năm kinh nghiệm</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-number">50+</div>
+                  <div class="summary-stat-label">Người được hỗ trợ</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-number">30+</div>
+                  <div class="summary-stat-label">Bài viết chia sẻ</div>
+                </div>
+                <div class="summary-stat">
+                  <div class="summary-stat-number">15+</div>
+                  <div class="summary-stat-label">Dự án thành công</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -229,41 +1187,653 @@
       </div>
     </section>
 
-  </main>
+  </div>
 
   <!-- Include CSS and JavaScript -->
   {{ $aboutCSS := resources.Get "styles/about.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $aboutCSS.RelPermalink }}" integrity="{{ $aboutCSS.Data.Integrity }}">
   
   <script>
-    // Dark mode functionality (reuse from home page)
+
+    // Story Section Animations
     (function() {
-      const themeToggle = document.getElementById('theme-toggle');
-      const sunIcon = document.getElementById('sun-icon');
-      const moonIcon = document.getElementById('moon-icon');
+      // Intro Stats Animation
+      const introStats = document.querySelectorAll('.intro-stats .stat-number');
       
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
+      const animateIntroStats = (element) => {
+        const target = parseInt(element.getAttribute('data-target'));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          element.textContent = Math.floor(current);
+        }, 16);
+      };
       
-      function updateIcons(theme) {
-        if (theme === 'dark') {
-          sunIcon.style.display = 'none';
-          moonIcon.style.display = 'block';
-        } else {
-          sunIcon.style.display = 'block';
-          moonIcon.style.display = 'none';
+      const introStatsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const statNumber = entry.target.querySelector('.stat-number');
+            if (statNumber && !statNumber.classList.contains('animated')) {
+              statNumber.classList.add('animated');
+              animateIntroStats(statNumber);
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      document.querySelectorAll('.intro-stats .stat-item').forEach(item => {
+        introStatsObserver.observe(item);
+      });
+
+      // Timeline Animation
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      
+      const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateX(0)';
+            }, index * 200);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      timelineItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-30px)';
+        item.style.transition = 'all 0.6s ease';
+        timelineObserver.observe(item);
+      });
+
+      // Project Cards Animation
+      const projectCards = document.querySelectorAll('.project-card');
+      
+      const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }, index * 150);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      projectCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+        projectObserver.observe(card);
+      });
+
+      // Achievement Cards Animation
+      const achievementCards = document.querySelectorAll('.achievement-card');
+      
+      const achievementObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'scale(1)';
+            }, index * 100);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      achievementCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.9)';
+        card.style.transition = 'all 0.5s ease';
+        achievementObserver.observe(card);
+      });
+
+      // Philosophy Principles Animation
+      const principleItems = document.querySelectorAll('.principle-item');
+      
+      const principleObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }, index * 100);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      principleItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'all 0.5s ease';
+        principleObserver.observe(item);
+      });
+
+      // Interest Cards Animation
+      const interestCards = document.querySelectorAll('.interest-card');
+      
+      const interestObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0) rotate(0deg)';
+            }, index * 100);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      interestCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px) rotate(2deg)';
+        card.style.transition = 'all 0.6s ease';
+        interestObserver.observe(card);
+      });
+
+      // Blog Reasons Animation
+      const reasonItems = document.querySelectorAll('.reason-item');
+      
+      const reasonObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateX(0)';
+            }, index * 150);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      reasonItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-30px)';
+        item.style.transition = 'all 0.6s ease';
+        reasonObserver.observe(item);
+      });
+    })();
+
+    // Interactive Project Cards
+    (function() {
+      const projectCards = document.querySelectorAll('.project-card');
+      
+      projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-8px) scale(1.02)';
+          this.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+          this.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+        });
+        
+        // Click to expand metrics
+        card.addEventListener('click', function() {
+          const metrics = this.querySelector('.project-metrics');
+          const isExpanded = metrics.classList.contains('expanded');
+          
+          if (isExpanded) {
+            metrics.classList.remove('expanded');
+            metrics.style.maxHeight = '120px';
+          } else {
+            metrics.classList.add('expanded');
+            metrics.style.maxHeight = metrics.scrollHeight + 'px';
+          }
+        });
+      });
+    })();
+
+    // Interactive Achievement Cards
+    (function() {
+      const achievementCards = document.querySelectorAll('.achievement-card');
+      
+      achievementCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.05) rotate(1deg)';
+          this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1) rotate(0deg)';
+          this.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+        });
+      });
+    })();
+
+    // Values Section Interactive Features
+    (function() {
+      // Value Cards Animation
+      const valueCards = document.querySelectorAll('.value-card');
+      
+      const valueObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0) scale(1)';
+            }, index * 150);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      valueCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px) scale(0.95)';
+        card.style.transition = 'all 0.6s ease';
+        valueObserver.observe(card);
+      });
+
+      // Value Cards Hover Effects
+      valueCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-10px) scale(1.02)';
+          this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
+          
+          // Animate icon glow
+          const glow = this.querySelector('.value-glow');
+          if (glow) {
+            glow.style.opacity = '1';
+            glow.style.transform = 'scale(1.2)';
+          }
+          
+          // Animate examples
+          const examples = this.querySelectorAll('.example-item');
+          examples.forEach((example, index) => {
+            setTimeout(() => {
+              example.style.opacity = '1';
+              example.style.transform = 'translateX(0)';
+            }, index * 100);
+          });
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+          this.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+          
+          // Reset icon glow
+          const glow = this.querySelector('.value-glow');
+          if (glow) {
+            glow.style.opacity = '0';
+            glow.style.transform = 'scale(1)';
+          }
+          
+          // Reset examples
+          const examples = this.querySelectorAll('.example-item');
+          examples.forEach(example => {
+            example.style.opacity = '0.7';
+            example.style.transform = 'translateX(-10px)';
+          });
+        });
+      });
+
+      // Expand Button Functionality
+      const expandButtons = document.querySelectorAll('.expand-btn');
+      
+      expandButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const card = this.closest('.value-card');
+          const isExpanded = card.classList.contains('expanded');
+          
+          if (isExpanded) {
+            // Collapse
+            card.classList.remove('expanded');
+            this.querySelector('.expand-text').textContent = 'Tìm hiểu thêm';
+            this.querySelector('.expand-icon').textContent = '↓';
+            this.querySelector('.expand-icon').style.transform = 'rotate(0deg)';
+          } else {
+            // Expand
+            card.classList.add('expanded');
+            this.querySelector('.expand-text').textContent = 'Thu gọn';
+            this.querySelector('.expand-icon').textContent = '↑';
+            this.querySelector('.expand-icon').style.transform = 'rotate(180deg)';
+            
+            // Animate metrics
+            const metrics = card.querySelectorAll('.metric-number');
+            metrics.forEach(metric => {
+              const finalValue = metric.textContent;
+              metric.textContent = '0';
+              
+              setTimeout(() => {
+                metric.textContent = finalValue;
+                metric.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                  metric.style.transform = 'scale(1)';
+                }, 200);
+              }, 300);
+            });
+          }
+        });
+      });
+
+      // Values Summary Animation
+      const summaryStats = document.querySelectorAll('.summary-stat-number');
+      
+      const summaryObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const statNumbers = entry.target.querySelectorAll('.summary-stat-number');
+            statNumbers.forEach((stat, index) => {
+              setTimeout(() => {
+                const target = stat.textContent;
+                const isNumber = !isNaN(parseInt(target));
+                
+                if (isNumber) {
+                  const finalNumber = parseInt(target);
+                  let current = 0;
+                  const increment = finalNumber / 30;
+                  
+                  const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= finalNumber) {
+                      current = finalNumber;
+                      clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current) + (target.includes('+') ? '+' : '');
+                  }, 50);
+                } else {
+                  stat.style.opacity = '1';
+                  stat.style.transform = 'scale(1)';
+                }
+              }, index * 200);
+            });
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      document.querySelectorAll('.summary-stat').forEach(stat => {
+        const number = stat.querySelector('.summary-stat-number');
+        if (number) {
+          number.style.opacity = '0';
+          number.style.transform = 'scale(0.8)';
+          number.style.transition = 'all 0.3s ease';
+        }
+        summaryObserver.observe(stat);
+      });
+
+      // Parallax Effect for Value Icons
+      valueCards.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+          const rect = this.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const moveX = (x - centerX) / 10;
+          const moveY = (y - centerY) / 10;
+          
+          const icon = this.querySelector('.value-icon');
+          if (icon) {
+            icon.style.transform = `translate(${moveX}px, ${moveY}px)`;
+          }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          const icon = this.querySelector('.value-icon');
+          if (icon) {
+            icon.style.transform = 'translate(0, 0)';
+          }
+        });
+      });
+    })();
+
+    // Enhanced Skill Progress Bars Animation
+    (function() {
+      const progressBars = document.querySelectorAll('.progress-fill');
+      
+      const animateProgressBar = (bar) => {
+        const width = bar.getAttribute('data-width');
+        const color = bar.getAttribute('data-color') || '#3182ce';
+        bar.style.width = '0%';
+        bar.style.background = color;
+        
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 100);
+      };
+      
+      const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const progressFill = entry.target.querySelector('.progress-fill');
+            if (progressFill && !progressFill.classList.contains('animated')) {
+              progressFill.classList.add('animated');
+              animateProgressBar(progressFill);
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      document.querySelectorAll('.progress-item').forEach(item => {
+        progressObserver.observe(item);
+      });
+    })();
+
+    // Skill Tags Interactive Effects
+    (function() {
+      const skillTags = document.querySelectorAll('.skill-tag');
+      
+      skillTags.forEach(tag => {
+        tag.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-2px) scale(1.02)';
+        });
+        
+        tag.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+        });
+        
+        tag.addEventListener('click', function() {
+          const skillName = this.querySelector('.skill-name').textContent;
+          const skillLevel = this.querySelector('.skill-level').textContent;
+          
+          // Create a temporary tooltip
+          const tooltip = document.createElement('div');
+          tooltip.className = 'skill-tooltip';
+          tooltip.innerHTML = `
+            <strong>${skillName}</strong><br>
+            Level: ${skillLevel}
+          `;
+          tooltip.style.cssText = `
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          `;
+          
+          document.body.appendChild(tooltip);
+          
+          const rect = this.getBoundingClientRect();
+          tooltip.style.left = rect.left + rect.width / 2 - tooltip.offsetWidth / 2 + 'px';
+          tooltip.style.top = rect.top - tooltip.offsetHeight - 10 + 'px';
+          
+          setTimeout(() => {
+            tooltip.style.opacity = '1';
+          }, 10);
+          
+          setTimeout(() => {
+            tooltip.style.opacity = '0';
+            setTimeout(() => {
+              document.body.removeChild(tooltip);
+            }, 300);
+          }, 2000);
+        });
+      });
+    })();
+
+    // Certifications Animation
+    (function() {
+      const certCards = document.querySelectorAll('.certification-card');
+      
+      const certObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }, index * 100);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      certCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.6s ease';
+        certObserver.observe(card);
+      });
+    })();
+
+    // Testimonials Carousel
+    (function() {
+      const slider = document.querySelector('.testimonial-slider');
+      const items = document.querySelectorAll('.testimonial-item');
+      const dots = document.querySelectorAll('.dot');
+      const prevBtn = document.querySelector('.testimonial-prev');
+      const nextBtn = document.querySelector('.testimonial-next');
+      
+      let currentSlide = 0;
+      const totalSlides = items.length;
+      
+      function showSlide(index) {
+        // Hide all items
+        items.forEach(item => {
+          item.classList.remove('active');
+          item.style.display = 'none';
+        });
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Show current item
+        if (items[index]) {
+          items[index].classList.add('active');
+          items[index].style.display = 'block';
+        }
+        if (dots[index]) {
+          dots[index].classList.add('active');
         }
       }
       
-      updateIcons(savedTheme);
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      }
       
-      themeToggle.addEventListener('click', function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+      }
+      
+      // Event listeners
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+      
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentSlide = index;
+          showSlide(currentSlide);
+        });
+      });
+      
+      // Auto-play
+      setInterval(nextSlide, 5000);
+      
+      // Initialize - ensure only first testimonial is visible
+      items.forEach((item, index) => {
+        if (index === 0) {
+          item.classList.add('active');
+          item.style.display = 'block';
+        } else {
+          item.classList.remove('active');
+          item.style.display = 'none';
+        }
+      });
+      
+      // Set first dot as active
+      if (dots[0]) {
+        dots[0].classList.add('active');
+      }
+    })();
+
+    // Interactive Testimonial Elements
+    (function() {
+      // Like button functionality
+      document.addEventListener('click', function(e) {
+        if (e.target.closest('.like-btn')) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const likeBtn = e.target.closest('.like-btn');
+          const currentLikes = parseInt(likeBtn.dataset.likes);
+          const newLikes = currentLikes + 1;
+          
+          likeBtn.dataset.likes = newLikes;
+          likeBtn.textContent = `👍 ${newLikes}`;
+          
+          // Add animation
+          likeBtn.style.transform = 'scale(1.2)';
+          setTimeout(() => {
+            likeBtn.style.transform = 'scale(1)';
+          }, 200);
+          
+          // Track like event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'testimonial_like', {
+              testimonial_id: likeBtn.closest('.testimonial-item').dataset.slide || 'unknown'
+            });
+          }
+        }
         
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateIcons(newTheme);
+        // Share button functionality
+        if (e.target.closest('.share-btn')) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const shareBtn = e.target.closest('.share-btn');
+          const testimonialItem = shareBtn.closest('.testimonial-item');
+          const testimonialText = testimonialItem.querySelector('.testimonial-quote p').textContent;
+          const authorName = testimonialItem.querySelector('.author-info h4').textContent;
+          
+          const shareText = `${testimonialText} - ${authorName} via TaansFast Blog`;
+          
+          if (navigator.share) {
+            navigator.share({
+              title: 'Testimonial từ TaansFast Blog',
+              text: shareText,
+              url: window.location.href
+            });
+          } else {
+            // Fallback: copy to clipboard
+            navigator.clipboard.writeText(shareText).then(() => {
+              shareBtn.textContent = '✅ Copied!';
+              setTimeout(() => {
+                shareBtn.textContent = '📤 Share';
+              }, 2000);
+            });
+          }
+          
+          // Track share event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'testimonial_share', {
+              testimonial_id: testimonialItem.dataset.slide || 'unknown'
+            });
+          }
+        }
       });
     })();
 
@@ -283,7 +1853,7 @@
       }, observerOptions);
 
       // Observe all animatable elements
-      document.querySelectorAll('.skill-category, .timeline-item, .value-card').forEach(el => {
+      document.querySelectorAll('.skill-category, .timeline-item, .value-card, .testimonial-item').forEach(el => {
         observer.observe(el);
       });
     })();
