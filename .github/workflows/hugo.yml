@@ -27,14 +27,9 @@ jobs:
           wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.121.2/hugo_extended_0.121.2_linux-amd64.deb
           sudo dpkg -i hugo.deb
           hugo version
-      - name: Install Dart Sass
-        run: |
-          curl -L https://github.com/sass/dart-sass/releases/download/1.69.5/dart-sass-1.69.5-linux-x64.tar.gz | tar -xz
-          sudo mv dart-sass/sass /usr/local/bin/
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
           fetch-depth: 0
       - name: Check Hugo config
         run: |

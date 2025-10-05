@@ -1,7 +1,10 @@
-baseURL = 'https://taansfast.com/'
+baseURL = 'https://fast-9999.github.io/taanfast.com-/'
 languageCode = 'vi-vn'
 title = 'TaansFast - Blog Lập Trình Mạng'
-theme = 'ananke'
+
+[module]
+  [[module.imports]]
+    path = 'github.com/nanxiaobei/hugo-paper'
 
 [params]
   description = "Blog cá nhân chia sẻ kiến thức về lập trình mạng và công nghệ"
