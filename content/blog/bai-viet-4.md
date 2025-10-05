@@ -1013,12 +1013,3 @@ server.port=${PORT:8080}
 - 🐙 GitHub: Star và fork repository để ủng hộ
 
 > **"Một developer giỏi không chỉ code chạy được, mà còn triển khai được và chia sẻ được."** 🚀✨
-
-<h2 class="f3 fw6 mb3">Care to comment</h2>
-  <script src="https://utteranc.es/client.js"
-        repo="Fast-9999/Fast-9999.github.io"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
