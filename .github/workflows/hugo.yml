@@ -36,6 +36,11 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+      - name: Check Hugo config
+        run: |
+          ls -la
+          cat hugo.toml
+          hugo config
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
