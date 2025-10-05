@@ -24,11 +24,13 @@ jobs:
     steps:
       - name: Install Hugo CLI
         run: |
-          wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.115.4/hugo_extended_0.115.4_linux-amd64.deb
+          wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_extended_0.110.0_linux-amd64.deb
           sudo dpkg -i hugo.deb
           hugo version
       - name: Install Dart Sass
-        run: sudo snap install dart-sass
+        run: |
+          curl -L https://github.com/sass/dart-sass/releases/download/1.69.5/dart-sass-1.69.5-linux-x64.tar.gz | tar -xz
+          sudo mv dart-sass/sass /usr/local/bin/
       - name: Checkout
         uses: actions/checkout@v4
         with:
