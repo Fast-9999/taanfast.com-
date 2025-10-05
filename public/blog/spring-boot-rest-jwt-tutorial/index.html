@@ -56,7 +56,7 @@
   <meta itemprop="description" content="Thực chiến Spring Boot từ con số 0: xây dựng REST API CRUD, bảo mật bằng JWT Authentication, test với Postman và deploy lên Heroku — hướng dẫn từng bước cho backend developer muốn có project thực tế trong portfolio.">
   <meta itemprop="datePublished" content="2025-10-05T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-10-05T00:00:00+00:00">
-  <meta itemprop="wordCount" content="2253">
+  <meta itemprop="wordCount" content="2256">
   <meta itemprop="keywords" content="Java,Spring-Boot,Rest-Api,Jwt,Authentication,Crud,Backend-Development,Heroku-Deploy,Portfolio-Project">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot & JWT Auth: Từ 0 đến Token">
@@ -168,7 +168,7 @@
         
           <time datetime="2025-10-05T00:00:00Z">October 5, 2025</time> ·
         
-        <span>11 minutes read · 2253 words</span>
+        <span>11 minutes read · 2256 words</span>
       </div>
 
       <div class="article-content nested-copy-line-height lh-copy serif f4 nested-links dark-gray">
@@ -336,7 +336,7 @@
 </span></span><span style="display:flex;"><span>    user.<span style="color:#a6e22e">setPassword</span>(passwordEncoder.<span style="color:#a6e22e">encode</span>(request.<span style="color:#a6e22e">getPassword</span>()));
 </span></span><span style="display:flex;"><span>    user.<span style="color:#a6e22e">setFirstName</span>(request.<span style="color:#a6e22e">getFirstName</span>());
 </span></span><span style="display:flex;"><span>    user.<span style="color:#a6e22e">setLastName</span>(request.<span style="color:#a6e22e">getLastName</span>());
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> userRepository.<span style="color:#a6e22e">save</span>(user);
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
@@ -372,7 +372,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>post.<span style="color:#a6e22e">getUser</span>().<span style="color:#a6e22e">getId</span>().<span style="color:#a6e22e">equals</span>(user.<span style="color:#a6e22e">getId</span>())) {
 </span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> UnauthorizedException(<span style="color:#e6db74">&#34;You can only update your own posts&#34;</span>);
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setTitle</span>(dto.<span style="color:#a6e22e">getTitle</span>());
 </span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setContent</span>(dto.<span style="color:#a6e22e">getContent</span>());
 </span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setAuthor</span>(dto.<span style="color:#a6e22e">getAuthor</span>());
@@ -401,7 +401,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>AuthResponse<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">register</span>(<span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@RequestBody</span> RegisterRequest request) {
 </span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> userService.<span style="color:#a6e22e">registerUser</span>(request);
 </span></span><span style="display:flex;"><span>    String token <span style="color:#f92672">=</span> jwtService.<span style="color:#a6e22e">generateToken</span>(user.<span style="color:#a6e22e">getUsername</span>());
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    AuthResponse response <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AuthResponse(token, user.<span style="color:#a6e22e">getUsername</span>(), user.<span style="color:#a6e22e">getEmail</span>());
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">CREATED</span>).<span style="color:#a6e22e">body</span>(response);
 </span></span><span style="display:flex;"><span>  }
@@ -411,10 +411,10 @@
 </span></span><span style="display:flex;"><span>    authenticationManager.<span style="color:#a6e22e">authenticate</span>(
 </span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">new</span> UsernamePasswordAuthenticationToken(request.<span style="color:#a6e22e">getUsername</span>(), request.<span style="color:#a6e22e">getPassword</span>())
 </span></span><span style="display:flex;"><span>    );
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> userService.<span style="color:#a6e22e">findByUsername</span>(request.<span style="color:#a6e22e">getUsername</span>());
 </span></span><span style="display:flex;"><span>    String token <span style="color:#f92672">=</span> jwtService.<span style="color:#a6e22e">generateToken</span>(user.<span style="color:#a6e22e">getUsername</span>());
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    AuthResponse response <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AuthResponse(token, user.<span style="color:#a6e22e">getUsername</span>(), user.<span style="color:#a6e22e">getEmail</span>());
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">ok</span>(response);
 </span></span><span style="display:flex;"><span>  }
@@ -438,7 +438,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PostMapping</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PreAuthorize</span>(<span style="color:#e6db74">&#34;hasRole(&#39;USER&#39;)&#34;</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@RequestBody</span> PostRequestDTO dto, 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@RequestBody</span> PostRequestDTO dto,
 </span></span><span style="display:flex;"><span>                                   Authentication authentication) {
 </span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> (User) authentication.<span style="color:#a6e22e">getPrincipal</span>();
 </span></span><span style="display:flex;"><span>    Post created <span style="color:#f92672">=</span> postService.<span style="color:#a6e22e">createPost</span>(dto, user);
@@ -447,7 +447,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PutMapping</span>(<span style="color:#e6db74">&#34;/{id}&#34;</span>)
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@PreAuthorize</span>(<span style="color:#e6db74">&#34;hasRole(&#39;USER&#39;)&#34;</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">@PathVariable</span> Long id, 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Post<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">@PathVariable</span> Long id,
 </span></span><span style="display:flex;"><span>                                   <span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@RequestBody</span> PostRequestDTO dto,
 </span></span><span style="display:flex;"><span>                                   Authentication authentication) {
 </span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> (User) authentication.<span style="color:#a6e22e">getPrincipal</span>();
@@ -472,16 +472,16 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RegisterRequest</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span> <span style="color:#a6e22e">@Size</span>(min <span style="color:#f92672">=</span> 3, max <span style="color:#f92672">=</span> 20)
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String username;
-</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span> <span style="color:#a6e22e">@Email</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String email;
-</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span> <span style="color:#a6e22e">@Size</span>(min <span style="color:#f92672">=</span> 6, max <span style="color:#f92672">=</span> 100)
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String password;
-</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Size</span>(max <span style="color:#f92672">=</span> 50)
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String firstName;
-</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Size</span>(max <span style="color:#f92672">=</span> 50)
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String lastName;
 </span></span><span style="display:flex;"><span>}
@@ -492,7 +492,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginRequest</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String username;
-</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@NotBlank</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String password;
 </span></span><span style="display:flex;"><span>}
@@ -554,7 +554,7 @@
 </span></span><span style="display:flex;"><span>      )
 </span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">addFilterBefore</span>(jwtAuthFilter, UsernamePasswordAuthenticationFilter.<span style="color:#a6e22e">class</span>)
 </span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">headers</span>(headers <span style="color:#f92672">-&gt;</span> headers.<span style="color:#a6e22e">frameOptions</span>().<span style="color:#a6e22e">disable</span>()); <span style="color:#75715e">// For H2 Console</span>
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> http.<span style="color:#a6e22e">build</span>();
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
@@ -574,7 +574,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JwtService</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Value</span>(<span style="color:#e6db74">&#34;${jwt.secret}&#34;</span>)
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String secretKey;
-</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Value</span>(<span style="color:#e6db74">&#34;${jwt.expiration}&#34;</span>)
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> jwtExpiration;
 </span></span><span style="display:flex;"><span>
@@ -637,7 +637,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doFilterInternal</span>(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 </span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throws</span> ServletException, IOException {
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> String authHeader <span style="color:#f92672">=</span> request.<span style="color:#a6e22e">getHeader</span>(<span style="color:#e6db74">&#34;Authorization&#34;</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> String jwt;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> String username;
@@ -652,7 +652,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (username <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> SecurityContextHolder.<span style="color:#a6e22e">getContext</span>().<span style="color:#a6e22e">getAuthentication</span>() <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
 </span></span><span style="display:flex;"><span>      UserDetails userDetails <span style="color:#f92672">=</span> userDetailsService.<span style="color:#a6e22e">loadUserByUsername</span>(username);
-</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (jwtService.<span style="color:#a6e22e">validateToken</span>(jwt) <span style="color:#f92672">&amp;&amp;</span> jwtService.<span style="color:#a6e22e">validateToken</span>(jwt)) {
 </span></span><span style="display:flex;"><span>        UsernamePasswordAuthenticationToken authToken <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> UsernamePasswordAuthenticationToken(
 </span></span><span style="display:flex;"><span>          userDetails, <span style="color:#66d9ef">null</span>, userDetails.<span style="color:#a6e22e">getAuthorities</span>()
@@ -661,7 +661,7 @@
 </span></span><span style="display:flex;"><span>        SecurityContextHolder.<span style="color:#a6e22e">getContext</span>().<span style="color:#a6e22e">setAuthentication</span>(authToken);
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    filterChain.<span style="color:#a6e22e">doFilter</span>(request, response);
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
@@ -723,7 +723,7 @@
 </span></span><span style="display:flex;"><span>    String message <span style="color:#f92672">=</span> ex.<span style="color:#a6e22e">getBindingResult</span>().<span style="color:#a6e22e">getFieldErrors</span>().<span style="color:#a6e22e">stream</span>()
 </span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">map</span>(error <span style="color:#f92672">-&gt;</span> error.<span style="color:#a6e22e">getField</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">+</span> error.<span style="color:#a6e22e">getDefaultMessage</span>())
 </span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">collect</span>(Collectors.<span style="color:#a6e22e">joining</span>(<span style="color:#e6db74">&#34;, &#34;</span>));
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    ErrorResponse error <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ErrorResponse(<span style="color:#e6db74">&#34;VALIDATION_ERROR&#34;</span>, message);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ResponseEntity.<span style="color:#a6e22e">status</span>(HttpStatus.<span style="color:#a6e22e">BAD_REQUEST</span>).<span style="color:#a6e22e">body</span>(error);
 </span></span><span style="display:flex;"><span>  }
@@ -859,7 +859,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostServiceTest</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Mock</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> PostRepository postRepository;
-</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@InjectMocks</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> PostService postService;
 </span></span><span style="display:flex;"><span>
@@ -870,12 +870,12 @@
 </span></span><span style="display:flex;"><span>    User user <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> User();
 </span></span><span style="display:flex;"><span>    Post savedPost <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Post();
 </span></span><span style="display:flex;"><span>    savedPost.<span style="color:#a6e22e">setId</span>(1L);
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    when(postRepository.<span style="color:#a6e22e">save</span>(any(Post.<span style="color:#a6e22e">class</span>))).<span style="color:#a6e22e">thenReturn</span>(savedPost);
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// When</span>
 </span></span><span style="display:flex;"><span>    Post result <span style="color:#f92672">=</span> postService.<span style="color:#a6e22e">createPost</span>(dto, user);
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Then</span>
 </span></span><span style="display:flex;"><span>    assertThat(result.<span style="color:#a6e22e">getId</span>()).<span style="color:#a6e22e">isEqualTo</span>(1L);
 </span></span><span style="display:flex;"><span>    verify(postRepository).<span style="color:#a6e22e">save</span>(any(Post.<span style="color:#a6e22e">class</span>));
@@ -886,7 +886,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostControllerTest</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Autowired</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> MockMvc mockMvc;
-</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@MockBean</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> PostService postService;
 </span></span><span style="display:flex;"><span>
@@ -896,9 +896,9 @@
 </span></span><span style="display:flex;"><span>    PostRequestDTO dto <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PostRequestDTO(<span style="color:#e6db74">&#34;Test&#34;</span>, <span style="color:#e6db74">&#34;Content&#34;</span>, <span style="color:#e6db74">&#34;Author&#34;</span>);
 </span></span><span style="display:flex;"><span>    Post post <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Post();
 </span></span><span style="display:flex;"><span>    post.<span style="color:#a6e22e">setId</span>(1L);
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    when(postService.<span style="color:#a6e22e">createPost</span>(any(), any())).<span style="color:#a6e22e">thenReturn</span>(post);
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    mockMvc.<span style="color:#a6e22e">perform</span>(post(<span style="color:#e6db74">&#34;/api/v1/posts&#34;</span>)
 </span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">contentType</span>(MediaType.<span style="color:#a6e22e">APPLICATION_JSON</span>)
 </span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">content</span>(objectMapper.<span style="color:#a6e22e">writeValueAsString</span>(dto)))
@@ -1032,6 +1032,14 @@
 </ul>
 <blockquote>
 <p><strong>&ldquo;Một developer giỏi không chỉ code chạy được, mà còn triển khai được và chia sẻ được.&rdquo;</strong> 🚀✨</p></blockquote>
+<h2 class="f3 fw6 mb3">Care to comment</h2>
+  <script src="https://utteranc.es/client.js"
+        repo="Fast-9999/Fast-9999.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
       </div>
 
