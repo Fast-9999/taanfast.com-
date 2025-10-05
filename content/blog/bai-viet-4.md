@@ -22,7 +22,6 @@ draft: false
 
 # Xây dựng REST API Java 'Thực chiến' với Spring Boot & JWT Auth: Từ 0 đến Token
 
-
 ## Giới thiệu: Nâng cấp Portfolio Backend của bạn
 
 Nếu bạn là một Backend Developer tập sự hoặc sinh viên muốn có một dự án thực tế, đây là bài hướng dẫn dành cho bạn. Chúng ta sẽ xây dựng REST API CRUD đầy đủ (Create, Read, Update, Delete) và bảo mật bằng JSON Web Token (JWT) — một chuẩn authentication hiện đại. Sau cùng, bạn sẽ biết cách đóng gói và triển khai ứng dụng lên cloud (Heroku hoặc Somee), tạo thành một API thật sự “production-ready”.
@@ -33,10 +32,10 @@ Nếu bạn là một Backend Developer tập sự hoặc sinh viên muốn có 
 
 Xây dựng API quản lý bài viết/sản phẩm (CRUD) với:
 
-* **Kiến trúc chuẩn:** Controller / Service / Repository.
-* **Validation & DTO:** kiểm soát input và tránh lộ dữ liệu nhạy cảm.
-* **Bảo mật:** Đăng ký, đăng nhập, xác thực JWT.
-* **Triển khai:** Deploy app `.jar` lên Heroku hoặc Somee.
+- **Kiến trúc chuẩn:** Controller / Service / Repository.
+- **Validation & DTO:** kiểm soát input và tránh lộ dữ liệu nhạy cảm.
+- **Bảo mật:** Đăng ký, đăng nhập, xác thực JWT.
+- **Triển khai:** Deploy app `.jar` lên Heroku hoặc Somee.
 
 Repo mẫu: `spring-boot-starter-api` + Postman collection.
 
@@ -56,13 +55,13 @@ Truy cập [start.spring.io](https://start.spring.io/) và cấu hình:
 
 ### Dependencies cần thiết:
 
-* Spring Web — REST API.
-* Spring Data JPA — ORM.
-* H2 Database — phát triển cục bộ.
-* Spring Security — bảo mật.
-* Validation — @Valid, @NotNull, ...
-* Lombok — giảm boilerplate.
-* `jjwt` (API, impl, jackson) — JWT auth.
+- Spring Web — REST API.
+- Spring Data JPA — ORM.
+- H2 Database — phát triển cục bộ.
+- Spring Security — bảo mật.
+- Validation — @Valid, @NotNull, ...
+- Lombok — giảm boilerplate.
+- `jjwt` (API, impl, jackson) — JWT auth.
 
 Tải project và mở trong IDE.
 
@@ -186,7 +185,7 @@ public class UserService {
     user.setPassword(passwordEncoder.encode(request.getPassword()));
     user.setFirstName(request.getFirstName());
     user.setLastName(request.getLastName());
-    
+
     return userRepository.save(user);
   }
 
@@ -222,7 +221,7 @@ public class PostService {
     if (!post.getUser().getId().equals(user.getId())) {
       throw new UnauthorizedException("You can only update your own posts");
     }
-    
+
     post.setTitle(dto.getTitle());
     post.setContent(dto.getContent());
     post.setAuthor(dto.getAuthor());
@@ -255,7 +254,7 @@ public class AuthController {
   public ResponseEntity<AuthResponse> register(@Valid @RequestBody RegisterRequest request) {
     User user = userService.registerUser(request);
     String token = jwtService.generateToken(user.getUsername());
-    
+
     AuthResponse response = new AuthResponse(token, user.getUsername(), user.getEmail());
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
@@ -265,10 +264,10 @@ public class AuthController {
     authenticationManager.authenticate(
       new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
     );
-    
+
     User user = userService.findByUsername(request.getUsername());
     String token = jwtService.generateToken(user.getUsername());
-    
+
     AuthResponse response = new AuthResponse(token, user.getUsername(), user.getEmail());
     return ResponseEntity.ok(response);
   }
@@ -292,7 +291,7 @@ public class PostController {
 
   @PostMapping
   @PreAuthorize("hasRole('USER')")
-  public ResponseEntity<Post> create(@Valid @RequestBody PostRequestDTO dto, 
+  public ResponseEntity<Post> create(@Valid @RequestBody PostRequestDTO dto,
                                    Authentication authentication) {
     User user = (User) authentication.getPrincipal();
     Post created = postService.createPost(dto, user);
@@ -301,7 +300,7 @@ public class PostController {
 
   @PutMapping("/{id}")
   @PreAuthorize("hasRole('USER')")
-  public ResponseEntity<Post> update(@PathVariable Long id, 
+  public ResponseEntity<Post> update(@PathVariable Long id,
                                    @Valid @RequestBody PostRequestDTO dto,
                                    Authentication authentication) {
     User user = (User) authentication.getPrincipal();
@@ -332,16 +331,16 @@ public class PostController {
 public class RegisterRequest {
   @NotBlank @Size(min = 3, max = 20)
   private String username;
-  
+
   @NotBlank @Email
   private String email;
-  
+
   @NotBlank @Size(min = 6, max = 100)
   private String password;
-  
+
   @Size(max = 50)
   private String firstName;
-  
+
   @Size(max = 50)
   private String lastName;
 }
@@ -352,7 +351,7 @@ public class RegisterRequest {
 public class LoginRequest {
   @NotBlank
   private String username;
-  
+
   @NotBlank
   private String password;
 }
@@ -424,7 +423,7 @@ public class SecurityConfig {
       )
       .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
       .headers(headers -> headers.frameOptions().disable()); // For H2 Console
-    
+
     return http.build();
   }
 
@@ -448,7 +447,7 @@ public class SecurityConfig {
 public class JwtService {
   @Value("${jwt.secret}")
   private String secretKey;
-  
+
   @Value("${jwt.expiration}")
   private long jwtExpiration;
 
@@ -515,7 +514,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
       throws ServletException, IOException {
-    
+
     final String authHeader = request.getHeader("Authorization");
     final String jwt;
     final String username;
@@ -530,7 +529,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
       UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-      
+
       if (jwtService.validateToken(jwt) && jwtService.validateToken(jwt)) {
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
           userDetails, null, userDetails.getAuthorities()
@@ -539,7 +538,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         SecurityContextHolder.getContext().setAuthentication(authToken);
       }
     }
-    
+
     filterChain.doFilter(request, response);
   }
 }
@@ -611,7 +610,7 @@ public class GlobalExceptionHandler {
     String message = ex.getBindingResult().getFieldErrors().stream()
       .map(error -> error.getField() + ": " + error.getDefaultMessage())
       .collect(Collectors.joining(", "));
-    
+
     ErrorResponse error = new ErrorResponse("VALIDATION_ERROR", message);
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
   }
@@ -669,6 +668,7 @@ public class UnauthorizedException extends RuntimeException {
 ### 6.1 Authentication Flow
 
 **Step 1: Register User**
+
 ```http
 POST http://localhost:8080/api/v1/auth/register
 Content-Type: application/json
@@ -683,6 +683,7 @@ Content-Type: application/json
 ```
 
 **Response:**
+
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiJ9...",
@@ -693,6 +694,7 @@ Content-Type: application/json
 ```
 
 **Step 2: Login**
+
 ```http
 POST http://localhost:8080/api/v1/auth/login
 Content-Type: application/json
@@ -704,6 +706,7 @@ Content-Type: application/json
 ```
 
 **Step 3: Use Token in Headers**
+
 ```http
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9...
 ```
@@ -711,6 +714,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9...
 ### 6.2 Post CRUD Operations
 
 **Create Post:**
+
 ```http
 POST http://localhost:8080/api/v1/posts
 Authorization: Bearer {{jwt_token}}
@@ -724,16 +728,19 @@ Content-Type: application/json
 ```
 
 **Get All Posts:**
+
 ```http
 GET http://localhost:8080/api/v1/posts
 ```
 
 **Get Post by ID:**
+
 ```http
 GET http://localhost:8080/api/v1/posts/1
 ```
 
 **Update Post:**
+
 ```http
 PUT http://localhost:8080/api/v1/posts/1
 Authorization: Bearer {{jwt_token}}
@@ -747,6 +754,7 @@ Content-Type: application/json
 ```
 
 **Delete Post:**
+
 ```http
 DELETE http://localhost:8080/api/v1/posts/1
 Authorization: Bearer {{jwt_token}}
@@ -755,6 +763,7 @@ Authorization: Bearer {{jwt_token}}
 ### 6.3 Error Handling Examples
 
 **Validation Error:**
+
 ```json
 {
   "error": "VALIDATION_ERROR",
@@ -764,6 +773,7 @@ Authorization: Bearer {{jwt_token}}
 ```
 
 **Unauthorized Error:**
+
 ```json
 {
   "error": "UNAUTHORIZED",
@@ -779,6 +789,7 @@ Authorization: Bearer {{jwt_token}}
 ### 7.1 Test Dependencies
 
 Thêm vào `pom.xml`:
+
 ```xml
 <dependency>
   <groupId>org.springframework.boot</groupId>
@@ -799,7 +810,7 @@ Thêm vào `pom.xml`:
 class PostServiceTest {
   @Mock
   private PostRepository postRepository;
-  
+
   @InjectMocks
   private PostService postService;
 
@@ -810,12 +821,12 @@ class PostServiceTest {
     User user = new User();
     Post savedPost = new Post();
     savedPost.setId(1L);
-    
+
     when(postRepository.save(any(Post.class))).thenReturn(savedPost);
-    
+
     // When
     Post result = postService.createPost(dto, user);
-    
+
     // Then
     assertThat(result.getId()).isEqualTo(1L);
     verify(postRepository).save(any(Post.class));
@@ -830,7 +841,7 @@ class PostServiceTest {
 class PostControllerTest {
   @Autowired
   private MockMvc mockMvc;
-  
+
   @MockBean
   private PostService postService;
 
@@ -840,9 +851,9 @@ class PostControllerTest {
     PostRequestDTO dto = new PostRequestDTO("Test", "Content", "Author");
     Post post = new Post();
     post.setId(1L);
-    
+
     when(postService.createPost(any(), any())).thenReturn(post);
-    
+
     mockMvc.perform(post("/api/v1/posts")
         .contentType(MediaType.APPLICATION_JSON)
         .content(objectMapper.writeValueAsString(dto)))
@@ -884,6 +895,7 @@ Upload `.war` hoặc `.jar`, cấu hình DB trong dashboard.
 ### 9.1 Common Build Issues
 
 **Issue: JWT Dependencies Not Found**
+
 ```bash
 # Solution: Add to pom.xml
 <dependency>
@@ -904,6 +916,7 @@ Upload `.war` hoặc `.jar`, cấu hình DB trong dashboard.
 ```
 
 **Issue: H2 Console Not Accessible**
+
 ```properties
 # Add to application.properties
 spring.h2.console.enabled=true
@@ -912,6 +925,7 @@ spring.jpa.hibernate.ddl-auto=create-drop
 ```
 
 **Issue: JWT Token Invalid**
+
 ```java
 // Check JWT secret key length (must be 256-bit)
 jwt.secret=404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
@@ -920,16 +934,19 @@ jwt.secret=404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
 ### 9.2 Runtime Issues
 
 **Issue: Authentication Failed**
+
 - Check username/password in login request
 - Verify JWT token format: `Bearer <token>`
 - Check token expiration time
 
 **Issue: Authorization Denied**
+
 - Ensure user has correct role
 - Check `@PreAuthorize` annotations
 - Verify JWT filter is working
 
 **Issue: Database Connection**
+
 - Check H2 database is running
 - Verify connection URL in application.properties
 - Check H2 console at `http://localhost:8080/h2-console`
@@ -937,6 +954,7 @@ jwt.secret=404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
 ### 9.3 Deployment Issues
 
 **Issue: Heroku Build Failed**
+
 ```bash
 # Check Java version compatibility
 heroku config:set JAVA_VERSION=17
@@ -944,6 +962,7 @@ heroku config:set JWT_SECRET=yourSecretKey
 ```
 
 **Issue: Port Binding**
+
 ```properties
 # For production deployment
 server.port=${PORT:8080}
@@ -960,7 +979,7 @@ server.port=${PORT:8080}
 ✅ **Layered Architecture** (Controller/Service/Repository)  
 ✅ **Data Validation** và Error Handling  
 ✅ **Unit Testing** với Mockito và MockMvc  
-✅ **Production Deployment** trên Heroku  
+✅ **Production Deployment** trên Heroku
 
 ### 10.2 Portfolio Project Checklist
 
@@ -978,21 +997,24 @@ server.port=${PORT:8080}
 🚀 **API Versioning**: v1, v2 endpoints  
 🚀 **Database Migration**: Flyway hoặc Liquibase  
 🚀 **Monitoring**: Actuator endpoints  
-🚀 **Logging**: Structured logging với ELK stack  
+🚀 **Logging**: Structured logging với ELK stack
 
 ### 10.4 Tài nguyên bổ sung
 
 **Documentation:**
+
 - [Spring Boot Official Docs](https://spring.io/projects/spring-boot)
 - [Spring Security Reference](https://docs.spring.io/spring-security/reference/)
 - [JWT.io](https://jwt.io/) - JWT Debugger
 
 **Tools:**
+
 - [Postman Collection](https://www.postman.com/) - API Testing
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) - Deployment
 - [H2 Console](http://localhost:8080/h2-console) - Database Management
 
 **Thử thách tiếp theo:**
+
 > Deploy thành công trong **30 phút** và chia sẻ link API live trên GitHub!
 
 ---
@@ -1002,14 +1024,25 @@ server.port=${PORT:8080}
 🎯 **Bạn đã hoàn thành REST API Java world-class!**
 
 **Tài nguyên hoàn chỉnh:**
+
 - ✅ Full Source Code: `spring-boot-rest-jwt`
 - ✅ Postman Collection: `/tools/postman_collection.json`
 - ✅ Unit Tests: `/src/test/java`
 - ✅ Deployment Guide: Heroku + Somee
 
 **Chia sẻ thành quả:**
+
 - 📱 Tweet: "Just built a complete REST API with Spring Boot + JWT! 🚀 #Java #SpringBoot #JWT"
 - 💼 LinkedIn: "Portfolio project: Production-ready REST API with authentication"
 - 🐙 GitHub: Star và fork repository để ủng hộ
 
 > **"Một developer giỏi không chỉ code chạy được, mà còn triển khai được và chia sẻ được."** 🚀✨
+
+<h2 class="f3 fw6 mb3">Care to comment</h2>
+  <script src="https://utteranc.es/client.js"
+        repo="Fast-9999/Fast-9999.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
