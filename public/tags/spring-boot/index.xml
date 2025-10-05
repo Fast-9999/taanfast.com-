@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spring-Boot on TaansFast - Blog Lập Trình Mạng</title>
-    <link>http://localhost:1313/tags/spring-boot/</link>
+    <link>https://taansfast.com/tags/spring-boot/</link>
     <description>Recent content in Spring-Boot on TaansFast - Blog Lập Trình Mạng</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://taansfast.com/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xây dựng REST API Java &#39;Thực chiến&#39; với Spring Boot &amp; JWT Auth: Từ 0 đến Token</title>
-      <link>http://localhost:1313/blog/spring-boot-rest-jwt-tutorial/</link>
+      <link>https://taansfast.com/blog/spring-boot-rest-jwt-tutorial/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/spring-boot-rest-jwt-tutorial/</guid>
+      <guid>https://taansfast.com/blog/spring-boot-rest-jwt-tutorial/</guid>
       <description>&lt;h1 id=&#34;xây-dựng-rest-api-java-thực-chiến-với-spring-boot--jwt-auth-từ-0-đến-token&#34;&gt;Xây dựng REST API Java &amp;lsquo;Thực chiến&amp;rsquo; với Spring Boot &amp;amp; JWT Auth: Từ 0 đến Token&lt;/h1&gt;&#xA;&lt;h2 id=&#34;giới-thiệu-nâng-cấp-portfolio-backend-của-bạn&#34;&gt;Giới thiệu: Nâng cấp Portfolio Backend của bạn&lt;/h2&gt;&#xA;&lt;p&gt;Nếu bạn là một Backend Developer tập sự hoặc sinh viên muốn có một dự án thực tế, đây là bài hướng dẫn dành cho bạn. Chúng ta sẽ xây dựng REST API CRUD đầy đủ (Create, Read, Update, Delete) và bảo mật bằng JSON Web Token (JWT) — một chuẩn authentication hiện đại. Sau cùng, bạn sẽ biết cách đóng gói và triển khai ứng dụng lên cloud (Heroku hoặc Somee), tạo thành một API thật sự “production-ready”.&lt;/p&gt;</description>
     </item>
   </channel>

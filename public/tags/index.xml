@@ -2,220 +2,220 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on TaansFast - Blog Lập Trình Mạng</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://taansfast.com/tags/</link>
     <description>Recent content in Tags on TaansFast - Blog Lập Trình Mạng</description>
     <generator>Hugo</generator>
     <language>vi-vn</language>
     <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://taansfast.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Authentication</title>
-      <link>http://localhost:1313/tags/authentication/</link>
+      <link>https://taansfast.com/tags/authentication/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/authentication/</guid>
+      <guid>https://taansfast.com/tags/authentication/</guid>
       <description></description>
     </item>
     <item>
       <title>Backend-Development</title>
-      <link>http://localhost:1313/tags/backend-development/</link>
+      <link>https://taansfast.com/tags/backend-development/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/backend-development/</guid>
+      <guid>https://taansfast.com/tags/backend-development/</guid>
       <description></description>
     </item>
     <item>
       <title>Crud</title>
-      <link>http://localhost:1313/tags/crud/</link>
+      <link>https://taansfast.com/tags/crud/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/crud/</guid>
+      <guid>https://taansfast.com/tags/crud/</guid>
       <description></description>
     </item>
     <item>
       <title>Heroku-Deploy</title>
-      <link>http://localhost:1313/tags/heroku-deploy/</link>
+      <link>https://taansfast.com/tags/heroku-deploy/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/heroku-deploy/</guid>
+      <guid>https://taansfast.com/tags/heroku-deploy/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>http://localhost:1313/tags/java/</link>
+      <link>https://taansfast.com/tags/java/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/java/</guid>
+      <guid>https://taansfast.com/tags/java/</guid>
       <description></description>
     </item>
     <item>
       <title>Jwt</title>
-      <link>http://localhost:1313/tags/jwt/</link>
+      <link>https://taansfast.com/tags/jwt/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/jwt/</guid>
+      <guid>https://taansfast.com/tags/jwt/</guid>
       <description></description>
     </item>
     <item>
       <title>Portfolio-Project</title>
-      <link>http://localhost:1313/tags/portfolio-project/</link>
+      <link>https://taansfast.com/tags/portfolio-project/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/portfolio-project/</guid>
+      <guid>https://taansfast.com/tags/portfolio-project/</guid>
       <description></description>
     </item>
     <item>
       <title>Rest-Api</title>
-      <link>http://localhost:1313/tags/rest-api/</link>
+      <link>https://taansfast.com/tags/rest-api/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rest-api/</guid>
+      <guid>https://taansfast.com/tags/rest-api/</guid>
       <description></description>
     </item>
     <item>
       <title>Spring-Boot</title>
-      <link>http://localhost:1313/tags/spring-boot/</link>
+      <link>https://taansfast.com/tags/spring-boot/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/spring-boot/</guid>
+      <guid>https://taansfast.com/tags/spring-boot/</guid>
       <description></description>
     </item>
     <item>
       <title>Arrow-Function</title>
-      <link>http://localhost:1313/tags/arrow-function/</link>
+      <link>https://taansfast.com/tags/arrow-function/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/arrow-function/</guid>
+      <guid>https://taansfast.com/tags/arrow-function/</guid>
       <description></description>
     </item>
     <item>
       <title>Async-Await</title>
-      <link>http://localhost:1313/tags/async-await/</link>
+      <link>https://taansfast.com/tags/async-await/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/async-await/</guid>
+      <guid>https://taansfast.com/tags/async-await/</guid>
       <description></description>
     </item>
     <item>
       <title>Es6</title>
-      <link>http://localhost:1313/tags/es6/</link>
+      <link>https://taansfast.com/tags/es6/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/es6/</guid>
+      <guid>https://taansfast.com/tags/es6/</guid>
       <description></description>
     </item>
     <item>
       <title>Frontend</title>
-      <link>http://localhost:1313/tags/frontend/</link>
+      <link>https://taansfast.com/tags/frontend/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/frontend/</guid>
+      <guid>https://taansfast.com/tags/frontend/</guid>
       <description></description>
     </item>
     <item>
       <title>Javascript</title>
-      <link>http://localhost:1313/tags/javascript/</link>
+      <link>https://taansfast.com/tags/javascript/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/javascript/</guid>
+      <guid>https://taansfast.com/tags/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Let-Const</title>
-      <link>http://localhost:1313/tags/let-const/</link>
+      <link>https://taansfast.com/tags/let-const/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/let-const/</guid>
+      <guid>https://taansfast.com/tags/let-const/</guid>
       <description></description>
     </item>
     <item>
       <title>Modern-Js</title>
-      <link>http://localhost:1313/tags/modern-js/</link>
+      <link>https://taansfast.com/tags/modern-js/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/modern-js/</guid>
+      <guid>https://taansfast.com/tags/modern-js/</guid>
       <description></description>
     </item>
     <item>
       <title>Template-Literal</title>
-      <link>http://localhost:1313/tags/template-literal/</link>
+      <link>https://taansfast.com/tags/template-literal/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/template-literal/</guid>
+      <guid>https://taansfast.com/tags/template-literal/</guid>
       <description></description>
     </item>
     <item>
       <title>Web-Development</title>
-      <link>http://localhost:1313/tags/web-development/</link>
+      <link>https://taansfast.com/tags/web-development/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/web-development/</guid>
+      <guid>https://taansfast.com/tags/web-development/</guid>
       <description></description>
     </item>
     <item>
       <title>Backend</title>
-      <link>http://localhost:1313/tags/backend/</link>
+      <link>https://taansfast.com/tags/backend/</link>
       <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/backend/</guid>
+      <guid>https://taansfast.com/tags/backend/</guid>
       <description></description>
     </item>
     <item>
       <title>Comparison</title>
-      <link>http://localhost:1313/tags/comparison/</link>
+      <link>https://taansfast.com/tags/comparison/</link>
       <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/comparison/</guid>
+      <guid>https://taansfast.com/tags/comparison/</guid>
       <description></description>
     </item>
     <item>
       <title>Dev-Beginner</title>
-      <link>http://localhost:1313/tags/dev-beginner/</link>
+      <link>https://taansfast.com/tags/dev-beginner/</link>
       <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/dev-beginner/</guid>
+      <guid>https://taansfast.com/tags/dev-beginner/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming-Language</title>
-      <link>http://localhost:1313/tags/programming-language/</link>
+      <link>https://taansfast.com/tags/programming-language/</link>
       <pubDate>Fri, 19 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/programming-language/</guid>
+      <guid>https://taansfast.com/tags/programming-language/</guid>
       <description></description>
     </item>
     <item>
       <title>Class</title>
-      <link>http://localhost:1313/tags/class/</link>
+      <link>https://taansfast.com/tags/class/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/class/</guid>
+      <guid>https://taansfast.com/tags/class/</guid>
       <description></description>
     </item>
     <item>
       <title>Java-Core</title>
-      <link>http://localhost:1313/tags/java-core/</link>
+      <link>https://taansfast.com/tags/java-core/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/java-core/</guid>
+      <guid>https://taansfast.com/tags/java-core/</guid>
       <description></description>
     </item>
     <item>
       <title>Javac</title>
-      <link>http://localhost:1313/tags/javac/</link>
+      <link>https://taansfast.com/tags/javac/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/javac/</guid>
+      <guid>https://taansfast.com/tags/javac/</guid>
       <description></description>
     </item>
     <item>
       <title>Jvm</title>
-      <link>http://localhost:1313/tags/jvm/</link>
+      <link>https://taansfast.com/tags/jvm/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/jvm/</guid>
+      <guid>https://taansfast.com/tags/jvm/</guid>
       <description></description>
     </item>
     <item>
       <title>Memory-Model</title>
-      <link>http://localhost:1313/tags/memory-model/</link>
+      <link>https://taansfast.com/tags/memory-model/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/memory-model/</guid>
+      <guid>https://taansfast.com/tags/memory-model/</guid>
       <description></description>
     </item>
     <item>
       <title>Newbie</title>
-      <link>http://localhost:1313/tags/newbie/</link>
+      <link>https://taansfast.com/tags/newbie/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/newbie/</guid>
+      <guid>https://taansfast.com/tags/newbie/</guid>
       <description></description>
     </item>
     <item>
       <title>Object</title>
-      <link>http://localhost:1313/tags/object/</link>
+      <link>https://taansfast.com/tags/object/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/object/</guid>
+      <guid>https://taansfast.com/tags/object/</guid>
       <description></description>
     </item>
     <item>
       <title>Oop</title>
-      <link>http://localhost:1313/tags/oop/</link>
+      <link>https://taansfast.com/tags/oop/</link>
       <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/oop/</guid>
+      <guid>https://taansfast.com/tags/oop/</guid>
       <description></description>
     </item>
   </channel>
